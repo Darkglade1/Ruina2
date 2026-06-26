@@ -1,0 +1,11 @@
+{
+  "id": "Ruina",
+  "name": "Ruina",
+  "author": "Darkglade",
+  "description": "If Ruina was so good why didn't they make a - ",
+  "version": "v0.0.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [{"id": "BaseLib", "min_version": "3.3.0"}],
+  "affects_gameplay": true
+}
