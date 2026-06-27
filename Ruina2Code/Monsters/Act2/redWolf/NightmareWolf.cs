@@ -1,6 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Animation;
-using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,7 +6,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
-using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
@@ -17,6 +14,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
 {
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 480, 450);
     public override int MaxInitialHp => MinInitialHp;
+    public override int NumIntents => 2;
 
     private int ClawDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int FangDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
@@ -37,27 +35,35 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        NumExtraIntents = 1;
         //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 
-    public override async Task BeforeDeath(Creature creature)
+    private MoveState GetClawState()
     {
-        await base.BeforeDeath(creature);
+        return new MoveState(CRUEL_CLAWS, Claws, new SingleAttackIntent(ClawDamage), new DefendIntent());
     }
 
-    protected override MonsterMoveStateMachine GenerateMoveStateMachine()
+    private MoveState GetFangState()
+    {
+        return new MoveState(FEROCIOUS_FANGS, Fangs, new MultiAttackIntent(FangDamage, FangHits), new DebuffIntent());
+    }
+
+    private MoveState GetHuntState()
+    {
+        return new MoveState(BLOODSTAINED_HUNT, Hunt, new MultiAttackIntent(HuntDamage, HuntHits));
+    }
+
+    private MoveState GetHowlState()
+    {
+        return new MoveState(HOWL, Howl, new BuffIntent());
+    }
+
+    private MonsterMoveStateMachine GenerateIntent1StateMachine()
     {
         var states = new List<MonsterState>();
-        var clawState = new MoveState(
-            CRUEL_CLAWS,
-            Claws, new SingleAttackIntent(ClawDamage), new DefendIntent());
-        var fangState = new MoveState(
-            FEROCIOUS_FANGS,
-            Fangs, new MultiAttackIntent(FangDamage, FangHits), new DebuffIntent());
-        var huntState = new MoveState(
-            BLOODSTAINED_HUNT,
-            Hunt, new MultiAttackIntent(HuntDamage, HuntHits));
+        var clawState = GetClawState();
+        var fangState = GetFangState();
+        var huntState = GetHuntState();
 
         clawState.FollowUpState = huntState;
         huntState.FollowUpState = fangState;
@@ -66,22 +72,16 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         states.Add(clawState);
         states.Add(huntState);
         states.Add(fangState);
-
+        
         return new MonsterMoveStateMachine(states, fangState);
     }
 
-    public override List<MonsterMoveStateMachine> GenerateExtraIntentMoveStateMachine()
+    private MonsterMoveStateMachine GenerateIntent2StateMachine()
     {
         var states = new List<MonsterState>();
-        var howlState = new MoveState(
-            HOWL,
-            Howl, new BuffIntent());
-        var fangState = new MoveState(
-            FEROCIOUS_FANGS,
-            Fangs, new SingleAttackIntent(FangDamage), new DebuffIntent());
-        var huntState = new MoveState(
-            BLOODSTAINED_HUNT,
-            Hunt, new MultiAttackIntent(HuntDamage, HuntHits));
+        var howlState = GetHowlState();
+        var fangState = GetFangState();
+        var huntState = GetHuntState();
 
         fangState.FollowUpState = huntState;
         huntState.FollowUpState = howlState;
@@ -91,7 +91,25 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         states.Add(huntState);
         states.Add(fangState);
         
-        return [new MonsterMoveStateMachine(states, huntState)];
+        return new MonsterMoveStateMachine(states, huntState);
+    }
+
+    public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
+    {
+        return [GenerateIntent1StateMachine(), GenerateIntent2StateMachine()];
+    }
+
+    public override Creature DetermineTargetForIntent(int intentNum)
+    {
+        if (intentNum == 0)
+        {
+            return CombatState.PlayerCreatures[0];
+        }
+        if (intentNum == 1 && OtherSideTargetMonster != null)
+        {
+            return OtherSideTargetMonster;
+        }
+        return CombatState.PlayerCreatures[0];
     }
 
     private async Task Fangs(IReadOnlyList<Creature> targets)
@@ -133,21 +151,21 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
     }
 
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    {
-        var idle = new AnimState("Idle", true);
-        var attack = new AnimState("Attack");
-        var hit = new AnimState("Hit");
-    
-        attack.NextState = idle;
-        hit.NextState = idle;
-    
-        var animator = new CreatureAnimator(idle, controller);
-        animator.AddAnyState("Attack", attack);
-        animator.AddAnyState("Hit", hit);
-        
-        controller.GetAnimationState().SetTimeScale(Rng.Chaotic.NextFloat(0.7f, 1.0f));
-    
-        return animator;
-    }
+    // public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    // {
+    //     var idle = new AnimState("Idle", true);
+    //     var attack = new AnimState("Attack");
+    //     var hit = new AnimState("Hit");
+    //
+    //     attack.NextState = idle;
+    //     hit.NextState = idle;
+    //
+    //     var animator = new CreatureAnimator(idle, controller);
+    //     animator.AddAnyState("Attack", attack);
+    //     animator.AddAnyState("Hit", hit);
+    //     
+    //     controller.GetAnimationState().SetTimeScale(Rng.Chaotic.NextFloat(0.7f, 1.0f));
+    //
+    //     return animator;
+    // }
 }

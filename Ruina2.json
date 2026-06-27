@@ -1,8 +1,8 @@
 {
-  "id": "Ruina",
-  "name": "Ruina",
+  "id": "Ruina2",
+  "name": "Ruina2",
   "author": "Darkglade",
-  "description": "If Ruina was so good why didn't they make a - ",
+  "description": "A port of the Slay the Spire 1 Ruina Act mod.",
   "version": "v0.0.0",
   "has_pck": true,
   "has_dll": true,
