@@ -59,7 +59,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             {
                 CombatState.RemoveCreature(Creature);
             }
-            await Cmd.CustomScaledWait(0.1f, 0.4f);
+            await Cmd.CustomScaledWait(0.25f, 0.4f);
         }
     }
 
@@ -72,6 +72,28 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             return false;
         }
         return true;
+    }
+
+    protected async Task WaitAnimation()
+    {
+        await Cmd.Wait(0.5f);
+    }
+    
+    protected async Task WaitAnimation(float waitTime)
+    {
+        await Cmd.Wait(waitTime);
+    }
+    
+    protected async Task ResetIdle()
+    {
+        await WaitAnimation();
+        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+    }
+    
+    protected async Task ResetIdle(float waitTime)
+    {
+        await WaitAnimation(waitTime);
+        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
     }
 }
 

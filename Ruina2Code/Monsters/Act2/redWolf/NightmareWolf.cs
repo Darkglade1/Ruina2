@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,7 +8,10 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
@@ -25,7 +30,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     private int BlockAmount => 20;
     private int BleedAmount => 2;
 
-    protected override string VisualsPath => "res://ActsFromThePast/monsters/fungi_beast/fungi_beast.tscn";
+    protected override string VisualsPath => "NightmareWolf/nightmare_wolf.tscn".MonsterImagePath();
 
     private const string CRUEL_CLAWS = "CRUEL_CLAWS";
     private const string FEROCIOUS_FANGS = "FEROCIOUS_FANGS";
@@ -116,11 +121,12 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         for (int i = 0; i < FangHits; i++)
         {
+            await BiteAnimation();
             await DamageCmd.Attack(FangDamage)
                 .FromMonster(this)
-                .WithAttackerAnim("Attack", 0.5f)
-                .WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
                 .Execute(null);
+            await ResetIdle(0.25f);
+            await WaitAnimation(0.25f);
         }
     }
     
@@ -128,44 +134,67 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         for (int i = 0; i < HuntHits; i++)
         {
+            if (i % 2 == 0)
+            {
+                await ClawAnimation();
+            } else {
+                await BiteAnimation();
+            }
             await DamageCmd.Attack(HuntDamage)
                 .FromMonster(this)
-                .WithAttackerAnim("Attack", 0.5f)
-                .WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
                 .Execute(null);
+            await ResetIdle();
         }
     }
     
     private async Task Claws(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.GainBlock(Creature, BlockAmount, ValueProp.Move, null);
+        await ClawAnimation();
         await DamageCmd.Attack(ClawDamage)
             .FromMonster(this)
-            .WithAttackerAnim("Attack", 0.5f)
-            .WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3")
             .Execute(null);
+        await ResetIdle();
     }
 
     private async Task Howl(IReadOnlyList<Creature> targets)
     {
+        await HowlAnimation();
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
+        await ResetIdle(1.0f);
     }
 
-    // public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    // {
-    //     var idle = new AnimState("Idle", true);
-    //     var attack = new AnimState("Attack");
-    //     var hit = new AnimState("Hit");
-    //
-    //     attack.NextState = idle;
-    //     hit.NextState = idle;
-    //
-    //     var animator = new CreatureAnimator(idle, controller);
-    //     animator.AddAnyState("Attack", attack);
-    //     animator.AddAnyState("Hit", hit);
-    //     
-    //     controller.GetAnimationState().SetTimeScale(Rng.Chaotic.NextFloat(0.7f, 1.0f));
-    //
-    //     return animator;
-    // }
+    private async Task BiteAnimation()
+    {
+        await CreatureCmd.TriggerAnim(Creature, "Bite", 0);
+        Sfx.WOLF_BITE.Play();
+    }
+    
+    private async Task ClawAnimation()
+    {
+        await CreatureCmd.TriggerAnim(Creature, "Claw", 0);
+        Sfx.WOLF_SLASH.Play();
+    }
+    
+    private async Task HowlAnimation()
+    {
+        await CreatureCmd.TriggerAnim(Creature, "Howl", 0);
+        Sfx.WOLF_HOWL.Play();
+    }
+
+    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    {
+        var idle = new AnimState("Idle", true);
+        var bite = new AnimState("Bite");
+        var claw = new AnimState("Claw");
+        var howl = new AnimState("Howl");
+    
+        var animator = new CreatureAnimator(idle, controller);
+        animator.AddAnyState("Idle", idle);
+        animator.AddAnyState("Bite", bite);
+        animator.AddAnyState("Claw", claw);
+        animator.AddAnyState("Howl", howl);
+    
+        return animator;
+    }
 }
