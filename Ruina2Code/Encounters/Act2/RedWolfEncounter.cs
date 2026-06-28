@@ -19,13 +19,18 @@ public sealed class RedWolfEncounter : CustomEncounterModel
 
     public override IEnumerable<MonsterModel> AllPossibleMonsters
     {
-        get { yield return ModelDb.Monster<NightmareWolf>(); }
+        get
+        {
+            yield return ModelDb.Monster<LittleRed>();
+            yield return ModelDb.Monster<NightmareWolf>();
+        }
     }
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters()
     {
         return new List<(MonsterModel, string?)>
         {
+            (ModelDb.Monster<LittleRed>().ToMutable(), null),
             (ModelDb.Monster<NightmareWolf>().ToMutable(), null)
         };
     }

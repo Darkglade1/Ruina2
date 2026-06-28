@@ -126,13 +126,17 @@ public static class PatchPerformMove
 [HarmonyPatch(typeof(Creature), nameof(Creature.TakeTurn))]
 public static class PatchTakeTurn
 {
-    public static void Postfix(Creature __instance, ref Task __result)
+    public static bool Prefix(Creature __instance, ref Task __result)
     {
-        __result = Wrap(__instance, __result);
+        if (__instance.Monster is AbstractMultiIntentMonster monster)
+        {
+            __result = Wrap(__instance);
+            return false;
+        }
+        return true;
     }
-    private static async Task Wrap(Creature __instance, Task original)
+    private static async Task Wrap(Creature __instance)
     {
-        await original;
         if (__instance.Monster is AbstractMultiIntentMonster monster)
         {
             __instance.Block = 0;

@@ -40,6 +40,13 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
+        foreach (var enemy in CombatState.Enemies)
+        {
+            if (enemy.Monster is LittleRed)
+            {
+                OtherSideTargetMonster = enemy;
+            }
+        }
         //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 
@@ -123,7 +130,8 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         {
             await BiteAnimation();
             await DamageCmd.Attack(FangDamage)
-                .FromMonster(this)
+                .FromMonsterCreature(this)
+                .TargetingCreatures(targets, CombatState)
                 .Execute(null);
             await ResetIdle(0.25f);
             await WaitAnimation(0.25f);
@@ -141,7 +149,8 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
                 await BiteAnimation();
             }
             await DamageCmd.Attack(HuntDamage)
-                .FromMonster(this)
+                .FromMonsterCreature(this)
+                .TargetingCreatures(targets, CombatState)
                 .Execute(null);
             await ResetIdle();
         }
@@ -152,7 +161,8 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         await CreatureCmd.GainBlock(Creature, BlockAmount, ValueProp.Move, null);
         await ClawAnimation();
         await DamageCmd.Attack(ClawDamage)
-            .FromMonster(this)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await ResetIdle();
     }
