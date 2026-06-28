@@ -17,6 +17,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     public abstract List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine();
     public List<MoveState> NextMoves = new();
     public List<Creature> Targets = new();
+    public bool ShouldClearBlockAtStartOfOwnTurn = true;
     public virtual int NumIntents { get; set; }
     public Creature? OtherSideTargetMonster { get; set; }
     
@@ -64,6 +65,17 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     }
 
     public abstract Creature DetermineTargetForIntent(int intentNum);
+
+    protected void FindAndSetTarget<T>() where T : MonsterModel
+    {
+        foreach (var enemy in CombatState.Enemies)
+        {
+            if (enemy.Monster is T)
+            {
+                OtherSideTargetMonster = enemy;
+            }
+        }
+    }
 
     public override bool ShouldClearBlock(Creature creature)
     {
@@ -139,7 +151,10 @@ public static class PatchTakeTurn
     {
         if (__instance.Monster is AbstractMultiIntentMonster monster)
         {
-            __instance.Block = 0;
+            if (monster.ShouldClearBlockAtStartOfOwnTurn)
+            {
+                __instance.Block = 0;   
+            }
             await monster.PerformMultiIntentMove();
         }
     }

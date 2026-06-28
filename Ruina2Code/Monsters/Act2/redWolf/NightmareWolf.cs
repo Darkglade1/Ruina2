@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
-using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
@@ -117,7 +116,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         {
             return CombatState.PlayerCreatures[0];
         }
-        if (intentNum == 1 && OtherSideTargetMonster != null)
+        if (intentNum == 1 && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
         {
             return OtherSideTargetMonster;
         }
@@ -128,7 +127,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         for (int i = 0; i < FangHits; i++)
         {
-            await BiteAnimation();
+            await BiteAnimation(targets);
             await DamageCmd.Attack(FangDamage)
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
@@ -144,9 +143,9 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         {
             if (i % 2 == 0)
             {
-                await ClawAnimation();
+                await ClawAnimation(targets);
             } else {
-                await BiteAnimation();
+                await BiteAnimation(targets);
             }
             await DamageCmd.Attack(HuntDamage)
                 .FromMonsterCreature(this)
@@ -159,7 +158,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     private async Task Claws(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.GainBlock(Creature, BlockAmount, ValueProp.Move, null);
-        await ClawAnimation();
+        await ClawAnimation(targets);
         await DamageCmd.Attack(ClawDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
@@ -174,37 +173,39 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         await ResetIdle(1.0f);
     }
 
-    private async Task BiteAnimation()
+    private async Task BiteAnimation(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(Creature, "Bite", 0);
-        Sfx.WOLF_BITE.Play();
+        await AnimationAction("Bite", Sfx.WOLF_BITE, targets);
     }
     
-    private async Task ClawAnimation()
+    private async Task ClawAnimation(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(Creature, "Claw", 0);
-        Sfx.WOLF_SLASH.Play();
+        await AnimationAction("Claw", Sfx.WOLF_SLASH, targets);
     }
     
     private async Task HowlAnimation()
     {
-        await CreatureCmd.TriggerAnim(Creature, "Howl", 0);
-        Sfx.WOLF_HOWL.Play();
+        await AnimationAction("Howl", Sfx.WOLF_HOWL);
     }
-
+    
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
     {
-        var idle = new AnimState("Idle", true);
-        var bite = new AnimState("Bite");
-        var claw = new AnimState("Claw");
-        var howl = new AnimState("Howl");
-    
-        var animator = new CreatureAnimator(idle, controller);
-        animator.AddAnyState("Idle", idle);
-        animator.AddAnyState("Bite", bite);
-        animator.AddAnyState("Claw", claw);
-        animator.AddAnyState("Howl", howl);
-    
-        return animator;
+        return GenerateAnimatorFromKeys(["Idle", "Bite", "Claw", "Howl"], controller);
     }
+
+    // public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    // {
+    //     var idle = new AnimState("Idle", true);
+    //     var bite = new AnimState("Bite");
+    //     var claw = new AnimState("Claw");
+    //     var howl = new AnimState("Howl");
+    //
+    //     var animator = new CreatureAnimator(idle, controller);
+    //     animator.AddAnyState("Idle", idle);
+    //     animator.AddAnyState("Bite", bite);
+    //     animator.AddAnyState("Claw", claw);
+    //     animator.AddAnyState("Howl", howl);
+    //
+    //     return animator;
+    // }
 }

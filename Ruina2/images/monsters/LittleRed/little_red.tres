@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3]
+
+[ext_resource type="SpineAtlasResource" path="res://Ruina2/images/monsters/LittleRed/little_red.atlas.spatlas" id="1_8lu6h"]
+[ext_resource type="SpineSkeletonFileResource" path="res://Ruina2/images/monsters/LittleRed/little_red.skel.spskel" id="2_t7d1u"]
+
+[resource]
+atlas_res = ExtResource("1_8lu6h")
+skeleton_file_res = ExtResource("2_t7d1u")

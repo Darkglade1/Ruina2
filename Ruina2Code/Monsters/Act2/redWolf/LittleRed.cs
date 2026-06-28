@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Godot;
+﻿using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
@@ -30,10 +29,11 @@ public sealed class LittleRed : AbstractAllyMonster
     private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int BulletShowerHits => 3;
     private int StrengthAmount => 3;
-    private int BlockAmount => 10;
+    private int HealAmount => 10;
     private int DebuffAmt = 1;
+    public bool enraged;
 
-    protected override string VisualsPath => "NightmareWolf/nightmare_wolf.tscn".MonsterImagePath();
+    protected override string VisualsPath => "LittleRed/little_red.tscn".MonsterImagePath();
 
     private const string BEAST_HUNT = "BEAST_HUNT";
     private const string CATCH_BREATH = "CATCH_BREATH";
@@ -41,24 +41,17 @@ public sealed class LittleRed : AbstractAllyMonster
     private const string BULLET_SHOWER = "BULLET_SHOWER";
 
     public override async Task AfterAddedToRoom()
-    {
-        IsAlly = true;
-        FieldInfo? backingField = typeof(Creature).GetField("<Side>k__BackingField", 
-            BindingFlags.Instance | BindingFlags.NonPublic);
-        if (backingField != null)
-        {
-            backingField.SetValue(Creature, CombatSide.Player); 
-        }
-        MainFile.Logger.Info("LITTLE RED'S SIDE IS: " + Creature.Side);
+    { 
         await base.AfterAddedToRoom();
-        foreach (var enemy in CombatState.Enemies)
-        {
-            if (enemy.Monster is NightmareWolf)
-            {
-                OtherSideTargetMonster = enemy;
-            }
-        }
+        SetToSide(CombatSide.Player);
+        FindAndSetTarget<NightmareWolf>();
         FlipHorizontal();
+        var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (node != null)
+        {
+            node.Position = new Vector2(0, 200);
+        }
+        MainFile.Logger.Info("Little Red position: "+ node?.Position);
         //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 
@@ -69,7 +62,7 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private MoveState GetCatchBreathState()
     {
-        return new MoveState(CATCH_BREATH, CatchBreath, new DefendIntent(), new BuffIntent());
+        return new MoveState(CATCH_BREATH, CatchBreath, new BuffIntent());
     }
 
     private MoveState GetHollowPointShellState()
@@ -77,10 +70,10 @@ public sealed class LittleRed : AbstractAllyMonster
         return new MoveState(HOLLOW_POINT_SHELL, HollowPointShell, new MultiAttackIntent(HollowPointDamage, HollowPointHits));
     }
 
-    // private MoveState GetBulletShowerState()
-    // {
-    //     return new MoveState(BULLET_SHOWER, Hunt, new MultiAttackIntent(BulletShowerDamage, BulletShowerHits));
-    // }
+    private MoveState GetBulletShowerState()
+    {
+        return new MoveState(BULLET_SHOWER, BulletShower, new MultiAttackIntent(BulletShowerDamage, BulletShowerHits));
+    }
 
     private MonsterMoveStateMachine GenerateIntent1StateMachine()
     {
@@ -116,7 +109,7 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private async Task CatchBreath(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.GainBlock(Creature, BlockAmount, ValueProp.Move, null);
+        await CreatureCmd.Heal(Creature, HealAmount, true);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
     }
     
@@ -126,9 +119,9 @@ public sealed class LittleRed : AbstractAllyMonster
         {
             if (i % 2 == 0)
             {
-                await ClawAnimation();
+                await Shoot1Animation(targets);
             } else {
-                await BiteAnimation();
+                await Shoot2Animation(targets);
             }
             await DamageCmd.Attack(HollowPointDamage)
                 .FromMonsterCreature(this)
@@ -140,45 +133,58 @@ public sealed class LittleRed : AbstractAllyMonster
     
     private async Task BeastHunt(IReadOnlyList<Creature> targets)
     {
-        await ClawAnimation();
+        await SlashAnimation(targets);
         await DamageCmd.Attack(BeastHuntDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
+        await ApplyPowerAndSkipNextDurationTick<VulnerablePower>(targets, DebuffAmt);
         await ResetIdle();
     }
-
-    private async Task BiteAnimation()
+    
+    private async Task BulletShower(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(Creature, "Bite", 0);
-        Sfx.WOLF_BITE.Play();
+        for (int i = 0; i < BulletShowerHits; i++)
+        {
+            if (i == 0)
+            {
+                await Shoot1Animation(targets);
+            } else if (i == 1)
+            {
+                await Shoot2Animation(targets);
+            } else {
+                await Shoot3Animation(targets);
+            }
+            await DamageCmd.Attack(BulletShowerDamage)
+                .FromMonsterCreature(this)
+                .TargetingCreatures(targets, CombatState)
+                .Execute(null);
+            await ResetIdle();
+        }
+    }
+
+    private async Task SlashAnimation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Slash", Sfx.LITTLE_RED_SLASH, targets);
     }
     
-    private async Task ClawAnimation()
+    private async Task Shoot1Animation(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(Creature, "Claw", 0);
-        Sfx.WOLF_SLASH.Play();
+        await AnimationAction("Shoot1", Sfx.LITTLE_RED_GUN, targets);
     }
     
-    private async Task HowlAnimation()
+    private async Task Shoot2Animation(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(Creature, "Howl", 0);
-        Sfx.WOLF_HOWL.Play();
+        await AnimationAction("Shoot2", Sfx.LITTLE_RED_GUN, targets);
     }
-
+    
+    private async Task Shoot3Animation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Shoot3", Sfx.LITTLE_RED_GUN, targets);
+    }
+    
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
     {
-        var idle = new AnimState("Idle", true);
-        var bite = new AnimState("Bite");
-        var claw = new AnimState("Claw");
-        var howl = new AnimState("Howl");
-    
-        var animator = new CreatureAnimator(idle, controller);
-        animator.AddAnyState("Idle", idle);
-        animator.AddAnyState("Bite", bite);
-        animator.AddAnyState("Claw", claw);
-        animator.AddAnyState("Howl", howl);
-    
-        return animator;
+        return GenerateAnimatorFromKeys(["Idle", "Shoot1", "Shoot2", "Shoot3", "Slash"], controller);
     }
 }

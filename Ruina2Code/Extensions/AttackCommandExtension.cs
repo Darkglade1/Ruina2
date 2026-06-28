@@ -19,10 +19,10 @@ public static class AttackCommandExtensions
     
     public static AttackCommand TargetingCreatures(this AttackCommand command, IReadOnlyList<Creature> targets, ICombatState combatState)
     {
-        if (targets.Count == 1)
+        if (targets[0].IsPlayer)
         {
-            return command.Targeting(targets[0]);
+            return command.TargetingAllOpponents(combatState);
         }
-        return command.TargetingAllOpponents(combatState);
+        return command.Targeting(targets[0]);
     }
 }
