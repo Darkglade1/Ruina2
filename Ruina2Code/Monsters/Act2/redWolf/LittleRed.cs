@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
@@ -57,7 +58,7 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private MoveState GetBeastHuntState()
     {
-        return new MoveState(BEAST_HUNT, BeastHunt, new SingleAttackIntent(BeastHuntDamage), new DebuffIntent());
+        return new MoveState(BEAST_HUNT, BeastHunt, new RuinaSingleAttackIntent(BeastHuntDamage), new DebuffIntent());
     }
 
     private MoveState GetCatchBreathState()
@@ -67,12 +68,12 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private MoveState GetHollowPointShellState()
     {
-        return new MoveState(HOLLOW_POINT_SHELL, HollowPointShell, new MultiAttackIntent(HollowPointDamage, HollowPointHits));
+        return new MoveState(HOLLOW_POINT_SHELL, HollowPointShell, new RuinaMultiAttackIntent(HollowPointDamage, HollowPointHits));
     }
 
     private MoveState GetBulletShowerState()
     {
-        return new MoveState(BULLET_SHOWER, BulletShower, new MultiAttackIntent(BulletShowerDamage, BulletShowerHits));
+        return new MoveState(BULLET_SHOWER, BulletShower, new RuinaMultiAttackIntent(BulletShowerDamage, BulletShowerHits));
     }
 
     private MonsterMoveStateMachine GenerateIntent1StateMachine()

@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
@@ -51,17 +52,17 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
 
     private MoveState GetClawState()
     {
-        return new MoveState(CRUEL_CLAWS, Claws, new SingleAttackIntent(ClawDamage), new DefendIntent());
+        return new MoveState(CRUEL_CLAWS, Claws, new RuinaSingleAttackIntent(ClawDamage), new DefendIntent());
     }
 
     private MoveState GetFangState()
     {
-        return new MoveState(FEROCIOUS_FANGS, Fangs, new MultiAttackIntent(FangDamage, FangHits), new DebuffIntent());
+        return new MoveState(FEROCIOUS_FANGS, Fangs, new RuinaMultiAttackIntent(FangDamage, FangHits), new DebuffIntent());
     }
 
     private MoveState GetHuntState()
     {
-        return new MoveState(BLOODSTAINED_HUNT, Hunt, new MultiAttackIntent(HuntDamage, HuntHits));
+        return new MoveState(BLOODSTAINED_HUNT, Hunt, new RuinaMultiAttackIntent(HuntDamage, HuntHits));
     }
 
     private MoveState GetHowlState()
