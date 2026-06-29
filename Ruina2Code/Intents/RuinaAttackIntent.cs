@@ -15,28 +15,29 @@ public abstract class RuinaAttackIntent : AttackIntent
 {
     protected override LocString GetIntentDescription(IEnumerable<Creature> targets, Creature owner)
     {
-        LocString intentDescription = base.GetIntentDescription(targets, owner);
-        intentDescription.Add("Damage", (Decimal) this.GetTargetedSingleDamage(owner));
-        intentDescription.Add("Repeat", (Decimal) this.Repeats);
+        Creature? targetCreature = GetIntentTargetedCreature(this, owner);
+        LocString intentDescription;
+        if (targetCreature?.Monster is AbstractAllyMonster)
+        {
+            intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_ATTACK.description");
+            intentDescription.Add("Target", targetCreature.Name);
+        }
+        else if (owner.Monster is AbstractAllyMonster && targetCreature != null)
+        {
+            intentDescription = new LocString("intents", "RUINA2-ALLY_ATTACK.description");
+            intentDescription.Add("Target", targetCreature.Name);
+        }
+        else
+        {
+            intentDescription = base.GetIntentDescription(targets, owner);
+        }
+        intentDescription.Add("Damage", GetTargetedSingleDamage(owner));
+        intentDescription.Add("Repeat", Repeats);
         return intentDescription;
     }
     protected int GetTargetedSingleDamage(Creature owner)
     {
-        Creature? targetCreature = null;
-        if (owner.Monster is AbstractMultiIntentMonster monster)
-        {
-            int intentIndex = 0;
-            var nextMoves = monster.NextMoves;
-            for (int i = 0; i < nextMoves.Count; i++)
-            {
-                if (nextMoves[i].Intents.Contains(this))
-                {
-                    intentIndex = i;
-                    break;
-                }
-            }
-            targetCreature = monster.Targets[intentIndex];
-        }
+        Creature? targetCreature = GetIntentTargetedCreature(this, owner);
         Decimal totalDamage = 0;
         Player? player = LocalContext.GetMe(owner.CombatState);;
         if (targetCreature == null)
@@ -49,5 +50,24 @@ public abstract class RuinaAttackIntent : AttackIntent
             totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);   
         }
         return Math.Max(0, (int) totalDamage);
+    }
+
+    public static Creature? GetIntentTargetedCreature(AbstractIntent intent, Creature owner)
+    {
+        if (owner.Monster is AbstractMultiIntentMonster monster)
+        {
+            int intentIndex = 0;
+            var nextMoves = monster.NextMoves;
+            for (int i = 0; i < nextMoves.Count; i++)
+            {
+                if (nextMoves[i].Intents.Contains(intent))
+                {
+                    intentIndex = i;
+                    break;
+                }
+            }
+            return monster.Targets[intentIndex];
+        }
+        return null;
     }
 }

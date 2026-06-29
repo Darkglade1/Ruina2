@@ -23,9 +23,9 @@ public class RuinaSingleAttackIntent : RuinaAttackIntent
 
     public override LocString GetIntentLabel(IEnumerable<Creature> targets, Creature owner)
     {
-        LocString intentLabelFormat = this.IntentLabelFormat;
-        float totalDamage = (float) this.GetTotalDamage(targets, owner);
-        intentLabelFormat.Add("Damage", (Decimal) (int) totalDamage);
+        LocString intentLabelFormat = IntentLabelFormat;
+        float totalDamage = GetTotalDamage(targets, owner);
+        intentLabelFormat.Add("Damage", (int) totalDamage);
         return intentLabelFormat;
     }
 }
