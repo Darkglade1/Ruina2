@@ -58,12 +58,12 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private MoveState GetBeastHuntState()
     {
-        return new MoveState(BEAST_HUNT, BeastHunt, new RuinaSingleAttackIntent(BeastHuntDamage), new DebuffIntent());
+        return new MoveState(BEAST_HUNT, BeastHunt, new RuinaSingleAttackIntent(BeastHuntDamage), new RuinaDebuffIntent());
     }
 
     private MoveState GetCatchBreathState()
     {
-        return new MoveState(CATCH_BREATH, CatchBreath, new BuffIntent());
+        return new MoveState(CATCH_BREATH, CatchBreath, new RuinaBuffIntent());
     }
 
     private MoveState GetHollowPointShellState()

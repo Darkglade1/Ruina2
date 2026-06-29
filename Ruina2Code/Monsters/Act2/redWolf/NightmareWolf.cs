@@ -57,7 +57,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
 
     private MoveState GetFangState()
     {
-        return new MoveState(FEROCIOUS_FANGS, Fangs, new RuinaMultiAttackIntent(FangDamage, FangHits), new DebuffIntent());
+        return new MoveState(FEROCIOUS_FANGS, Fangs, new RuinaMultiAttackIntent(FangDamage, FangHits), new RuinaDebuffIntent());
     }
 
     private MoveState GetHuntState()
