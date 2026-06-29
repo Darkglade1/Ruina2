@@ -8,10 +8,8 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
-using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
@@ -23,6 +21,7 @@ public sealed class LittleRed : AbstractAllyMonster
     public override int MinInitialHp => 200;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
+    public override string TargetTexturePath => "RedIcon.png".UIImagePath();
 
     private int BeastHuntDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int HollowPointDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
@@ -52,7 +51,6 @@ public sealed class LittleRed : AbstractAllyMonster
         {
             node.Position = new Vector2(0, 200);
         }
-        MainFile.Logger.Info("Little Red position: "+ node?.Position);
         //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 

@@ -1,8 +1,10 @@
 ﻿using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
@@ -22,6 +24,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     public bool ShouldClearBlockAtStartOfOwnTurn = true;
     public virtual int NumIntents { get; set; }
     public Creature? OtherSideTargetMonster { get; set; }
+    public virtual string? TargetTexturePath { get; set; }
     
     // MultiIntent monsters use their own state machines so we can properly do targeting of other monsters with any intent
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -176,7 +179,7 @@ public static class PatchRollMove
                 for (int i = 0; i < monster.NumIntents; i++)
                 {
                     var stateMachine = monster.MultiIntentMoveStateMachines[i];
-                    monster.NextMoves.Add( stateMachine.RollMove(targets, monster.Creature, monster.RunRng.MonsterAi));
+                    monster.NextMoves.Add(stateMachine.RollMove(targets, monster.Creature, monster.RunRng.MonsterAi));
                     monster.Targets.Add(monster.DetermineTargetForIntent(i));
                 }
             }
@@ -215,6 +218,48 @@ public static class PatchUpdateVisuals
             else
             {
                 __instance.Modulate = Color.Color8(255, 255, 255);
+            }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(NIntent), nameof(NIntent.UpdateVisuals))]
+public static class PatchTargetTextureIcon
+{
+    public static void Postfix(NIntent __instance)
+    {
+        string nodeName = "TargetTextureNode";
+        Creature? targetCreature = RuinaAttackIntent.GetIntentTargetedCreature(__instance._intent, __instance._owner);
+        if (targetCreature?.Monster is AbstractMultiIntentMonster monster)
+        {
+            var texturePath = monster.TargetTexturePath;
+            if (texturePath != null && (__instance._intent is RuinaAttackIntent || __instance._intent is RuinaDebuffIntent))
+            {
+                if (!__instance._intentHolder.HasNode(nodeName))
+                {
+                    Sprite2D textureSprite = new Sprite2D();
+                    textureSprite.Scale = new Vector2(0.75f, 0.75f);
+                    textureSprite.Position = new Vector2(10, 10);
+                    textureSprite.Name = nodeName;
+                    textureSprite.Texture = PreloadManager.Cache.GetTexture2D(texturePath);
+                    __instance._intentHolder.AddChildSafely(textureSprite);
+                }
+            }
+            else
+            {
+                var targetTextureNode = __instance._intentHolder.GetNodeOrNull<Sprite2D>(nodeName);
+                if (targetTextureNode != null)
+                {
+                    __instance._intentHolder.RemoveChildSafely(targetTextureNode);
+                }
+            }
+        }
+        else
+        {
+            var targetTextureNode = __instance._intentHolder.GetNodeOrNull<Sprite2D>(nodeName);
+            if (targetTextureNode != null)
+            {
+                __instance._intentHolder.RemoveChildSafely(targetTextureNode);
             }
         }
     }
