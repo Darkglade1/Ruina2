@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -8,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -195,6 +197,25 @@ public static class PatchUpdateIntent
                 totalIntents.AddRange(move.Intents);
             }
             monster.NextMove.Intents = totalIntents;
+        }
+    }
+}
+
+[HarmonyPatch(typeof(NIntent), nameof(NIntent.UpdateVisuals))]
+public static class PatchUpdateVisuals
+{
+    public static void Postfix(NIntent __instance)
+    {
+        if (__instance._owner.Monster is AbstractAllyMonster ally && ally.IsAlly)
+        {
+            if (__instance._intent is RuinaAttackIntent || __instance._intent is RuinaDebuffIntent)
+            {
+                __instance.Modulate = Color.Color8(0, 255, 0);
+            }
+            else
+            {
+                __instance.Modulate = Color.Color8(255, 255, 255);
+            }
         }
     }
 }
