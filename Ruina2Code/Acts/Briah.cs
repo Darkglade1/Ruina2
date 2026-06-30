@@ -26,7 +26,7 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<TheObscuraNormal>(),
             ModelDb.Encounter<ThievingHopperWeak>(),
             ModelDb.Encounter<TunnelerWeak>(),
-            ModelDb.Encounter<RedWolfEncounterBoss>(),
+            ModelDb.Encounter<RedWolfBoss>(),
         ];
     }
 

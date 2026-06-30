@@ -7,9 +7,9 @@ using Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
 namespace Ruina2.Ruina2Code.Encounters.Act2;
 
-public sealed class RedWolfEncounterBoss : CustomEncounterModel
+public sealed class RedWolfBoss : CustomEncounterModel
 {
-    public RedWolfEncounterBoss() : base(RoomType.Boss)
+    public RedWolfBoss() : base(RoomType.Boss)
     {
     }
     public override string BossNodePath => "LittleRed/Red".MonsterImagePath();

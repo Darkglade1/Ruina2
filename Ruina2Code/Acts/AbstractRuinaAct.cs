@@ -27,7 +27,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
 
     public static RuinaFloor GetFloorBasedOnBoss()
     {
-        if (RunManager.Instance.State?.Act.BossEncounter is RedWolfEncounterBoss)
+        if (RunManager.Instance.State?.Act.BossEncounter is RedWolfBoss)
         {
             return RuinaFloor.Gebura;
         }
@@ -38,7 +38,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     {
         string path = "";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-        if (localPlayer?.Creature.CombatState?.Encounter is RedWolfEncounterBoss)
+        if (localPlayer?.Creature.CombatState?.Encounter is RedWolfBoss)
         {
             path = "Roland1.ogg";
         }
