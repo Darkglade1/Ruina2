@@ -43,9 +43,7 @@ public sealed class LittleRed : AbstractAllyMonster
     public override async Task AfterAddedToRoom()
     { 
         await base.AfterAddedToRoom();
-        SetToSide(CombatSide.Player);
-        FindAndSetTarget<NightmareWolf>();
-        FlipHorizontal();
+        OtherSideTargetMonster = FindTarget<NightmareWolf>();
         var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
         if (node != null)
         {

@@ -3,6 +3,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Hooks;
@@ -71,15 +72,16 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
 
     public abstract Creature DetermineTargetForIntent(int intentNum);
 
-    protected void FindAndSetTarget<T>() where T : MonsterModel
+    protected Creature? FindTarget<T>() where T : MonsterModel
     {
         foreach (var enemy in CombatState.Enemies)
         {
             if (enemy.Monster is T)
             {
-                OtherSideTargetMonster = enemy;
+                return enemy;
             }
         }
+        return null;
     }
 
     public override bool ShouldClearBlock(Creature creature)
@@ -131,7 +133,7 @@ public static class PatchPerformMove
 {
     public static bool Prefix(MonsterModel __instance, ref Task __result)
     {
-        if (__instance is AbstractMultiIntentMonster monster)
+        if (__instance is AbstractMultiIntentMonster && __instance.Creature.IsAlive)
         {
             __result = Task.CompletedTask;
             return false;
@@ -145,7 +147,7 @@ public static class PatchTakeTurn
 {
     public static bool Prefix(Creature __instance, ref Task __result)
     {
-        if (__instance.Monster is AbstractMultiIntentMonster monster)
+        if (__instance.Monster is AbstractMultiIntentMonster && __instance.IsAlive)
         {
             __result = Wrap(__instance);
             return false;
@@ -154,7 +156,7 @@ public static class PatchTakeTurn
     }
     private static async Task Wrap(Creature __instance)
     {
-        if (__instance.Monster is AbstractMultiIntentMonster monster)
+        if (__instance.Monster is AbstractMultiIntentMonster monster && __instance.IsAlive)
         {
             if (monster.ShouldClearBlockAtStartOfOwnTurn)
             {
@@ -261,6 +263,31 @@ public static class PatchTargetTextureIcon
             {
                 __instance._intentHolder.RemoveChildSafely(targetTextureNode);
             }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(AttackCommand), nameof(AttackCommand.GetPossibleTargets))]
+public static class RemoveAlliesFromPossibleTargets
+{
+    public static void Postfix(AttackCommand __instance, ref IReadOnlyList<Creature> __result)
+    {
+        var newResult = new List<Creature>(__result.ToList());
+        bool removedAlly = false;
+        foreach (var creature in __result)
+        {
+            if (creature.Monster is AbstractAllyMonster ally)
+            {
+                if (ally.IsAlly && !ally.IsTargetableByPlayers && creature.CombatState?.CurrentSide == CombatSide.Player)
+                {
+                    newResult.Remove(creature);
+                    removedAlly = true;
+                }
+            }
+        }
+        if (removedAlly)
+        {
+            __result = newResult;
         }
     }
 }

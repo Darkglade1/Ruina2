@@ -40,13 +40,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        foreach (var enemy in CombatState.Enemies)
-        {
-            if (enemy.Monster is LittleRed)
-            {
-                OtherSideTargetMonster = enemy;
-            }
-        }
+        OtherSideTargetMonster = FindTarget<LittleRed>();
         //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 
