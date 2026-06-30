@@ -162,6 +162,13 @@ public static class PatchTakeTurn
             {
                 __instance.Block = 0;   
             }
+            foreach (var intent in monster.NextMove.Intents)
+            {
+                if (intent is StunIntent)
+                {
+                    return;
+                }
+            }
             await monster.PerformMultiIntentMove();
         }
     }
@@ -176,6 +183,7 @@ public static class PatchRollMove
         {
             if (monster.MultiIntentMoveStateMachines != null)
             {
+                monster.NextMove = new MoveState();
                 monster.NextMoves.Clear();
                 monster.Targets.Clear();
                 for (int i = 0; i < monster.NumIntents; i++)
@@ -196,6 +204,13 @@ public static class PatchUpdateIntent
     {
         if (__instance.Entity.Monster is AbstractMultiIntentMonster monster && monster.MultiIntentMoveStateMachines != null)
         {
+            foreach (var intent in monster.NextMove.Intents)
+            {
+                if (intent is StunIntent)
+                {
+                    return;
+                }
+            }
             List<AbstractIntent> totalIntents = new List<AbstractIntent>();
             foreach (var move in monster.NextMoves)
             {
