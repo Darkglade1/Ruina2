@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2bjmdgvyltpw"
+path="res://.godot/imported/Gone Angels Piano.ogg-e64456002c7c4adad6c1f3103700b674.oggvorbisstr"
+
+[deps]
+
+source_file="res://Ruina2/audio/music/Gone Angels Piano.ogg"
+dest_files=["res://.godot/imported/Gone Angels Piano.ogg-e64456002c7c4adad6c1f3103700b674.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

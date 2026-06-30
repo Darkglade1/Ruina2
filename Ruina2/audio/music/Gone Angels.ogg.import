@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vob16cb4871r"
+path="res://.godot/imported/Gone Angels.ogg-db647a9249cc35ff96f64a91f4cf7ac0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Ruina2/audio/music/Gone Angels.ogg"
+dest_files=["res://.godot/imported/Gone Angels.ogg-db647a9249cc35ff96f64a91f4cf7ac0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

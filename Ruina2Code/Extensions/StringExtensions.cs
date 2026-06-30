@@ -83,4 +83,9 @@ public static class StringExtensions
     {
         return Path.Join(MainFile.ResPath, "audio", "sfx", path);
     }
+    
+    public static string MusicPath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "audio", "music", path);
+    }
 }
