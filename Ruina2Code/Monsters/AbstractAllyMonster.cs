@@ -1,9 +1,11 @@
 using System.Reflection;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -22,6 +24,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         SetToSide(CombatSide.Player);
         FlipHorizontal();
+        SetUpAllyButton("res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
     }
     
     protected void SetToSide(CombatSide side)
@@ -61,5 +64,30 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
             }
         }
         return true;
+    }
+    
+    protected void SetUpAllyButton(string scene, string path, int positionIndex)
+    {
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
+        if (specialNode != null)
+        {
+            var buttonScene = GD.Load<PackedScene>(scene);
+            if (buttonScene != null)
+            {
+                var button = buttonScene.Instantiate<NAllyButton>();
+                if (button != null)
+                {
+                    TextureRect? textureNode = button.GetNodeOrNull<TextureRect>("%ButtonVisual");
+                    if (textureNode != null)
+                    {
+                        textureNode.Texture = GD.Load<Texture2D>(path);
+                    }
+                    button.owner = this;
+                    specialNode.AddChildSafely(button);
+                    button.Position += new Vector2(-125f, 50f - (75f * positionIndex));
+                }
+            }
+        }
     }
 }
