@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,6 +11,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
@@ -23,10 +25,10 @@ public sealed class LittleRed : AbstractAllyMonster
     public override int NumIntents => 1;
     public override string TargetTexturePath => "RedIcon.png".UIImagePath();
 
-    private int BeastHuntDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int HollowPointDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int BeastHuntDamage => 9;
+    private int HollowPointDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int HollowPointHits => 2;
-    private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int BulletShowerHits => 3;
     private int StrengthAmount => 3;
     private int HealAmount => 10;
@@ -78,17 +80,53 @@ public sealed class LittleRed : AbstractAllyMonster
         var beastHuntState = GetBeastHuntState();
         var catchBreathState = GetCatchBreathState();
         var hollowPointShellState = GetHollowPointShellState();
+        var bulletShowerState = GetBulletShowerState();
+        
+        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
 
-        hollowPointShellState.FollowUpState = catchBreathState;
-        catchBreathState.FollowUpState = beastHuntState;
-        beastHuntState.FollowUpState = hollowPointShellState;
+        hollowPointShellState.FollowUpState = moveBranch;
+        catchBreathState.FollowUpState = moveBranch;
+        beastHuntState.FollowUpState = moveBranch;
+        bulletShowerState.FollowUpState = moveBranch;
 
         states.Add(beastHuntState);
         states.Add(catchBreathState);
         states.Add(hollowPointShellState);
+        states.Add(bulletShowerState);
+        states.Add(moveBranch);
         
-        return new MonsterMoveStateMachine(states, hollowPointShellState);
+        return new MonsterMoveStateMachine(states, moveBranch);
     }
+    
+    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine)
+    {
+        if (enraged)
+        {
+            if (LastMove(stateMachine, BULLET_SHOWER))
+            {
+                return HOLLOW_POINT_SHELL;
+            }
+            else
+            {
+                return BULLET_SHOWER;
+            }
+        }
+        else
+        {
+            if (LastMove(stateMachine, CATCH_BREATH) || (LastMove(stateMachine, HOLLOW_POINT_SHELL) && LocalContext.GetMe(CombatState)?.PlayerCombatState?.TurnNumber == 2))
+            {
+                return BEAST_HUNT;
+            } else if (LastMove(stateMachine, HOLLOW_POINT_SHELL))
+            {
+                return CATCH_BREATH;
+            }
+            else
+            {
+                return HOLLOW_POINT_SHELL;
+            }
+        }
+    }
+
 
     public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
     {

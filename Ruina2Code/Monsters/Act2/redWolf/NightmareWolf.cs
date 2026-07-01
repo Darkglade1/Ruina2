@@ -17,7 +17,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
 public sealed class NightmareWolf : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 480, 450);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 550, 500);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
@@ -71,9 +71,9 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         var fangState = GetFangState();
         var huntState = GetHuntState();
 
-        clawState.FollowUpState = huntState;
-        huntState.FollowUpState = fangState;
-        fangState.FollowUpState = clawState;
+        clawState.FollowUpState = fangState;
+        huntState.FollowUpState = clawState;
+        fangState.FollowUpState = huntState;
 
         states.Add(clawState);
         states.Add(huntState);
@@ -89,9 +89,9 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         var fangState = GetFangState();
         var huntState = GetHuntState();
 
-        fangState.FollowUpState = huntState;
-        huntState.FollowUpState = howlState;
-        howlState.FollowUpState = fangState;
+        fangState.FollowUpState = howlState;
+        huntState.FollowUpState = fangState;
+        howlState.FollowUpState = huntState;
 
         states.Add(howlState);
         states.Add(huntState);
