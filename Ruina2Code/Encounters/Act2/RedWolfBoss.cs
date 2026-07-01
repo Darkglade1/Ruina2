@@ -16,13 +16,13 @@ public sealed class RedWolfBoss : CustomEncounterModel
     {
     }
     public override string BossNodePath => "LittleRed/Red".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconOutlinePath => "LittleRed/Red.png".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconPath => "LittleRed/RedOutline.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconPath => "LittleRed/Red.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconOutlinePath => "LittleRed/RedOutline.png".MonsterImagePath().SimplifyPath();
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
-            ["LittleRed/background/night_forest_bg_00.tscn".MonsterImagePath()], 
-            "LittleRed/background/night_forest_bg_00.tscn".MonsterImagePath());
+            ["night_forest_bg.tscn".BackgroundImagePath()], 
+            "night_forest_bg.tscn".BackgroundImagePath());
     }
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => act is Briah;

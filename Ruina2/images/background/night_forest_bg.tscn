@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://Ruina2/images/monsters/LittleRed/background/NightForest.png" id="1_25cb8"]
+[ext_resource type="Texture2D" path="res://Ruina2/images/background/NightForest.png" id="1_25cb8"]
 
 [node name="Background" type="TextureRect"]
 anchors_preset = 8

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nema0sdyi626"
-path="res://.godot/imported/NightForest.png-74e7154859d6d73a4e8c39fd7e15eaa1.ctex"
+path="res://.godot/imported/NightForest.png-e67a0fbae6cc801400d7fff4b4365608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/monsters/LittleRed/background/NightForest.png"
-dest_files=["res://.godot/imported/NightForest.png-74e7154859d6d73a4e8c39fd7e15eaa1.ctex"]
+source_file="res://Ruina2/images/background/NightForest.png"
+dest_files=["res://.godot/imported/NightForest.png-e67a0fbae6cc801400d7fff4b4365608.ctex"]
 
 [params]
 
