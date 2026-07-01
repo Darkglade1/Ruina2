@@ -103,13 +103,13 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         await Cmd.Wait(waitTime);
     }
     
-    protected async Task ResetIdle()
+    protected virtual async Task ResetIdle()
     {
         await WaitAnimation();
         await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
     }
     
-    protected async Task ResetIdle(float waitTime)
+    protected virtual async Task ResetIdle(float waitTime)
     {
         await WaitAnimation(waitTime);
         await CreatureCmd.TriggerAnim(Creature, "Idle", 0);

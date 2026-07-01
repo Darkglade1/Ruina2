@@ -45,7 +45,7 @@ public static class PatchTakeTurn
 {
     public static bool Prefix(Creature __instance, ref Task __result)
     {
-        if (__instance.Monster is AbstractMultiIntentMonster && __instance.IsAlive)
+        if (__instance.Monster is AbstractMultiIntentMonster)
         {
             __result = Wrap(__instance);
             return false;
@@ -134,6 +134,10 @@ public static class PatchUpdateVisuals
             {
                 __instance.Modulate = Color.Color8(255, 255, 255);
             }
+        }
+        else
+        {
+            __instance.Modulate = Color.Color8(255, 255, 255);
         }
     }
 }

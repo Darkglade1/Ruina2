@@ -22,7 +22,7 @@ public abstract class RuinaAttackIntent : AttackIntent
             intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_ATTACK.description");
             intentDescription.Add("Target", targetCreature.Name);
         }
-        else if (owner.Monster is AbstractAllyMonster && targetCreature != null)
+        else if (owner.Monster is AbstractAllyMonster ally && ally.IsAlly && targetCreature != null)
         {
             intentDescription = new LocString("intents", "RUINA2-ALLY_ATTACK.description");
             intentDescription.Add("Target", targetCreature.Name);

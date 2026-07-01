@@ -3,18 +3,23 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
@@ -34,6 +39,8 @@ public sealed class LittleRed : AbstractAllyMonster
     private int HealAmount => 10;
     private int DebuffAmt = 1;
     public bool enraged;
+    public bool killedWolf;
+    private bool attackingWolf;
 
     protected override string VisualsPath => "LittleRed/little_red.tscn".MonsterImagePath();
 
@@ -51,7 +58,7 @@ public sealed class LittleRed : AbstractAllyMonster
         {
             node.Position = new Vector2(0, 200);
         }
-        //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
+        await PowerCmd.Apply<Fury>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 
     private MoveState GetBeastHuntState()
@@ -158,10 +165,20 @@ public sealed class LittleRed : AbstractAllyMonster
             } else {
                 await Shoot2Animation(targets);
             }
-            await DamageCmd.Attack(HollowPointDamage)
+            if (OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
+            {
+                attackingWolf = true;
+            }
+            AttackCommand attackCommand = await DamageCmd.Attack(HollowPointDamage)
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
+            var targetKilled = attackCommand.Results.SelectMany(r => r)
+                .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
+            if (targetKilled)
+            {
+                await OnKillWolf();
+            }
             await ResetIdle();
         }
     }
@@ -169,10 +186,20 @@ public sealed class LittleRed : AbstractAllyMonster
     private async Task BeastHunt(IReadOnlyList<Creature> targets)
     {
         await SlashAnimation(targets);
-        await DamageCmd.Attack(BeastHuntDamage)
+        if (OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
+        {
+            attackingWolf = true;
+        }
+        AttackCommand attackCommand = await DamageCmd.Attack(BeastHuntDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
+        var targetKilled = attackCommand.Results.SelectMany(r => r)
+            .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
+        if (targetKilled)
+        {
+            await OnKillWolf();
+        }
         await ApplyPowerAndSkipNextDurationTick<VulnerablePower>(targets, DebuffAmt);
         await ResetIdle();
     }
@@ -196,6 +223,66 @@ public sealed class LittleRed : AbstractAllyMonster
                 .Execute(null);
             await ResetIdle();
         }
+    }
+
+    private async Task OnKillWolf()
+    {
+        killedWolf = true;
+        SetToSide(CombatSide.Enemy);
+        await ResetIdle(0.5f);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.killWolf"), Creature, VfxColor.Red);
+        await WaitAnimation(3.0f);
+        await CreatureCmd.Kill(Creature);
+    }
+
+    public async Task Enrage()
+    {
+        if (attackingWolf || killedWolf)
+        {
+            return;
+        }
+        IsAlly = false;
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.killStolen"), Creature, VfxColor.Red);
+        Sfx.LITTLE_RED_RAGE.Play();
+        SetToSide(CombatSide.Enemy);
+        FlipHorizontal();
+        RemoveAllyBlockButton();
+        await CreatureCmd.Heal(Creature, Creature.MaxHp);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
+        enraged = true;
+        NCreature? creatureNode = Creature.GetCreatureNode();
+        if (creatureNode != null)
+        {
+            await TaskHelper.RunSafely(creatureNode.RefreshIntents());
+        }
+        var player = LocalContext.GetMe(CombatState);
+        if (player != null)
+        {
+            Targets[0] = player.Creature;
+        }
+    }
+    
+    public override Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature && !enraged && !killedWolf)
+        {
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.onAllyDeath"), Creature, VfxColor.Red);
+            if (OtherSideTargetMonster?.Monster is NightmareWolf wolf && wolf.Creature.IsAlive)
+            {
+                wolf.OnRedDeath();
+            }
+        }
+        return Task.CompletedTask;
+    }
+    
+    protected override async Task ResetIdle()
+    {
+        await base.ResetIdle();
+        attackingWolf = false;
     }
 
     private async Task SlashAnimation(IReadOnlyList<Creature> targets)

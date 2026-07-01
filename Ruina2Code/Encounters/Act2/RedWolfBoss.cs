@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 

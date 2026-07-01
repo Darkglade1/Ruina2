@@ -168,6 +168,26 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
         await ResetIdle(1.0f);
     }
 
+    public void OnRedDeath()
+    {
+        Sfx.WOLF_FOG.Play();
+    }
+    
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature && OtherSideTargetMonster?.Monster is LittleRed red)
+        {
+            if (red.Creature.IsAlive && !red.killedWolf)
+            {
+                await red.Enrage();
+            }
+        }
+    }
+
     private async Task BiteAnimation(IReadOnlyList<Creature> targets)
     {
         await AnimationAction("Bite", Sfx.WOLF_BITE, targets);
@@ -187,20 +207,4 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         return GenerateAnimatorFromKeys(["Idle", "Bite", "Claw", "Howl"], controller);
     }
-
-    // public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    // {
-    //     var idle = new AnimState("Idle", true);
-    //     var bite = new AnimState("Bite");
-    //     var claw = new AnimState("Claw");
-    //     var howl = new AnimState("Howl");
-    //
-    //     var animator = new CreatureAnimator(idle, controller);
-    //     animator.AddAnyState("Idle", idle);
-    //     animator.AddAnyState("Bite", bite);
-    //     animator.AddAnyState("Claw", claw);
-    //     animator.AddAnyState("Howl", howl);
-    //
-    //     return animator;
-    // }
 }

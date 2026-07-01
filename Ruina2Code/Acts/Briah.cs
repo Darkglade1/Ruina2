@@ -4,6 +4,8 @@ using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Models.Encounters;
 using Ruina2.Ruina2Code.Encounters.Act2;
 
+namespace Ruina2.Ruina2Code.Acts;
+
 public class Briah() : CustomActModel(1)
 {
     public override IEnumerable<EncounterModel> GenerateAllEncounters()

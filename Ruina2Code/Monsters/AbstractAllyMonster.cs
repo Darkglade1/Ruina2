@@ -2,8 +2,10 @@ using System.Reflection;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 
@@ -13,6 +15,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
 {
     public bool IsAlly = true;
     public bool IsTargetableByPlayers = false;
+    public bool CanApplyPowersToAllies;
 
     public AbstractAllyMonster()
     {
@@ -25,6 +28,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         SetToSide(CombatSide.Player);
         FlipHorizontal();
         SetUpAllyButton("res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
+        CanApplyPowersToAllies = true;
     }
     
     protected void SetToSide(CombatSide side)
@@ -46,6 +50,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         if (side == CombatSide.Player && IsAlly)
         {
             Creature.Block = 0;
+            CanApplyPowersToAllies = false;
         }
         return Task.CompletedTask;
     }
@@ -54,16 +59,35 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         if (creature.Monster == this)
         {
-            if (IsAlly && IsTargetableByPlayers)
+            if (IsAlly && (IsTargetableByPlayers || CanApplyPowersToAllies))
             {
                 return true;
             }
-            else
+            else if (IsAlly)
             {
                 return creature.CombatState?.CurrentSide == CombatSide.Enemy;
             }
         }
         return true;
+    }
+    
+    public override bool TryModifyPowerAmountReceived(
+        PowerModel canonicalPower,
+        Creature target,
+        Decimal amount,
+        Creature? applier,
+        out Decimal modifiedAmount)
+    {
+        if (target == Creature && applier != null && applier.IsPlayer)
+        {
+            if (IsAlly && !IsTargetableByPlayers)
+            {
+                modifiedAmount = 0M;
+                return true;
+            }
+        }
+        modifiedAmount = amount;
+        return false;
     }
     
     protected void SetUpAllyButton(string scene, string path, int positionIndex)
@@ -78,6 +102,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
                 var button = buttonScene.Instantiate<NAllyButton>();
                 if (button != null)
                 {
+                    button.Name = "AllyBlockButton";
                     TextureRect? textureNode = button.GetNodeOrNull<TextureRect>("%ButtonVisual");
                     if (textureNode != null)
                     {
@@ -87,6 +112,20 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
                     specialNode.AddChildSafely(button);
                     button.Position += new Vector2(-125f, 50f - (75f * positionIndex));
                 }
+            }
+        }
+    }
+    
+    protected void RemoveAllyBlockButton()
+    {
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
+        if (specialNode != null)
+        {
+            var allyBlockButton = specialNode.GetNodeOrNull<NAllyButton>("AllyBlockButton");
+            if (allyBlockButton != null)
+            {
+                specialNode.RemoveChildSafely(allyBlockButton);
             }
         }
     }
