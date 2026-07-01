@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
@@ -130,6 +131,7 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
             await ResetIdle(0.25f);
             await WaitAnimation(0.25f);
         }
+        await ApplyPowerAndSkipNextDurationTick<Bleed>(targets, BleedAmount);
     }
     
     private async Task Hunt(IReadOnlyList<Creature> targets)

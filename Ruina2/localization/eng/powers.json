@@ -1,5 +1,9 @@
 {
   "RUINA2-FURY.description": "",
   "RUINA2-FURY.smartDescription": "[gold]Little Red[/gold] begins as your [green]ally[/green]. If she lands the killing blow on the [gold]Wolf[/gold], you win. If the [gold]Wolf[/gold] dies by any other means, [gold]Little Red[/gold] heals to full HP, enters an [red]enraged[/red] state, and becomes your [red]enemy[/red].",
-  "RUINA2-FURY.title": "Fury With No Outlet"
+  "RUINA2-FURY.title": "Fury With No Outlet",
+
+  "RUINA2-BLEED.description": "Whenever this creature hits with an attack this turn, it takes damage.",
+  "RUINA2-BLEED.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
+  "RUINA2-BLEED.title": "Bleed"
 }
