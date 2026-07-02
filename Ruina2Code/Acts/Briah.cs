@@ -14,12 +14,9 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<BowlbugsNormal>(),
             ModelDb.Encounter<BowlbugsWeak>(),
             ModelDb.Encounter<ChompersNormal>(),
-            ModelDb.Encounter<DecimillipedeElite>(),
-            ModelDb.Encounter<EntomancerElite>(),
             ModelDb.Encounter<ExoskeletonsNormal>(),
             ModelDb.Encounter<ExoskeletonsWeak>(),
             ModelDb.Encounter<HunterKillerNormal>(),
-            ModelDb.Encounter<InfestedPrismsElite>(),
             ModelDb.Encounter<LouseProgenitorNormal>(),
             ModelDb.Encounter<MytesNormal>(),
             ModelDb.Encounter<OvicopterNormal>(),
@@ -28,6 +25,9 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<TheObscuraNormal>(),
             ModelDb.Encounter<ThievingHopperWeak>(),
             ModelDb.Encounter<TunnelerWeak>(),
+            ModelDb.Encounter<MountainElite>(),
+            //ModelDb.Encounter<EntomancerElite>(),
+            //ModelDb.Encounter<InfestedPrismsElite>(),
             ModelDb.Encounter<RedWolfBoss>(),
         ];
     }

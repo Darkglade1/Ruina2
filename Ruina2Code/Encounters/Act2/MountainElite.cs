@@ -1,29 +1,24 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
-using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Extensions;
-using Ruina2.Ruina2Code.Monsters.Act2.redWolf;
+using Ruina2.Ruina2Code.Monsters.Act2.mountain;
 
 namespace Ruina2.Ruina2Code.Encounters.Act2;
 
-public sealed class RedWolfBoss : CustomEncounterModel
+public sealed class MountainElite : CustomEncounterModel
 {
-    public RedWolfBoss() : base(RoomType.Boss)
+    public MountainElite() : base(RoomType.Elite)
     {
     }
-    public override string BossNodePath => "LittleRed/Red".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconPath => "LittleRed/Red.png".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconOutlinePath => "LittleRed/RedOutline.png".MonsterImagePath().SimplifyPath();
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
-            ["night_forest_bg.tscn".BackgroundImagePath()], 
-            "night_forest_bg.tscn".BackgroundImagePath());
+            ["bodies_bg.tscn".BackgroundImagePath()], 
+            "bodies_bg.tscn".BackgroundImagePath());
     }
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
@@ -34,8 +29,8 @@ public sealed class RedWolfBoss : CustomEncounterModel
     {
         get
         {
-            yield return ModelDb.Monster<LittleRed>();
-            yield return ModelDb.Monster<NightmareWolf>();
+            yield return ModelDb.Monster<Corpse>();
+            yield return ModelDb.Monster<Mountain>();
         }
     }
 
@@ -43,8 +38,8 @@ public sealed class RedWolfBoss : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<LittleRed>().ToMutable(), null),
-            (ModelDb.Monster<NightmareWolf>().ToMutable(), null)
+            (ModelDb.Monster<Corpse>().ToMutable(), null),
+            (ModelDb.Monster<Mountain>().ToMutable(), null)
         };
     }
 }

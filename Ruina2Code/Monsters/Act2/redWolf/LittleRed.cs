@@ -105,7 +105,7 @@ public sealed class LittleRed : AbstractAllyMonster
         return new MonsterMoveStateMachine(states, moveBranch);
     }
     
-    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine)
+    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
         if (enraged)
         {

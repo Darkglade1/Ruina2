@@ -21,6 +21,13 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         if (log.Count == 0) return false;
         return log[log.Count - 1].Id == moveId;
     }
+    
+    protected bool LastMoveBefore(MonsterMoveStateMachine stateMachine, string moveId)
+    {
+        var log = stateMachine.StateLog;
+        if (log.Count < 2) return false;
+        return log[log.Count - 2].Id == moveId;
+    }
 
     protected bool LastTwoMoves(MonsterMoveStateMachine stateMachine, string moveId)
     {
@@ -63,17 +70,49 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         powerList[0].SkipNextDurationTick = true;
     }
     
-    protected async Task AnimationAction(string animationKey, ModSound sfx, IReadOnlyList<Creature>? targets)
+    protected async Task AnimationAction(string animationKey, ModSound sfx, IReadOnlyList<Creature>? targets, float volume)
     {
         if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
         {
             await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
-            sfx.Play();
+            sfx.Play(0, volume);
         }
+    }
+    
+    protected async Task AnimationAction(string animationKey, ModSound sfx, IReadOnlyList<Creature>? targets)
+    {
+        await AnimationAction(animationKey, sfx, targets, 1);
     }
 
     protected async Task AnimationAction(string animationKey, ModSound sfx)
     {
-        await AnimationAction(animationKey, sfx, null);
+        await AnimationAction(animationKey, sfx, null, 1);
+    }
+    
+    protected async Task AnimationAction(string animationKey, ModSound sfx, float volume)
+    {
+        await AnimationAction(animationKey, sfx, null, volume);
+    }
+    
+    protected async Task WaitAnimation()
+    {
+        await Cmd.Wait(0.5f);
+    }
+    
+    protected async Task WaitAnimation(float waitTime)
+    {
+        await Cmd.Wait(waitTime);
+    }
+    
+    protected virtual async Task ResetIdle()
+    {
+        await WaitAnimation();
+        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+    }
+    
+    protected virtual async Task ResetIdle(float waitTime)
+    {
+        await WaitAnimation(waitTime);
+        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
     }
 }

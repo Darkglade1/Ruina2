@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Monsters;
 public class ConditionalBranchState : MonsterState
 {
     private readonly string _stateId;
-    private readonly Func<Creature, Rng, MonsterMoveStateMachine, string> _selectNextState;
+    private readonly Func<Creature, Rng, MonsterMoveStateMachine, int, string> _selectNextState;
     private readonly int intentNum;
     
     public override string Id => _stateId;
@@ -19,7 +19,7 @@ public class ConditionalBranchState : MonsterState
     
     public ConditionalBranchState(
         string stateId, 
-        Func<Creature, Rng, MonsterMoveStateMachine, string> selectNextState, int num)
+        Func<Creature, Rng, MonsterMoveStateMachine, int, string> selectNextState, int num)
     {
         _stateId = stateId;
         _selectNextState = selectNextState;
@@ -30,9 +30,9 @@ public class ConditionalBranchState : MonsterState
     {
         if (owner.Monster is AbstractMultiIntentMonster monster && monster.MultiIntentMoveStateMachines != null)
         {
-            return _selectNextState(owner, rng, monster.MultiIntentMoveStateMachines[intentNum]);
+            return _selectNextState(owner, rng, monster.MultiIntentMoveStateMachines[intentNum], intentNum);
         }
-        return _selectNextState(owner, rng, owner.Monster.MoveStateMachine);
+        return _selectNextState(owner, rng, owner.Monster.MoveStateMachine, intentNum);
     }
     
     public override void RegisterStates(Dictionary<string, MonsterState> monsterStates)

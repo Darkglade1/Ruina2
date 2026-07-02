@@ -214,7 +214,7 @@ public static bool UpdateTrack_Prefix(NRunMusicController __instance)
         if (!_isPlayingRuinaMusic || _currentTrackType != TrackType.Boss)
         {
             StopBaseGameMusic(__instance);
-            RuinaAudio.FadeIn("Roland1.ogg".MusicPath().SimplifyPath(), 1f);
+            RuinaAudio.FadeIn(AbstractRuinaAct.GetBGMBasedOnBoss(), 1f);
             _isPlayingRuinaMusic = true;
             _currentTrackType = TrackType.Boss;
         }
@@ -227,7 +227,7 @@ public static bool UpdateTrack_Prefix(NRunMusicController __instance)
         if (!_isPlayingRuinaMusic || _currentTrackType != TrackType.Elite)
         {
             StopBaseGameMusic(__instance);
-            RuinaAudio.FadeIn("Warning2.ogg".MusicPath().SimplifyPath(), 1f);
+            RuinaAudio.FadeIn(AbstractRuinaAct.GetBGMBasedOnElite(), 1f);
             _isPlayingRuinaMusic = true;
             _currentTrackType = TrackType.Elite;
         }

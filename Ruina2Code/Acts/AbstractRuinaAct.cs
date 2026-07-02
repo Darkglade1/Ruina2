@@ -36,7 +36,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     
     public static string GetBGMBasedOnBoss()
     {
-        string path = "";
+        string path = "Roland2.ogg";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
         if (localPlayer?.Creature.CombatState?.Encounter is RedWolfBoss)
         {
@@ -47,12 +47,13 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     
     public static string GetBGMBasedOnElite()
     {
-        // var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-        // if (localPlayer?.Creature.CombatState?.Encounter is RedWolfEncounter)
-        // {
-        //     
-        // }
-        return "Warning2.ogg".MusicPath().SimplifyPath();
+        string path = "Warning2.ogg";
+        var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
+        if (localPlayer?.Creature.CombatState?.Encounter is MountainElite)
+        {
+            path = "Warning3.ogg";
+        }
+        return path.MusicPath().SimplifyPath();
     }
     
     public static string GetBGMBasedOnFloor(RuinaFloor floor)

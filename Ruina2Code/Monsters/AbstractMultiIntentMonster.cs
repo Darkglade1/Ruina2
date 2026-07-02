@@ -92,27 +92,5 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         }
         return true;
     }
-
-    protected async Task WaitAnimation()
-    {
-        await Cmd.Wait(0.5f);
-    }
-    
-    protected async Task WaitAnimation(float waitTime)
-    {
-        await Cmd.Wait(waitTime);
-    }
-    
-    protected virtual async Task ResetIdle()
-    {
-        await WaitAnimation();
-        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
-    }
-    
-    protected virtual async Task ResetIdle(float waitTime)
-    {
-        await WaitAnimation(waitTime);
-        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
-    }
 }
 

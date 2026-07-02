@@ -17,7 +17,7 @@ public abstract class RuinaAttackIntent : AttackIntent
     {
         Creature? targetCreature = GetIntentTargetedCreature(this, owner);
         LocString intentDescription;
-        if (targetCreature?.Monster is AbstractAllyMonster)
+        if (targetCreature?.Monster is AbstractMultiIntentMonster)
         {
             intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_ATTACK.description");
             intentDescription.Add("Target", targetCreature.Name);

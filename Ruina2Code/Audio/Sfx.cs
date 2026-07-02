@@ -14,4 +14,11 @@ public static class Sfx
     public static readonly ModSound LITTLE_RED_SLASH = new("RedHood_Atk1.ogg".SfxPath());
     public static readonly ModSound LITTLE_RED_GUN = new("RedHood_Gun.ogg".SfxPath());
     public static readonly ModSound LITTLE_RED_RAGE = new("RedHood_Rage.ogg".SfxPath());
+    
+    public static readonly ModSound RAM = new("Danggo_Lv3_Atk.ogg".SfxPath());
+    public static readonly ModSound SCREECH = new("Danggo_Lv2_Shout.ogg".SfxPath());
+    public static readonly ModSound VOMIT = new("Danggo_Lv3_Special.ogg".SfxPath());
+    public static readonly ModSound GROW = new("Danggo_LvUp.ogg".SfxPath());
+    public static readonly ModSound SHRINK = new("Danggo_LvDown.ogg".SfxPath());
+    public static readonly ModSound SPAWN = new("Danggo_Birth.ogg".SfxPath());
 }
