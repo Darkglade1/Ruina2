@@ -5,5 +5,9 @@
 
   "RUINA2-BLEED.description": "Whenever this creature hits with an attack this turn, it takes damage.",
   "RUINA2-BLEED.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
-  "RUINA2-BLEED.title": "Bleed"
+  "RUINA2-BLEED.title": "Bleed",
+
+  "RUINA2-ABSORPTION.description": "",
+  "RUINA2-ABSORPTION.smartDescription": "[gold]Shrinks[/gold] to a lower [gold]Stage[/gold] on death. [gold]Grows[/gold] to a higher [gold]Stage[/gold] when at full HP.",
+  "RUINA2-ABSORPTION.title": "Absorption"
 }

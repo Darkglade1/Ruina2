@@ -13,7 +13,7 @@ public sealed class Corpse : AbstractMultiIntentMonster
     public override int MinInitialHp => 40;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
-    public override string TargetTexturePath => "RedIcon.png".UIImagePath();
+    public override string TargetTexturePath => "CorpseIcon.png".UIImagePath();
 
     protected override string VisualsPath => "Corpse/corpse.tscn".MonsterImagePath();
 
