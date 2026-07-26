@@ -15,6 +15,7 @@ namespace Ruina2.Ruina2Code.Monsters;
 
 public abstract class AbstractRuinaMonster : CustomMonsterModel
 {
+    public bool IsMassAttacking;
     protected bool LastMove(MonsterMoveStateMachine stateMachine, string moveId)
     {
         var log = stateMachine.StateLog;

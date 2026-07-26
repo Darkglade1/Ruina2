@@ -12,7 +12,7 @@ public class Briah() : CustomActModel(1)
     {
         return [
             ModelDb.Encounter<BowlbugsNormal>(),
-            ModelDb.Encounter<BowlbugsWeak>(),
+            ModelDb.Encounter<NosferatuWeak>(),
             ModelDb.Encounter<ChompersNormal>(),
             ModelDb.Encounter<ExoskeletonsNormal>(),
             ModelDb.Encounter<ExoskeletonsWeak>(),

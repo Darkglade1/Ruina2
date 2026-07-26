@@ -17,14 +17,13 @@ public abstract class RuinaAttackIntent : AttackIntent
     {
         Creature? targetCreature = GetIntentTargetedCreature(this, owner);
         LocString intentDescription;
-        if (targetCreature?.Monster is AbstractMultiIntentMonster)
-        {
-            intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_ATTACK.description");
-            intentDescription.Add("Target", targetCreature.Name);
-        }
-        else if (owner.Monster is AbstractAllyMonster ally && ally.IsAlly && targetCreature != null)
+        if (owner.Monster is AbstractAllyMonster ally && ally.IsAlly && targetCreature != null)
         {
             intentDescription = new LocString("intents", "RUINA2-ALLY_ATTACK.description");
+            intentDescription.Add("Target", targetCreature.Name);
+        } else if (targetCreature?.Monster is AbstractMultiIntentMonster)
+        {
+            intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_ATTACK.description");
             intentDescription.Add("Target", targetCreature.Name);
         }
         else
@@ -47,7 +46,7 @@ public abstract class RuinaAttackIntent : AttackIntent
 
         if (player != null)
         {
-            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);   
+            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);   
         }
         return Math.Max(0, (int) totalDamage);
     }

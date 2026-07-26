@@ -4,5 +4,7 @@
   "RUINA2-ALLY_ATTACK.description": "This [green]ally[/green] intends to [gold]Attack[/gold] [gold]{Target}[/gold] for [blue]{Damage}[/blue] damage{Repeat:plural:| [blue]{}[/blue] times}.",
   "RUINA2-ALLY_DEBUFF.description": "This [green]ally[/green] intends to apply a [gold]Debuff[/gold] to [gold]{Target}[/gold].",
   "RUINA2-ALLY_DEFEND.description": "This [green]ally[/green] intends to [gold]Block[/gold] on its turn.",
-  "RUINA2-ALLY_BUFF.description": "This [green]ally[/green] intends to use a [gold]Buff[/gold]."
+  "RUINA2-ALLY_BUFF.description": "This [green]ally[/green] intends to use a [gold]Buff[/gold].",
+  "RUINA2-MULTI_INTENT_MASS_ATTACK.description": "This enemy intends to [gold]Attack[/gold] [gold]ALL opponents[/gold] for [blue]{Damage}[/blue] damage{Repeat:plural:| [blue]{}[/blue] times}.",
+  "RUINA2-ALLY_MASS_ATTACK.description": "This [green]ally[/green] intends to [gold]Attack[/gold] [gold]ALL opponents[/gold] for [blue]{Damage}[/blue] damage{Repeat:plural:| [blue]{}[/blue] times}."
 }

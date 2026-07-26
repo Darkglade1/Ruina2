@@ -4,11 +4,13 @@ using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Intents;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
 
@@ -163,6 +165,11 @@ public static class PatchTargetTextureIcon
                     textureSprite.Texture = PreloadManager.Cache.GetTexture2D(texturePath);
                     __instance._intentHolder.AddChildSafely(textureSprite);
                 }
+                else
+                {
+                    var targetTextureNode = __instance._intentHolder.GetNodeOrNull<Sprite2D>(nodeName);
+                    targetTextureNode.Texture = PreloadManager.Cache.GetTexture2D(texturePath);
+                }
             }
             else
             {
@@ -205,6 +212,80 @@ public static class RemoveAlliesFromPossibleTargets
         if (removedAlly)
         {
             __result = newResult;
+        }
+    }
+}
+
+[HarmonyPatch(typeof(AttackCommand), nameof(AttackCommand.GetPossibleTargets))]
+public static class PatchAddCreaturesToPossibleTargetsForMassAttacks
+{
+    public static void Postfix(AttackCommand __instance, ref IReadOnlyList<Creature> __result)
+    {
+        if (__instance.Attacker != null && __instance.Attacker.CombatState != null && __instance.Attacker?.Monster is AbstractMultiIntentMonster monster && monster.IsMassAttacking)
+        {
+            var newList = new List<Creature>(__result.ToList());
+            if (monster is AbstractAllyMonster ally && ally.IsAlly)
+            {
+                foreach (var hittableEnemy in __instance.Attacker.CombatState.HittableEnemies)
+                {
+                    if (!(hittableEnemy.Monster is AbstractAllyMonster))
+                    {
+                        newList.Add(hittableEnemy);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var hittableEnemy in __instance.Attacker.CombatState.HittableEnemies)
+                {
+                    if (hittableEnemy.Monster is AbstractAllyMonster hittableAlly && hittableAlly.IsAlly)
+                    {
+                        newList.Add(hittableEnemy);
+                    }
+                }
+            }
+            __result = newList;
+        }
+    }
+}
+
+[HarmonyPatch(typeof(IntentAnimData), nameof(IntentAnimData.GetAnimationFrame))]
+public static class PatchIntentAnimDataGetAnimationFrame
+{
+    public static bool Prefix(string animation, int frame, ref string __result)
+    {
+        if (animation == "mass_attack")
+        {
+            __result = "intent_mass_attack.png".UIImagePath();
+            return false;
+        }
+        return true;
+    }
+}
+
+[HarmonyPatch(typeof(IntentAnimData), nameof(IntentAnimData.GetAnimationFrameCount))]
+public static class PatchIntentAnimDataGetAnimationFrameCount
+{
+    public static bool Prefix(string animation, ref int __result)
+    {
+        if (animation == "mass_attack")
+        {
+            __result = 0;
+            return false;
+        }
+        return true;
+    }
+}
+
+[HarmonyPatch(typeof(NIntent), nameof(NIntent.UpdateVisuals))]
+public static class PatchUpdateVisualsMassAttack
+{
+    public static void Postfix(NIntent __instance)
+    {
+        if (__instance._animationName == "mass_attack")
+        {
+            __instance._animationFrames.Clear();
+            __instance._animationFrames.Add(GD.Load<Texture2D>("intent_mass_attack.png".UIImagePath()));
         }
     }
 }

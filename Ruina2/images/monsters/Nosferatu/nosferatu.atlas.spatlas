@@ -1,0 +1,1 @@
+{"atlas_data":"nosferatu.png\nsize:1106,716\nfilter:Linear,Linear\nNosAttack1\nbounds:609,2,469,354\noffsets:0,0,484,399\nNosAttack2\nbounds:2,60,605,296\nNosIdle\nbounds:702,382,402,332\nNosSpecial\nbounds:2,358,698,356\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Nosferatu/nosferatu.atlas","specular_texture_prefix":"s"}

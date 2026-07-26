@@ -1,0 +1,1 @@
+{"atlas_data":"bat.png\nsize:585,258\nfilter:Linear,Linear\nBatAttack\nbounds:2,2,471,254\nBatIdle\nbounds:475,34,222,108\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Bat/bat.atlas","specular_texture_prefix":"s"}

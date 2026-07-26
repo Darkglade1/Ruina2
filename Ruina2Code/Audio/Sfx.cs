@@ -21,4 +21,11 @@ public static class Sfx
     public static readonly ModSound GROW = new("Danggo_LvUp.ogg".SfxPath());
     public static readonly ModSound SHRINK = new("Danggo_LvDown.ogg".SfxPath());
     public static readonly ModSound SPAWN = new("Danggo_Birth.ogg".SfxPath());
+    
+    public static readonly ModSound BAT_ATTACK = new("Nosferatu_Atk_Bat.ogg".SfxPath());
+    public static readonly ModSound NOS_CHANGE = new("Nosferatu_Change.ogg".SfxPath());
+    public static readonly ModSound NOS_BLOOD_EAT = new("Nosferatu_Changed_BloodEat.ogg".SfxPath());
+    public static readonly ModSound NOS_GRAB = new("Nosferatu_Changed_Grab.ogg".SfxPath());
+    public static readonly ModSound NOS_SPECIAL = new("Nosferatu_Changed_StrongAtk_Start.ogg".SfxPath());
+    public static readonly ModSound NOS_SPECIAL_EYE = new("Nosferatu_Changed_StrongAtk_Eye.ogg".SfxPath());
 }

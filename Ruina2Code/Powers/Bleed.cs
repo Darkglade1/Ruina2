@@ -27,11 +27,11 @@ public class Bleed() : Ruina2Power
         if (dealer == Owner && props.IsPoweredAttack())
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null);
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null, null);
         }
     }
     
-    public override async Task BeforeSideTurnEnd(
+    public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)
