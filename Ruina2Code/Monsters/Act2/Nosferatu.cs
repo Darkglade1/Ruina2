@@ -28,9 +28,9 @@ public sealed class Nosferatu : AbstractRuinaMonster
 
     protected override string VisualsPath => "Nosferatu/nosferatu.tscn".MonsterImagePath();
 
-    private const string UNBEARABLE_DROUGHT  = "UNBEARABLE_DROUGHT ";
-    private const string MERCILESS_GESTURE  = "MERCILESS_GESTURE ";
-    private const string LOOMING_PRESENCE   = "LOOMING_PRESENCE ";
+    private const string UNBEARABLE_DROUGHT = "UNBEARABLE_DROUGHT";
+    private const string MERCILESS_GESTURE = "MERCILESS_GESTURE";
+    private const string LOOMING_PRESENCE = "LOOMING_PRESENCE";
     
     public override async Task AfterAddedToRoom()
     {
@@ -89,7 +89,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
             if (!LastMove(stateMachine, MERCILESS_GESTURE)) {
                 possibilities.Add(MERCILESS_GESTURE);
             }
-            if (!LastMove(stateMachine, LOOMING_PRESENCE) && !LastMove(stateMachine, LOOMING_PRESENCE)) {
+            if (!LastMove(stateMachine, LOOMING_PRESENCE) && !LastMoveBefore(stateMachine, LOOMING_PRESENCE)) {
                 possibilities.Add(LOOMING_PRESENCE);
             }
             return possibilities[rng.NextInt(possibilities.Count)];

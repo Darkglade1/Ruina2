@@ -9,9 +9,9 @@ using Ruina2.Ruina2Code.Monsters.Act2;
 
 namespace Ruina2.Ruina2Code.Encounters.Act2;
 
-public sealed class NosferatuWeak : CustomEncounterModel
+public sealed class BatsWeak : CustomEncounterModel
 {
-    public NosferatuWeak() : base(RoomType.Monster)
+    public BatsWeak() : base(RoomType.Monster)
     {
     }
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
@@ -22,12 +22,12 @@ public sealed class NosferatuWeak : CustomEncounterModel
     }
     public override bool IsValidForAct(ActModel act) => false;
     public override bool IsWeak => true;
-    public override IEnumerable<EncounterTag> Tags => [RuinaEncounterTags.Nosferatu];
+    public override IEnumerable<EncounterTag> Tags => [RuinaEncounterTags.Bats];
     public override IEnumerable<MonsterModel> AllPossibleMonsters
     {
         get
         {
-            yield return ModelDb.Monster<Nosferatu>();
+            yield return ModelDb.Monster<SanguineBat>();
         }
     }
 
@@ -35,7 +35,9 @@ public sealed class NosferatuWeak : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<Nosferatu>().ToMutable(), null)
+            (ModelDb.Monster<SanguineBat>().ToMutable(), null),
+            (ModelDb.Monster<SanguineBat>().ToMutable(), null),
+            (ModelDb.Monster<SanguineBat>().ToMutable(), null)
         };
     }
 }

@@ -11,9 +11,9 @@ public class Briah() : CustomActModel(1)
     public override IEnumerable<EncounterModel> GenerateAllEncounters()
     {
         return [
-            ModelDb.Encounter<BowlbugsNormal>(),
+            ModelDb.Encounter<BatsWeak>(),
             ModelDb.Encounter<NosferatuWeak>(),
-            ModelDb.Encounter<ChompersNormal>(),
+            ModelDb.Encounter<NosferatuAndBatNormal>(),
             ModelDb.Encounter<ExoskeletonsNormal>(),
             ModelDb.Encounter<ExoskeletonsWeak>(),
             ModelDb.Encounter<HunterKillerNormal>(),
