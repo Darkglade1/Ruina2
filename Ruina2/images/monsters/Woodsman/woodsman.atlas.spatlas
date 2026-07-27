@@ -1,0 +1,1 @@
+{"atlas_data":"woodsman.png\nsize:1505,481\nfilter:Linear,Linear\nFinish\nbounds:406,15,464,398\nrotate:90\nIdle\nbounds:1168,42,437,335\nrotate:90\nSlash\nbounds:2,2,477,402\nrotate:90\nStrike\nbounds:806,2,477,360\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Woodsman/woodsman.atlas","specular_texture_prefix":"s"}

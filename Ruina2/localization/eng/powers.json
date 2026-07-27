@@ -13,5 +13,9 @@
 
   "RUINA2-ABSORPTION.description": "",
   "RUINA2-ABSORPTION.smartDescription": "[gold]Shrinks[/gold] to a lower [gold]Stage[/gold] on death. [gold]Grows[/gold] to a higher [gold]Stage[/gold] when at full HP.",
-  "RUINA2-ABSORPTION.title": "Absorption"
+  "RUINA2-ABSORPTION.title": "Absorption",
+
+  "RUINA2-WARM_HEART.description": "",
+  "RUINA2-WARM_HEART.smartDescription": "At the start of your turn, you gain {Amount:energyIcons()}. At the end of this creature's turn, it gains [gold]Strength[/gold] equal to your unspent [gold]Energy[/gold] (max [blue]{StrengthCap:diff()}[/blue] [gold]Strength[/gold] per turn).",
+  "RUINA2-WARM_HEART.title": "Warm Heart"
 }

@@ -28,4 +28,10 @@ public static class Sfx
     public static readonly ModSound NOS_GRAB = new("Nosferatu_Changed_Grab.ogg".SfxPath());
     public static readonly ModSound NOS_SPECIAL = new("Nosferatu_Changed_StrongAtk_Start.ogg".SfxPath());
     public static readonly ModSound NOS_SPECIAL_EYE = new("Nosferatu_Changed_StrongAtk_Eye.ogg".SfxPath());
+    
+    public static readonly ModSound WoodStrike = new("WoodMachine_AtkStrong.ogg".SfxPath());
+    public static readonly ModSound WoodFinish = new("WoodMachine_Kill.ogg".SfxPath());
+    public static readonly ModSound OzmaGuard = new("Ozma_Guard.ogg".SfxPath());
+    public static readonly ModSound OzmaFin = new("Ozma_StrongAtk_Fin.ogg".SfxPath());
+    public static readonly ModSound OzmaStart = new("Ozma_StrongAtk_Start.ogg".SfxPath());
 }

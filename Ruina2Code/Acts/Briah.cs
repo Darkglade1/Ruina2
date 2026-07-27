@@ -14,7 +14,7 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<BatsWeak>(),
             ModelDb.Encounter<NosferatuWeak>(),
             ModelDb.Encounter<NosferatuAndBatNormal>(),
-            ModelDb.Encounter<ExoskeletonsNormal>(),
+            ModelDb.Encounter<WoodsmanNormal>(),
             ModelDb.Encounter<ExoskeletonsWeak>(),
             ModelDb.Encounter<HunterKillerNormal>(),
             ModelDb.Encounter<LouseProgenitorNormal>(),
