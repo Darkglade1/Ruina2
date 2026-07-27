@@ -20,6 +20,7 @@ public sealed class NosferatuAndBatNormal : CustomEncounterModel
             ["blood_castle_bg.tscn".BackgroundImagePath()], 
             "blood_castle_bg.tscn".BackgroundImagePath());
     }
+    public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
     public override IEnumerable<EncounterTag> Tags => [RuinaEncounterTags.Nosferatu, RuinaEncounterTags.Bats];
     public override IEnumerable<MonsterModel> AllPossibleMonsters
