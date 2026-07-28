@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bitwamttexggt"]
+
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/BadWolf/bad_wolf.tres" id="1_j1ot4"]
+[ext_resource type="Script" uid="uid://d1eh0n6i2pr1r" path="res://Ruina2Code/Nodes/Ruina2NCreatureVisuals.cs" id="1_se58w"]
+
+[node name="BadWolf" type="Node2D"]
+script = ExtResource("1_se58w")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -224.0
+offset_top = -292.0
+offset_right = 124.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2, -127)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-52, -275)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_j1ot4")
+preview_skin = "Default"
+preview_animation = "Idle1"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true

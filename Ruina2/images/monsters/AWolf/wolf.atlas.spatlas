@@ -1,0 +1,1 @@
+{"atlas_data":"wolf.png\nsize:1112,271\nfilter:Linear,Linear\nAttack\nbounds:2,6,420,263\nBlock\nbounds:820,25,244,290\nrotate:90\nIdle\nbounds:424,2,267,394\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/AWolf/wolf.atlas","specular_texture_prefix":"s"}

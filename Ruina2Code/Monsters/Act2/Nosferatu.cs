@@ -100,8 +100,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
     {
         await Attack1Animation(targets);
         var attackCommand = await DamageCmd.Attack(DroughtDamage)
-            .FromMonsterCreature(this)
-            .TargetingCreatures(targets, CombatState)
+            .FromMonster(this)
             .Execute(null);
         await CreatureCmd.Heal(Creature,
             attackCommand.Results.SelectMany(r => r)
@@ -113,8 +112,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
     {
         await Attack2Animation(targets);
         await DamageCmd.Attack(GestureDamage)
-            .FromMonsterCreature(this)
-            .TargetingCreatures(targets, CombatState)
+            .FromMonster(this)
             .Execute(null);
         await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, VulnAmt, Creature,  null);
         await ResetIdle();

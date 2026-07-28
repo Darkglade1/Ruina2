@@ -1,0 +1,1 @@
+{"atlas_data":"jack.png\nsize:498,341\nfilter:Linear,Linear\nBlunt\nbounds:2,22,280,184\nIdle\nbounds:316,190,149,153\nrotate:90\nPierce\nbounds:2,208,312,131\nSlash\nbounds:284,2,212,186\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Jack/jack.atlas","specular_texture_prefix":"s"}

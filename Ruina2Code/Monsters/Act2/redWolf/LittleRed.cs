@@ -53,11 +53,7 @@ public sealed class LittleRed : AbstractAllyMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<NightmareWolf>();
-        var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
-        if (node != null)
-        {
-            node.Position = new Vector2(0, 200);
-        }
+        SetPosition(new Vector2(0, 200));
         await PowerCmd.Apply<Fury>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 

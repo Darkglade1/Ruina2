@@ -71,26 +71,38 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         powerList[0].SkipNextDurationTick = true;
     }
     
-    protected async Task AnimationAction(string animationKey, ModSound sfx, IReadOnlyList<Creature>? targets, float volume)
+    protected void SetPosition(Vector2 position)
+    {
+        var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (node != null)
+        {
+            node.Position = position;
+        }
+    }
+    
+    protected async Task AnimationAction(string animationKey, ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
     {
         if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
         {
             await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
-            sfx.Play(0, volume);
+            if (sfx != null)
+            {
+                sfx.Play(0, volume);   
+            }
         }
     }
     
-    protected async Task AnimationAction(string animationKey, ModSound sfx, IReadOnlyList<Creature>? targets)
+    protected async Task AnimationAction(string animationKey, ModSound? sfx, IReadOnlyList<Creature>? targets)
     {
         await AnimationAction(animationKey, sfx, targets, 1);
     }
 
-    protected async Task AnimationAction(string animationKey, ModSound sfx)
+    protected async Task AnimationAction(string animationKey, ModSound? sfx)
     {
         await AnimationAction(animationKey, sfx, null, 1);
     }
     
-    protected async Task AnimationAction(string animationKey, ModSound sfx, float volume)
+    protected async Task AnimationAction(string animationKey, ModSound? sfx, float volume)
     {
         await AnimationAction(animationKey, sfx, null, volume);
     }

@@ -89,8 +89,7 @@ public sealed class SanguineBat : AbstractRuinaMonster
         {
             await AttackAnimation(targets);
             var attackCommand = await DamageCmd.Attack(BloodsuckingDamage)
-                .FromMonsterCreature(this)
-                .TargetingCreatures(targets, CombatState)
+                .FromMonster(this)
                 .Execute(null);
             await CreatureCmd.Heal(Creature,
                 attackCommand.Results.SelectMany(r => r)
@@ -104,8 +103,7 @@ public sealed class SanguineBat : AbstractRuinaMonster
     {
         await AttackAnimation(targets);
         await DamageCmd.Attack(TeethDamage)
-            .FromMonsterCreature(this)
-            .TargetingCreatures(targets, CombatState)
+            .FromMonster(this)
             .Execute(null);
         await PowerCmd.Apply<Paralysis>(new ThrowingPlayerChoiceContext(), targets, ParalysisAmt, Creature,  null);
         await ResetIdle();

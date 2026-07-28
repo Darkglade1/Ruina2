@@ -105,8 +105,7 @@ public sealed class Woodsman : AbstractRuinaMonster
                 await SlashAnimation(targets);
             } 
             await DamageCmd.Attack(StrikeDamage)
-                .FromMonsterCreature(this)
-                .TargetingCreatures(targets, CombatState)
+                .FromMonster(this)
                 .Execute(null);
             await ResetIdle();
         }
@@ -125,8 +124,7 @@ public sealed class Woodsman : AbstractRuinaMonster
                 await StrikeAnimation(targets);
             }
             await DamageCmd.Attack(LumberDamage)
-                .FromMonsterCreature(this)
-                .TargetingCreatures(targets, CombatState)
+                .FromMonster(this)
                 .Execute(null);
             await ResetIdle();
         }
@@ -136,8 +134,7 @@ public sealed class Woodsman : AbstractRuinaMonster
     {
         await StrikeAnimation(targets);
         await DamageCmd.Attack(PulseDamage)
-            .FromMonsterCreature(this)
-            .TargetingCreatures(targets, CombatState)
+            .FromMonster(this)
             .Execute(null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
         await ResetIdle();

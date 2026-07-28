@@ -8,4 +8,7 @@ public static class RuinaEncounterTags
     
     [CustomEnum] 
     public static EncounterTag Bats;
+    
+    [CustomEnum] 
+    public static EncounterTag Wolf;
 }

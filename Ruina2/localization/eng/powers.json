@@ -8,7 +8,7 @@
   "RUINA2-BLEED.title": "Bleed",
 
   "RUINA2-PARALYSIS.description": "The next Attack you play deals less damage.",
-  "RUINA2-PARALYSIS.smartDescription": "The next Attack you play deals [blue]{DamageReduction:diff()}[/blue]% less damage.",
+  "RUINA2-PARALYSIS.smartDescription": "The next Attack you play deals [blue]{DamageReduction:diff()}%[/blue] less damage.",
   "RUINA2-PARALYSIS.title": "Paralysis",
 
   "RUINA2-ABSORPTION.description": "",
@@ -17,5 +17,9 @@
 
   "RUINA2-WARM_HEART.description": "",
   "RUINA2-WARM_HEART.smartDescription": "At the start of your turn, you gain {Amount:energyIcons()}. At the end of this creature's turn, it gains [gold]Strength[/gold] equal to your unspent [gold]Energy[/gold] (max [blue]{StrengthCap:diff()}[/blue] [gold]Strength[/gold] per turn).",
-  "RUINA2-WARM_HEART.title": "Warm Heart"
+  "RUINA2-WARM_HEART.title": "Warm Heart",
+
+  "RUINA2-HUNTER.description": "",
+  "RUINA2-HUNTER.smartDescription": "The next time this creature is below [blue]{HPThreshold:diff()}%[/blue] HP at the end of its turn, it gains [blue]{Amount}[/blue] [gold]Strength[/gold] and [blue]{Intangible:diff()}[/blue] [gold]Intangible[/gold].",
+  "RUINA2-HUNTER.title": "Hunter in the Dark"
 }
