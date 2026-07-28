@@ -7,8 +7,8 @@
   "RUINA2-BLEED.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
   "RUINA2-BLEED.title": "Bleed",
 
-  "RUINA2-PARALYSIS.description": "The next Attack you play deals less damage.",
-  "RUINA2-PARALYSIS.smartDescription": "The next Attack you play deals [blue]{DamageReduction:diff()}%[/blue] less damage.",
+  "RUINA2-PARALYSIS.description": "The next Attack you play this turn deals less damage.",
+  "RUINA2-PARALYSIS.smartDescription": "The next Attack you play this turn deals [blue]{DamageReduction:diff()}%[/blue] less damage.",
   "RUINA2-PARALYSIS.title": "Paralysis",
 
   "RUINA2-ABSORPTION.description": "",
@@ -21,5 +21,17 @@
 
   "RUINA2-HUNTER.description": "",
   "RUINA2-HUNTER.smartDescription": "The next time this creature is below [blue]{HPThreshold:diff()}%[/blue] HP at the end of its turn, it gains [blue]{Amount}[/blue] [gold]Strength[/gold] and [blue]{Intangible:diff()}[/blue] [gold]Intangible[/gold].",
-  "RUINA2-HUNTER.title": "Hunter in the Dark"
+  "RUINA2-HUNTER.title": "Hunter in the Dark",
+
+  "RUINA2-OBLIVION.description": "",
+  "RUINA2-OBLIVION.smartDescription": "Draw [blue]{Amount}[/blue] less {Amount:plural:card|cards} each turn.",
+  "RUINA2-OBLIVION.title": "Oblivion",
+
+  "RUINA2-STEAL.description": "",
+  "RUINA2-STEAL.smartDescription": "On death, you draw [blue]{Amount}[/blue] less {Amount:plural:card|cards} at the start of your next turn.",
+  "RUINA2-STEAL.title": "Steal or be Stolen",
+
+  "RUINA2-DRAW_REDUCTION.description": "",
+  "RUINA2-DRAW_REDUCTION.smartDescription": "Draw [blue]{Amount}[/blue] less {Amount:plural:card|cards} at the start of your next turn.",
+  "RUINA2-DRAW_REDUCTION.title": "Draw Reduction"
 }

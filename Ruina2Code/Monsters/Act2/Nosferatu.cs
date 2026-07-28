@@ -104,7 +104,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
             .Execute(null);
         await CreatureCmd.Heal(Creature,
             attackCommand.Results.SelectMany(r => r)
-                .Sum((Func<DamageResult, int>)(r => r.TotalDamage + r.OverkillDamage)));
+                .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
         await ResetIdle();
     }
     

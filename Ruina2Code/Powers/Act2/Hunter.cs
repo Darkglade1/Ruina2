@@ -26,20 +26,26 @@ public class Hunter() : Ruina2Power
     {
         if (side == CombatSide.Enemy)
         {
-            if (Owner.CurrentHp < Owner.MaxHp * (DynamicVars["HPThreshold"].BaseValue / 100))
+            if (Owner.CurrentHp < Owner.MaxHp * (DynamicVars["HPThreshold"].BaseValue / 100) && Owner.Monster is BadWolf wolf && !wolf.powerTriggered)
             {
-                if (Owner.Monster is BadWolf wolf)
-                {
-                    await wolf.SetPhase(2);
-                }
+                await wolf.SetPhase(2);
                 await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner,  null);
                 await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), Owner, DynamicVars["Intangible"].BaseValue, Owner,  null);
             }
-            else
+        }
+    }
+    
+    public override async Task AfterSideTurnEndLate(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (side == CombatSide.Enemy)
+        {
             {
-                if (Owner.Monster is BadWolf wolf && !Owner.HasPower<IntangiblePower>() && wolf.phase == 1)
+                if (Owner.Monster is BadWolf badWolf && !Owner.HasPower<IntangiblePower>() && badWolf.phase == 2)
                 {
-                    await wolf.SetPhase(1);
+                    await badWolf.SetPhase(1);
                 }
             }
         }

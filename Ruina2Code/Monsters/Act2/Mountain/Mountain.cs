@@ -304,7 +304,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .Execute(null);
         await CreatureCmd.Heal(Creature,
             attackCommand.Results.SelectMany(r => r)
-                .Sum((Func<DamageResult, int>)(r => r.TotalDamage + r.OverkillDamage)));
+                .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
         await ResetIdle(1.0f);
     }
     

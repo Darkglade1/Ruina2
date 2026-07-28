@@ -31,7 +31,17 @@ public static class Sfx
     
     public static readonly ModSound WoodStrike = new("WoodMachine_AtkStrong.ogg".SfxPath());
     public static readonly ModSound WoodFinish = new("WoodMachine_Kill.ogg".SfxPath());
+    
     public static readonly ModSound OzmaGuard = new("Ozma_Guard.ogg".SfxPath());
     public static readonly ModSound OzmaFin = new("Ozma_StrongAtk_Fin.ogg".SfxPath());
     public static readonly ModSound OzmaStart = new("Ozma_StrongAtk_Start.ogg".SfxPath());
+    
+    public static readonly ModSound GreedGetPower = new("Greed_GetPower.ogg".SfxPath());
+    public static readonly ModSound GreedBlunt = new("Greed_Stab.ogg".SfxPath());
+    public static readonly ModSound GreedSlam = new("Greed_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound GreedDiamond = new("Greed_MakeDiamond.ogg".SfxPath());
+    public static readonly ModSound GreedStabChange = new("Greed_Stab_Change.ogg".SfxPath());
+    public static readonly ModSound GreedStrAtkChange = new("Greed_StrongAtk_Change.ogg".SfxPath());
+    public static readonly ModSound GreedVertChange = new("Greed_Vert_Change.ogg".SfxPath());
+    public static readonly ModSound GreedStrAtkReady = new("Greed_StrongAtk_Ready.ogg".SfxPath());
 }

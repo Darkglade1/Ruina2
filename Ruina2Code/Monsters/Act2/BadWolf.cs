@@ -65,9 +65,9 @@ public sealed class BadWolf : AbstractRuinaMonster
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
 
-        state1.FollowUpState = state3;
-        state2.FollowUpState = state1;
-        state3.FollowUpState = state2;
+        state1.FollowUpState = moveBranch;
+        state2.FollowUpState = moveBranch;
+        state3.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
@@ -117,14 +117,14 @@ public sealed class BadWolf : AbstractRuinaMonster
             .Execute(null);
         await CreatureCmd.Heal(Creature,
             attackCommand.Results.SelectMany(r => r)
-                .Sum((Func<DamageResult, int>)(r => r.TotalDamage + r.OverkillDamage)));
+                .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
         await ResetIdle();
     }
     
     private async Task Hunt(IReadOnlyList<Creature> targets)
     {
         await SlashAnimation(targets);
-        await DamageCmd.Attack(ClawDamage)
+        await DamageCmd.Attack(HuntDamage)
             .FromMonster(this)
             .Execute(null);
         await ResetIdle();
@@ -151,7 +151,11 @@ public sealed class BadWolf : AbstractRuinaMonster
         phase = newPhase;
         if (phase == 2)
         {
+            powerTriggered = true;
             Sfx.WOLF_FOG.Play(0, 0.7f);
+            var state = GetHuntState();
+            state.FollowUpState = state;
+            SetMoveImmediate(state);
         }
         await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
     }
