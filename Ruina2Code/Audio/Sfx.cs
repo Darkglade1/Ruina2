@@ -44,4 +44,9 @@ public static class Sfx
     public static readonly ModSound GreedStrAtkChange = new("Greed_StrongAtk_Change.ogg".SfxPath());
     public static readonly ModSound GreedVertChange = new("Greed_Vert_Change.ogg".SfxPath());
     public static readonly ModSound GreedStrAtkReady = new("Greed_StrongAtk_Ready.ogg".SfxPath());
+    
+    public static readonly ModSound KnightAttack = new("KnightOfDespair_Atk_Strong.ogg".SfxPath());
+    public static readonly ModSound KnightChange = new("KnightOfDespair_Change.ogg".SfxPath());
+    public static readonly ModSound KnightGaho = new("KnightOfDespair_Gaho.ogg".SfxPath());
+    public static readonly ModSound KnightVertGaho = new("KnightOfDespair_Vert_gaho.ogg".SfxPath());
 }

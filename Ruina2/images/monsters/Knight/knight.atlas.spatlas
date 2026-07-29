@@ -1,0 +1,1 @@
+{"atlas_data":"knight.png\nsize:460,445\nfilter:Linear,Linear\nIdle\nbounds:224,228,215,227\nrotate:90\nIdle1\nbounds:2,233,220,210\nIdle2\nbounds:2,7,220,224\nIdle3\nbounds:224,2,234,224\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Knight/knight.atlas","specular_texture_prefix":"s"}

@@ -84,6 +84,11 @@ public static class StringExtensions
         return Path.Join(MainFile.ResPath, "images", "background", path);
     }
     
+    public static string EncounterImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "encounters", path);
+    }
+    
     public static string SfxPath(this string path)
     {
         return Path.Join(MainFile.ResPath, "audio", "sfx", path);

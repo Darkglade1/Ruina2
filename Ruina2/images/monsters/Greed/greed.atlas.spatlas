@@ -1,0 +1,1 @@
+{"atlas_data":"greed.png\nsize:1369,459\nfilter:Linear,Linear\nIdle\nbounds:345,50,164,244\nrotate:90\nSlash\nbounds:912,2,455,455\nSpecial\nbounds:2,216,908,241\nSpecialIdle\nbounds:591,38,176,224\nrotate:90\nStab\nbounds:2,18,341,196\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Greed/greed.atlas","specular_texture_prefix":"s"}

@@ -69,6 +69,7 @@
 
     <ItemGroup>
         <Folder Include="Ruina2\images\card_portraits\big\"/>
+        <Folder Include="Ruina2\images\encounters\" />
         <Folder Include="Ruina2\images\powers\big\"/>
         <Folder Include="Ruina2\images\relics\big\"/>
     </ItemGroup>
