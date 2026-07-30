@@ -20,6 +20,7 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), 
         new PowerVar<WeakPower>(2), new PowerVar<FrailPower>(2),
@@ -27,10 +28,13 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
     
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        DynamicVars["AttackCounter"].BaseValue = 0;
-        Amount = 0;
-        InvokeDisplayAmountChanged();
-        this.InvokeSecondAmountChanged();
+        if (player.Creature == Target)
+        {
+            DynamicVars["AttackCounter"].BaseValue = 0;
+            Amount = 0;
+            InvokeDisplayAmountChanged();
+            this.InvokeSecondAmountChanged();
+        }
         return Task.CompletedTask;
     }
     
@@ -53,43 +57,46 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type == CardType.Attack)
+        if (cardPlay.Card.Owner.Creature == Target)
         {
-            DynamicVars["AttackCounter"].BaseValue += 1;
-            if (DynamicVars["AttackCounter"].BaseValue >= DynamicVars.Cards.IntValue)
+            if (cardPlay.Card.Type == CardType.Attack)
             {
-                Flash();
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, DynamicVars["WeakPower"].IntValue, Owner,  null);
-                DynamicVars["AttackCounter"].BaseValue = 0;
-                if (Owner.Monster is QueenOfHate queen)
+                DynamicVars["AttackCounter"].BaseValue += 1;
+                if (DynamicVars["AttackCounter"].BaseValue >= DynamicVars.Cards.IntValue)
                 {
-                    if (!queen.hysteriaTriggered)
+                    Flash();
+                    await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), Target, DynamicVars["WeakPower"].IntValue, Owner,  null);
+                    DynamicVars["AttackCounter"].BaseValue = 0;
+                    if (Owner.Monster is QueenOfHate queen)
                     {
-                        queen.hysteriaTriggered = true;
-                        queen.hysteriaJustTriggered = true;
+                        if (!queen.hysteriaTriggered)
+                        {
+                            queen.hysteriaTriggered = true;
+                            queen.hysteriaJustTriggered = true;
+                        }
                     }
                 }
+                this.InvokeSecondAmountChanged();
             }
-            this.InvokeSecondAmountChanged();
-        }
-        if (cardPlay.Card.Type == CardType.Skill)
-        {
-            Amount += 1;
-            if (Amount >= DynamicVars.Cards.IntValue)
+            if (cardPlay.Card.Type == CardType.Skill)
             {
-                Flash();
-                await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, DynamicVars["FrailPower"].IntValue, Owner,  null);
-                Amount = 0;
-                if (Owner.Monster is QueenOfHate queen)
+                Amount += 1;
+                if (Amount >= DynamicVars.Cards.IntValue)
                 {
-                    if (!queen.hysteriaTriggered)
+                    Flash();
+                    await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), Target, DynamicVars["FrailPower"].IntValue, Owner,  null);
+                    Amount = 0;
+                    if (Owner.Monster is QueenOfHate queen)
                     {
-                        queen.hysteriaTriggered = true;
-                        queen.hysteriaJustTriggered = true;
+                        if (!queen.hysteriaTriggered)
+                        {
+                            queen.hysteriaTriggered = true;
+                            queen.hysteriaJustTriggered = true;
+                        }
                     }
                 }
-            }
-            InvokeDisplayAmountChanged();
+                InvokeDisplayAmountChanged();
+            }   
         }
     }
     

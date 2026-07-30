@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -39,7 +40,12 @@ public sealed class QueenOfHate : AbstractRuinaMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<Hysteria>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            Hysteria mutable = (Hysteria) ModelDb.Power<Hysteria>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
+        }
     }
 
     private MoveState GetArcanaState()
