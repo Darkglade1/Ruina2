@@ -20,7 +20,7 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<BadWolfWeak>(),
             ModelDb.Encounter<WolfPackNormal>(),
             ModelDb.Encounter<KnightNormal>(),
-            ModelDb.Encounter<OvicopterNormal>(),
+            ModelDb.Encounter<GreedNormal>(),
             ModelDb.Encounter<SlumberingBeetleNormal>(),
             ModelDb.Encounter<SpinyToadNormal>(),
             ModelDb.Encounter<TheObscuraNormal>(),

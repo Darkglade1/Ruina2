@@ -1,0 +1,1 @@
+{"atlas_data":"scarecrow.png\nsize:497,371\nfilter:Linear,Linear\nAttack1\nbounds:2,19,350,212\nrotate:90\nAttack2\nbounds:216,162,233,207\noffsets:2,1,237,214\nIdle\nbounds:216,2,158,279\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Scarecrow/scarecrow.atlas","specular_texture_prefix":"s"}

@@ -41,5 +41,13 @@
 
   "RUINA2-DESPAIR.description": "",
   "RUINA2-DESPAIR.smartDescription": "Whenever a minion dies, this creature loses [blue]{Amount}[/blue] HP.",
-  "RUINA2-DESPAIR.title": "Despair"
+  "RUINA2-DESPAIR.title": "Despair",
+
+  "RUINA2-ROAD.description": "",
+  "RUINA2-ROAD.smartDescription": "Uses a [gold]powerful[/gold] attack every [blue]{Amount}[/blue] turns.",
+  "RUINA2-ROAD.title": "Road of the King",
+
+  "RUINA2-BLISS.description": "",
+  "RUINA2-BLISS.smartDescription": "On death, add a [gold]Fragment of Bliss[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-BLISS.title": "Moment of Bliss"
 }
