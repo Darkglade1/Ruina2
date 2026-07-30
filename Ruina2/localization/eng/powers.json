@@ -49,5 +49,9 @@
 
   "RUINA2-BLISS.description": "",
   "RUINA2-BLISS.smartDescription": "On death, add a [gold]Fragment of Bliss[/gold] to your [gold]Hand[/gold].",
-  "RUINA2-BLISS.title": "Moment of Bliss"
+  "RUINA2-BLISS.title": "Moment of Bliss",
+
+  "RUINA2-HYSTERIA.description": "",
+  "RUINA2-HYSTERIA.smartDescription": "Whenever you play [blue]{Cards:diff()}[/blue] [gold]Attacks[/gold] in a single turn, you gain [blue]{WeakPower:diff()}[/blue] [gold]Weak[/gold]. \nWhenever you play [blue]{Cards:diff()}[/blue] [gold]Skills[/gold] in a single turn, you gain [blue]{FrailPower:diff()}[/blue] [gold]Frail[/gold].\nThe first time this effect triggers this combat, this enemy will use a [gold]strong debuff[/gold] next turn.",
+  "RUINA2-HYSTERIA.title": "Hysteria"
 }

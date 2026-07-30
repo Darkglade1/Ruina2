@@ -49,4 +49,10 @@ public static class Sfx
     public static readonly ModSound KnightChange = new("KnightOfDespair_Change.ogg".SfxPath());
     public static readonly ModSound KnightGaho = new("KnightOfDespair_Gaho.ogg".SfxPath());
     public static readonly ModSound KnightVertGaho = new("KnightOfDespair_Vert_gaho.ogg".SfxPath());
+    
+    public static readonly ModSound MagicAttack = new("MagicalGirl_Atk.ogg".SfxPath());
+    public static readonly ModSound MagicKiss = new("MagicalGirl_kiss.ogg".SfxPath());
+    public static readonly ModSound MagicGun = new("MagicalGirl_Gun.ogg".SfxPath());
+    public static readonly ModSound MagicSnakeAtk = new("MagicalGirl_SnakeAtk.ogg".SfxPath());
+    public static readonly ModSound MagicSnakeGun = new("MagicalGirl_SnakeAtk_gun.ogg".SfxPath());
 }
