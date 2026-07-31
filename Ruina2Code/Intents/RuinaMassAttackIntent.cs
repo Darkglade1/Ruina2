@@ -33,7 +33,14 @@ public abstract class RuinaMassAttackIntent : RuinaAttackIntent, ICustomModel
         LocString intentDescription;
         if (owner.Monster is AbstractAllyMonster ally && ally.IsAlly)
         {
-            intentDescription = new LocString("intents", "RUINA2-ALLY_MASS_ATTACK.description");
+            if (ally.MassAttackHitsPlayer)
+            {
+                intentDescription = new LocString("intents", "RUINA2-ALLY_FRIENDLY_FIRE_MASS_ATTACK.description");
+            }
+            else
+            {
+                intentDescription = new LocString("intents", "RUINA2-ALLY_MASS_ATTACK.description");
+            }
         } else if (owner.Monster is AbstractMultiIntentMonster)
         {
             intentDescription = new LocString("intents", "RUINA2-MULTI_INTENT_MASS_ATTACK.description");

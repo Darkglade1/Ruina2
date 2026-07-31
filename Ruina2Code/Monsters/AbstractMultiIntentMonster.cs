@@ -1,10 +1,12 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -83,6 +85,24 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             return false;
         }
         return true;
+    }
+    
+    public virtual IReadOnlyList<Creature> AdditionalMassAttackTargets()
+    {
+        return [];
+    }
+    
+    public void SetMoveImmediateMultiIntentMonster(MoveState state, int intentNum)
+    {
+        NextMoves[intentNum] = state;
+        if (MultiIntentMoveStateMachines != null)
+        {
+            MultiIntentMoveStateMachines[intentNum].ForceCurrentState(state);
+        }
+        NCreature? creatureNode = Creature.GetCreatureNode();
+        if (creatureNode == null || !CombatState.IsLiveCombat())
+            return;
+        TaskHelper.RunSafely(creatureNode.RefreshIntents());
     }
 }
 

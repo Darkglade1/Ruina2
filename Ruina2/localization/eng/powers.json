@@ -57,5 +57,13 @@
 
   "RUINA2-SEARCH.description": "",
   "RUINA2-SEARCH.smartDescription": "Whenever you receive unblocked attack damage from this creature, [gold]Exhaust[/gold] the top card of your [gold]Draw Pile[/gold].",
-  "RUINA2-SEARCH.title": "Searching for Wisdom"
+  "RUINA2-SEARCH.title": "Searching for Wisdom",
+
+  "RUINA2-EROSION.description": "Receives increased damage from Attacks. Reduced by [blue]1[/blue] each turn.",
+  "RUINA2-EROSION.smartDescription": "Receives [blue]{Amount}[/blue] more damage from Attacks. Reduced by [blue]1[/blue] each turn.",
+  "RUINA2-EROSION.title": "Erosion",
+
+  "RUINA2-BLIND_FURY.description": "",
+  "RUINA2-BLIND_FURY.smartDescription": "After losing [blue]{Amount}[/blue] HP, this creature will use a [gold]powerful attack[/gold] next turn that targets ALL other creatures (including you).",
+  "RUINA2-BLIND_FURY.title": "Blind Fury"
 }

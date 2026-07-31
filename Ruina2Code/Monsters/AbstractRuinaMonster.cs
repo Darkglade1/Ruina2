@@ -68,7 +68,10 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     protected async Task ApplyPowerAndSkipNextDurationTick<T>(IReadOnlyList<Creature> targets, int amount) where T : PowerModel
     {
         var powerList = await PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), targets, amount, Creature, null);
-        powerList[0].SkipNextDurationTick = true;
+        if (powerList.Count > 0)
+        {
+            powerList[0].SkipNextDurationTick = true;
+        }
     }
     
     protected void SetPosition(Vector2 position)
@@ -119,12 +122,12 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected virtual async Task ResetIdle()
     {
-        await WaitAnimation();
-        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+        await ResetIdle(0.5f);
     }
     
     protected virtual async Task ResetIdle(float waitTime)
     {
+        IsMassAttacking = false;
         await WaitAnimation(waitTime);
         await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
     }

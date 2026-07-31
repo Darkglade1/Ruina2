@@ -224,25 +224,9 @@ public static class PatchAddCreaturesToPossibleTargetsForMassAttacks
         if (__instance.Attacker != null && __instance.Attacker.CombatState != null && __instance.Attacker?.Monster is AbstractMultiIntentMonster monster && monster.IsMassAttacking)
         {
             var newList = new List<Creature>(__result.ToList());
-            if (monster is AbstractAllyMonster ally && ally.IsAlly)
+            foreach (var target in monster.AdditionalMassAttackTargets())
             {
-                foreach (var hittableEnemy in __instance.Attacker.CombatState.HittableEnemies)
-                {
-                    if (!(hittableEnemy.Monster is AbstractAllyMonster))
-                    {
-                        newList.Add(hittableEnemy);
-                    }
-                }
-            }
-            else
-            {
-                foreach (var hittableEnemy in __instance.Attacker.CombatState.HittableEnemies)
-                {
-                    if (hittableEnemy.Monster is AbstractAllyMonster hittableAlly && hittableAlly.IsAlly)
-                    {
-                        newList.Add(hittableEnemy);
-                    }
-                }
+                newList.Add(target);
             }
             __result = newList;
         }

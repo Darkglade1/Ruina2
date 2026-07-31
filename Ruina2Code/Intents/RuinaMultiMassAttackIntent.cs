@@ -18,6 +18,12 @@ public class RuinaMultiMassAttackIntent : RuinaMassAttackIntent
       return repeatCalc == null ? _repeat : repeatCalc();
     }
   }
+  
+  public RuinaMultiMassAttackIntent(Func<decimal> damageCalc, int repeat)
+  {
+    DamageCalc = damageCalc;
+    _repeat = repeat;
+  }
 
   public RuinaMultiMassAttackIntent(int damage, int repeat)
   {

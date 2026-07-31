@@ -42,7 +42,6 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<LittleRed>();
-        //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
     }
 
     private MoveState GetClawState()

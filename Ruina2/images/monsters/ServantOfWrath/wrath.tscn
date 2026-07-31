@@ -10,9 +10,9 @@ script = ExtResource("1_se58w")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -188.0
+offset_left = -117.0
 offset_top = -237.0
-offset_right = 155.0
+offset_right = 93.0
 mouse_filter = 2
 
 [node name="CenterPos" type="Marker2D" parent="."]

@@ -25,7 +25,7 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<GreedNormal>(),
             ModelDb.Encounter<WoodsmanNormal>(),
             ModelDb.Encounter<MountainElite>(),
-            //ModelDb.Encounter<EntomancerElite>(),
+            ModelDb.Encounter<WrathElite>(),
             //ModelDb.Encounter<InfestedPrismsElite>(),
             ModelDb.Encounter<RedWolfBoss>(),
         ];

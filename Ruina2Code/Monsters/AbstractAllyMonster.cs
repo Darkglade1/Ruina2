@@ -16,6 +16,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     public bool IsAlly = true;
     public bool IsTargetableByPlayers = false;
     public bool CanApplyPowersToAllies;
+    public bool MassAttackHitsPlayer = false;
 
     public AbstractAllyMonster()
     {
