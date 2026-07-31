@@ -53,5 +53,9 @@
 
   "RUINA2-HYSTERIA.description": "",
   "RUINA2-HYSTERIA.smartDescription": "Whenever you play [blue]{Cards:diff()}[/blue] [gold]Attacks[/gold] in a single turn, you gain [blue]{WeakPower:diff()}[/blue] [gold]Weak[/gold]. \nWhenever you play [blue]{Cards:diff()}[/blue] [gold]Skills[/gold] in a single turn, you gain [blue]{FrailPower:diff()}[/blue] [gold]Frail[/gold].\nThe first time this effect triggers this combat, this enemy will use a [gold]strong debuff[/gold] next turn instead of attacking.",
-  "RUINA2-HYSTERIA.title": "Hysteria"
+  "RUINA2-HYSTERIA.title": "Hysteria",
+
+  "RUINA2-SEARCH.description": "",
+  "RUINA2-SEARCH.smartDescription": "Whenever you receive unblocked attack damage from this creature, [gold]Exhaust[/gold] the top card of your [gold]Draw Pile[/gold].",
+  "RUINA2-SEARCH.title": "Searching for Wisdom"
 }

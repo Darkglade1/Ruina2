@@ -16,4 +16,7 @@ public static class RuinaEncounterTags
     
     [CustomEnum] 
     public static EncounterTag Ozma;
+    
+    [CustomEnum] 
+    public static EncounterTag Scarecrow;
 }

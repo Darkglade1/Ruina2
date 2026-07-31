@@ -55,4 +55,18 @@ public static class Sfx
     public static readonly ModSound MagicGun = new("MagicalGirl_Gun.ogg".SfxPath());
     public static readonly ModSound MagicSnakeAtk = new("MagicalGirl_SnakeAtk.ogg".SfxPath());
     public static readonly ModSound MagicSnakeGun = new("MagicalGirl_SnakeAtk_gun.ogg".SfxPath());
+    
+    public static readonly ModSound Rake = new("Scarecrow_Atk2.ogg".SfxPath());
+    public static readonly ModSound Harvest = new("Scarecrow_Drink.ogg".SfxPath());
+    public static readonly ModSound ScarecrowDeath = new("Scarecrow_Dead.ogg".SfxPath());
+    
+    public static readonly ModSound WrathMeet = new("Angry_Meet.ogg".SfxPath());
+    public static readonly ModSound HermitAtk = new("Angry_R_Atk.ogg".SfxPath());
+    public static readonly ModSound HermitStrongAtk = new("Angry_R_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound HermitWand = new("Angry_R_WandHit.ogg".SfxPath());
+    public static readonly ModSound WrathStrong1 = new("Angry_StrongAtk1.ogg".SfxPath());
+    public static readonly ModSound WrathStrong2 = new("Angry_StrongAtk2.ogg".SfxPath());
+    public static readonly ModSound WrathStrong3 = new("Angry_StrongFinish.ogg".SfxPath());
+    public static readonly ModSound WrathAtk1 = new("Angry_Vert1.ogg".SfxPath());
+    public static readonly ModSound WrathAtk2 = new("Angry_Vert2.ogg".SfxPath());
 }

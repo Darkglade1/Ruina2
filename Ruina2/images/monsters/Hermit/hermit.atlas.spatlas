@@ -1,0 +1,1 @@
+{"atlas_data":"hermit.png\nsize:525,604\nfilter:Linear,Linear\nAttack\nbounds:2,2,328,251\nAttack2\nbounds:2,255,313,347\nIdle\nbounds:317,338,201,264\nSpecial\nbounds:332,75,191,261\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Hermit/hermit.atlas","specular_texture_prefix":"s"}
