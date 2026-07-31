@@ -25,11 +25,13 @@ public sealed class HermitStaff : AbstractMultiIntentMonster
     protected override string VisualsPath => "Staff/staff.tscn".MonsterImagePath();
 
     private const string ATTACK = "ATTACK";
+    private Creature? hermit;
 
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<ServantOfWrath>();
+        hermit = FindTarget<Hermit>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
     }
 
@@ -74,20 +76,17 @@ public sealed class HermitStaff : AbstractMultiIntentMonster
         await ResetIdle();
     }
     
-    // public override async Task BeforeDeath(Creature creature)
-    // {
-    //     await base.BeforeDeath(creature);
-    //     if (creature != Creature)
-    //         return;
-    //
-    //     if (OtherSideTargetMonster != null)
-    //     {
-    //         NCreature? creatureNode = OtherSideTargetMonster.GetCreatureNode();
-    //         if (creatureNode == null || !CombatState.IsLiveCombat())
-    //             return;
-    //         await TaskHelper.RunSafely(creatureNode.RefreshIntents());
-    //     }
-    // }
+    public override async Task BeforeDeath(Creature creature)
+    {
+        await base.BeforeDeath(creature);
+        if (creature != Creature)
+            return;
+    
+        if (OtherSideTargetMonster != null && OtherSideTargetMonster.Monster is ServantOfWrath wrath && hermit != null)
+        {
+            wrath.Targets = [hermit];
+        }
+    }
 
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)
     {

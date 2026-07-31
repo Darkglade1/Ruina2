@@ -88,7 +88,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
         {
             await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
-            if (sfx != null)
+            if (sfx != null && Creature.IsAlive)
             {
                 sfx.Play(0, volume);   
             }

@@ -93,7 +93,7 @@ public sealed class Hermit : AbstractMultiIntentMonster
         var state2 = GetMakeWayState();
         var state3 = GetCrackleState();
         
-        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove2, 0);
+        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove2, 1);
 
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
@@ -168,7 +168,7 @@ public sealed class Hermit : AbstractMultiIntentMonster
 
     private async Task HoldStill(IReadOnlyList<Creature> targets)
     {
-        await AttackAnimation(targets);
+        await PierceAnimation(targets);
         await DamageCmd.Attack(HoldDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
@@ -186,7 +186,7 @@ public sealed class Hermit : AbstractMultiIntentMonster
     
     private async Task MakeWay(IReadOnlyList<Creature> targets)
     {
-        await Attack2Animation(targets);
+        await BluntAnimation(targets);
         await DamageCmd.Attack(MakeDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
@@ -237,15 +237,30 @@ public sealed class Hermit : AbstractMultiIntentMonster
             await CreatureCmd.Kill(minion);
         }
     }
-
-    private async Task AttackAnimation(IReadOnlyList<Creature> targets)
+    
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
     {
-        await AnimationAction("Attack", Sfx.HermitAtk, targets);
+        if (creature == Creature && OtherSideTargetMonster?.Monster is ServantOfWrath wrath)
+        {
+            if (wrath.Creature.IsAlive)
+            {
+                await wrath.OnHermitDeath();
+            }
+        }
+    }
+
+    private async Task PierceAnimation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Pierce", Sfx.HermitAtk, targets);
     }
     
-    private async Task Attack2Animation(IReadOnlyList<Creature> targets)
+    private async Task BluntAnimation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("Attack2", Sfx.HermitStrongAtk, targets);
+        await AnimationAction("Blunt", Sfx.HermitStrongAtk, targets);
     }
     
     private async Task SpecialAnimation()
@@ -255,6 +270,6 @@ public sealed class Hermit : AbstractMultiIntentMonster
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
     {
-        return GenerateAnimatorFromKeys(["Idle", "Attack", "Attack2", "Special"], controller);
+        return GenerateAnimatorFromKeys(["Idle", "Blunt", "Pierce", "Special"], controller);
     }
 }

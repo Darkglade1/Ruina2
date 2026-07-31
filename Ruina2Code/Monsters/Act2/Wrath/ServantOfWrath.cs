@@ -1,12 +1,14 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
@@ -22,26 +24,27 @@ public sealed class ServantOfWrath : AbstractAllyMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "WrathIcon.png".UIImagePath();
+    private bool talked = false;
 
     private int EvilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int EvilHits = 3;
     private int RageDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 8);
     private int RageHits => 2;
-    private int DebuffAmt => 2;
+    private int DebuffAmt => 3;
     private int BlindFuryThreshold => 20;
     private int DamageIncrease = 2;
     private int CurrentDamageIncrease = 0;
     public decimal EvilTotalDamage => EvilDamage + CurrentDamageIncrease;
     public bool enraged;
     
-    public MoveState _evilState;
-    public MoveState EvilState
+    public MoveState? _evilState;
+    public MoveState? EvilState
     {
-        get => this._evilState;
+        get => _evilState;
         set
         {
-            this.AssertMutable();
-            this._evilState = value;
+            AssertMutable();
+            _evilState = value;
         }
     }
 
@@ -128,6 +131,11 @@ public sealed class ServantOfWrath : AbstractAllyMonster
 
     private async Task Rage(IReadOnlyList<Creature> targets)
     {
+        if (!talked)
+        {
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.combatStart"), Creature, VfxColor.Green);
+            talked = true;
+        }
         for (int i = 0; i < RageHits; i++)
         {
             if (i % 2 == 0)
@@ -169,7 +177,10 @@ public sealed class ServantOfWrath : AbstractAllyMonster
     {
         Sfx.WrathMeet.Play();
         enraged = true;
-        SetMoveImmediateMultiIntentMonster(EvilState, 0);
+        if (EvilState != null)
+        {
+            SetMoveImmediateMultiIntentMonster(EvilState, 0);
+        }
     }
     
     public override IReadOnlyList<Creature> AdditionalMassAttackTargets()
@@ -183,6 +194,15 @@ public sealed class ServantOfWrath : AbstractAllyMonster
             }
         }
         return newList;
+    }
+    
+    public async Task OnHermitDeath()
+    {
+        SetToSide(CombatSide.Enemy);
+        await ResetIdle(0.5f);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.hermitDeath"), Creature, VfxColor.Green);
+        await WaitAnimation(3.0f);
+        await CreatureCmd.Kill(Creature);
     }
 
     private async Task Attack1Animation(IReadOnlyList<Creature> targets)
