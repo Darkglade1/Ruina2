@@ -20,6 +20,7 @@ public sealed class MountainElite : CustomEncounterModel
             ["bodies_bg.tscn".BackgroundImagePath()], 
             "bodies_bg.tscn".BackgroundImagePath());
     }
+    public override string? CustomScenePath => "mountain_elite.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
 
@@ -38,8 +39,8 @@ public sealed class MountainElite : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<Corpse>().ToMutable(), null),
-            (ModelDb.Monster<Mountain>().ToMutable(), null)
+            (ModelDb.Monster<Corpse>().ToMutable(), "corpse"),
+            (ModelDb.Monster<Mountain>().ToMutable(), "mountain")
         };
     }
 }

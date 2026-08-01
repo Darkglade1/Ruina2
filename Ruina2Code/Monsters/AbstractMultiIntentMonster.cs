@@ -20,6 +20,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     public virtual int NumIntents { get; set; }
     public Creature? OtherSideTargetMonster { get; set; }
     public virtual string? TargetTexturePath { get; set; }
+    public bool IsReviving = false;
     
     // MultiIntent monsters use their own state machines so we can properly do targeting of other monsters with any intent
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -77,6 +78,18 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         }
         return null;
     }
+    
+    protected Creature? FindHittableTarget<T>() where T : MonsterModel
+    {
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            if (enemy.Monster is T)
+            {
+                return enemy;
+            }
+        }
+        return null;
+    }
 
     public override bool ShouldClearBlock(Creature creature)
     {
@@ -94,15 +107,18 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     
     public void SetMoveImmediateMultiIntentMonster(MoveState state, int intentNum)
     {
-        NextMoves[intentNum] = state;
-        if (MultiIntentMoveStateMachines != null)
+        if (intentNum < NextMoves.Count)
         {
-            MultiIntentMoveStateMachines[intentNum].ForceCurrentState(state);
+            NextMoves[intentNum] = state;
+            if (MultiIntentMoveStateMachines != null)
+            {
+                MultiIntentMoveStateMachines[intentNum].ForceCurrentState(state);
+            }
+            NCreature? creatureNode = Creature.GetCreatureNode();
+            if (creatureNode == null || !CombatState.IsLiveCombat())
+                return;
+            TaskHelper.RunSafely(creatureNode.RefreshIntents());
         }
-        NCreature? creatureNode = Creature.GetCreatureNode();
-        if (creatureNode == null || !CombatState.IsLiveCombat())
-            return;
-        TaskHelper.RunSafely(creatureNode.RefreshIntents());
     }
 }
 

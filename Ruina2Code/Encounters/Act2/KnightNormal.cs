@@ -20,12 +20,6 @@ public sealed class KnightNormal : CustomEncounterModel
             ["despair_night_bg.tscn".BackgroundImagePath()], 
             "despair_night_bg.tscn".BackgroundImagePath());
     }
-    
-    public override IReadOnlyList<string> Slots =>
-    [
-        "sword",
-        "knight"
-    ];
 
     public override string? CustomScenePath => "knight_normal.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;

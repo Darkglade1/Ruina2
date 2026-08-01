@@ -2,6 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Intents;
@@ -13,6 +14,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Monsters.Act2.mountain;
 
 namespace Ruina2.Ruina2Code.Patches;
 
@@ -33,7 +35,7 @@ public static class PatchPerformMove
 {
     public static bool Prefix(MonsterModel __instance, ref Task __result)
     {
-        if (__instance is AbstractMultiIntentMonster && __instance.Creature.IsAlive)
+        if (__instance is AbstractMultiIntentMonster monster && (__instance.Creature.IsAlive || monster.IsReviving))
         {
             __result = Task.CompletedTask;
             return false;
@@ -56,7 +58,7 @@ public static class PatchTakeTurn
     }
     private static async Task Wrap(Creature __instance)
     {
-        if (__instance.Monster is AbstractMultiIntentMonster monster && __instance.IsAlive)
+        if (__instance.Monster is AbstractMultiIntentMonster monster && (__instance.IsAlive || monster.IsReviving))
         {
             if (monster.ShouldClearBlockAtStartOfOwnTurn)
             {
@@ -271,5 +273,19 @@ public static class PatchUpdateVisualsMassAttack
             __instance._animationFrames.Clear();
             __instance._animationFrames.Add(GD.Load<Texture2D>("intent_mass_attack.png".UIImagePath()));
         }
+    }
+}
+
+[HarmonyPatch(typeof(CreatureCmd), nameof(CreatureCmd.KillWithoutCheckingWinCondition))]
+public static class PatchMinionKill
+{
+    public static bool Prefix(Creature creature, bool force, int recursion, ref Task __result)
+    {
+        if (creature.Monster is Corpse)
+        {
+            __result = Task.CompletedTask;
+            return false;
+        }
+        return true;
     }
 }

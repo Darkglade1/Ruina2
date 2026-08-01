@@ -1,6 +1,7 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -16,23 +17,25 @@ using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.mountain;
 
 public sealed class Mountain : AbstractMultiIntentMonster
 {
-    private int Stage3HP;
-    private int Stage2HP;
-    private int Stage1HP;
+    private int Stage3HP => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 135, 125);
+    private int Stage2HP => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 110, 100);
+    private int Stage1HP => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 55, 50);
     public static int STAGE3 = 3;
     public static int STAGE2 = 2;
     public static int STAGE1 = 1;
-    private int phase = STAGE3;
+    public int phase = STAGE3;
     public override int MinInitialHp => Stage3HP;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => phase;
     private static float REVIVE_PERCENT = 0.50f;
     private static float STARTING_PERCENT = 0.50f;
+    public bool CanLose = false;
 
     private int DevourDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
     private int BiteDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 11);
@@ -41,6 +44,39 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private int FrailAmt => 1;
     private int ScreechStatus => 3;
     private int VomitStatus => 2;
+    
+    public MoveState? _reviveState;
+    public MoveState? ReviveState
+    {
+        get => _reviveState;
+        set
+        {
+            AssertMutable();
+            _reviveState = value;
+        }
+    }
+    
+    public MoveState? _noneState1;
+    public MoveState? NoneState1
+    {
+        get => _noneState1;
+        set
+        {
+            AssertMutable();
+            _noneState1 = value;
+        }
+    }
+    
+    public MoveState? _noneState2;
+    public MoveState? NoneState2
+    {
+        get => _noneState2;
+        set
+        {
+            AssertMutable();
+            _noneState2 = value;
+        }
+    }
 
     protected override string VisualsPath => "Mountain/mountain.tscn".MonsterImagePath();
 
@@ -52,25 +88,14 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private const string REVIVE = "REVIVE";
     private const string NONE = "NONE";
 
-    public Mountain()
-    {
-        Stage3HP = AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 135, 125);
-        Stage2HP = (int)Math.Round(Stage3HP * 0.8f);
-        Stage1HP = (int)Math.Round(Stage3HP * 0.4f);
-    }
-
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         Sfx.SPAWN.Play();
         OtherSideTargetMonster = FindTarget<Corpse>();
         Creature.CurrentHp = (int)(Creature.MaxHp * STARTING_PERCENT);
-        var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
-        if (node != null)
-        {
-            node.Position = new Vector2(400, 200);
-        }
-        //await PowerCmd.Apply<SporeCloudPower>(new ThrowingPlayerChoiceContext(), Creature, VulnerableAmount, Creature, null);
+        await PowerCmd.Apply<Absorption>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        await PowerCmd.Apply<Bodies>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 
     private MoveState GetDevourState()
@@ -114,7 +139,8 @@ public sealed class Mountain : AbstractMultiIntentMonster
         var state1 = GetBiteState();
         var state2 = GetDevourState();
         var state3 = GetRamState();
-        var state4 = GetReviveState();
+        var state4 = GetScreechState();
+        ReviveState = GetReviveState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
 
@@ -122,11 +148,13 @@ public sealed class Mountain : AbstractMultiIntentMonster
         state2.FollowUpState = moveBranch;
         state3.FollowUpState = moveBranch;
         state4.FollowUpState = moveBranch;
+        ReviveState.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
         states.Add(state3);
         states.Add(state4);
+        states.Add(ReviveState);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
@@ -138,22 +166,19 @@ public sealed class Mountain : AbstractMultiIntentMonster
         var state1 = GetBiteState();
         var state2 = GetDevourState();
         var state3 = GetRamState();
-        var state4 = GetScreechState();
-        var state5 = GetNoneState();
+        NoneState1 = GetNoneState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 1);
 
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
         state3.FollowUpState = moveBranch;
-        state4.FollowUpState = moveBranch;
-        state5.FollowUpState = moveBranch;
+        NoneState1.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
         states.Add(state3);
-        states.Add(state4);
-        states.Add(state5);
+        states.Add(NoneState1);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
@@ -164,17 +189,17 @@ public sealed class Mountain : AbstractMultiIntentMonster
         var states = new List<MonsterState>();
         var state1 = GetDevourState();
         var state2 = GetVomitState();
-        var state3 = GetNoneState();
+        NoneState2 = GetNoneState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 2);
 
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
-        state3.FollowUpState = moveBranch;
+        NoneState2.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
-        states.Add(state3);
+        states.Add(NoneState2);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
@@ -220,24 +245,29 @@ public sealed class Mountain : AbstractMultiIntentMonster
             }
         } else if (intentNum == 1)
         {
+            if (phase == STAGE1)
+            {
+                return NONE;
+            }
             if (phase == STAGE2)
             {
                 return DEVOUR;
             }
-            else
-            {
-                List<string> possibilities = new List<string>();
-                if (!LastTwoMoves(stateMachine, RAM)) {
-                    possibilities.Add(RAM);
-                }
-                if (!LastTwoMoves(stateMachine, BITE)) {
-                    possibilities.Add(BITE);
-                }
-                return possibilities[rng.NextInt(possibilities.Count)];
+            List<string> possibilities = new List<string>();
+            if (!LastTwoMoves(stateMachine, RAM)) {
+                possibilities.Add(RAM);
             }
+            if (!LastTwoMoves(stateMachine, BITE)) {
+                possibilities.Add(BITE);
+            }
+            return possibilities[rng.NextInt(possibilities.Count)];
         }
         else
         {
+            if (phase < STAGE3)
+            {
+                return NONE;
+            }
             if (LastMove(stateMachine, DEVOUR))
             {
                 return VOMIT;
@@ -302,9 +332,12 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await CreatureCmd.Heal(Creature,
-            attackCommand.Results.SelectMany(r => r)
-                .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
+        int heal = attackCommand.Results.SelectMany(r => r)
+            .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage));
+        if (heal > 0)
+        {
+            await CreatureCmd.Heal(Creature, heal);
+        }
         await ResetIdle(1.0f);
     }
     
@@ -332,7 +365,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private async Task Screech(IReadOnlyList<Creature> targets)
     {
         await ScreechAnimation();
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, ScreechStatus,null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, ScreechStatus,null);
         await ResetIdle(1.0f);
     }
     
@@ -340,22 +373,126 @@ public sealed class Mountain : AbstractMultiIntentMonster
     {
         await VomitAnimation();
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, FrailAmt, Creature,  null);
-        await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, VomitStatus,null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, VomitStatus,null);
         await ResetIdle(1.0f);
     }
     
     private async Task Revive(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.Heal(Creature, (int)(Creature.MaxHp * REVIVE_PERCENT));
+        await Shrink();
+        IsReviving = false;
     }
     
-    public override async Task AfterDeath(
+    public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
-        Creature creature,
-        bool wasRemovalPrevented,
-        float deathAnimLength)
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        
+        if (side == CombatSide.Enemy)
+        {
+            if (Creature.CurrentHp >= Creature.MaxHp && phase < STAGE3)
+            {
+                await Grow();
+            }
+
+            if (OtherSideTargetMonster == null || OtherSideTargetMonster.IsDead)
+            {
+                await CreatureCmd.Add<Corpse>(CombatState, "corpse");
+                OtherSideTargetMonster = FindHittableTarget<Corpse>();
+                Sfx.SPAWN.Play(0, 0.7f);
+            }
+        }
+    }
+    
+    public override async Task BeforeDeath(Creature creature)
+    {
+        await base.BeforeDeath(creature);
+        if (creature != Creature)
+            return;
+
+        var livingMinions = CombatState.GetTeammatesOf(Creature)
+            .Where(t => t != Creature && t.IsAlive && t.Monster is Corpse)
+            .ToList();
+
+        foreach (var minion in livingMinions)
+        {
+            await CreatureCmd.Kill(minion);
+        }
+    }
+    
+    public async Task Grow()
+    {
+        AssertMutable();
+        if (phase < STAGE3)
+        {
+            phase++;
+        }
+        int maxHP = 0;
+        switch (phase)
+        {
+            case 1:
+                maxHP = Stage1HP;
+                break;
+            case 2:
+                maxHP = Stage2HP;
+                break;
+            case 3:
+                maxHP = Stage3HP;
+                break;
+        }
+        Decimal scaledHp = Creature.ScaleHpForMultiplayer(maxHP, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
+        await CreatureCmd.SetMaxHp(Creature, scaledHp);
+        await ResetIdle(0.0f);
+        Sfx.GROW.Play(0, 0.7f);
+        CanLose = false;
+    }
+    
+    public async Task Shrink()
+    {
+        AssertMutable();
+        if (phase > STAGE1)
+        {
+            phase--;
+        }
+
+        int baseRespawnHp = 0;
+        switch (phase)
+        {
+            case 1:
+                baseRespawnHp = Stage1HP;
+                break;
+            case 2:
+                baseRespawnHp = Stage2HP;
+                break;
+            case 3:
+                baseRespawnHp = Stage3HP;
+                break;
+        }
+        Decimal scaledHp = Creature.ScaleHpForMultiplayer(baseRespawnHp, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
+        await CreatureCmd.SetMaxHp(Creature, scaledHp);
+        await CreatureCmd.Heal(Creature, (int)((float)scaledHp * REVIVE_PERCENT));
+        await ResetIdle(0.0f);
+        Sfx.SHRINK.Play(0, 0.7f);
+        if (phase == STAGE1)
+        {
+            CanLose = true;
+        }
+    }
+    
+    public async Task TriggerDeadState()
+    {
+        if (ReviveState != null)
+        {
+            SetMoveImmediateMultiIntentMonster(ReviveState, 0);
+        }
+        if (NoneState1 != null)
+        {
+            SetMoveImmediateMultiIntentMonster(NoneState1, 1);
+        }
+        if (NoneState2 != null)
+        {
+            SetMoveImmediateMultiIntentMonster(NoneState2, 2);
+        }
     }
 
     private async Task BiteAnimation(IReadOnlyList<Creature> targets)
