@@ -275,17 +275,3 @@ public static class PatchUpdateVisualsMassAttack
         }
     }
 }
-
-[HarmonyPatch(typeof(CreatureCmd), nameof(CreatureCmd.KillWithoutCheckingWinCondition))]
-public static class PatchMinionKill
-{
-    public static bool Prefix(Creature creature, bool force, int recursion, ref Task __result)
-    {
-        if (creature.Monster is Corpse)
-        {
-            __result = Task.CompletedTask;
-            return false;
-        }
-        return true;
-    }
-}

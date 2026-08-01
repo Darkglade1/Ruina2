@@ -19,6 +19,10 @@
   "RUINA2-BODIES.smartDescription": "If [gold]Melted Corpses[/gold] has died, spawns a new one at the end of the round.",
   "RUINA2-BODIES.title": "Mountain of Bodies",
 
+  "RUINA2-CORPSES.description": "",
+  "RUINA2-CORPSES.smartDescription": "On death, if the [red]enemy[/red] killed this creature, the [red]enemy[/red] heals [blue]{Amount}[/blue] HP.\n[gold]Fatal[/gold] effects do not trigger off this creature.",
+  "RUINA2-CORPSES.title": "Corpses",
+
   "RUINA2-WARM_HEART.description": "",
   "RUINA2-WARM_HEART.smartDescription": "At the start of your turn, you gain {Amount:energyIcons()}. At the end of this creature's turn, it gains [gold]Strength[/gold] equal to your unspent [gold]Energy[/gold] (max [blue]{StrengthCap:diff()}[/blue] [gold]Strength[/gold] per turn).",
   "RUINA2-WARM_HEART.title": "Warm Heart",
