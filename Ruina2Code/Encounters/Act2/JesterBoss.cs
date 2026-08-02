@@ -17,7 +17,7 @@ public sealed class JesterBoss : CustomEncounterModel
     }
     public override string BossNodePath => "Jester/JesterMap".MonsterImagePath().SimplifyPath();
     public override string? CustomRunHistoryIconPath => "Jester/JesterMap.png".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconOutlinePath => "Jester/JesterMapOutline.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconOutlinePath => "Jester/JesterMap_outline.png".MonsterImagePath().SimplifyPath();
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",

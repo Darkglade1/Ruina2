@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gxry83et3wpf"
-path="res://.godot/imported/JesterMapOutline.png-2856666f5eb14969569af2a37a91e5ae.ctex"
+uid="uid://bic5ixttjxuq2"
+path="res://.godot/imported/JesterMap_outline.png-f45d72b128c18082e6345dd5b26a3bdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/monsters/Jester/JesterMapOutline.png"
-dest_files=["res://.godot/imported/JesterMapOutline.png-2856666f5eb14969569af2a37a91e5ae.ctex"]
+source_file="res://Ruina2/images/monsters/Jester/JesterMap_outline.png"
+dest_files=["res://.godot/imported/JesterMap_outline.png-f45d72b128c18082e6345dd5b26a3bdf.ctex"]
 
 [params]
 

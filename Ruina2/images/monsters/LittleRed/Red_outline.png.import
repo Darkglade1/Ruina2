@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3ljtk8pveq5i"
-path="res://.godot/imported/RedOutline.png-97cb66f66e06a51aabb5a9be32ac306e.ctex"
+uid="uid://berx0l0q1eaqb"
+path="res://.godot/imported/Red_outline.png-635208644b0e99b4130c157b3493204a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/monsters/LittleRed/RedOutline.png"
-dest_files=["res://.godot/imported/RedOutline.png-97cb66f66e06a51aabb5a9be32ac306e.ctex"]
+source_file="res://Ruina2/images/monsters/LittleRed/Red_outline.png"
+dest_files=["res://.godot/imported/Red_outline.png-635208644b0e99b4130c157b3493204a.ctex"]
 
 [params]
 
