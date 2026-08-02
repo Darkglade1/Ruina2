@@ -1,6 +1,8 @@
 using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Context;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.Act2;
 using Ruina2.Ruina2Code.Extensions;
@@ -31,6 +33,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             return RuinaFloor.Gebura;
         }
+        if (RunManager.Instance.State?.Act.BossEncounter is JesterBoss)
+        {
+            return RuinaFloor.Tiphereth;
+        }
         return RuinaFloor.Gebura;
     }
     
@@ -42,6 +48,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Roland1.ogg";
         }
+        if (localPlayer?.Creature.CombatState?.Encounter is JesterBoss)
+        {
+            path = "Roland3.ogg";
+        }
         return path.MusicPath().SimplifyPath();
     }
     
@@ -52,6 +62,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         if (localPlayer?.Creature.CombatState?.Encounter is MountainElite)
         {
             path = "Warning3.ogg";
+        }
+        if (localPlayer?.Creature.CombatState?.Encounter is WrathElite)
+        {
+            path = "Warning2.ogg";
         }
         return path.MusicPath().SimplifyPath();
     }
@@ -97,4 +111,52 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         }
         return path.MusicPath().SimplifyPath();
     }
+    
+    protected override string CustomMapTopBgPath
+    {
+        get {
+            string path;
+            switch (AbstractRuinaAct.GetFloorBasedOnBoss())
+            {
+                case AbstractRuinaAct.RuinaFloor.Malkuth:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Yesod:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Hod:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Netzach:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Tiphereth:
+                    path = "map_top_test.png".UIImagePath();
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Gebura:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Chesed:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Binah:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Hokma:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                case AbstractRuinaAct.RuinaFloor.Keter:
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
+                    break;
+                default:
+                    path = "map_top_test.png".UIImagePath();
+                    break;
+            }
+            return path;
+        }
+    }
+    
+    protected override string CustomMapMidBgPath => ModelDb.Act<Overgrowth>().MapMidBgPath;
+    protected override string CustomMapBotBgPath => ModelDb.Act<Overgrowth>().MapBotBgPath;
+    protected override string CustomRestSiteBackgroundPath => ModelDb.Act<Hive>().RestSiteBackgroundPath;
 }
