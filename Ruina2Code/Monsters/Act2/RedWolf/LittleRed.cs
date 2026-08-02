@@ -240,6 +240,10 @@ public sealed class LittleRed : AbstractAllyMonster
         IsAlly = false;
         TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.killStolen"), Creature, VfxColor.Red);
         Sfx.LITTLE_RED_RAGE.Play();
+        if (NCombatRoom.Instance != null)
+        {
+            NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(Creature));
+        }
         SetToSide(CombatSide.Enemy);
         FlipHorizontal();
         RemoveAllyBlockButton();
