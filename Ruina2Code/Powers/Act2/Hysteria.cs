@@ -21,6 +21,8 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
     public override PowerStackType StackType =>
         PowerStackType.Counter;
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+    
+    public override int DisplayAmount => DynamicVars["SkillCounter"].IntValue;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), 
         new PowerVar<WeakPower>(2), new PowerVar<FrailPower>(2),
@@ -31,7 +33,7 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
         if (player.Creature == Target)
         {
             DynamicVars["AttackCounter"].BaseValue = 0;
-            Amount = 0;
+            DynamicVars["SkillCounter"].BaseValue = 0;
             InvokeDisplayAmountChanged();
             this.InvokeSecondAmountChanged();
         }
@@ -48,7 +50,7 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
         if (applier == Owner && power is Hysteria)
         {
             DynamicVars["AttackCounter"].BaseValue = 0;
-            Amount = 0;
+            DynamicVars["SkillCounter"].BaseValue = 0;
             InvokeDisplayAmountChanged();
             this.InvokeSecondAmountChanged();
         }
@@ -80,12 +82,12 @@ public class Hysteria() : Ruina2Power, IHasSecondAmount
             }
             if (cardPlay.Card.Type == CardType.Skill)
             {
-                Amount += 1;
-                if (Amount >= DynamicVars.Cards.IntValue)
+                DynamicVars["SkillCounter"].BaseValue += 1;
+                if (DynamicVars["SkillCounter"].BaseValue >= DynamicVars.Cards.IntValue)
                 {
                     Flash();
                     await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), Target, DynamicVars["FrailPower"].IntValue, Owner,  null);
-                    Amount = 0;
+                    DynamicVars["SkillCounter"].BaseValue = 0;
                     if (Owner.Monster is QueenOfHate queen)
                     {
                         if (!queen.hysteriaTriggered)

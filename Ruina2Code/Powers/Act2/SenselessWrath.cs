@@ -1,5 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -15,6 +16,9 @@ public class SenselessWrath() : Ruina2Power
     
     public const int THRESHOLD = 2;
     private bool ignoreNextStrDown = false;
+    
+    public override int DisplayAmount => DynamicVars["Counter"].IntValue;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Counter",0)];
 
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
@@ -42,7 +46,7 @@ public class SenselessWrath() : Ruina2Power
         if (canonicalPower.GetTypeForAmount(amount) == PowerType.Debuff) {
             //Handle temp Strength down effects
             if (canonicalPower is StrengthPower) {
-                if (Amount >= THRESHOLD && ignoreNextStrDown)
+                if (DynamicVars["Counter"].BaseValue >= THRESHOLD && ignoreNextStrDown)
                 {
                     ignoreNextStrDown = false;
                     modifiedAmount = amount;
@@ -50,19 +54,21 @@ public class SenselessWrath() : Ruina2Power
                 }
             }
             if (canonicalPower is TemporaryStrengthPower) {
-                if (Amount < THRESHOLD)
+                if (DynamicVars["Counter"].BaseValue < THRESHOLD)
                 {
                     ignoreNextStrDown = true;
                 }
             }
             //Actual code
-            if (Amount >= THRESHOLD) {
+            if (DynamicVars["Counter"].BaseValue >= THRESHOLD) {
                 Flash();
-                Amount = 1;
+                DynamicVars["Counter"].BaseValue = 1;
+                InvokeDisplayAmountChanged();
                 modifiedAmount = 0M;
                 return true;
             } else {
-                Amount++;
+                DynamicVars["Counter"].BaseValue++;
+                InvokeDisplayAmountChanged();
                 modifiedAmount = amount;
                 return false;
             }

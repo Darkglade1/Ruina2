@@ -1,20 +1,15 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Monsters.Act2.Wrath;
-using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Powers.Act2;
 
-public class BlindFury() : Ruina2Power, IHasSecondAmount
+public class BlindFury() : Ruina2Power
 {
     public override PowerType Type =>
         PowerType.Buff;
@@ -22,6 +17,7 @@ public class BlindFury() : Ruina2Power, IHasSecondAmount
     public override PowerStackType StackType =>
         PowerStackType.Counter;
     
+    public override int DisplayAmount => DynamicVars["HPLossCounter"].IntValue;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("HPLossCounter",0)];
 
     public override async Task AfterDamageReceived(
@@ -39,7 +35,7 @@ public class BlindFury() : Ruina2Power, IHasSecondAmount
             {
                 DynamicVars["HPLossCounter"].BaseValue = Amount;
             }
-            this.InvokeSecondAmountChanged();
+            InvokeDisplayAmountChanged();
         }
     }
     
@@ -52,15 +48,11 @@ public class BlindFury() : Ruina2Power, IHasSecondAmount
         {
             if (DynamicVars["HPLossCounter"].BaseValue >= Amount && Owner.Monster is ServantOfWrath wrath)
             {
+                Flash();
                 DynamicVars["HPLossCounter"].BaseValue = 0;
-                this.InvokeSecondAmountChanged();
+                InvokeDisplayAmountChanged();
                 wrath.Enrage();
             }
         }
-    }
-    
-    public string GetSecondAmount()
-    {
-        return DynamicVars["HPLossCounter"].IntValue.ToString();
     }
 }

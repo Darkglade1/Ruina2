@@ -128,7 +128,7 @@ public sealed class Hermit : AbstractMultiIntentMonster
     
     private string SelectNextMove2(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (LastMove(stateMachine, HOLD_STILL))
+        if (LastMove(stateMachine, HOLD_STILL) || CombatState.RoundNumber == 1)
         {
             return MAKE_WAY;
         }
