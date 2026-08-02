@@ -73,4 +73,6 @@ public static class Sfx
     public static readonly ModSound BluntBlow = new("Blow_Stab.ogg".SfxPath());
     public static readonly ModSound BluntHori = new("Blow_Hori.ogg".SfxPath());
     public static readonly ModSound BluntVert = new("Blow_Vert.ogg".SfxPath());
+    
+    public static readonly ModSound CollectorCurse = new("collector_debuff.ogg".SfxPath());
 }

@@ -156,7 +156,7 @@ public static class PatchTargetTextureIcon
         if (targetCreature?.Monster is AbstractMultiIntentMonster monster)
         {
             var texturePath = monster.TargetTexturePath;
-            if (texturePath != null && (__instance._intent is RuinaAttackIntent || __instance._intent is RuinaDebuffIntent))
+            if (texturePath != null && ((__instance._intent is RuinaAttackIntent && !(__instance._intent is RuinaMassAttackIntent)) || __instance._intent is RuinaDebuffIntent))
             {
                 if (!__instance._intentHolder.HasNode(nodeName))
                 {

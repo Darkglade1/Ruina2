@@ -85,9 +85,9 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     protected async Task ApplyPowerAndSkipNextDurationTick<T>(IReadOnlyList<Creature> targets, int amount) where T : PowerModel
     {
         var powerList = await PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), targets, amount, Creature, null);
-        if (powerList.Count > 0)
+        foreach (var power in powerList)
         {
-            powerList[0].SkipNextDurationTick = true;
+            power.SkipNextDurationTick = true;
         }
     }
     

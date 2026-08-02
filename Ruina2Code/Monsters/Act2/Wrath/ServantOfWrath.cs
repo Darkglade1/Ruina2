@@ -149,7 +149,14 @@ public sealed class ServantOfWrath : AbstractAllyMonster
                 .Execute(null);
             await ResetIdle();
         }
-        await ApplyPowerAndSkipNextDurationTick<Erosion>(targets, DebuffAmt);
+        if (targets[0].HasPower<Erosion>())
+        {
+            await PowerCmd.Apply<Erosion>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature, null);
+        }
+        else
+        {
+            await ApplyPowerAndSkipNextDurationTick<Erosion>(targets, DebuffAmt);
+        }
     }
     
     private async Task EmbodimentsOfEvil(IReadOnlyList<Creature> targets)

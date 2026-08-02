@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -9,13 +10,14 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
-using Ruina2.Ruina2Code.Monsters.Act2.Wrath;
 using Ruina2.Ruina2Code.Powers.Act2;
+using CollectorCurseEffect = Ruina2.Ruina2Code.Nodes.CollectorCurseEffect;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.Jester;
 
@@ -32,7 +34,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     private int TearsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int TearsHits => 2;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int AtkBlockAmount => 6;
+    private int AtkBlockAmount => 8;
     private int HateBlockAmount => 20;
     private int DebuffAmt => 1;
     private const int RampageCooldown = 1;
@@ -177,7 +179,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
             }
         } else if (intentNum == 2)
         {
-            if (rampageCooldown <= 0)
+            if (rampageCooldown <= 0 && !(numIntentThatCanRampage == 2 && NextMoves[0].Id == WILL_OF_NIHIL))
             {
                 return RAMPAGE;
             }
@@ -221,6 +223,10 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     {
         if (intentNum == 0)
         {
+            if (NextMoves[0].Id == WILL_OF_NIHIL)
+            {
+                return CombatState.PlayerCreatures[0];
+            }
             if (numIntentThatCanRampage == 2 && rampageCooldown <= 0)
             {
                 if (girl2 != null && girl2.IsAlive)
@@ -261,11 +267,36 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     private async Task WillOfNihil(IReadOnlyList<Creature> targets)
     {
         IsMassAttacking = true;
+        var target = targets.FirstOrDefault(t => t.IsAlive);
+        if (target != null)
+        {
+            SpawnCurseVfx(target);
+        }
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            if (enemy != Creature)
+            {
+                SpawnCurseVfx(enemy);
+            }
+        }
+        await WaitAnimation(2.0f);
         await DamageCmd.Attack(NihilDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await ResetIdle();
+    }
+
+    private void SpawnCurseVfx(Creature target)
+    {
+        Sfx.CollectorCurse.Play();
+        var targetNode = NCombatRoom.Instance?.GetCreatureNode(target);
+        if (targetNode != null)
+        {
+            var curse = CollectorCurseEffect.Create(targetNode.VfxSpawnPosition);
+            Node vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(curse);
+        }
     }
     
     private async Task ConsumingDesire(IReadOnlyList<Creature> targets)

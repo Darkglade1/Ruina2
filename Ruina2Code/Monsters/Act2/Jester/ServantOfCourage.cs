@@ -121,7 +121,14 @@ public sealed class ServantOfCourage : AbstractAllyMonster
     private async Task ProtectFriend(IReadOnlyList<Creature> targets)
     {
         await DebuffAnimation(targets);
-        await ApplyPowerAndSkipNextDurationTick<Erosion>(targets, DebuffAmt);
+        if (targets[0].HasPower<Erosion>())
+        {
+            await PowerCmd.Apply<Erosion>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature, null);
+        }
+        else
+        {
+            await ApplyPowerAndSkipNextDurationTick<Erosion>(targets, DebuffAmt);
+        }
         await ResetIdle();
     }
     
