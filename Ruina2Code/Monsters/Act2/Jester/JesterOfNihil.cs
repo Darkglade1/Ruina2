@@ -350,11 +350,15 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
-        if (creature == Creature && OtherSideTargetMonster?.Monster is ServantOfWrath wrath)
+        if (creature == Creature)
         {
-            if (wrath.Creature.IsAlive)
+            if (girl1 != null && girl1.IsAlive && girl1.Monster is QueenOfLove queen)
             {
-                await wrath.OnHermitDeath();
+                await queen.OnJesterDeath();
+            }
+            if (girl2 != null && girl2.IsAlive && girl2.Monster is ServantOfCourage servant)
+            {
+                await servant.OnJesterDeath();
             }
         }
     }

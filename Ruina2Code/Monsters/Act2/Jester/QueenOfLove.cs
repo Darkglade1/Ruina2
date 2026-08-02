@@ -127,9 +127,22 @@ public sealed class QueenOfLove : AbstractAllyMonster
     {
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
-        TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.hermitDeath"), Creature, VfxColor.Green);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-LOVE.victory"), Creature, VfxColor.Purple);
         await WaitAnimation(3.0f);
         await CreatureCmd.Kill(Creature);
+    }
+    
+    public override Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature)
+        {
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-LOVE.death"), Creature, VfxColor.Purple);
+        }
+        return Task.CompletedTask;
     }
 
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)

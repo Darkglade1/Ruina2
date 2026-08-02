@@ -36,6 +36,10 @@
   "RUINA2-HERMIT_STAFF.name": "Hermit's Staff",
 
   "RUINA2-QUEEN_OF_LOVE.name": "Queen of Love",
+  "RUINA2-LOVE.victory": "Love and Justice prevail once more!",
+  "RUINA2-LOVE.death": "My strength fades . . .",
   "RUINA2-SERVANT_OF_COURAGE.name": "Servant of Courage",
+  "RUINA2-COURAGE.victory": "The law is upheld",
+  "RUINA2-COURAGE.death": "The others will carry on.",
   "RUINA2-JESTER_OF_NIHIL.name": "Jester of Nihil"
 }

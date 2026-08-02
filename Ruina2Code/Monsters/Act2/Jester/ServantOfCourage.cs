@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -128,9 +129,22 @@ public sealed class ServantOfCourage : AbstractAllyMonster
     {
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
-        TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.hermitDeath"), Creature, VfxColor.Green);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-COURAGE.victory"), Creature, VfxColor.Green);
         await WaitAnimation(3.0f);
         await CreatureCmd.Kill(Creature);
+    }
+    
+    public override Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature)
+        {
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-COURAGE.death"), Creature, VfxColor.Green);
+        }
+        return Task.CompletedTask;
     }
 
     private async Task Attack1Animation(IReadOnlyList<Creature> targets)
