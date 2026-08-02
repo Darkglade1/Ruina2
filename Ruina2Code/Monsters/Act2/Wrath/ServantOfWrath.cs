@@ -59,7 +59,6 @@ public sealed class ServantOfWrath : AbstractAllyMonster
         MassAttackHitsPlayer = true;
         Sfx.WrathMeet.Play();
         OtherSideTargetMonster = FindTarget<Hermit>();
-        SetPosition(new Vector2(0, 200));
         await PowerCmd.Apply<BlindFury>(new ThrowingPlayerChoiceContext(), Creature, BlindFuryThreshold, Creature, null);
     }
 

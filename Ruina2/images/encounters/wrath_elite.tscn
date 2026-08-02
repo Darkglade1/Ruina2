@@ -10,7 +10,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="wrath" type="Marker2D" parent="."]
-position = Vector2(800, 713)
+position = Vector2(950, 738)
 
 [node name="staff" type="Marker2D" parent="."]
 position = Vector2(1295, 738)

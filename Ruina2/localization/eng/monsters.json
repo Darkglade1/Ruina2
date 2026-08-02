@@ -33,5 +33,9 @@
   "RUINA2-WRATH.combatStart": "EMBODIMENTS OF EVIL!",
   "RUINA2-WRATH.hermitDeath": "Law and order . . . has prevailed.",
   "RUINA2-HERMIT.name": "Hermit of the Azure Forest",
-  "RUINA2-HERMIT_STAFF.name": "Hermit's Staff"
+  "RUINA2-HERMIT_STAFF.name": "Hermit's Staff",
+
+  "RUINA2-QUEEN_OF_LOVE.name": "Queen of Love",
+  "RUINA2-SERVANT_OF_COURAGE.name": "Servant of Courage",
+  "RUINA2-JESTER_OF_NIHIL.name": "Jester of Nihil"
 }

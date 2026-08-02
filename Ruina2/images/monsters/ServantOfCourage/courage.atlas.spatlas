@@ -1,0 +1,1 @@
+{"atlas_data":"courage.png\nsize:943,425\nfilter:Linear,Linear\nAttack1\nbounds:726,70,353,215\nrotate:90\nAttack2\nbounds:456,116,307,268\nrotate:90\nAttack3\nbounds:2,15,452,408\nIdle\nbounds:456,2,112,209\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/ServantOfCourage/courage.atlas","specular_texture_prefix":"s"}

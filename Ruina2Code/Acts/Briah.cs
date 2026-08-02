@@ -28,6 +28,7 @@ public class Briah() : CustomActModel(1)
             ModelDb.Encounter<WrathElite>(),
             //ModelDb.Encounter<InfestedPrismsElite>(),
             ModelDb.Encounter<RedWolfBoss>(),
+            ModelDb.Encounter<JesterBoss>(),
         ];
     }
 

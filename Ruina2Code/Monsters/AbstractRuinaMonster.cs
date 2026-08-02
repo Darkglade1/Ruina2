@@ -29,12 +29,23 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         if (log.Count < 2) return false;
         return log[log.Count - 2].Id == moveId;
     }
+    
+    protected bool LastMoveBeforeBefore(MonsterMoveStateMachine stateMachine, string moveId)
+    {
+        var log = stateMachine.StateLog;
+        if (log.Count < 3) return false;
+        return log[log.Count - 3].Id == moveId;
+    }
 
     protected bool LastTwoMoves(MonsterMoveStateMachine stateMachine, string moveId)
     {
         var log = stateMachine.StateLog;
         if (log.Count < 2) return false;
         return log[log.Count - 1].Id == moveId && log[log.Count - 2].Id == moveId;
+    }
+    
+    protected bool ThreeTurnCooldownHasPassedForMove(MonsterMoveStateMachine stateMachine, string moveId) {
+        return stateMachine.StateLog.Count >= 3 && !LastMove(stateMachine, moveId) && !LastMoveBefore(stateMachine, moveId) && !LastMoveBeforeBefore(stateMachine, moveId);
     }
 
     protected void FlipHorizontal()
