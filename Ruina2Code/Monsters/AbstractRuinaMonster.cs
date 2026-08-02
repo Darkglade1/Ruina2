@@ -10,12 +10,18 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Vfx;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
 public abstract class AbstractRuinaMonster : CustomMonsterModel
 {
     public bool IsMassAttacking;
+    public StanceVfxController? StanceVfx;
+    public static StanceVfxConfig WrathVfxConfig   => new(
+    "res://Ruina2/images/vfx/wrath_aura.tscn"
+    );
+
     protected bool LastMove(MonsterMoveStateMachine stateMachine, string moveId)
     {
         var log = stateMachine.StateLog;
