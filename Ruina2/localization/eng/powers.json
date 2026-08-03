@@ -85,5 +85,17 @@
 
   "RUINA2-SENSELESS_WRATH.description": "",
   "RUINA2-SENSELESS_WRATH.smartDescription": "Negates every other [gold]debuff[/gold] applied to this creature.",
-  "RUINA2-SENSELESS_WRATH.title": "Senseless Wrath"
+  "RUINA2-SENSELESS_WRATH.title": "Senseless Wrath",
+
+  "RUINA2-EASILY_DISTRACTED.description": "",
+  "RUINA2-EASILY_DISTRACTED.smartDescription": "Whenever this creature is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times|}, it cancels one of its intents.",
+  "RUINA2-EASILY_DISTRACTED.title": "Easily Distracted",
+
+  "RUINA2-COURAGE.description": "",
+  "RUINA2-COURAGE.smartDescription": "Whenever the [gold]Road Home[/gold] is hit by an attack{IsMultiplayer: [blue]{AttackedThreshold:diff()}[/blue] times|}, this creature gains [blue]{Amount}[/blue] [gold]Strength[/gold] this turn.",
+  "RUINA2-COURAGE.title": "Courage",
+
+  "RUINA2-WAY_HOME.description": "",
+  "RUINA2-WAY_HOME.smartDescription": "On death, the [gold]Road Home[/gold] will begin to use a [gold]powerful[/gold] attack.",
+  "RUINA2-WAY_HOME.title": "On the Way Home"
 }

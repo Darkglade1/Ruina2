@@ -41,5 +41,10 @@
   "RUINA2-SERVANT_OF_COURAGE.name": "Servant of Courage",
   "RUINA2-COURAGE.victory": "The law is upheld",
   "RUINA2-COURAGE.death": "The others will carry on.",
-  "RUINA2-JESTER_OF_NIHIL.name": "Jester of Nihil"
+  "RUINA2-JESTER_OF_NIHIL.name": "Jester of Nihil",
+
+  "RUINA2-ROAD_HOME.name": "Road Home",
+  "RUINA2-ROAD.catDeath": "Aw, you killed my friend!",
+  "RUINA2-SCAREDY_CAT.name": "Scaredy Cat",
+  "RUINA2-HOME.name": "Home"
 }

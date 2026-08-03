@@ -39,6 +39,10 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     {
         for (int i = 0; i < NumIntents; i++)
         {
+            if (i >= NextMoves.Count)
+            {
+                break;
+            }
             await Cmd.CustomScaledWait(0.1f, 0.2f);
             IsPerformingMove = true;
             MoveState move = NextMoves[i];
