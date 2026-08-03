@@ -1,0 +1,1 @@
+{"atlas_data":"cat.png\nsize:858,619\nfilter:Linear,Linear\nCatAttack1\nbounds:2,342,507,275\nCatAttack2\nbounds:2,2,371,338\nCatIdle\nbounds:511,348,345,269\nCatPoison\nbounds:375,6,317,334\nCatScared\nbounds:694,77,269,155\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/ScaredyCat/cat.atlas","specular_texture_prefix":"s"}

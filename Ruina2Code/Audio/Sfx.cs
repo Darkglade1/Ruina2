@@ -75,4 +75,10 @@ public static class Sfx
     public static readonly ModSound BluntVert = new("Blow_Vert.ogg".SfxPath());
     
     public static readonly ModSound CollectorCurse = new("collector_debuff.ogg".SfxPath());
+    
+    public static readonly ModSound HouseBoom = new("House_HouseBoom.ogg".SfxPath());
+    public static readonly ModSound LionPoison = new("House_Lion_Poison.ogg".SfxPath());
+    public static readonly ModSound MakeRoad = new("House_MakeRoad.ogg".SfxPath());
+    public static readonly ModSound HouseAttack = new("House_NormalAtk.ogg".SfxPath());
+    public static readonly ModSound LionChange = new("House_Lion_Change.ogg".SfxPath());
 }

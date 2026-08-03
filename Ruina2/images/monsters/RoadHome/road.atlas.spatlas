@@ -1,0 +1,1 @@
+{"atlas_data":"road.png\nsize:361,231\nfilter:Linear,Linear\nRoadAttack\nbounds:2,11,147,218\nRoadIdle\nbounds:151,2,98,206\nrotate:90\nRoadSpecial\nbounds:151,102,127,208\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/RoadHome/road.atlas","specular_texture_prefix":"s"}
