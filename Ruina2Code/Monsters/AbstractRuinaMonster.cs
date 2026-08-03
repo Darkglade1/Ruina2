@@ -91,6 +91,19 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         }
     }
     
+    protected async Task ApplyPowerAndSkipNextDurationTickIfNotPresent<T>(IReadOnlyList<Creature> targets, int amount) where T : PowerModel
+    {
+        foreach (var creature in targets)
+        {
+            var hadPower = creature.HasPower<T>();
+            var power = await PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), creature, amount, Creature, null);
+            if (!hadPower && power != null)
+            {
+                power.SkipNextDurationTick = true;
+            }
+        }
+    }
+    
     protected void SetPosition(Vector2 position)
     {
         var node = NCombatRoom.Instance?.GetCreatureNode(Creature);

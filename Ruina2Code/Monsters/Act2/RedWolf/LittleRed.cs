@@ -196,7 +196,7 @@ public sealed class LittleRed : AbstractAllyMonster
         {
             await OnKillWolf();
         }
-        await ApplyPowerAndSkipNextDurationTick<VulnerablePower>(targets, DebuffAmt);
+        await ApplyPowerAndSkipNextDurationTickIfNotPresent<VulnerablePower>(targets, DebuffAmt);
         await ResetIdle();
     }
     
