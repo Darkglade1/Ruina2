@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
@@ -205,6 +206,11 @@ public sealed class RoadHome : AbstractMultiIntentMonster
             {
                 await cat.OnRoadDeath();
             }
+        }
+
+        if (creature != Creature && creature.Monster is ScaredyCat)
+        {
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-ROAD.catDeath"), Creature, VfxColor.Gold);
         }
     }
 
