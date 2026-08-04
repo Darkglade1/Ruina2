@@ -294,7 +294,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
         if (targetNode != null)
         {
             var curse = CollectorCurseEffect.Create(targetNode.VfxSpawnPosition);
-            Node vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
             vfxContainer?.AddChildSafely(curse);
         }
     }

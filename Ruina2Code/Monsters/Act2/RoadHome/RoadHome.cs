@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -10,10 +11,12 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Nodes;
 using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.RoadHome;
@@ -163,6 +166,18 @@ public sealed class RoadHome : AbstractMultiIntentMonster
     private async Task HomingInstinct(IReadOnlyList<Creature> targets)
     {
         await AttackAnimation(targets);
+        var target = targets.FirstOrDefault(t => t.IsAlive);
+        if (target != null)
+        {
+            var targetNode = NCombatRoom.Instance?.GetCreatureNode(target);
+            if (targetNode != null)
+            {
+                var houseDropEffect = HouseDropEffect.Create(targetNode.VfxSpawnPosition);
+                Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+                vfxContainer?.AddChildSafely(houseDropEffect);
+                await WaitAnimation(1.0f);
+            }
+        }
         await DamageCmd.Attack(HomingDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)

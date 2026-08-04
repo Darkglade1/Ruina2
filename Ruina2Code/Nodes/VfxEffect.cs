@@ -2,10 +2,11 @@
 
 namespace Ruina2.Ruina2Code.Nodes;
 
-public abstract partial class StS1Effect : Node2D
+public abstract partial class VfxEffect : Node2D
 {
     protected float Duration;
     protected float StartingDuration;
+    protected float EndDuration;
     protected Color EffectColor = Colors.White;
     public bool IsDone = false;
 

@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.RoadHome;
 
 public sealed class Home : AbstractAllyMonster
 {
-    public override int MinInitialHp => 50;
+    public override int MinInitialHp => 1;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "HomeIcon.png".UIImagePath();

@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 
 namespace Ruina2.Ruina2Code.Nodes;
 
-public partial class CollectorStakeEffect : StS1Effect
+public partial class CollectorStakeEffect : VfxEffect
 {
     private const string TexturePath = "res://Ruina2/images/vfx/stake.png";
 
@@ -64,8 +64,7 @@ public partial class CollectorStakeEffect : StS1Effect
     {
         Duration = 1.0f;
         StartingDuration = 1.0f;
-
-        MainFile.Logger.Info("INITIALIZE STAKE");
+        
         var textureRegion = ResolveTexture();
 
         var material = new CanvasItemMaterial();

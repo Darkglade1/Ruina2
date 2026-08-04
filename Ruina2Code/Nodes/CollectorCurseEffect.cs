@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace Ruina2.Ruina2Code.Nodes;
 
-public partial class CollectorCurseEffect : StS1Effect
+public partial class CollectorCurseEffect : VfxEffect
 {
     private float _x;
     private float _y;
