@@ -4,7 +4,7 @@ using Ruina2.Ruina2Code.Encounters.Act2;
 
 namespace Ruina2.Ruina2Code.Acts;
 
-public class Briah() : AbstractRuinaAct(1)
+public class Briah() : AbstractRuinaAct(2)
 {
     public override IEnumerable<EncounterModel> GenerateAllEncounters()
     {

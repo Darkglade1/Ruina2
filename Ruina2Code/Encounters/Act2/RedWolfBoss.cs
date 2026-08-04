@@ -17,8 +17,8 @@ public sealed class RedWolfBoss : CustomEncounterModel
     {
     }
     public override string BossNodePath => "LittleRed/Red".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconPath => "LittleRed/Red.png".MonsterImagePath().SimplifyPath();
-    public override string? CustomRunHistoryIconOutlinePath => "LittleRed/Red_outline.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconPath => "LittleRed/RedIcon.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconOutlinePath => "LittleRed/RedIconOutline.png".MonsterImagePath().SimplifyPath();
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",

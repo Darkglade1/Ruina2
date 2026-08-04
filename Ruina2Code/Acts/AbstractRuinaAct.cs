@@ -131,7 +131,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
                     path = ModelDb.Act<Hive>().MapTopBgPath;
                     break;
                 case AbstractRuinaAct.RuinaFloor.Tiphereth:
-                    path = "map_top_test.png".UIImagePath();
+                    path = ModelDb.Act<Hive>().MapTopBgPath;
                     break;
                 case AbstractRuinaAct.RuinaFloor.Gebura:
                     path = ModelDb.Act<Hive>().MapTopBgPath;
