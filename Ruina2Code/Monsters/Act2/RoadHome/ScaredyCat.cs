@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -14,6 +15,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Nodes;
 using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.RoadHome;
@@ -129,7 +131,10 @@ public sealed class ScaredyCat : AbstractRuinaMonster
     private async Task Flee(IReadOnlyList<Creature> targets)
     {
         NCombatRoom.Instance?.GetCreatureNode(Creature)?.ToggleIsInteractable(false);
-        await Cmd.Wait(1.25f);
+        var catRunAwayEffect = CatRunAway.Create(Creature);
+        Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+        vfxContainer?.AddChildSafely(catRunAwayEffect);
+        await WaitAnimation(catRunAwayEffect.EndDuration);
         await CreatureCmd.Escape(Creature);
     }
 

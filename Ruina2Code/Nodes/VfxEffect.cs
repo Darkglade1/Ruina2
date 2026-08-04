@@ -6,7 +6,7 @@ public abstract partial class VfxEffect : Node2D
 {
     protected float Duration;
     protected float StartingDuration;
-    protected float EndDuration;
+    public float EndDuration;
     protected Color EffectColor = Colors.White;
     public bool IsDone = false;
 
