@@ -59,7 +59,7 @@ public sealed class ServantOfWrath : AbstractAllyMonster
         MassAttackHitsPlayer = true;
         Sfx.WrathMeet.Play();
         OtherSideTargetMonster = FindTarget<Hermit>();
-        await PowerCmd.Apply<BlindFury>(new ThrowingPlayerChoiceContext(), Creature, BlindFuryThreshold, Creature, null);
+        await PowerCmd.Apply<BlindFury>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(BlindFuryThreshold, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
     }
 
     private MoveState GetRageState()

@@ -28,7 +28,7 @@ public sealed class ScaredyCat : AbstractRuinaMonster
     private int RawrDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int RawrHits => 2;
     private int GrowlDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    //private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int StatusAmt => 1;
     private bool coward = false;
 
@@ -41,7 +41,7 @@ public sealed class ScaredyCat : AbstractRuinaMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<Courage>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
+        await PowerCmd.Apply<Courage>(new ThrowingPlayerChoiceContext(), Creature, CombatState.Players.Count, Creature,  null);
     }
 
     private MoveState GetRawrState()

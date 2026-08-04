@@ -44,7 +44,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Home>();
         Cat = FindTarget<ScaredyCat>();
-        await PowerCmd.Apply<EasilyDistracted>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        await PowerCmd.Apply<EasilyDistracted>(new ThrowingPlayerChoiceContext(), Creature, CombatState.Players.Count, Creature,  null);
     }
 
     private MoveState GetLetsGoState()

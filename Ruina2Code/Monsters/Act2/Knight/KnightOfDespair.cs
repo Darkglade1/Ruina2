@@ -31,7 +31,7 @@ public sealed class KnightOfDespair : AbstractRuinaMonster
     {
         await base.AfterAddedToRoom();
         Sfx.KnightChange.Play();
-        await PowerCmd.Apply<Despair>(new ThrowingPlayerChoiceContext(), Creature, HPLossAmt, Creature,  null);
+        await PowerCmd.Apply<Despair>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(HPLossAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature,  null);
     }
 
     private MoveState GetDespairState()

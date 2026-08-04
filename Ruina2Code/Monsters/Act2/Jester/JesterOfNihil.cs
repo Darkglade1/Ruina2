@@ -57,7 +57,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         girl1 = FindTarget<QueenOfLove>();
         girl2 = FindTarget<ServantOfCourage>();
-        await PowerCmd.Apply<PointlessHate>(new ThrowingPlayerChoiceContext(), Creature, HateBlockAmount, Creature, null);
+        await PowerCmd.Apply<PointlessHate>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(HateBlockAmount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
         await PowerCmd.Apply<SenselessWrath>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 

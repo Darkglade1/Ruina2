@@ -415,7 +415,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
     public override async Task BeforeDeath(Creature creature)
     {
         await base.BeforeDeath(creature);
-        if (creature != Creature)
+        if (creature != Creature || phase > 1)
             return;
 
         var livingMinions = CombatState.GetTeammatesOf(Creature)

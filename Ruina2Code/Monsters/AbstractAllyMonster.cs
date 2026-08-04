@@ -1,13 +1,14 @@
 using System.Reflection;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -30,6 +31,16 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         FlipHorizontal();
         SetUpAllyButton("res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
         CanApplyPowersToAllies = true;
+        if (CombatState.Players.Count > 1)
+        {
+            await PowerCmd.Apply<MultiplayerAlly>(new ThrowingPlayerChoiceContext(), Creature, GetAllyMultiplayerDamageModifier(CombatState), Creature,  null);
+        }
+    }
+
+    public static int GetAllyMultiplayerDamageModifier(ICombatState combatState)
+    {
+        return (int)(Creature.ScaleHpForMultiplayer(100, combatState.Encounter, combatState.Players.Count,
+            combatState.RunState.CurrentActIndex) - 100);
     }
     
     protected void SetToSide(CombatSide side)

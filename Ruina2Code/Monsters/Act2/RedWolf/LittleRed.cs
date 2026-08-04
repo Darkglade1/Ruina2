@@ -19,6 +19,7 @@ using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers;
 using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
@@ -147,7 +148,7 @@ public sealed class LittleRed : AbstractAllyMonster
 
     private async Task CatchBreath(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.Heal(Creature, HealAmount, true);
+        await CreatureCmd.Heal(Creature, Creature.ScaleHpForMultiplayer(HealAmount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), true);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
     }
     
@@ -259,6 +260,11 @@ public sealed class LittleRed : AbstractAllyMonster
         if (player != null)
         {
             Targets[0] = player.Creature;
+        }
+
+        if (CombatState.Players.Count > 1)
+        {
+            await PowerCmd.Remove<MultiplayerAlly>(Creature);
         }
     }
     

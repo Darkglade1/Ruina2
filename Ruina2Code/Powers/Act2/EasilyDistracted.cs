@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -39,6 +40,20 @@ public class EasilyDistracted() : Ruina2Power
                     road.CancelIntent();
                 }
             }
+            InvokeDisplayAmountChanged();
         }
+    }
+    
+    public override Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (side == CombatSide.Enemy && Amount > 1)
+        {
+            DynamicVars["AttackedCount"].BaseValue = 0;
+            InvokeDisplayAmountChanged();
+        }
+        return Task.CompletedTask;
     }
 }

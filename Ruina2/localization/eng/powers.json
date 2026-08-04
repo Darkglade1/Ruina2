@@ -44,7 +44,7 @@
   "RUINA2-DRAW_REDUCTION.title": "Draw Reduction",
 
   "RUINA2-WORTHLESS.description": "",
-  "RUINA2-WORTHLESS.smartDescription": "If this creature Attacks and fails to deal unblocked attack damage, it [red]dies[/red].",
+  "RUINA2-WORTHLESS.smartDescription": "If this creature attacks and fails to deal unblocked attack damage, it [red]dies[/red].",
   "RUINA2-WORTHLESS.title": "Worthless",
 
   "RUINA2-DESPAIR.description": "",
@@ -88,14 +88,18 @@
   "RUINA2-SENSELESS_WRATH.title": "Senseless Wrath",
 
   "RUINA2-EASILY_DISTRACTED.description": "",
-  "RUINA2-EASILY_DISTRACTED.smartDescription": "Whenever this creature is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times|}, it cancels one of its intents.",
+  "RUINA2-EASILY_DISTRACTED.smartDescription": "Whenever this creature is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, it cancels one of its intents.",
   "RUINA2-EASILY_DISTRACTED.title": "Easily Distracted",
 
   "RUINA2-COURAGE.description": "",
-  "RUINA2-COURAGE.smartDescription": "Whenever the [gold]Road Home[/gold] is hit by an attack{IsMultiplayer: [blue]{AttackedThreshold:diff()}[/blue] times|}, this creature gains [blue]{Amount}[/blue] [gold]Strength[/gold] this turn.",
+  "RUINA2-COURAGE.smartDescription": "Whenever the [gold]Road Home[/gold] is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, this creature gains [blue]{StrengthGain:diff()}[/blue] [gold]Strength[/gold] this turn.",
   "RUINA2-COURAGE.title": "Courage",
 
   "RUINA2-WAY_HOME.description": "",
   "RUINA2-WAY_HOME.smartDescription": "On death, the [gold]Road Home[/gold] will begin to use a [gold]powerful[/gold] attack.",
-  "RUINA2-WAY_HOME.title": "On the Way Home"
+  "RUINA2-WAY_HOME.title": "On the Way Home",
+
+  "RUINA2-MULTIPLAYER_ALLY.description": "",
+  "RUINA2-MULTIPLAYER_ALLY.smartDescription": "Deals [blue]{Amount}%[/blue] more attack damage to enemies.\nReceives [blue]{Amount}%[/blue] more attack damage from enemies.",
+  "RUINA2-MULTIPLAYER_ALLY.title": "Multiplayer Adjustment"
 }
