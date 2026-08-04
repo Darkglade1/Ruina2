@@ -101,5 +101,9 @@
 
   "RUINA2-MULTIPLAYER_ALLY.description": "",
   "RUINA2-MULTIPLAYER_ALLY.smartDescription": "Deals [blue]{Amount}%[/blue] more attack damage to enemies.\nReceives [blue]{Amount}%[/blue] more attack damage from enemies.",
-  "RUINA2-MULTIPLAYER_ALLY.title": "Multiplayer Adjustment"
+  "RUINA2-MULTIPLAYER_ALLY.title": "Multiplayer Adjustment",
+
+  "RUINA2-CENTER_OF_ATTENTION.description": "",
+  "RUINA2-CENTER_OF_ATTENTION.smartDescription": "Random targeting effects always target this creature.",
+  "RUINA2-CENTER_OF_ATTENTION.title": "Center of Attention"
 }
