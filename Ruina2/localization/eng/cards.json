@@ -3,5 +3,8 @@
   "RUINA2-FRAGMENT_OF_BLISS.title": "Fragment of Bliss",
 
   "RUINA2-WISDOM.description": "Draw {Cards:diff()} card.",
-  "RUINA2-WISDOM.title": "Wisdom"
+  "RUINA2-WISDOM.title": "Wisdom",
+
+  "RUINA2-ENLIGHTENMENT.description": "Lose {HpLoss:diff()} HP.\nGain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.",
+  "RUINA2-ENLIGHTENMENT.title": "Enlightenment"
 }

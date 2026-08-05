@@ -105,5 +105,13 @@
 
   "RUINA2-CENTER_OF_ATTENTION.description": "",
   "RUINA2-CENTER_OF_ATTENTION.smartDescription": "Random targeting effects always target this creature.",
-  "RUINA2-CENTER_OF_ATTENTION.title": "Center of Attention"
+  "RUINA2-CENTER_OF_ATTENTION.title": "Center of Attention",
+
+  "RUINA2-FEAR.description": "",
+  "RUINA2-FEAR.smartDescription": "Whenever [gold]Attack[/gold] cards are played{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, this creature loses [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold] this turn.",
+  "RUINA2-FEAR.title": "Fear",
+
+  "RUINA2-SONG.description": "",
+  "RUINA2-SONG.smartDescription": "At the end of this creature's turn, it gains [blue]{Amount}[/blue] [gold]Strength[/gold] and [blue]1[/blue] [gold]Vulnerable[/gold].",
+  "RUINA2-SONG.title": "Pine for the Song"
 }

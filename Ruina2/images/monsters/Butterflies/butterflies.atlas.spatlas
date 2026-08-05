@@ -1,0 +1,1 @@
+{"atlas_data":"butterflies.png\nsize:409,170\nfilter:Linear,Linear\nAttack\nbounds:2,2,178,166\nIdle\nbounds:309,50,98,118\noffsets:0,2,99,121\nSpecial\nbounds:182,16,152,125\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Butterflies/butterflies.atlas","specular_texture_prefix":"s"}

@@ -81,4 +81,11 @@ public static class Sfx
     public static readonly ModSound MakeRoad = new("House_MakeRoad.ogg".SfxPath());
     public static readonly ModSound HouseAttack = new("House_NormalAtk.ogg".SfxPath());
     public static readonly ModSound LionChange = new("House_Lion_Change.ogg".SfxPath());
+    
+    public static readonly ModSound FragmentStab = new("Cosmos_Stab_Down.ogg".SfxPath());
+    public static readonly ModSound FragmentSing = new("Cosmos_Sing.ogg".SfxPath());
+    public static readonly ModSound ButterflyAtk = new("ButterFlyMan_ButterflyAtk.ogg".SfxPath());
+    public static readonly ModSound FuneralReady = new("ButterFlyMan_StrongReady_Boss.ogg".SfxPath());
+    public static readonly ModSound FuneralAtkBlack = new("ButterFlyMan_StongAtk_Black.ogg".SfxPath());
+    public static readonly ModSound FuneralAtkWhite = new("ButterFlyMan_StongAtk_White.ogg".SfxPath());
 }

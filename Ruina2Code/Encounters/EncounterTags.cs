@@ -19,4 +19,10 @@ public static class RuinaEncounterTags
     
     [CustomEnum] 
     public static EncounterTag Scarecrow;
+    
+    [CustomEnum] 
+    public static EncounterTag Employees;
+    
+    [CustomEnum] 
+    public static EncounterTag Butterflies;
 }

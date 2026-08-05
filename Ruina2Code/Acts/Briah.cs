@@ -31,4 +31,8 @@ public class Briah() : AbstractRuinaAct(2)
     }
 
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Hive>().AllEvents;
+    
+    public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act2";
+    
+    protected override int NumberOfWeakEncounters => 2;
 }
