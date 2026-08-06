@@ -36,7 +36,11 @@ public class Bleed() : Ruina2Power
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (side == CombatSide.Enemy)
+        if (Owner.Player != null && side == CombatSide.Player)
+        {
+            await PowerCmd.Remove<Bleed>(Owner);
+        }
+        if (Owner.Monster != null && side == CombatSide.Enemy)
         {
             if (SkipNextDurationTick)
             {

@@ -21,7 +21,7 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<AlriuneElite>(),
             ModelDb.Encounter<HelpersElite>(),
             ModelDb.Encounter<LaetitiaElite>(),
-            ModelDb.Encounter<CeremonialBeastBoss>(),
+            //ModelDb.Encounter<CeremonialBeastBoss>(),
             ModelDb.Encounter<CubexConstructNormal>(),
             ModelDb.Encounter<FlyconidNormal>(),
             ModelDb.Encounter<FogmogNormal>(),
@@ -31,8 +31,8 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<RubyRaidersNormal>(),
             ModelDb.Encounter<SlitheringStranglerNormal>(),
             ModelDb.Encounter<SnappingJaxfruitNormal>(),
-            ModelDb.Encounter<TheKinBoss>(),
-            ModelDb.Encounter<VantomBoss>(),
+            ModelDb.Encounter<FairyBoss>(),
+            //ModelDb.Encounter<VantomBoss>(),
             ModelDb.Encounter<VineShamblerNormal>()
         ];
     }

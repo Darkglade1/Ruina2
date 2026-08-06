@@ -1,0 +1,1 @@
+{"atlas_data":"scorched_girl.png\nsize:508,231\nfilter:Linear,Linear\nIdle\nbounds:2,2,161,227\nMove\nbounds:347,10,159,219\nSpecial\nbounds:165,27,180,202\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/ScorchedGirl/scorched_girl.atlas","specular_texture_prefix":"s"}

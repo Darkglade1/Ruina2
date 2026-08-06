@@ -1,0 +1,1 @@
+{"atlas_data":"match_flame.png\nsize:667,266\nfilter:Linear,Linear\nAttack\nbounds:2,2,380,262\nBlock\nbounds:384,21,271,96\nIdle\nbounds:384,119,281,145\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/MatchFlame/match_flame.atlas","specular_texture_prefix":"s"}

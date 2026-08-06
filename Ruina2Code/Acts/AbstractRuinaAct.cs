@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Runs;
+using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Encounters.Act2;
 using Ruina2.Ruina2Code.Extensions;
 
@@ -29,6 +30,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
 
     public static RuinaFloor GetFloorBasedOnBoss()
     {
+        if (RunManager.Instance.State?.Act.BossEncounter is FairyBoss)
+        {
+            return RuinaFloor.Malkuth;
+        }
         if (RunManager.Instance.State?.Act.BossEncounter is RedWolfBoss)
         {
             return RuinaFloor.Gebura;
@@ -44,11 +49,16 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     {
         string path = "Roland2.ogg";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-        if (localPlayer?.Creature.CombatState?.Encounter is RedWolfBoss)
+        var encounter = localPlayer?.Creature.CombatState?.Encounter;
+        if (encounter is FairyBoss)
+        {
+            path = "Angela2.ogg";
+        }
+        if (encounter is RedWolfBoss)
         {
             path = "Roland1.ogg";
         }
-        if (localPlayer?.Creature.CombatState?.Encounter is JesterBoss)
+        if (encounter is JesterBoss)
         {
             path = "Roland3.ogg";
         }
@@ -59,13 +69,18 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     {
         string path = "Warning2.ogg";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-        if (localPlayer?.Creature.CombatState?.Encounter is MountainElite)
+        var encounter = localPlayer?.Creature.CombatState?.Encounter;
+        if (encounter is HelpersElite || encounter is LaetitiaElite || encounter is RoadHomeElite)
         {
-            path = "Warning3.ogg";
+            path = "Warning1.ogg";
         }
-        if (localPlayer?.Creature.CombatState?.Encounter is WrathElite)
+        if (encounter is AlriuneElite || encounter is WrathElite)
         {
             path = "Warning2.ogg";
+        }
+        if (encounter is MountainElite)
+        {
+            path = "Warning3.ogg";
         }
         return path.MusicPath().SimplifyPath();
     }
@@ -156,7 +171,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         }
     }
     
-    protected override string CustomMapMidBgPath => ModelDb.Act<Overgrowth>().MapMidBgPath;
-    protected override string CustomMapBotBgPath => ModelDb.Act<Overgrowth>().MapBotBgPath;
+    protected override string CustomMapMidBgPath => ModelDb.Act<Hive>().MapMidBgPath;
+    protected override string CustomMapBotBgPath => ModelDb.Act<Hive>().MapBotBgPath;
     protected override string CustomRestSiteBackgroundPath => ModelDb.Act<Hive>().RestSiteBackgroundPath;
 }

@@ -1,0 +1,1 @@
+{"atlas_data":"fairy_queen.png\nsize:1214,470\nfilter:Linear,Linear\nAttack\nbounds:2,2,559,466\nIdle\nbounds:563,41,427,298\nrotate:90\nSpecial\nbounds:863,109,359,349\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/FairyQueen/fairy_queen.atlas","specular_texture_prefix":"s"}

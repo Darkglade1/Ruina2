@@ -53,6 +53,7 @@ public class MusicPatches
             var runState = StateProperty?.GetValue(RunManager.Instance) as RunState;
             return runState?.Act switch
             {
+                Asiyah => RuinaAct.Asiyah,
                 Briah => RuinaAct.Briah,
                 _ => RuinaAct.None
             };

@@ -100,4 +100,20 @@ public static class Sfx
     public static readonly ModSound SwordStab = new("Sword_Stab.ogg".SfxPath());
     public static readonly ModSound SwordVert = new("Sword_Vert.ogg".SfxPath());
     public static readonly ModSound SwordHori = new("Sword_Hori.ogg".SfxPath());
+    
+    public static readonly ModSound FairySpecial = new("Fairy_Special.ogg".SfxPath());
+    public static readonly ModSound FairyMinionAtk = new("Fairy_MiniAtk.ogg".SfxPath());
+    public static readonly ModSound FairyQueenAtk = new("Fairy_QueenAtk.ogg".SfxPath());
+    public static readonly ModSound FairyQueenChange = new("Fairy_QueenChange.ogg".SfxPath());
+    public static readonly ModSound FairyQueenEat = new("Fairy_QueenEat.ogg".SfxPath());
+    
+    public static readonly ModSound PorccuStrongStab2 = new("Porccu_Strong_Stab2.ogg".SfxPath());
+    public static readonly ModSound PorccuPenetrate = new("Porccu_Penetrate.ogg".SfxPath());
+    
+    public static readonly ModSound MatchExplode = new("MatchGirl_Explosion.ogg".SfxPath());
+    public static readonly ModSound MatchSizzle = new("MatchGirl_Barrier.ogg".SfxPath());
+    
+    public static readonly ModSound TeddyOn = new("Teddy_On.ogg".SfxPath());
+    public static readonly ModSound TeddyBlock = new("Teddy_Guard.ogg".SfxPath());
+    public static readonly ModSound TeddyAtk = new("Teddy_NormalAtk.ogg".SfxPath());
 }

@@ -129,5 +129,13 @@
 
   "RUINA2-SURPRISE_PRESENT.description": "",
   "RUINA2-SURPRISE_PRESENT.smartDescription": "Upon death, summons a [gold]Wee Witch's Friend[/gold].",
-  "RUINA2-SURPRISE_PRESENT.title": "Surprise Present"
+  "RUINA2-SURPRISE_PRESENT.title": "Surprise Present",
+
+  "RUINA2-MEAL.description": "",
+  "RUINA2-MEAL.smartDescription": "If this creature is at or below [blue]{Amount}[/blue] HP at the end of the round, the boss [gold]consumes[/gold] it.",
+  "RUINA2-MEAL.title": "Prepared Meal",
+
+  "RUINA2-SATIATION.description": "",
+  "RUINA2-SATIATION.smartDescription": "Whenever this creature [gold]consumes[/gold] a minion, it gains [blue]{Amount}[/blue] [gold]Weak[/gold] and [gold]Vulnerable[/gold] and loses [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold].",
+  "RUINA2-SATIATION.title": "Momentary Satiation"
 }
