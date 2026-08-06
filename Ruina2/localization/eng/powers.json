@@ -113,5 +113,21 @@
 
   "RUINA2-SONG.description": "",
   "RUINA2-SONG.smartDescription": "At the end of this creature's turn, it gains [blue]{Amount}[/blue] [gold]Strength[/gold] and [blue]1[/blue] [gold]Vulnerable[/gold].",
-  "RUINA2-SONG.title": "Pine for the Song"
+  "RUINA2-SONG.title": "Pine for the Song",
+
+  "RUINA2-WINTERS_INCEPTION.description": "",
+  "RUINA2-WINTERS_INCEPTION.smartDescription": "The first [gold]Attack[/gold] card you play each turn is [gold]Afflicted[/gold] with [purple]Laurel Wreath[/purple]. This creature receives [blue]{Amount}%[/blue] less damage from [gold]Attack[/gold] cards without [purple]Laurel Wreath[/purple].",
+  "RUINA2-WINTERS_INCEPTION.title": "Winter's Inception",
+
+  "RUINA2-PATTERN.description": "",
+  "RUINA2-PATTERN.smartDescription": "Whenever this creature deals [blue]{Amount}[/blue] unblocked attack damage in a single turn, its [gold]Temporary Strength[/gold] becomes permanent.",
+  "RUINA2-PATTERN.title": "Pattern Recognition",
+
+  "RUINA2-LONELY.description": "",
+  "RUINA2-LONELY.smartDescription": "When this creature is the only enemy left, it receives [blue]{Amount}%[/blue] more damage from attacks.",
+  "RUINA2-LONELY.title": "Being Lonely is Sad",
+
+  "RUINA2-SURPRISE_PRESENT.description": "",
+  "RUINA2-SURPRISE_PRESENT.smartDescription": "Upon death, summons a [gold]Wee Witch's Friend[/gold].",
+  "RUINA2-SURPRISE_PRESENT.title": "Surprise Present"
 }

@@ -6,5 +6,8 @@
   "RUINA2-WISDOM.title": "Wisdom",
 
   "RUINA2-ENLIGHTENMENT.description": "Lose {HpLoss:diff()} HP.\nGain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.",
-  "RUINA2-ENLIGHTENMENT.title": "Enlightenment"
+  "RUINA2-ENLIGHTENMENT.title": "Enlightenment",
+
+  "RUINA2-GIFT.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
+  "RUINA2-GIFT.title": "Gift"
 }

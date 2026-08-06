@@ -1,0 +1,1 @@
+{"atlas_data":"helper.png\nsize:702,369\nfilter:Linear,Linear\nAttack\nbounds:2,2,506,365\nIdle\nbounds:510,133,234,190\nrotate:90\nSpecial\nbounds:510,20,149,111\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Helper/helper.atlas","specular_texture_prefix":"s"}

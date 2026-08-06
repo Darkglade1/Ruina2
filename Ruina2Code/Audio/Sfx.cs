@@ -84,8 +84,20 @@ public static class Sfx
     
     public static readonly ModSound FragmentStab = new("Cosmos_Stab_Down.ogg".SfxPath());
     public static readonly ModSound FragmentSing = new("Cosmos_Sing.ogg".SfxPath());
+    
     public static readonly ModSound ButterflyAtk = new("ButterFlyMan_ButterflyAtk.ogg".SfxPath());
     public static readonly ModSound FuneralReady = new("ButterFlyMan_StrongReady_Boss.ogg".SfxPath());
     public static readonly ModSound FuneralAtkBlack = new("ButterFlyMan_StongAtk_Black.ogg".SfxPath());
     public static readonly ModSound FuneralAtkWhite = new("ButterFlyMan_StongAtk_White.ogg".SfxPath());
+    
+    public static readonly ModSound HelperOn = new("Helper_On.ogg".SfxPath());
+    public static readonly ModSound HelperCharge = new("Helper_FullCharge.ogg".SfxPath());
+    public static readonly ModSound AlriuneHori = new("Ali_Boss_Hori.ogg".SfxPath());
+    public static readonly ModSound AlriuneGuard = new("Ali_Guard.ogg".SfxPath());
+    public static readonly ModSound LaetitiaAtk = new("Laetitia_Atk.ogg".SfxPath());
+    public static readonly ModSound LaetitiaFriendAtk = new("Laetitia_Friend_Stab.ogg".SfxPath());
+    
+    public static readonly ModSound SwordStab = new("Sword_Stab.ogg".SfxPath());
+    public static readonly ModSound SwordVert = new("Sword_Vert.ogg".SfxPath());
+    public static readonly ModSound SwordHori = new("Sword_Hori.ogg".SfxPath());
 }
