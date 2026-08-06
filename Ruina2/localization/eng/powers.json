@@ -67,8 +67,8 @@
   "RUINA2-SEARCH.smartDescription": "Whenever you receive unblocked attack damage from this creature, [gold]Exhaust[/gold] the top card of your [gold]Draw Pile[/gold].",
   "RUINA2-SEARCH.title": "Searching for Wisdom",
 
-  "RUINA2-EROSION.description": "Receives increased damage from Attacks. Reduced by [blue]1[/blue] each turn.",
-  "RUINA2-EROSION.smartDescription": "Receives [blue]{Amount}[/blue] more damage from Attacks. Reduced by [blue]1[/blue] each turn.",
+  "RUINA2-EROSION.description": "Receives increased damage from attacks. Reduced by [blue]1[/blue] each turn.",
+  "RUINA2-EROSION.smartDescription": "Receives [blue]{Amount}[/blue] more damage from attacks. Reduced by [blue]1[/blue] each turn.",
   "RUINA2-EROSION.title": "Erosion",
 
   "RUINA2-BLIND_FURY.description": "",
@@ -88,11 +88,11 @@
   "RUINA2-SENSELESS_WRATH.title": "Senseless Wrath",
 
   "RUINA2-EASILY_DISTRACTED.description": "",
-  "RUINA2-EASILY_DISTRACTED.smartDescription": "Whenever this creature is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, it cancels one of its intents.",
+  "RUINA2-EASILY_DISTRACTED.smartDescription": "Whenever this creature is hit by an [gold]Attack[/gold]{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, it cancels one of its intents.",
   "RUINA2-EASILY_DISTRACTED.title": "Easily Distracted",
 
   "RUINA2-COURAGE.description": "",
-  "RUINA2-COURAGE.smartDescription": "Whenever the [gold]Road Home[/gold] is hit by an attack{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, this creature gains [blue]{StrengthGain:diff()}[/blue] [gold]Strength[/gold] this turn.\nIf the [gold]Road Home[/gold] dies, will immediately attempt to flee.",
+  "RUINA2-COURAGE.smartDescription": "Whenever the [gold]Road Home[/gold] is hit by an [gold]Attack[/gold]{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, this creature gains [blue]{StrengthGain:diff()}[/blue] [gold]Strength[/gold] this turn.\nIf the [gold]Road Home[/gold] dies, will immediately attempt to flee.",
   "RUINA2-COURAGE.title": "Courage",
 
   "RUINA2-WAY_HOME.description": "",
@@ -108,7 +108,7 @@
   "RUINA2-CENTER_OF_ATTENTION.title": "Center of Attention",
 
   "RUINA2-FEAR.description": "",
-  "RUINA2-FEAR.smartDescription": "Whenever [gold]Attack[/gold] cards are played{IsMultiplayer: [blue]{Amount}[/blue] times in a turn|}, this creature loses [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold] this turn.",
+  "RUINA2-FEAR.smartDescription": "Whenever {IsMultiplayer:players|you} play {IsMultiplayer:[blue]{Amount}[/blue] [gold]Attacks[/gold] in a single turn|an [gold]Attack[/gold]}, this creature loses [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold] this turn.",
   "RUINA2-FEAR.title": "Fear",
 
   "RUINA2-SONG.description": "",
@@ -116,7 +116,7 @@
   "RUINA2-SONG.title": "Pine for the Song",
 
   "RUINA2-WINTERS_INCEPTION.description": "",
-  "RUINA2-WINTERS_INCEPTION.smartDescription": "The first [gold]Attack[/gold] card you play each turn is [gold]Afflicted[/gold] with [purple]Laurel Wreath[/purple]. This creature receives [blue]{Amount}%[/blue] less damage from [gold]Attack[/gold] cards without [purple]Laurel Wreath[/purple].",
+  "RUINA2-WINTERS_INCEPTION.smartDescription": "The first [gold]Attack[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Laurel Wreath[/purple]. This creature receives [blue]{Amount}%[/blue] less damage from [gold]Attacks[/gold] without [purple]Laurel Wreath[/purple].",
   "RUINA2-WINTERS_INCEPTION.title": "Winter's Inception",
 
   "RUINA2-PATTERN.description": "",
