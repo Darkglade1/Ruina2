@@ -149,5 +149,13 @@
 
   "RUINA2-PLEASURE.description": "",
   "RUINA2-PLEASURE.smartDescription": "At the start of your turn, gain {Energy:energyIcons()}. At the end of your turn, take [blue]{Amount}[/blue] damage.",
-  "RUINA2-PLEASURE.title": "Pleasure"
+  "RUINA2-PLEASURE.title": "Pleasure",
+
+  "RUINA2-FERVENT_ADORATION.description": "",
+  "RUINA2-FERVENT_ADORATION.smartDescription": "At the start of your turn, draw [blue]{Cards:diff()}[/blue] {Cards:plural:card|cards}. At the end of your turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-FERVENT_ADORATION.title": "Fervent Adoration",
+
+  "RUINA2-ENDLESS_PERFORMANCE.description": "",
+  "RUINA2-ENDLESS_PERFORMANCE.smartDescription": "At the end of the first [blue]{Amount}[/blue] rounds, shuffle a [gold]Performer[/gold] into your [gold]Discard Pile[/gold].\nWhenever a [gold]Performer[/gold] is [gold]Exhausted[/gold], add a copy of it to your [gold]Discard Pile[/gold].",
+  "RUINA2-ENDLESS_PERFORMANCE.title": "Endless Performance"
 }

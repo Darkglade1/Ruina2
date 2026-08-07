@@ -12,7 +12,7 @@ public class Lonely() : Ruina2Power
         PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Counter;
+        PowerStackType.None;
 
     public override Decimal ModifyDamageMultiplicative(
         Creature? target,

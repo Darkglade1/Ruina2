@@ -34,6 +34,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             return RuinaFloor.Malkuth;
         }
+        if (RunManager.Instance.State?.Act.BossEncounter is OrchestraBoss)
+        {
+            return RuinaFloor.Netzach;
+        }
         if (RunManager.Instance.State?.Act.BossEncounter is RedWolfBoss)
         {
             return RuinaFloor.Gebura;
@@ -53,6 +57,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         if (encounter is FairyBoss)
         {
             path = "Angela2.ogg";
+        }
+        if (encounter is OrchestraBoss)
+        {
+            path = "Angela3.ogg";
         }
         if (encounter is RedWolfBoss)
         {

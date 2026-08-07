@@ -116,4 +116,19 @@ public static class Sfx
     public static readonly ModSound TeddyOn = new("Teddy_On.ogg".SfxPath());
     public static readonly ModSound TeddyBlock = new("Teddy_Guard.ogg".SfxPath());
     public static readonly ModSound TeddyAtk = new("Teddy_NormalAtk.ogg".SfxPath());
+    
+    public static readonly ModSound OrchestraFinale = new("Sym_movement_5_finale.ogg".SfxPath());
+    public static readonly ModSound OrchestraMovement1 = new("Sym_Chor_Atk.ogg".SfxPath());
+    public static readonly ModSound OrchestraMovement2 = new("Sym_movement_5.ogg".SfxPath());
+    public static readonly ModSound OrchestraClap = new("Sym_movement_0_clap.ogg".SfxPath());
+    
+    public static readonly ModSound ShoesOn = new("RedShoes_On3.ogg".SfxPath());
+    public static readonly ModSound ShoesAtk = new("RedShoes_Atk.ogg".SfxPath());
+    
+    public static readonly ModSound GalaxyDef = new("GalaxyBoy_FriendDef.ogg".SfxPath());
+    public static readonly ModSound GalaxyAtk = new("GalaxyBoy_FriendAtk.ogg".SfxPath());
+    
+    public static readonly ModSound QueenBeeStab = new("QueenBee_Queen_Stab.ogg".SfxPath());
+    public static readonly ModSound QueenBeeBuff = new("QueenBee_AtkBuff.ogg".SfxPath());
+    public static readonly ModSound QueenBeeLegAtk = new("QueenBee_BeeAtk_leg.ogg".SfxPath());
 }

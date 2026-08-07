@@ -1,9 +1,6 @@
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Acts;
-using MegaCrit.Sts2.Core.Models.Encounters;
-using MegaCrit.Sts2.Core.Models.Events;
 using Ruina2.Ruina2Code.Encounters.Act1;
-using Ruina2.Ruina2Code.Encounters.Act2;
 
 namespace Ruina2.Ruina2Code.Acts;
 
@@ -32,7 +29,7 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<HelpersElite>(),
             ModelDb.Encounter<LaetitiaElite>(),
             ModelDb.Encounter<FairyBoss>(),
-            //ModelDb.Encounter<CeremonialBeastBoss>(),
+            ModelDb.Encounter<OrchestraBoss>(),
             //ModelDb.Encounter<VantomBoss>(),
         ];
     }

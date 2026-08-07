@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Powers.Act1;
 
-public class Pleasure() : Ruina2Power
+public class FerventAdoration() : Ruina2Power
 {
     public override PowerType Type =>
         PowerType.Debuff;
@@ -18,17 +18,13 @@ public class Pleasure() : Ruina2Power
     public override PowerStackType StackType =>
         PowerStackType.Counter;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(0)];
-
-    public override Decimal ModifyMaxEnergy(Player player, Decimal amount)
-    {
-        if (player.Creature == Owner)
-        {
-            return amount + DynamicVars.Energy.IntValue;
-        }
-        return amount;
-    }
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(0)];
     
+    public override Decimal ModifyHandDraw(Player player, Decimal count)
+    {
+        return player != Owner.Player ? count : count + DynamicVars.Cards.BaseValue;
+    }
+
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
@@ -38,7 +34,7 @@ public class Pleasure() : Ruina2Power
     {
         if (Owner.CombatState != null && power is Pleasure && power.Owner == Owner)
         {
-            DynamicVars.Energy.BaseValue++;
+            DynamicVars.Cards.BaseValue++;
         }
     }
     
