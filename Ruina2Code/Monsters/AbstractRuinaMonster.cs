@@ -159,6 +159,9 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     {
         IsMassAttacking = false;
         await WaitAnimation(waitTime);
-        await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+        if (Creature.GetCreatureNode() != null)
+        {
+            await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+        }
     }
 }
