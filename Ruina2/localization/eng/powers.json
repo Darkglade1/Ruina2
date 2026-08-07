@@ -137,5 +137,17 @@
 
   "RUINA2-SATIATION.description": "",
   "RUINA2-SATIATION.smartDescription": "Whenever this creature [gold]consumes[/gold] a minion, it gains [blue]{Amount}[/blue] [gold]Weak[/gold] and [gold]Vulnerable[/gold] and loses [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold].",
-  "RUINA2-SATIATION.title": "Momentary Satiation"
+  "RUINA2-SATIATION.title": "Momentary Satiation",
+
+  "RUINA2-FRAGILE.description": "Receives more damage from attacks.",
+  "RUINA2-FRAGILE.smartDescription": "Receives [blue]{Amount}[/blue] more damage from attacks.",
+  "RUINA2-FRAGILE.title": "Fragile",
+
+  "RUINA2-AFFECTION.description": "",
+  "RUINA2-AFFECTION.smartDescription": "Whenever this creature fully or partially blocks damage from an [gold]Attack[/gold], applies [blue]{Amount}[/blue] [gold]Fragile[/gold] to the attacker.",
+  "RUINA2-AFFECTION.title": "Affection",
+
+  "RUINA2-PLEASURE.description": "",
+  "RUINA2-PLEASURE.smartDescription": "At the start of your turn, gain {Energy:energyIcons()}. At the end of your turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-PLEASURE.title": "Pleasure"
 }
