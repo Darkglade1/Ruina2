@@ -64,7 +64,7 @@ public sealed class Butterflies : AbstractRuinaMonster
         if (!LastTwoMoves(stateMachine, TRANQUILITY)) {
             possibilities.Add(TRANQUILITY);
         }
-        if (!LastTwoMoves(stateMachine, LIBERATION)) {
+        if (!LastMove(stateMachine, LIBERATION)) {
             possibilities.Add(LIBERATION);
         }
         return possibilities[rng.NextInt(possibilities.Count)];

@@ -28,7 +28,7 @@ public class Pattern() : Ruina2Power
         Creature target,
         CardModel? cardSource)
     {
-        if (dealer == Owner && props.IsPoweredAttack())
+        if (dealer == Owner && props.IsPoweredAttack() && result.Receiver.IsPlayer)
         {
             DynamicVars["DamageCounter"].BaseValue += result.UnblockedDamage;
             if (DynamicVars["DamageCounter"].BaseValue >= Amount)
