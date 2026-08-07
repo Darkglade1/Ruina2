@@ -30,7 +30,7 @@ public sealed class ServantOfWrath : AbstractAllyMonster
     private int EvilHits = 3;
     private int RageDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 8);
     private int RageHits => 2;
-    private int DebuffAmt => 3;
+    private int DebuffAmt => 2;
     private int BlindFuryThreshold => 20;
     private int DamageIncrease = 2;
     private int CurrentDamageIncrease = 0;

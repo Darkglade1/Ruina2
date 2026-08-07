@@ -23,7 +23,6 @@ public sealed class ButterfliesNormal : CustomEncounterModel
     public override string? CustomScenePath => "butterflies_normal.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
-    public override bool IsWeak => true;
     public override IEnumerable<EncounterTag> Tags => [RuinaEncounterTags.Butterflies];
     public override IEnumerable<MonsterModel> AllPossibleMonsters
     {

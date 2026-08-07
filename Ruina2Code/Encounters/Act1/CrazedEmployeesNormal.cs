@@ -22,7 +22,6 @@ public sealed class CrazedEmployeesNormal : CustomEncounterModel
     }
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
-    public override bool IsWeak => true;
     public override IEnumerable<EncounterTag> Tags => [RuinaEncounterTags.Employees];
     public override IEnumerable<MonsterModel> AllPossibleMonsters
     {
