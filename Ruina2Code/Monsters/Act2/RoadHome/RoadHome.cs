@@ -29,7 +29,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
     public override int NumIntents => 3;
 
     private int GoDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
-    private int HomingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 39, 35);
+    private int HomingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
     private int StatusAmt => 2;
 
     protected override string VisualsPath => "RoadHome/road.tscn".MonsterImagePath();

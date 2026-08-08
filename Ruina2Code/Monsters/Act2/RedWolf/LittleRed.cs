@@ -34,7 +34,7 @@ public sealed class LittleRed : AbstractAllyMonster
     private int BeastHuntDamage => 9;
     private int HollowPointDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int HollowPointHits => 2;
-    private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int BulletShowerHits => 3;
     private int StrengthAmount => 3;
     private int HealAmount => 10;
@@ -172,7 +172,7 @@ public sealed class LittleRed : AbstractAllyMonster
                 .Execute(null);
             var targetKilled = attackCommand.Results.SelectMany(r => r)
                 .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
-            if (targetKilled)
+            if (targetKilled && attackingWolf)
             {
                 await OnKillWolf();
             }
@@ -193,7 +193,7 @@ public sealed class LittleRed : AbstractAllyMonster
             .Execute(null);
         var targetKilled = attackCommand.Results.SelectMany(r => r)
             .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
-        if (targetKilled)
+        if (targetKilled && attackingWolf)
         {
             await OnKillWolf();
         }
