@@ -114,9 +114,20 @@ public static class PatchUpdateIntent
                 }
             }
             List<AbstractIntent> totalIntents = new List<AbstractIntent>();
-            foreach (var move in monster.NextMoves)
+            if (monster.FlippedHorizontal)
             {
-                totalIntents.AddRange(move.Intents);
+                for (int i = monster.NextMoves.Count - 1; i >= 0; i--)
+                {
+                    var move = monster.NextMoves[i];
+                    totalIntents.AddRange(move.Intents);
+                }
+            }
+            else
+            {
+                foreach (var move in monster.NextMoves)
+                {
+                    totalIntents.AddRange(move.Intents);
+                }
             }
             monster.NextMove.Intents = totalIntents;
         }

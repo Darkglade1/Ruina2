@@ -131,4 +131,16 @@ public static class Sfx
     public static readonly ModSound QueenBeeStab = new("QueenBee_Queen_Stab.ogg".SfxPath());
     public static readonly ModSound QueenBeeBuff = new("QueenBee_AtkBuff.ogg".SfxPath());
     public static readonly ModSound QueenBeeLegAtk = new("QueenBee_BeeAtk_leg.ogg".SfxPath());
+    
+    public static readonly ModSound NothingStrong = new("NothingThere_Strong_Flesh.ogg".SfxPath());
+    public static readonly ModSound NothingChange = new("NothingThere_Change.ogg".SfxPath());
+    public static readonly ModSound NothingHello = new("NothingThere_Hello.ogg".SfxPath());
+    public static readonly ModSound NothingNormal = new("NothingThere_Normal_Flesh.ogg".SfxPath());
+    public static readonly ModSound NothingGoodbye = new("NothingThere_Goodbye.ogg".SfxPath());
+    
+    public static readonly ModSound BulletShot = new("Matan_NormalShot.ogg".SfxPath());
+    public static readonly ModSound BulletFlame = new("Matan_Flame.ogg".SfxPath());
+    public static readonly ModSound BulletFinalShot = new("Matan_FinalShot.ogg".SfxPath());
+    
+    public static readonly ModSound ShyAtk = new("Shy_Atk.ogg".SfxPath());
 }

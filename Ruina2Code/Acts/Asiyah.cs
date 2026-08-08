@@ -29,8 +29,8 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<HelpersElite>(),
             ModelDb.Encounter<LaetitiaElite>(),
             ModelDb.Encounter<FairyBoss>(),
-            ModelDb.Encounter<OrchestraBoss>(),
-            //ModelDb.Encounter<VantomBoss>(),
+            ModelDb.Encounter<NothingDerBoss>(),
+            ModelDb.Encounter<OrchestraBoss>()
         ];
     }
 

@@ -1,0 +1,1 @@
+{"atlas_data":"der_frei.png\nsize:1405,326\nfilter:Linear,Linear\nAttack\nbounds:2,10,407,314\nBlock\nbounds:952,28,235,296\nDodge\nbounds:696,38,254,286\nIdle\nbounds:1189,42,214,282\nSpecial\nbounds:411,2,322,283\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/DerFreischutz/der_frei.atlas","specular_texture_prefix":"s"}

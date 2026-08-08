@@ -18,6 +18,7 @@ namespace Ruina2.Ruina2Code.Monsters;
 public abstract class AbstractRuinaMonster : CustomMonsterModel
 {
     public bool IsMassAttacking;
+    public bool FlippedHorizontal;
     public StanceVfxController? StanceVfx;
     public static StanceVfxConfig WrathVfxConfig   => new(
     "res://Ruina2/images/vfx/wrath_aura.tscn"
@@ -63,6 +64,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
             if (creatureNode != null)
             {
                 creatureNode.Body.Scale *= new Vector2(-1f, 1f);
+                FlippedHorizontal = !FlippedHorizontal;
             }
         }
     }
