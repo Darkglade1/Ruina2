@@ -156,7 +156,7 @@
   "RUINA2-FERVENT_ADORATION.title": "Fervent Adoration",
 
   "RUINA2-ENDLESS_PERFORMANCE.description": "",
-  "RUINA2-ENDLESS_PERFORMANCE.smartDescription": "At the end of the first [blue]{Amount}[/blue] rounds, shuffle a [gold]Performer[/gold] into your [gold]Discard Pile[/gold].\nWhenever a [gold]Performer[/gold] is [gold]Exhausted[/gold], add a copy of it to your [gold]Discard Pile[/gold].",
+  "RUINA2-ENDLESS_PERFORMANCE.smartDescription": "At the end of the first [blue]{Amount}[/blue] rounds, shuffle a [gold]Performer[/gold] into your [gold]Discard Pile[/gold].\nWhenever a [gold]Performer[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], add a copy of it to your [gold]Discard Pile[/gold].",
   "RUINA2-ENDLESS_PERFORMANCE.title": "Endless Performance",
 
   "RUINA2-MIMICRY.description": "",

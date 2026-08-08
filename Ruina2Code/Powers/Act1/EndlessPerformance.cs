@@ -5,12 +5,12 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Ruina2.Ruina2Code.Cards.Performer;
+using Ruina2.Ruina2Code.Hooks;
 
 namespace Ruina2.Ruina2Code.Powers.Act1;
 
-public class EndlessPerformance() : Ruina2Power
+public class EndlessPerformance() : Ruina2Power, IAfterTransform
 {
     public override PowerType Type =>
         PowerType.Buff;
@@ -59,6 +59,20 @@ public class EndlessPerformance() : Ruina2Power
             var result = await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Discard, card.Owner);
             CardCmd.PreviewCardPileAdd(result);
             await Cmd.Wait(1f);
+        }
+    }
+
+    public async Task AfterTransform(IEnumerable<CardTransformation> transformations)
+    {
+        foreach (var transformation in transformations)
+        {
+            if (transformation.Original is PerformerCard)
+            {
+                Flash();
+                var result = await CardPileCmd.AddGeneratedCardToCombat(transformation.Original.CreateClone(), PileType.Discard, transformation.Original.Owner);
+                CardCmd.PreviewCardPileAdd(result);
+                await Cmd.Wait(1f);
+            }
         }
     }
 }
