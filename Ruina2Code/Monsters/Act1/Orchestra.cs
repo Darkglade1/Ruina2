@@ -119,7 +119,7 @@ public sealed class Orchestra : AbstractRuinaMonster
         var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         if (targetNode != null)
         {
-            movement1 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "1st.png".VfxImagePath(), false, 0.75f);
+            movement1 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "1st.png".VfxImagePath(), false, 1.15f);
             Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
             vfxContainer?.AddChildSafely(movement1);
         }
@@ -136,7 +136,7 @@ public sealed class Orchestra : AbstractRuinaMonster
         var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         if (targetNode != null)
         {
-            movement2 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "2nd.png".VfxImagePath(), true, 1.25f);
+            movement2 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "2nd.png".VfxImagePath(), true, 1.55f);
             Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
             vfxContainer?.AddChildSafely(movement2);
         }
@@ -153,7 +153,7 @@ public sealed class Orchestra : AbstractRuinaMonster
         var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         if (targetNode != null)
         {
-            movement3 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "3rd.png".VfxImagePath(), false, 1.75f);
+            movement3 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "3rd.png".VfxImagePath(), false, 2.05f);
             Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
             vfxContainer?.AddChildSafely(movement3);
         }
@@ -170,7 +170,7 @@ public sealed class Orchestra : AbstractRuinaMonster
         var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         if (targetNode != null)
         {
-            movement4 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "4th.png".VfxImagePath(), true, 2.25f);
+            movement4 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "3rd.png".VfxImagePath(), true, 2.55f);
             Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
             vfxContainer?.AddChildSafely(movement4);
         }

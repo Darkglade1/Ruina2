@@ -41,7 +41,6 @@ public partial class OrchestraMusicEffect : VfxEffect
         _sprite = new Sprite2D();
         _sprite.Texture = textureRegion;
         _sprite.Scale = new Vector2(0.0f, 0.0f);
-        _sprite.Modulate = new Color(1, 1, 1, 0.7f);
         AddChild(_sprite);
         
         Position = new Vector2(_startingX, _startingY);
