@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -9,9 +10,11 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Nodes;
 using Ruina2.Ruina2Code.Powers.Act1;
 using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
 
@@ -41,6 +44,11 @@ public sealed class Orchestra : AbstractRuinaMonster
     private const string FOURTH = "FOURTH";
     private const string FINALE = "FINALE";
     private const string CURTAINS = "CURTAINS";
+    
+    private OrchestraMusicEffect? movement1;
+    private OrchestraMusicEffect? movement2;
+    private OrchestraMusicEffect? movement3;
+    private OrchestraMusicEffect? movement4;
     
     public override async Task AfterAddedToRoom()
     {
@@ -108,6 +116,13 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task First(IReadOnlyList<Creature> targets)
     {
         await AttackAnimation(targets);
+        var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (targetNode != null)
+        {
+            movement1 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "1st.png".VfxImagePath(), false, 0.75f);
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(movement1);
+        }
         await DamageCmd.Attack(FirstDamage)
             .FromMonster(this)
             .Execute(null);
@@ -118,6 +133,13 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task Second(IReadOnlyList<Creature> targets)
     {
         await AttackAnimation2(targets);
+        var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (targetNode != null)
+        {
+            movement2 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "2nd.png".VfxImagePath(), true, 1.25f);
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(movement2);
+        }
         await DamageCmd.Attack(SecondDamage)
             .FromMonster(this)
             .Execute(null);
@@ -128,6 +150,13 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task Third(IReadOnlyList<Creature> targets)
     {
         await AttackAnimation(targets);
+        var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (targetNode != null)
+        {
+            movement3 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "3rd.png".VfxImagePath(), false, 1.75f);
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(movement3);
+        }
         await DamageCmd.Attack(ThirdDamage)
             .FromMonster(this)
             .Execute(null);
@@ -138,6 +167,13 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task Fourth(IReadOnlyList<Creature> targets)
     {
         await AttackAnimation2(targets);
+        var targetNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (targetNode != null)
+        {
+            movement4 = OrchestraMusicEffect.Create(targetNode.VfxSpawnPosition, "4th.png".VfxImagePath(), true, 2.25f);
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(movement4);
+        }
         await CardPileCmd.AddToCombatAndPreview<Void>(targets, PileType.Discard, StatusAmt, null);
         await ResetIdle();
     }
@@ -145,6 +181,22 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task Finale(IReadOnlyList<Creature> targets)
     {
         await FinaleAnimation(targets);
+        if (movement1 != null)
+        {
+            movement1.End();
+        }
+        if (movement2 != null)
+        {
+            movement2.End();
+        }
+        if (movement3 != null)
+        {
+            movement3.End();
+        }
+        if (movement4 != null)
+        {
+            movement4.End();
+        }
         await DamageCmd.Attack(FinaleDamage)
             .FromMonster(this)
             .Execute(null);
@@ -157,7 +209,7 @@ public sealed class Orchestra : AbstractRuinaMonster
         await CurtainAnimation(targets);
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);   
         await CreatureCmd.Heal(Creature, HealAmt);
-        await ResetIdle();
+        await ResetIdle(1.5f);
     }
     
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)
