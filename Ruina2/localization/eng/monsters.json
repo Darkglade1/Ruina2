@@ -74,5 +74,11 @@
 
   "RUINA2-PORCCUBUS.name": "Porccubus",
 
-  "RUINA2-ORCHESTRA.name": "Silent Orchestra"
+  "RUINA2-ORCHESTRA.name": "Silent Orchestra",
+
+  "RUINA2-QUEEN_BEE.name": "Queen Bee",
+  "RUINA2-WORKER_BEE.name": "Worker Bee",
+
+  "RUINA2-LEFT_SHOE.name": "Left Shoe",
+  "RUINA2-RIGHT_SHOE.name": "Right Shoe"
 }

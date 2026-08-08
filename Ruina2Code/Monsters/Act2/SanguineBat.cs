@@ -91,9 +91,7 @@ public sealed class SanguineBat : AbstractRuinaMonster
             var attackCommand = await DamageCmd.Attack(BloodsuckingDamage)
                 .FromMonster(this)
                 .Execute(null);
-            await CreatureCmd.Heal(Creature,
-                attackCommand.Results.SelectMany(r => r)
-                    .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
+            await VampireHeal(attackCommand);
             await ResetIdle(0.25f);
             await WaitAnimation(0.25f);
         }

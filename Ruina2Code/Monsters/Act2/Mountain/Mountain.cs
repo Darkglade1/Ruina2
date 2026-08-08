@@ -333,12 +333,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        int heal = attackCommand.Results.SelectMany(r => r)
-            .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage));
-        if (heal > 0)
-        {
-            await CreatureCmd.Heal(Creature, heal);
-        }
+        await VampireHeal(attackCommand);
         var targetKilled = attackCommand.Results.SelectMany(r => r)
             .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
         if (targets[0].Monster is Corpse && targetKilled)

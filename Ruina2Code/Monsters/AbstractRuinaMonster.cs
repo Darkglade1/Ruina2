@@ -4,6 +4,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -162,6 +163,22 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         if (Creature.GetCreatureNode() != null)
         {
             await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+        }
+    }
+    
+    protected async Task VampireHeal(AttackCommand attackCommand)
+    {
+        int totalHeal = 0;
+        foreach (var result in attackCommand.Results.SelectMany(r => r))
+        {
+            if (result.Receiver.IsPlayer || result.Receiver.Monster is AbstractRuinaMonster)
+            {
+                totalHeal += result.UnblockedDamage + result.OverkillDamage;
+            }
+        }
+        if (totalHeal > 0)
+        {
+            await CreatureCmd.Heal(Creature, totalHeal);
         }
     }
 }

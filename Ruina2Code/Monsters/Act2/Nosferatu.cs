@@ -102,9 +102,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
         var attackCommand = await DamageCmd.Attack(DroughtDamage)
             .FromMonster(this)
             .Execute(null);
-        await CreatureCmd.Heal(Creature,
-            attackCommand.Results.SelectMany(r => r)
-                .Sum((Func<DamageResult, int>)(r => r.UnblockedDamage + r.OverkillDamage)));
+        await VampireHeal(attackCommand);
         await ResetIdle();
     }
     

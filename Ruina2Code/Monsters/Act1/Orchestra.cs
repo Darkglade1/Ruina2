@@ -208,7 +208,7 @@ public sealed class Orchestra : AbstractRuinaMonster
     {
         await CurtainAnimation(targets);
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);   
-        await CreatureCmd.Heal(Creature, HealAmt);
+        await CreatureCmd.Heal(Creature, Creature.ScaleHpForMultiplayer(HealAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex));
         await ResetIdle(1.5f);
     }
     
