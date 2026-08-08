@@ -36,7 +36,7 @@ public sealed class LittleRed : AbstractAllyMonster
     private int HollowPointHits => 2;
     private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int BulletShowerHits => 3;
-    private int StrengthAmount => 3;
+    private int StrengthAmount => 2;
     private int HealAmount => 10;
     private int DebuffAmt = 1;
     public bool enraged;
