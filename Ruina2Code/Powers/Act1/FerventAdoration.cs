@@ -32,7 +32,7 @@ public class FerventAdoration() : Ruina2Power
         Creature? applier,
         CardModel? cardSource)
     {
-        if (Owner.CombatState != null && power is Pleasure && power.Owner == Owner)
+        if (Owner.CombatState != null && power is FerventAdoration && power.Owner == Owner)
         {
             DynamicVars.Cards.BaseValue++;
         }

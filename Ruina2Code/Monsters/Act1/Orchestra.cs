@@ -50,7 +50,7 @@ public sealed class Orchestra : AbstractRuinaMonster
 
     private MoveState GetFirstState()
     {
-        return new MoveState(FIRST, First, new SingleAttackIntent(FinaleDamage), new DebuffIntent());
+        return new MoveState(FIRST, First, new SingleAttackIntent(FirstDamage), new DebuffIntent());
     }
 
     private MoveState GetSecondState()
@@ -70,7 +70,7 @@ public sealed class Orchestra : AbstractRuinaMonster
     
     private MoveState GetFinaleState()
     {
-        return new MoveState(FINALE, Finale, new SingleAttackIntent(ThirdDamage), new DebuffIntent());
+        return new MoveState(FINALE, Finale, new SingleAttackIntent(FinaleDamage), new DebuffIntent());
     }
     
     private MoveState GetCurtainsState()

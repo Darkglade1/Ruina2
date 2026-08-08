@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Ruina2.Ruina2Code.Cards.Performer;
 
 namespace Ruina2.Ruina2Code.Powers.Act1;
@@ -55,7 +56,9 @@ public class EndlessPerformance() : Ruina2Power
         if (card is PerformerCard)
         {
             Flash();
-            await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Discard, card.Owner);
+            var result = await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Discard, card.Owner);
+            CardCmd.PreviewCardPileAdd(result);
+            await Cmd.Wait(1f);
         }
     }
 }
