@@ -34,6 +34,8 @@ public class Asiyah() : AbstractRuinaAct(1)
         ];
     }
 
+    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<FairyBoss>(), ModelDb.Encounter<NothingDerBoss>(), ModelDb.Encounter<OrchestraBoss>()];
+
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Overgrowth>().AllEvents;
     
     public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act1";

@@ -29,6 +29,8 @@ public class Briah() : AbstractRuinaAct(2)
             ModelDb.Encounter<JesterBoss>(),
         ];
     }
+    
+    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<RedWolfBoss>(), ModelDb.Encounter<JesterBoss>()];
 
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Hive>().AllEvents;
     
