@@ -143,4 +143,11 @@ public static class Sfx
     public static readonly ModSound BulletFinalShot = new("Matan_FinalShot.ogg".SfxPath());
     
     public static readonly ModSound ShyAtk = new("Shy_Atk.ogg".SfxPath());
+    
+    public static readonly ModSound ProphetBless = new("WhiteNight_Bless.ogg".SfxPath());
+    public static readonly ModSound WhiteNightAppear = new("WhiteNight_Appear.ogg".SfxPath());
+    public static readonly ModSound WhiteNightCall = new("WhiteNight_Call.ogg".SfxPath());
+    public static readonly ModSound WhiteNightCharge = new("WhiteNight_Strong_Charge.ogg".SfxPath());
+    public static readonly ModSound WhiteNightFire = new("WhiteNight_Strong_Fire.ogg".SfxPath());
+    public static readonly ModSound WhiteNightSummon = new("WhiteNight_Apostle_Grogy.ogg".SfxPath());
 }

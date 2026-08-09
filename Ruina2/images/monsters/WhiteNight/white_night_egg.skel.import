@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://clwov3toupg"
+path="res://.godot/imported/white_night_egg.skel-29a42e2bdd5b1d2a72b1b9d065e32913.spskel"
+
+[deps]
+
+source_file="res://Ruina2/images/monsters/WhiteNight/white_night_egg.skel"
+dest_files=["res://.godot/imported/white_night_egg.skel-29a42e2bdd5b1d2a72b1b9d065e32913.spskel"]
+
+[params]
+

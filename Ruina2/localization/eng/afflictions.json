@@ -1,5 +1,13 @@
 ﻿{
   "RUINA2-LAUREL_WREATH.title": "Laurel Wreath",
   "RUINA2-LAUREL_WREATH.description": "This card deals full damage to [gold]Alriune[/gold].",
-  "RUINA2-LAUREL_WREATH.extraCardText": ""
+  "RUINA2-LAUREL_WREATH.extraCardText": "",
+
+  "RUINA2-APOSTLE.title": "Apostle",
+  "RUINA2-APOSTLE.description": "This card is [gold]Unplayable[/gold] and will be [gold]Transformed[/gold] into a [gold]Status[/gold] by the enemy.",
+  "RUINA2-APOSTLE.extraCardText": "[purple]Unplayable.[/purple]",
+
+  "RUINA2-JUDAS.title": "Judas",
+  "RUINA2-JUDAS.description": "This card deals double attack damage but causes you to lose HP when played.",
+  "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]"
 }

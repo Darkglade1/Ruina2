@@ -1,0 +1,16 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models;
+
+namespace Ruina2.Ruina2Code.Afflictions;
+
+public class Apostle : Ruina2Affliction
+{
+    public override bool ShouldPlay(CardModel card, AutoPlayType _)
+    {
+        if (card == Card && card.Affliction is Apostle)
+        {
+            return false;
+        }
+        return true;
+    }
+}

@@ -128,6 +128,22 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         }
     }
     
+    protected async Task SoundAnimation(ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
+    {
+        if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
+        {
+            if (sfx != null && Creature.IsAlive)
+            {
+                sfx.Play(0, volume);   
+            }
+        }
+    }
+
+    protected async Task SoundAnimation(ModSound? sfx, IReadOnlyList<Creature>? targets)
+    {
+        await SoundAnimation(sfx, targets, 1);
+    }
+    
     protected async Task AnimationAction(string animationKey, ModSound? sfx, IReadOnlyList<Creature>? targets)
     {
         await AnimationAction(animationKey, sfx, targets, 1);

@@ -21,5 +21,8 @@
   "RUINA2-THIRD_CHAIR.title": "Third Chair",
 
   "RUINA2-FOURTH_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], lose {StrengthPower:diff()} [gold]Strength[/gold].",
-  "RUINA2-FOURTH_CHAIR.title": "Fourth Chair"
+  "RUINA2-FOURTH_CHAIR.title": "Fourth Chair",
+
+  "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
+  "RUINA2-APOSTLE.title": "Apostle"
 }

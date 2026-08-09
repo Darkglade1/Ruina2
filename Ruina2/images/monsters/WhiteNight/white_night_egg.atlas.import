@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://uh163wdnhaqm"
+path="res://.godot/imported/white_night_egg.atlas-92da12f178ec88fb1d4aec922f138abe.spatlas"
+
+[deps]
+
+source_file="res://Ruina2/images/monsters/WhiteNight/white_night_egg.atlas"
+dest_files=["res://.godot/imported/white_night_egg.atlas-92da12f178ec88fb1d4aec922f138abe.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

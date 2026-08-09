@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Encounters.Act2;
+using Ruina2.Ruina2Code.Encounters.Act3;
 using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Acts;
@@ -50,6 +51,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             return RuinaFloor.Tiphereth;
         }
+        if (RunManager.Instance.State?.Act.BossEncounter is WhiteNightBoss)
+        {
+            return RuinaFloor.Hokma;
+        }
         return RuinaFloor.Gebura;
     }
     
@@ -66,7 +71,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Warning3.ogg";
         }
-        if (encounter is OrchestraBoss)
+        if (encounter is OrchestraBoss || encounter is WhiteNightBoss)
         {
             path = "Angela3.ogg";
         }

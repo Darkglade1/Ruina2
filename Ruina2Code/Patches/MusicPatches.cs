@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Encounters.Act3;
 using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Patches;
@@ -47,6 +48,8 @@ public class MusicPatches
 
         private const string BaseGameBankPath = "res://banks/desktop/act1_a1.bank";
         private const string BaseGameTrack = "event:/music/act1_a1_v1";
+
+        private static bool _whiteNightAwake = false;
 
         private static RuinaAct GetCurrentRuinaAct()
         {
@@ -102,6 +105,14 @@ public class MusicPatches
                 RoomType.RestSite => 3,
                 _ => null
             };
+        }
+        
+        public static void OnWhiteNightAwakened()
+        {
+            _whiteNightAwake = true;
+            RuinaAudio.FadeIn("WhiteNightBGM.ogg".MusicPath(), 1f);
+            _isPlayingRuinaMusic = true;
+            _currentTrackType = TrackType.Boss;
         }
 
         private static bool IsBossRoom()
