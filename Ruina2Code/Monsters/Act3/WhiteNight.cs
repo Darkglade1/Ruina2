@@ -20,6 +20,7 @@ using Ruina2.Ruina2Code.Cards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Nodes;
 using Ruina2.Ruina2Code.Patches;
+using Ruina2.Ruina2Code.Powers;
 using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Monsters.Act3;
@@ -53,6 +54,10 @@ public sealed class WhiteNight : AbstractRuinaMonster
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<Advent>(new ThrowingPlayerChoiceContext(), Creature, AdventCards * CombatState.Players.Count, Creature, null);
+        if (RegenAmt > 0)
+        {
+            await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, RegenAmt, Creature, null);
+        }
     }
 
     private MoveState GetPrayerState()
