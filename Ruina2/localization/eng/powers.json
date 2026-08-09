@@ -161,5 +161,17 @@
 
   "RUINA2-MIMICRY.description": "",
   "RUINA2-MIMICRY.smartDescription": "This creature deals additional damage with attacks equal to the most recent instance of unblocked attack damage it has received. (Max [blue]{DamageCap:diff()}[/blue]).",
-  "RUINA2-MIMICRY.title": "Mimicry"
+  "RUINA2-MIMICRY.title": "Mimicry",
+
+  "RUINA2-DONT_LEAVE.description": "",
+  "RUINA2-DONT_LEAVE.smartDescription": "When this creature dies, it revives this turn with the HP of another enemy.",
+  "RUINA2-DONT_LEAVE.title": "Don't Leave Me",
+
+  "RUINA2-MONSTER_REGEN.description": "",
+  "RUINA2-MONSTER_REGEN.smartDescription": "Heals [blue]{Amount}[/blue] HP every turn.",
+  "RUINA2-MONSTER_REGEN.title": "Regeneration",
+
+  "RUINA2-EXPRESSION.description": "",
+  "RUINA2-EXPRESSION.smartDescription": "Whenever {IsMultiplayer:players|you} play [blue]{Amount}[/blue] cards, this creature immediately changes its intent.",
+  "RUINA2-EXPRESSION.title": "Today's Expression"
 }
