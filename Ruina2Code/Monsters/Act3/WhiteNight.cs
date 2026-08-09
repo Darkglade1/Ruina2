@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -170,9 +171,16 @@ public sealed class WhiteNight : AbstractRuinaMonster
                         allApostles.Add(card);
                     }
                 }
+                foreach (var card in PileType.Exhaust.GetPile(target.Player).Cards)
+                {
+                    if (card.Affliction is Afflictions.Apostle)
+                    {
+                        allApostles.Add(card);
+                    }
+                }
                 foreach (CardModel apostle in allApostles)
                 {
-                    await CardCmd.TransformTo<Apostle>(apostle);
+                    await CardCmd.TransformTo<Apostle>(apostle, CardPreviewStyle.MessyLayout);
                 }
             }
         }

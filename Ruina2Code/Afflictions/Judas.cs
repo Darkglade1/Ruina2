@@ -19,7 +19,7 @@ public class Judas : Ruina2Affliction
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (cardSource != null && cardSource == Card && Card.Affliction is Judas)
+        if (cardSource != null && cardSource == Card && Card.Affliction is Judas && props.IsPoweredAttack())
         {
             return 2;
         }
@@ -30,7 +30,6 @@ public class Judas : Ruina2Affliction
     {
         if (cardPlay.Card == Card && cardPlay.Card.Affliction is Judas)
         {
-            MainFile.Logger.Info("JUDAS HP LOSS");
             await CreatureCmd.Damage(choiceContext, Card.Owner.Creature, Amount,
                 ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, Card, cardPlay);
         }
