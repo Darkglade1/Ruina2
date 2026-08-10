@@ -176,6 +176,6 @@
   "RUINA2-EXPRESSION.title": "Today's Expression",
 
   "RUINA2-ADVENT.description": "",
-  "RUINA2-ADVENT.smartDescription": "The first [blue]{Amount}[/blue] cards {IsMultiplayer:players|you} play this combat are [gold]Afflicted[/gold] with [purple]Apostle[/purple]. Every [blue]12th[/blue] card is [gold]Afflicted[/gold] with [purple]Judas[/purple] instead.\nAfter [blue]{Amount}[/blue] cards have been played or [blue]{Turns:diff()}[/blue] turns have passed, this creature will [gold]Transform[/gold] at the end of the round.",
+  "RUINA2-ADVENT.smartDescription": "The first [blue]{Amount}[/blue] cards {IsMultiplayer:players|you} play this combat are [gold]Afflicted[/gold] with [purple]Apostle[/purple]. {IsMultiplayer:Every|The} [blue]12th[/blue] card is [gold]Afflicted[/gold] with [purple]Judas[/purple] instead.\nAfter [blue]{Amount}[/blue] cards have been played or [blue]{Turns:diff()}[/blue] turns have passed, this creature will [gold]Transform[/gold] at the end of the round.",
   "RUINA2-ADVENT.title": "Advent"
 }

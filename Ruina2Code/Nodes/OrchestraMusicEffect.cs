@@ -17,8 +17,7 @@ public partial class OrchestraMusicEffect : VfxEffect
     public static OrchestraMusicEffect Create(Vector2 target, string texturePath, bool clockwise, float targetScale)
     {
         var effect = new OrchestraMusicEffect();
-
-        float distY = -800.0f;
+        
         effect._startingX = target.X;
         effect._startingY = target.Y;
         effect.TexturePath = texturePath;

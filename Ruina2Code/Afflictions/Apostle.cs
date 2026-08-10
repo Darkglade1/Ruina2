@@ -5,6 +5,7 @@ namespace Ruina2.Ruina2Code.Afflictions;
 
 public class Apostle : Ruina2Affliction
 {
+    public override bool HasExtraCardText => true;
     public override bool ShouldPlay(CardModel card, AutoPlayType _)
     {
         if (card == Card && card.Affliction is Apostle)

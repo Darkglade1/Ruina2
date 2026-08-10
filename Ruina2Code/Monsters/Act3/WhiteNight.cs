@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -68,7 +69,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
 
     private MoveState GetRiseAndServeState()
     {
-        return new MoveState(RISE_AND_SERVE, RiseAndServe, new SingleAttackIntent(RiseDamage));
+        return new MoveState(RISE_AND_SERVE, RiseAndServe, new SingleAttackIntent(RiseDamage), new CardDebuffIntent());
     }
 
     private MoveState GetBenedictionState()
@@ -136,15 +137,19 @@ public sealed class WhiteNight : AbstractRuinaMonster
     
     private async Task Prayer(IReadOnlyList<Creature> targets)
     {
+        await BlessAnimation();
         await PowerCmd.Apply<RitualPower>(new ThrowingPlayerChoiceContext(), Creature, RitualGain, Creature,  null);
         await WaitAnimation(1.0f);
     }
     
     private async Task RiseAndServe(IReadOnlyList<Creature> targets)
     {
+        await ShockwaveAnimation();
         await DamageCmd.Attack(RiseDamage)
             .FromMonster(this)
             .Execute(null);
+        await WaitAnimation(1.0f);
+        await RiseAndServeFullScreenEffect();
         foreach (var target in targets)
         {
             if (target.Player != null)
@@ -223,6 +228,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
     
     private async Task Behold(IReadOnlyList<Creature> targets)
     {
+        await ShockwaveAnimation();
         await DamageCmd.Attack(BeholdDamage)
             .FromMonster(this)
             .Execute(null); 
@@ -236,11 +242,15 @@ public sealed class WhiteNight : AbstractRuinaMonster
         {
             if (creatureNode.Visuals is Ruina2NCreatureVisuals visuals)
             {
+                var fullScreenEffect = FullScreenImageEffect.Create("BlackScreen.png".VfxImagePath(), 0.3f, 1.2f);
+                Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+                vfxContainer?.AddChildSafely(fullScreenEffect);
                 visuals.SetSpineIdleAnimation();
                 Sfx.WhiteNightAppear.Play();
                 MusicPatches.RuinaActMusicPatches.OnWhiteNightAwakened();
                 await PowerCmd.Remove<Advent>(Creature);
                 awake = true;
+                await WaitAnimation(1.0f);
             }
         }
     }
@@ -263,10 +273,26 @@ public sealed class WhiteNight : AbstractRuinaMonster
     {
         await SoundAnimation(Sfx.ProphetBless, null);
     }
-    
-    private async Task SummonAnimation(IReadOnlyList<Creature> targets)
+
+    private async Task RiseAndServeFullScreenEffect()
     {
-        await SoundAnimation(Sfx.WhiteNightSummon, targets);
+        var fullScreenEffect = FullScreenImageEffect.Create("Apostles.png".VfxImagePath(), 1.0f, 1.0f);
+        Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+        vfxContainer?.AddChildSafely(fullScreenEffect);
+        Sfx.WhiteNightSummon.Play();
+        await WaitAnimation(2.0f);
+    }
+    
+    private async Task ShockwaveAnimation()
+    {
+        var node = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        if (node != null)
+        {
+            var shockwaveEffect = ShockwaveEffect.Create(node.VfxSpawnPosition);
+            Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+            vfxContainer?.AddChildSafely(shockwaveEffect);
+            await WaitAnimation(2.0f);
+        }
     }
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
