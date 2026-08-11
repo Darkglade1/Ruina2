@@ -26,7 +26,7 @@ public class Briah() : AbstractRuinaAct(2)
             ModelDb.Encounter<WrathElite>(),
             ModelDb.Encounter<RoadHomeElite>(),
             ModelDb.Encounter<RedWolfBoss>(),
-            ModelDb.Encounter<JesterBoss>(),
+            //ModelDb.Encounter<JesterBoss>(),
         ];
     }
     

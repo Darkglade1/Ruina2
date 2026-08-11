@@ -148,51 +148,72 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         return path.MusicPath().SimplifyPath();
     }
     
-    protected override string CustomMapTopBgPath
+     public override Color MapBgColor
     {
         get {
-            string path;
-            switch (AbstractRuinaAct.GetFloorBasedOnBoss())
+            
+            switch (GetFloorBasedOnBoss())
             {
-                case AbstractRuinaAct.RuinaFloor.Malkuth:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Yesod:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Hod:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Netzach:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Tiphereth:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Gebura:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Chesed:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Binah:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Hokma:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                case AbstractRuinaAct.RuinaFloor.Keter:
-                    path = ModelDb.Act<Hive>().MapTopBgPath;
-                    break;
-                default:
-                    path = "map_top_test.png".UIImagePath();
-                    break;
+                case RuinaFloor.Malkuth:
+                    return new Color("9B9562");
+                case RuinaFloor.Yesod:
+                    return new Color("9B9562");
+                case RuinaFloor.Hod:
+                    return new Color("9B9562");
+                case RuinaFloor.Netzach:
+                    return new Color("9B9562");
+                case RuinaFloor.Tiphereth:
+                    return new Color("9B9562");
+                case RuinaFloor.Gebura:
+                    return new Color(0.5f, 0.2f, 0.2f);
+                case RuinaFloor.Chesed:
+                    return new Color("9B9562");
+                case RuinaFloor.Binah:
+                    return new Color("9B9562");
+                case RuinaFloor.Hokma:
+                    return new Color("9B9562");
+                case RuinaFloor.Keter:
+                    return new Color("9B9562");
             }
-            return path;
+            return new Color("9B9562");
+        }
+    }
+     
+    public override Color MapTraveledColor => new("1D1E2F");
+    
+    public override Color MapUntraveledColor
+    {
+        get {
+            
+            // switch (GetFloorBasedOnBoss())
+            // {
+            //     case RuinaFloor.Malkuth:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Yesod:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Hod:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Netzach:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Tiphereth:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Gebura:
+            //         return new Color(1.0f, 0.86f, 0.56f);
+            //     case RuinaFloor.Chesed:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Binah:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Hokma:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Keter:
+            //         return new Color("9B9562");
+            // }
+            return new Color(1.0f, 0.86f, 0.56f);
         }
     }
     
-    protected override string CustomMapMidBgPath => ModelDb.Act<Hive>().MapMidBgPath;
-    protected override string CustomMapBotBgPath => ModelDb.Act<Hive>().MapBotBgPath;
+    protected override string CustomMapTopBgPath => $"map/map_top_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
+    protected override string CustomMapMidBgPath => $"map/map_middle_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
+    protected override string CustomMapBotBgPath => $"map/map_bottom_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
     protected override string CustomRestSiteBackgroundPath => ModelDb.Act<Hive>().RestSiteBackgroundPath;
 }
