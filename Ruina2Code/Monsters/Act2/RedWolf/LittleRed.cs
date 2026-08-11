@@ -228,7 +228,7 @@ public sealed class LittleRed : AbstractAllyMonster
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.killWolf"), Creature, VfxColor.Red);
-        await WaitAnimation(3.0f);
+        await WaitAnimation(2.0f);
         await CreatureCmd.Kill(Creature);
     }
 

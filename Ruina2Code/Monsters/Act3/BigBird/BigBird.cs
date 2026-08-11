@@ -292,7 +292,7 @@ public sealed class BigBird : AbstractMultiIntentMonster
                     NRun.Instance?.GlobalUi.AddChildSafely(child);
                 }
             }
-            NGame.Instance?.ScreenShake(ShakeStrength.Strong, ShakeDuration.Short);
+            NGame.Instance?.ScreenShake(ShakeStrength.Strong, ShakeDuration.Normal);
             await CreatureCmd.Kill(targets);
         }
         else

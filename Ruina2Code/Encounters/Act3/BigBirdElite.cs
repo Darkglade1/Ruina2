@@ -29,6 +29,7 @@ public sealed class BigBirdElite : CustomEncounterModel
         get
         {
             yield return ModelDb.Monster<Sage>();
+            yield return ModelDb.Monster<Sage2>();
             yield return ModelDb.Monster<BigBird>();
         }
     }
@@ -38,7 +39,7 @@ public sealed class BigBirdElite : CustomEncounterModel
         return new List<(MonsterModel, string?)>
         {
             (ModelDb.Monster<Sage>().ToMutable(), "sage1"),
-            (ModelDb.Monster<Sage>().ToMutable(), "sage2"),
+            (ModelDb.Monster<Sage2>().ToMutable(), "sage2"),
             (ModelDb.Monster<BigBird>().ToMutable(), "bird")
         };
     }

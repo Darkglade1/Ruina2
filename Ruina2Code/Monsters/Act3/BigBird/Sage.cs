@@ -13,7 +13,7 @@ using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters.Act3.BigBird;
 
-public sealed class Sage : AbstractAllyMonster
+public class Sage : AbstractAllyMonster
 {
     public override int MinInitialHp => 500;
     public override int MaxInitialHp => MinInitialHp;
@@ -28,22 +28,10 @@ public sealed class Sage : AbstractAllyMonster
     private const string RING = "RING";
     private const string SMACK = "SMACK";
 
-    private int talkCounter = 0;
-
     public override async Task AfterAddedToRoom()
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<BigBird>();
-        for (int i = 0; i < CombatState.HittableEnemies.Count; i++)
-        {
-            if (Creature == CombatState.HittableEnemies[i])
-            {
-                talkCounter = i;
-                break;
-            }
-        }
-        MainFile.Logger.Info("SAGE INFO: " + Creature.GetHashCode());
-        MainFile.Logger.Info("SAGE INFO: " + Creature.CombatId);
     }
     
     private MoveState GetRingState()
@@ -88,8 +76,6 @@ public sealed class Sage : AbstractAllyMonster
 
     private async Task Ring(IReadOnlyList<Creature> targets)
     {
-        MainFile.Logger.Info("SAGE INFO: " + Creature.GetHashCode());
-        MainFile.Logger.Info("SAGE INFO: " + Creature.CombatId);
         await SpecialAnimation();
         await PowerCmd.Apply<RitualPower>(new ThrowingPlayerChoiceContext(), Creature, RitualAmt, Creature, null);
         await ResetIdle();
@@ -102,19 +88,12 @@ public sealed class Sage : AbstractAllyMonster
         await ResetIdle();
     }
     
-    public async Task OnBigBirdDeath()
+    public virtual async Task OnBigBirdDeath()
     {
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
-        if (talkCounter == 0)
-        {
-            TalkCmd.Play(L10NMonsterLookup("RUINA2-SAGE.birdDeath1"), Creature, VfxColor.Black);
-        }
-        else
-        {
-            TalkCmd.Play(L10NMonsterLookup("RUINA2-SAGE.birdDeath2"), Creature, VfxColor.Black);
-        }
-        await WaitAnimation(3.0f);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-SAGE.birdDeath1"), Creature, VfxColor.Black);
+        await WaitAnimation(2.0f);
         await CreatureCmd.Kill(Creature);
     }
 
