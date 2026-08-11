@@ -13,7 +13,6 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<AxebotsNormal>(),
             ModelDb.Encounter<ConstructMenagerieNormal>(),
             ModelDb.Encounter<DevotedSculptorWeak>(),
-            //ModelDb.Encounter<AeonglassBoss>(),
             ModelDb.Encounter<FabricatorNormal>(),
             ModelDb.Encounter<FrogKnightNormal>(),
             ModelDb.Encounter<GlobeHeadNormal>(),
@@ -23,11 +22,12 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<ScrollsOfBitingWeak>(),
             ModelDb.Encounter<SlimedBerserkerNormal>(),
             ModelDb.Encounter<SoulNexusElite>(),
-            //ModelDb.Encounter<TestSubjectBoss>(),
             ModelDb.Encounter<TheLostAndForgottenNormal>(),
             ModelDb.Encounter<TurretOperatorWeak>(),
             ModelDb.Encounter<BigBirdElite>(),
-            ModelDb.Encounter<WhiteNightBoss>(),
+            //ModelDb.Encounter<TwilightBoss>(),
+            //ModelDb.Encounter<WhiteNightBoss>(),
+            ModelDb.Encounter<SilentGirlBoss>()
         ];
     }
     

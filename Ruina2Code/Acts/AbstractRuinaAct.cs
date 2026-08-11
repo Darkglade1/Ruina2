@@ -39,6 +39,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             return RuinaFloor.Yesod;
         }
+        if (RunManager.Instance.State?.Act.BossEncounter is BlackSwanBoss)
+        {
+            return RuinaFloor.Hod;
+        }
         if (RunManager.Instance.State?.Act.BossEncounter is OrchestraBoss)
         {
             return RuinaFloor.Netzach;
@@ -51,9 +55,21 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             return RuinaFloor.Tiphereth;
         }
+        if (RunManager.Instance.State?.Act.BossEncounter is OzBoss)
+        {
+            return RuinaFloor.Chesed;
+        }
+        if (RunManager.Instance.State?.Act.BossEncounter is TwilightBoss)
+        {
+            return RuinaFloor.Binah;
+        }
         if (RunManager.Instance.State?.Act.BossEncounter is WhiteNightBoss)
         {
             return RuinaFloor.Hokma;
+        }
+        if (RunManager.Instance.State?.Act.BossEncounter is SilentGirlBoss)
+        {
+            return RuinaFloor.Keter;
         }
         return RuinaFloor.Gebura;
     }
@@ -151,33 +167,13 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
      public override Color MapBgColor
     {
         get {
-            return new Color(1.0f, 0.86f, 0.56f);
+            
             // switch (GetFloorBasedOnBoss())
             // {
-            //     case RuinaFloor.Malkuth:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Yesod:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Hod:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Netzach:
-            //         return new Color("9B9562");
             //     case RuinaFloor.Tiphereth:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Gebura:
-            //         return new Color(1.0f, 0.86f, 0.56f);
-            //         return new Color("CD5C5C");
-            //         return new Color(0.5f, 0.2f, 0.2f);
-            //     case RuinaFloor.Chesed:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Binah:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Hokma:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Keter:
-            //         return new Color("9B9562");
+            //         return new Color("36454F");
             // }
-            // return new Color("9B9562");
+            return new Color(1.0f, 0.86f, 0.56f);
         }
     }
      
@@ -188,25 +184,25 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
             switch (GetFloorBasedOnBoss())
             {
                 case RuinaFloor.Malkuth:
-                    return new Color("9B9562");
+                    return Color.Color8(119, 79, 61);
                 case RuinaFloor.Yesod:
-                    return new Color("9B9562");
+                    return Color.Color8(82, 66, 109);
                 case RuinaFloor.Hod:
-                    return new Color("9B9562");
+                    return Color.Color8(84, 54, 43);
                 case RuinaFloor.Netzach:
-                    return new Color("9B9562");
+                    return Color.Color8(38, 79, 49);
                 case RuinaFloor.Tiphereth:
-                    return new Color("9B9562");
+                    return Color.Color8(219, 199, 170);
                 case RuinaFloor.Gebura:
                     return new Color(0.5f, 0.2f, 0.2f);
                 case RuinaFloor.Chesed:
-                    return new Color("9B9562");
+                    return Color.Color8(50, 89, 134);
                 case RuinaFloor.Binah:
-                    return new Color("9B9562");
+                    return Color.Color8(22, 22, 22);
                 case RuinaFloor.Hokma:
-                    return new Color("9B9562");
+                    return Color.Color8(84, 84, 84);
                 case RuinaFloor.Keter:
-                    return new Color("9B9562");
+                    return Color.Color8(169, 169, 169);
             }
             return new Color("9B9562");
         }
@@ -218,29 +214,12 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     {
         get {
             
-            // switch (GetFloorBasedOnBoss())
-            // {
-            //     case RuinaFloor.Malkuth:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Yesod:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Hod:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Netzach:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Tiphereth:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Gebura:
-            //         return new Color(1.0f, 0.86f, 0.56f);
-            //     case RuinaFloor.Chesed:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Binah:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Hokma:
-            //         return new Color("9B9562");
-            //     case RuinaFloor.Keter:
-            //         return new Color("9B9562");
-            // }
+            switch (GetFloorBasedOnBoss())
+            {
+                case RuinaFloor.Tiphereth:
+                case RuinaFloor.Keter:
+                    return new Color("36454F");
+            }
             return new Color(1.0f, 0.86f, 0.56f);
         }
     }
