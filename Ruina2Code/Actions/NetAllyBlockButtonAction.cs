@@ -10,20 +10,29 @@ namespace Ruina2.Ruina2Code.Actions;
 public struct NetAllyBlockButtonAction : INetAction
 {
   public ModelId modelId;
+  public uint? combatId;
 
   public GameAction ToGameAction(Player player)
   {
-    return new AllyBlockButtonAction(player, modelId);
+    return new AllyBlockButtonAction(player, modelId, combatId);
   }
 
   public void Serialize(PacketWriter writer)
   {
     writer.WriteModelEntry(modelId);
+    if (combatId.HasValue)
+    {
+      writer.WriteUInt(combatId.GetValueOrDefault());
+    }
   }
 
   public void Deserialize(PacketReader reader)
   {
     modelId = reader.ReadModelIdAssumingType<MonsterModel>();
+    if (reader.ReadBool())
+      combatId = reader.ReadUInt(6);
+    else
+      combatId = new uint?();
   }
 
   public override string ToString()
@@ -31,6 +40,7 @@ public struct NetAllyBlockButtonAction : INetAction
     DefaultInterpolatedStringHandler interpolatedStringHandler = new DefaultInterpolatedStringHandler(29, 2);
     interpolatedStringHandler.AppendLiteral("NetAllyBlockButtonAction:");
     interpolatedStringHandler.AppendLiteral("\nmodelId is " + modelId);
+    interpolatedStringHandler.AppendLiteral("\ncombatId is " + combatId);
     return interpolatedStringHandler.ToStringAndClear();
   }
 }

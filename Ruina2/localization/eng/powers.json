@@ -177,5 +177,13 @@
 
   "RUINA2-ADVENT.description": "",
   "RUINA2-ADVENT.smartDescription": "The first [blue]{Amount}[/blue] cards {IsMultiplayer:players|you} play this combat are [gold]Afflicted[/gold] with [purple]Apostle[/purple]. {IsMultiplayer:Every|The} [blue]12th[/blue] card is [gold]Afflicted[/gold] with [purple]Judas[/purple] instead.\nAfter [blue]{Amount}[/blue] cards have been played or [blue]{Turns:diff()}[/blue] turns have passed, this creature will [gold]Transform[/gold] at the end of the round.",
-  "RUINA2-ADVENT.title": "Advent"
+  "RUINA2-ADVENT.title": "Advent",
+
+  "RUINA2-ENCHANTED.description": "",
+  "RUINA2-ENCHANTED.smartDescription": "This creature's attacks deal [blue]1[/blue] damage.\n[gold]Enchanted[/gold] is removed after this creature loses [blue]{DamageCounter:diff()}[/blue] more HP.",
+  "RUINA2-ENCHANTED.title": "Enchanted",
+
+  "RUINA2-SALVATION.description": "",
+  "RUINA2-SALVATION.smartDescription": "This creature's attacks [red]instantly kill[/red] [gold]Enchanted[/gold] creatures.\n[gold]Enchanted[/gold] is removed after [gold]Enchanted[/gold] creatures lose a certain amount of HP.",
+  "RUINA2-SALVATION.title": "Salvation"
 }

@@ -1,0 +1,1 @@
+{"atlas_data":"keeper.png\nsize:904,341\nfilter:Linear,Linear\nIdle\nbounds:667,14,325,235\noffsets:0,1,332,236\nrotate:90\nRing\nbounds:421,2,337,244\noffsets:1,0,354,267\nrotate:90\nSmack\nbounds:2,15,417,324\noffsets:3,1,420,347\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Keeper/keeper.atlas","specular_texture_prefix":"s"}

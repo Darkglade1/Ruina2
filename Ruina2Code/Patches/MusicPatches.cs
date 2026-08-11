@@ -58,6 +58,7 @@ public class MusicPatches
             {
                 Asiyah => RuinaAct.Asiyah,
                 Briah => RuinaAct.Briah,
+                Atziluth => RuinaAct.Atziluth,
                 _ => RuinaAct.None
             };
         }

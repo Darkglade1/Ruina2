@@ -150,4 +150,22 @@ public static class Sfx
     public static readonly ModSound WhiteNightCharge = new("WhiteNight_Strong_Charge.ogg".SfxPath());
     public static readonly ModSound WhiteNightFire = new("WhiteNight_Strong_Fire.ogg".SfxPath());
     public static readonly ModSound WhiteNightSummon = new("WhiteNight_Apostle_Grogy.ogg".SfxPath());
+    
+    public static readonly ModSound BigBirdLamp = new("Bigbird_Attract.ogg".SfxPath());
+    public static readonly ModSound BigBirdEyes = new("Bigbird_Eyes.ogg".SfxPath());
+    public static readonly ModSound BigBirdCrunch = new("Bigbird_HeadCut.ogg".SfxPath());
+    public static readonly ModSound BigBirdOpen = new("Bigbird_MouseOpen.ogg".SfxPath());
+    
+    public static readonly ModSound BlueStarAtk = new("BlueStar_Atk.ogg".SfxPath());
+    public static readonly ModSound BlueStarCharge = new("BlueStar_Cast.ogg".SfxPath());
+    public static readonly ModSound WorshipperSuicide = new("BlueStar_In.ogg".SfxPath());
+    public static readonly ModSound WorshipperAttack = new("BlueStar_SubAtk.ogg".SfxPath());
+    public static readonly ModSound WorshipperExplode = new("BlueStar_Suicide.ogg".SfxPath());
+    
+    public static readonly ModSound SnowAttack = new("SnowQueen_Atk.ogg".SfxPath());
+    public static readonly ModSound SnowAttackFar = new("SnowQueen_Atk_Far.ogg".SfxPath());
+    public static readonly ModSound SnowBlizzard = new("SnowQueen_Freeze.ogg".SfxPath());
+    public static readonly ModSound SnowPrisonBreak = new("SnowQueen_IceCrash.ogg".SfxPath());
+    
+    public static readonly ModSound BossBirdSpecial = new("Bossbird_Longbird_On.ogg".SfxPath());
 }

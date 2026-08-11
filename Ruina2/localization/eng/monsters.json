@@ -93,5 +93,12 @@
 
   "RUINA2-SHY_LOOK.name": "Today's Shy Look",
 
-  "RUINA2-WHITE_NIGHT.name": "White Night"
+  "RUINA2-WHITE_NIGHT.name": "White Night",
+
+  "RUINA2-BIG_BIRD.name": "Big Bird",
+  "RUINA2-SAGE.name": "Sage of the Forest",
+  "RUINA2-SAGE.combatStart1": "The guardian has gone mad!",
+  "RUINA2-SAGE.combatStart2": "We must stop him!",
+  "RUINA2-SAGE.birdDeath1": "I hope he has come to his senses.",
+  "RUINA2-SAGE.birdDeath2": "That was a harrowing ordeal."
 }

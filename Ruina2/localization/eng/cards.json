@@ -24,5 +24,8 @@
   "RUINA2-FOURTH_CHAIR.title": "Fourth Chair",
 
   "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
-  "RUINA2-APOSTLE.title": "Apostle"
+  "RUINA2-APOSTLE.title": "Apostle",
+
+  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:diff()} this combat. If its cost is {UnplayableThreshold:diff()} or more, it becomes [gold]Unplayable[/gold].",
+  "RUINA2-DAZZLED.title": "Dazzled"
 }

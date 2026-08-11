@@ -17,7 +17,6 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<FabricatorNormal>(),
             ModelDb.Encounter<FrogKnightNormal>(),
             ModelDb.Encounter<GlobeHeadNormal>(),
-            ModelDb.Encounter<KnightsElite>(),
             ModelDb.Encounter<MechaKnightElite>(),
             ModelDb.Encounter<OwlMagistrateNormal>(),
             ModelDb.Encounter<ScrollsOfBitingNormal>(),
@@ -27,6 +26,7 @@ public class Atziluth() : AbstractRuinaAct(3)
             //ModelDb.Encounter<TestSubjectBoss>(),
             ModelDb.Encounter<TheLostAndForgottenNormal>(),
             ModelDb.Encounter<TurretOperatorWeak>(),
+            ModelDb.Encounter<BigBirdElite>(),
             ModelDb.Encounter<WhiteNightBoss>(),
         ];
     }

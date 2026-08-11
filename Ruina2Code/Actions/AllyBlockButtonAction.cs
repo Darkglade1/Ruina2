@@ -17,11 +17,14 @@ public sealed class AllyBlockButtonAction : GameAction
 
   public Player Player { get; }
   public ModelId ModelId { get; }
+  
+  public uint? CombatId { get; }
 
-  public AllyBlockButtonAction(Player player, ModelId modelId)
+  public AllyBlockButtonAction(Player player, ModelId modelId, uint? combatId)
   {
     Player = player;
     ModelId = modelId;
+    CombatId = combatId;
   }
 
   protected override async Task ExecuteAction()
@@ -30,7 +33,7 @@ public sealed class AllyBlockButtonAction : GameAction
     {
       return;
     }
-    var creature = Player.Creature.CombatState.Enemies.FirstOrDefault(c => c.ModelId == ModelId && c.IsAlive);
+    var creature = Player.Creature.CombatState.Enemies.FirstOrDefault(c => c.ModelId == ModelId && c.CombatId == CombatId && c.IsAlive);
     if (creature?.Monster is AbstractAllyMonster)
     {
       var blockToGive = Math.Min(NAllyBlockButton.BLOCK_TRANSFER, Player.Creature.Block);

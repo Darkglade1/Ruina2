@@ -95,7 +95,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Warning1.ogg";
         }
-        if (encounter is AlriuneElite || encounter is WrathElite)
+        if (encounter is AlriuneElite || encounter is WrathElite || encounter is BigBirdElite)
         {
             path = "Warning2.ogg";
         }

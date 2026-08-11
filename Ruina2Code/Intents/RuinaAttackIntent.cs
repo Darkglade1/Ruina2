@@ -8,6 +8,8 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Monsters.Act3.BigBird;
+using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Intents;
 
@@ -46,7 +48,11 @@ public abstract class RuinaAttackIntent : AttackIntent
 
         if (player != null)
         {
-            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);   
+            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
+            if (targetCreature != null && targetCreature.HasPower<Enchanted>() && owner.Monster is BigBird)
+            {
+                totalDamage = 999;
+            }
         }
         return Math.Max(0, (int) totalDamage);
     }
