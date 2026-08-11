@@ -26,8 +26,8 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<TurretOperatorWeak>(),
             ModelDb.Encounter<BigBirdElite>(),
             //ModelDb.Encounter<TwilightBoss>(),
-            //ModelDb.Encounter<WhiteNightBoss>(),
-            ModelDb.Encounter<SilentGirlBoss>()
+            ModelDb.Encounter<WhiteNightBoss>(),
+            //ModelDb.Encounter<SilentGirlBoss>()
         ];
     }
     
