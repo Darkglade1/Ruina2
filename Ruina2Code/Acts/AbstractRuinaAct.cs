@@ -151,6 +151,39 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
      public override Color MapBgColor
     {
         get {
+            return new Color(1.0f, 0.86f, 0.56f);
+            // switch (GetFloorBasedOnBoss())
+            // {
+            //     case RuinaFloor.Malkuth:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Yesod:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Hod:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Netzach:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Tiphereth:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Gebura:
+            //         return new Color(1.0f, 0.86f, 0.56f);
+            //         return new Color("CD5C5C");
+            //         return new Color(0.5f, 0.2f, 0.2f);
+            //     case RuinaFloor.Chesed:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Binah:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Hokma:
+            //         return new Color("9B9562");
+            //     case RuinaFloor.Keter:
+            //         return new Color("9B9562");
+            // }
+            // return new Color("9B9562");
+        }
+    }
+     
+    public Color BossIconBgColor
+    {
+        get {
             
             switch (GetFloorBasedOnBoss())
             {
