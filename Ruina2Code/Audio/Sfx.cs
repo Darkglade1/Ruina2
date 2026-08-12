@@ -168,4 +168,13 @@ public static class Sfx
     public static readonly ModSound SnowPrisonBreak = new("SnowQueen_IceCrash.ogg".SfxPath());
     
     public static readonly ModSound BossBirdSpecial = new("Bossbird_Longbird_On.ogg".SfxPath());
+    public static readonly ModSound BossBirdLamp = new("Bossbird_Bigbird_FarAtk.ogg".SfxPath());
+    public static readonly ModSound BossBirdBirth = new("BossBird_Birth.ogg".SfxPath());
+    public static readonly ModSound BossBirdCrush = new("Bossbird_Bossbird_Stab.ogg".SfxPath());
+    public static readonly ModSound BossBirdStrong = new("Bossbird_Bossbird_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound BossBirdSlam = new("Bossbird_Bossbird_VertDown.ogg".SfxPath());
+    public static readonly ModSound BossBirdPunish = new("Bossbird_Longbird_StrongAtk.ogg".SfxPath());
+    
+    public static readonly ModSound BloodAttack = new("Bloodbath_Atk.ogg".SfxPath());
+    public static readonly ModSound BloodSpecial = new("Bloodbath_EyeOn.ogg".SfxPath());
 }

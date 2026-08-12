@@ -1,0 +1,1 @@
+{"atlas_data":"bloodbath.png\nsize:737,583\nfilter:Linear,Linear\nAttack\nbounds:2,27,554,536\noffsets:13,8,569,544\nrotate:90\nIdle\nbounds:540,2,152,317\noffsets:2,31,154,373\nSpecial\nbounds:540,321,195,260\noffsets:1,2,233,317\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Bloodbath/bloodbath.atlas","specular_texture_prefix":"s"}

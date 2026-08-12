@@ -1,0 +1,1 @@
+{"atlas_data":"lungs.png\nsize:849,255\nfilter:Linear,Linear\nAttack\nbounds:2,22,554,231\noffsets:3,2,572,234\nIdle\nbounds:558,2,289,251\noffsets:2,13,291,291\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Lungs/lungs.atlas","specular_texture_prefix":"s"}

@@ -1,0 +1,1 @@
+{"atlas_data":"heart.png\nsize:1634,305\nfilter:Linear,Linear\nAttack\nbounds:2,34,887,269\noffsets:2,2,900,277\nIdle\nbounds:891,15,395,288\noffsets:2,26,398,314\nSpecial\nbounds:1288,2,344,301\noffsets:2,41,372,390\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Heart/heart.atlas","specular_texture_prefix":"s"}
