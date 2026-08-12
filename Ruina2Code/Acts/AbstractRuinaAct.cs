@@ -168,11 +168,13 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     {
         get {
             
-            // switch (GetFloorBasedOnBoss())
-            // {
-            //     case RuinaFloor.Tiphereth:
-            //         return new Color("36454F");
-            // }
+            switch (GetFloorBasedOnBoss())
+            {
+                case RuinaFloor.Tiphereth:
+                    return Color.Color8(219, 199, 170);
+                case RuinaFloor.Keter:
+                    return Color.Color8(169, 169, 169);
+            }
             return new Color(1.0f, 0.86f, 0.56f);
         }
     }
