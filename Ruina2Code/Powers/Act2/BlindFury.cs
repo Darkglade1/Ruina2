@@ -19,6 +19,13 @@ public class BlindFury() : Ruina2Power
     
     public override int DisplayAmount => DynamicVars["HPLossCounter"].IntValue;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("HPLossCounter",0)];
+    
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        DynamicVars["HPLossCounter"].BaseValue = Amount;
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
+    }
 
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
@@ -30,10 +37,10 @@ public class BlindFury() : Ruina2Power
     {
         if (target == Owner)
         {
-            DynamicVars["HPLossCounter"].BaseValue += result.UnblockedDamage;
-            if (DynamicVars["HPLossCounter"].BaseValue > Amount)
+            DynamicVars["HPLossCounter"].BaseValue -= result.UnblockedDamage;
+            if (DynamicVars["HPLossCounter"].BaseValue <= 0)
             {
-                DynamicVars["HPLossCounter"].BaseValue = Amount;
+                DynamicVars["HPLossCounter"].BaseValue = 0;
             }
             InvokeDisplayAmountChanged();
         }
@@ -46,10 +53,10 @@ public class BlindFury() : Ruina2Power
     {
         if (side == CombatSide.Enemy)
         {
-            if (DynamicVars["HPLossCounter"].BaseValue >= Amount && Owner.Monster is ServantOfWrath wrath)
+            if (DynamicVars["HPLossCounter"].BaseValue <= 0 && Owner.Monster is ServantOfWrath wrath)
             {
                 Flash();
-                DynamicVars["HPLossCounter"].BaseValue = 0;
+                DynamicVars["HPLossCounter"].BaseValue = Amount;
                 InvokeDisplayAmountChanged();
                 wrath.Enrage();
             }

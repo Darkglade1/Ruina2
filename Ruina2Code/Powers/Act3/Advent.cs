@@ -20,7 +20,7 @@ public class Advent() : Ruina2Power
 
     public override int DisplayAmount => DynamicVars["CardCounter"].IntValue;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CardCounter",0), new("Turns",6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CardCounter",0), new("Turns",4)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {

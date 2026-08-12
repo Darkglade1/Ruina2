@@ -21,7 +21,7 @@ public class Judas : Ruina2Affliction
     {
         if (cardSource != null && cardSource == Card && Card.Affliction is Judas && props.IsPoweredAttack())
         {
-            return 2;
+            return 3;
         }
         return 1;
     }
