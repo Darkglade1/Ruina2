@@ -12,11 +12,11 @@ mouse_filter = 2
 [node name="egg1" type="Marker2D" parent="."]
 position = Vector2(850, 738)
 
+[node name="boss" type="Marker2D" parent="."]
+position = Vector2(1700, 738)
+
 [node name="egg2" type="Marker2D" parent="."]
 position = Vector2(1050, 738)
 
 [node name="egg3" type="Marker2D" parent="."]
 position = Vector2(1250, 738)
-
-[node name="boss" type="Marker2D" parent="."]
-position = Vector2(1700, 738)
