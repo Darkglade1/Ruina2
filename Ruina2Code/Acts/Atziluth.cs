@@ -25,7 +25,7 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<MechaKnightElite>(),
             ModelDb.Encounter<SoulNexusElite>(),
             ModelDb.Encounter<BigBirdElite>(),
-            //ModelDb.Encounter<TwilightBoss>(),
+            ModelDb.Encounter<TwilightBoss>(),
             ModelDb.Encounter<WhiteNightBoss>(),
             //ModelDb.Encounter<SilentGirlBoss>()
         ];

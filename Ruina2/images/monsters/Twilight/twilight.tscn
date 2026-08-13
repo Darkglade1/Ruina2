@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsfki84p3ntxh"]
+
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Twilight/twilight.tres" id="1_j1ot4"]
+[ext_resource type="Script" uid="uid://d1eh0n6i2pr1r" path="res://Ruina2Code/Nodes/Ruina2NCreatureVisuals.cs" id="1_se58w"]
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Twilight/Bird/apocalypse_bird.tres" id="2_j1ot4"]
+
+[node name="Twilight" type="Node2D"]
+script = ExtResource("1_se58w")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -235.0
+offset_top = -323.0
+offset_right = 247.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2, -171)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -361)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_j1ot4")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+
+[node name="OtherVisuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("2_j1ot4")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(-726, -313)
+scale = Vector2(0.8, 0.8)

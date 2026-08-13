@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cjf465lgnpohe"
+path="res://.godot/imported/small_egg.atlas-d1eb24d1e67f8caa401578eec44243b9.spatlas"
+
+[deps]
+
+source_file="res://Ruina2/images/monsters/Twilight/Eggs/small_egg.atlas"
+dest_files=["res://.godot/imported/small_egg.atlas-d1eb24d1e67f8caa401578eec44243b9.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

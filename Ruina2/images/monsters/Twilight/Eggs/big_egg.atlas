@@ -1,0 +1,8 @@
+big_egg.png
+size:162,114
+filter:Linear,Linear
+BigEgg
+bounds:2,5,84,107
+BigEggBroken
+bounds:88,2,110,72
+rotate:90

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://6g4lttq210lw"
+path="res://.godot/imported/long_egg.atlas-1469f4492a02d64d61183ec5ce1580a7.spatlas"
+
+[deps]
+
+source_file="res://Ruina2/images/monsters/Twilight/Eggs/long_egg.atlas"
+dest_files=["res://.godot/imported/long_egg.atlas-1469f4492a02d64d61183ec5ce1580a7.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

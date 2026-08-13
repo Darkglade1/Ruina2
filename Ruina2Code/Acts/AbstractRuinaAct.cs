@@ -95,7 +95,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Roland1.ogg";
         }
-        if (encounter is JesterBoss)
+        if (encounter is JesterBoss || encounter is TwilightBoss)
         {
             path = "Roland3.ogg";
         }

@@ -185,5 +185,21 @@
 
   "RUINA2-SALVATION.description": "",
   "RUINA2-SALVATION.smartDescription": "This creature's attacks [red]instantly kill[/red] [gold]Enchanted[/gold] creatures.\n[gold]Enchanted[/gold] is removed after [gold]Enchanted[/gold] creatures lose a certain amount of HP.",
-  "RUINA2-SALVATION.title": "Salvation"
+  "RUINA2-SALVATION.title": "Salvation",
+
+  "RUINA2-BIG_EYES.description": "",
+  "RUINA2-BIG_EYES.smartDescription": "At the end of the round, shuffle [blue]{Amount}[/blue] [gold]Dazzled[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-BIG_EYES.title": "Big Eyes",
+
+  "RUINA2-LONG_ARMS.description": "",
+  "RUINA2-LONG_ARMS.smartDescription": "Negate ALL [gold]debuffs[/gold] applied to this creature and the [gold]boss[/gold].",
+  "RUINA2-LONG_ARMS.title": "Long Arms",
+
+  "RUINA2-SMALL_BEAK.description": "",
+  "RUINA2-SMALL_BEAK.smartDescription": "The first [blue]{Amount}[/blue] cards drawn each turn cost [blue]{CostIncrease:diff()}[/blue] more this turn.",
+  "RUINA2-SMALL_BEAK.title": "Small Beak",
+
+  "RUINA2-FADING_TWILIGHT.description": "",
+  "RUINA2-FADING_TWILIGHT.smartDescription": "Whenever an [gold]Egg[/gold] is destroyed, this creature loses [blue]{Amount}%[/blue] of its current HP.",
+  "RUINA2-FADING_TWILIGHT.title": "Fading Twilight"
 }

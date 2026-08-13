@@ -1,0 +1,9 @@
+small_egg.png
+size:221,112
+filter:Linear,Linear
+SmallEgg
+bounds:2,14,96,147
+rotate:90
+SmallEggBroken
+bounds:151,2,108,68
+rotate:90

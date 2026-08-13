@@ -1,0 +1,8 @@
+long_egg.png
+size:203,90
+filter:Linear,Linear
+LongEgg
+bounds:2,2,86,104
+rotate:90
+LongEggBroken
+bounds:108,7,93,81

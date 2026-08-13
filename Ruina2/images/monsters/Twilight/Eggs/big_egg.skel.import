@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://tmkrdj2o71fo"
+path="res://.godot/imported/big_egg.skel-ea324c20957eedf70b52aee3d60127d1.spskel"
+
+[deps]
+
+source_file="res://Ruina2/images/monsters/Twilight/Eggs/big_egg.skel"
+dest_files=["res://.godot/imported/big_egg.skel-ea324c20957eedf70b52aee3d60127d1.spskel"]
+
+[params]
+

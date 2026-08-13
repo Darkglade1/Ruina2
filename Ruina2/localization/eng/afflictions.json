@@ -9,5 +9,9 @@
 
   "RUINA2-JUDAS.title": "Judas",
   "RUINA2-JUDAS.description": "This card deals triple attack damage but causes you to lose HP when played.",
-  "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]"
+  "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]",
+
+  "RUINA2-PUNISHED.title": "Punished",
+  "RUINA2-PUNISHED.description": "This card costs [blue]1[/blue] more this turn.",
+  "RUINA2-PUNISHED.extraCardText": ""
 }
