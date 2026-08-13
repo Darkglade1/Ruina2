@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://4vfpx72y4gbh"]
+
+[ext_resource type="Texture2D" uid="uid://v1cyee0wm2oe" path="res://Ruina2/images/events/Angela/Angela.png" id="1_25cb8"]
+
+[node name="Angela" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 468.0
+offset_top = 133.0
+offset_right = 508.0
+offset_bottom = 173.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -624.0
+offset_top = -333.0
+offset_right = 1608.0
+offset_bottom = 1082.0
+texture = ExtResource("1_25cb8")
+expand_mode = 1

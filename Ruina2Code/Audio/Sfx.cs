@@ -144,6 +144,8 @@ public static class Sfx
     
     public static readonly ModSound ShyAtk = new("Shy_Atk.ogg".SfxPath());
     
+    public static readonly ModSound FingerSnap = new("Finger_Snapping.ogg".SfxPath());
+    
     public static readonly ModSound ProphetBless = new("WhiteNight_Bless.ogg".SfxPath());
     public static readonly ModSound WhiteNightAppear = new("WhiteNight_Appear.ogg".SfxPath());
     public static readonly ModSound WhiteNightCall = new("WhiteNight_Call.ogg".SfxPath());

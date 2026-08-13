@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Acts;
 using Ruina2.Ruina2Code.Encounters.Act1;
+using Ruina2.Ruina2Code.Events;
 
 namespace Ruina2.Ruina2Code.Acts;
 
@@ -42,4 +43,13 @@ public class Asiyah() : AbstractRuinaAct(1)
     public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act1";
     
     protected override int NumberOfWeakEncounters => 3;
+
+    public override IEnumerable<AncientEventModel> AllAncients => [ModelDb.AncientEvent<NeowAngela>()];
+    // public override IEnumerable<AncientEventModel> AllAncients
+    // {
+    //     get
+    //     {
+    //         return (IEnumerable<AncientEventModel>) new \u003C\u003Ez__ReadOnlySingleElementList<AncientEventModel>((AncientEventModel) ModelDb.AncientEvent<Neow>());
+    //     }
+    // }
 }
