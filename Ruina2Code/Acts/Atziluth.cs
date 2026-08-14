@@ -24,14 +24,14 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<TheLostAndForgottenNormal>(),
             ModelDb.Encounter<BigBirdElite>(),
             ModelDb.Encounter<BlueStarElite>(),
-            ModelDb.Encounter<MechaKnightElite>(),
+            ModelDb.Encounter<SnowQueenElite>(),
             ModelDb.Encounter<TwilightBoss>(),
             ModelDb.Encounter<WhiteNightBoss>(),
             //ModelDb.Encounter<SilentGirlBoss>()
         ];
     }
     
-    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<WhiteNightBoss>()];
+    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<TwilightBoss>(), ModelDb.Encounter<WhiteNightBoss>()];
 
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Glory>().AllEvents;
     

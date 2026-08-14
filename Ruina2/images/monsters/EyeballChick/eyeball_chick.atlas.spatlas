@@ -1,0 +1,1 @@
+{"atlas_data":"eyeball_chick.png\nsize:381,182\nfilter:Linear,Linear\npma:true\nAttack\nbounds:197,2,178,182\noffsets:1,0,179,182\nrotate:90\nIdle\nbounds:2,3,177,193\noffsets:2,0,179,193\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/EyeballChick/eyeball_chick.atlas","specular_texture_prefix":"s"}

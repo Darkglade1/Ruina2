@@ -107,7 +107,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         string path = "Warning2.ogg";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
         var encounter = localPlayer?.Creature.CombatState?.Encounter;
-        if (encounter is HelpersElite || encounter is LaetitiaElite || encounter is RoadHomeElite)
+        if (encounter is HelpersElite || encounter is LaetitiaElite || encounter is RoadHomeElite || encounter is SnowQueenElite)
         {
             path = "Warning1.ogg";
         }
@@ -115,7 +115,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Warning2.ogg";
         }
-        if (encounter is MountainElite)
+        if (encounter is MountainElite || encounter is BlueStarElite)
         {
             path = "Warning3.ogg";
         }

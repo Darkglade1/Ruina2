@@ -179,4 +179,18 @@ public static class Sfx
     
     public static readonly ModSound BloodAttack = new("Bloodbath_Atk.ogg".SfxPath());
     public static readonly ModSound BloodSpecial = new("Bloodbath_EyeOn.ogg".SfxPath());
+    
+    public static readonly ModSound BirdSweep = new("LongBird_SubAtk.ogg".SfxPath());
+    public static readonly ModSound BirdShout = new("LongBird_SubShout.ogg".SfxPath());
+    public static readonly ModSound JudgementAttack = new("LongBird_Down.ogg".SfxPath());
+    public static readonly ModSound JudgementHang = new("LongBird_Hang.ogg".SfxPath());
+    public static readonly ModSound JudgementGong = new("LongBird_On.ogg".SfxPath());
+    public static readonly ModSound JudgementDing = new("LongBird_Stun.ogg".SfxPath());
+    
+    public static readonly ModSound HeavenWakeStrong = new("MustSee_Wake_Strong.ogg".SfxPath());
+    public static readonly ModSound HeavenNosee1 = new("MustSee_Nosee1.ogg".SfxPath());
+    
+    public static readonly ModSound PinoLie = new("Pino_Lie.ogg".SfxPath());
+    public static readonly ModSound PinoFail = new("Pino_Fail.ogg".SfxPath());
+    public static readonly ModSound PinoOn = new("Pino_On.ogg".SfxPath());
 }

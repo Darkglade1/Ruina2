@@ -1,0 +1,1 @@
+{"atlas_data":"burrowing_heaven.png\nsize:831,1002\nfilter:Linear,Linear\npma:true\nAttack\nbounds:554,235,765,275\noffsets:0,3,815,368\nrotate:90\nDebuff\nbounds:2,2,500,470\nIdle\nbounds:2,474,550,526\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/BurrowingHeaven/burrowing_heaven.atlas","specular_texture_prefix":"s"}

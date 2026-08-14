@@ -1,0 +1,1 @@
+{"atlas_data":"runaway_bird.png\nsize:863,417\nfilter:Linear,Linear\npma:true\nIdle\nbounds:671,51,364,190\nrotate:90\nShriek\nbounds:360,2,413,309\noffsets:0,2,413,336\nrotate:90\nSweep\nbounds:2,20,395,356\noffsets:4,3,399,359\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/RunawayBird/runaway_bird.atlas","specular_texture_prefix":"s"}

@@ -24,6 +24,9 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     public static StanceVfxConfig WrathVfxConfig   => new(
     "res://Ruina2/images/vfx/wrath_aura.tscn"
     );
+    public static StanceVfxConfig CalmVfxConfig   => new(
+        "res://Ruina2/images/vfx/calm_aura.tscn"
+    );
 
     protected bool LastMove(MonsterMoveStateMachine stateMachine, string moveId)
     {

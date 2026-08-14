@@ -5,7 +5,7 @@
 
   "RUINA2-APOSTLE.title": "Apostle",
   "RUINA2-APOSTLE.description": "This card will be [gold]Transformed[/gold] into a [gold]Status[/gold] by the enemy.",
-  "RUINA2-APOSTLE.extraCardText": "[purple]Apostle[/purple]",
+  "RUINA2-APOSTLE.extraCardText": "[purple]Apostle.[/purple]",
 
   "RUINA2-JUDAS.title": "Judas",
   "RUINA2-JUDAS.description": "This card deals triple attack damage but causes you to lose HP when played.",
@@ -13,5 +13,9 @@
 
   "RUINA2-PUNISHED.title": "Punished",
   "RUINA2-PUNISHED.description": "This card costs [blue]1[/blue] more this turn.",
-  "RUINA2-PUNISHED.extraCardText": ""
+  "RUINA2-PUNISHED.extraCardText": "",
+
+  "RUINA2-FROZEN.title": "Frozen",
+  "RUINA2-FROZEN.description": "This card is [gold]Unplayable[/gold].",
+  "RUINA2-FROZEN.extraCardText": "[purple]Unplayable.[/purple]"
 }

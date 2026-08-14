@@ -1,0 +1,1 @@
+{"atlas_data":"pinocchio.png\nsize:1012,371\nfilter:Linear,Linear\npma:true\nAttack\nbounds:2,16,524,353\noffsets:3,2,544,359\nBlock\nbounds:808,2,202,367\noffsets:2,0,225,412\nIdle\nbounds:528,2,278,367\noffsets:2,2,286,371\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Pinocchio/pinocchio.atlas","specular_texture_prefix":"s"}
