@@ -201,5 +201,13 @@
 
   "RUINA2-FADING_TWILIGHT.description": "",
   "RUINA2-FADING_TWILIGHT.smartDescription": "Whenever an [gold]Egg[/gold] is destroyed, this creature loses [blue]{Amount}%[/blue] of its current HP.",
-  "RUINA2-FADING_TWILIGHT.title": "Fading Twilight"
+  "RUINA2-FADING_TWILIGHT.title": "Fading Twilight",
+
+  "RUINA2-MARTYR.description": "",
+  "RUINA2-MARTYR.smartDescription": "On death, explodes and deals [blue]{Amount}[/blue] damage to you.",
+  "RUINA2-MARTYR.title": "Martyr",
+
+  "RUINA2-MEET_AGAIN.description": "",
+  "RUINA2-MEET_AGAIN.smartDescription": "When this creature is at or below [blue]{Amount}[/blue] HP, it will [gold]suicide[/gold] on its turn without triggering [gold]Martyr[/gold].",
+  "RUINA2-MEET_AGAIN.title": "Meet Again as Stars"
 }

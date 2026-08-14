@@ -49,8 +49,7 @@ public sealed class Twilight : AbstractRuinaMonster
     private static int SMALL_BIRD_PHASE = 2;
     private static int LONG_BIRD_PHASE = 3;
     private int phase = BIG_BIRD_PHASE;
-
-    private NCreatureVisuals? apocalypseBird;
+    
     private CreatureAnimator? birdAnimator;
     
     public override async Task AfterAddedToRoom()

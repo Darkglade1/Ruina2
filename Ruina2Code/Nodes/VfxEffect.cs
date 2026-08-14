@@ -90,4 +90,29 @@ public abstract partial class VfxEffect : Node2D
     {
         return t * t * t * (t * (t * 6f - 15f) + 10f);
     }
+
+    protected static float Circle(float t)
+    {
+        if (t <= 0.5F) {
+            t *= 2.0F;
+            return (1.0F - (float)Math.Sqrt((double)(1.0F - t * t))) / 2.0F;
+        } else {
+            --t;
+            t *= 2.0F;
+            return ((float)Math.Sqrt((double)(1.0F - t * t)) + 1.0F) / 2.0F;
+        }
+    }
+    
+    public float Swing(float t)
+    {
+        float scale = 3.0f;
+        if (t <= 0.5F) {
+            t *= 2.0F;
+            return t * t * ((scale + 1.0F) * t - scale) / 2.0F;
+        } else {
+            --t;
+            t *= 2.0F;
+            return t * t * ((scale + 1.0F) * t + scale) / 2.0F + 1.0F;
+        }
+    }
 }

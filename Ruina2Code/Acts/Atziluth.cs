@@ -22,9 +22,9 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<OwlMagistrateNormal>(),
             ModelDb.Encounter<SlimedBerserkerNormal>(),
             ModelDb.Encounter<TheLostAndForgottenNormal>(),
-            ModelDb.Encounter<MechaKnightElite>(),
-            ModelDb.Encounter<SoulNexusElite>(),
             ModelDb.Encounter<BigBirdElite>(),
+            ModelDb.Encounter<BlueStarElite>(),
+            ModelDb.Encounter<MechaKnightElite>(),
             ModelDb.Encounter<TwilightBoss>(),
             ModelDb.Encounter<WhiteNightBoss>(),
             //ModelDb.Encounter<SilentGirlBoss>()

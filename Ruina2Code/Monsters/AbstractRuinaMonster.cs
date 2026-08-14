@@ -53,6 +53,19 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         return log[log.Count - 1].Id == moveId && log[log.Count - 2].Id == moveId;
     }
     
+    protected bool LastMoveIgnoringMove(MonsterMoveStateMachine stateMachine, string move, string moveToIgnore) {
+        if (stateMachine.StateLog.Count == 0) {
+            return false;
+        }
+        for (int i = stateMachine.StateLog.Count - 1; i >= 0; i--) {
+            string currMove = stateMachine.StateLog[i].Id;
+            if (currMove != moveToIgnore) {
+                return currMove == move;
+            }
+        }
+        return false;
+    }
+    
     protected bool ThreeTurnCooldownHasPassedForMove(MonsterMoveStateMachine stateMachine, string moveId) {
         return stateMachine.StateLog.Count >= 3 && !LastMove(stateMachine, moveId) && !LastMoveBefore(stateMachine, moveId) && !LastMoveBeforeBefore(stateMachine, moveId);
     }
