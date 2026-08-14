@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -58,6 +59,7 @@ public sealed class Worshipper : AbstractRuinaMonster
         meetAgainThreshold = (int)Math.Round(Creature.MaxHp * MEET_AGAIN_HP_THRESHOLD);
         await PowerCmd.Apply<Martyr>(new ThrowingPlayerChoiceContext(), Creature, MartyrDamage, Creature, null);
         await PowerCmd.Apply<MeetAgain>(new ThrowingPlayerChoiceContext(), Creature, meetAgainThreshold, Creature, null);
+        await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 
     private MoveState GetForTheStarState()

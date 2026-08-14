@@ -173,6 +173,17 @@ public sealed class BlueStar : AbstractRuinaMonster
         await CreatureCmd.Add<Worshipper>(CombatState, "minion1");
         await CreatureCmd.Add<Worshipper>(CombatState, "minion2");
     }
+    
+    public override async Task BeforeDeath(Creature creature)
+    {
+        foreach (var enemy in CombatState.Enemies)
+        {
+            if (enemy.Monster is Worshipper worshipper)
+            {
+                worshipper.TriggerMartyr = false;
+            }
+        }
+    }
 
     private async Task StarAttackAnimation(IReadOnlyList<Creature> targets)
     {

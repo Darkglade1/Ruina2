@@ -29,6 +29,17 @@ public class Martyr() : Ruina2Power
                 instance.CombatVfxContainer.AddChildSafely(NFireSmokePuffVfx.Create(Owner)); 
             }
             await Cmd.CustomScaledWait(0.2f, 0.3f);
+        }
+    }
+
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Owner && creature.Monster is Worshipper worshipper && worshipper.TriggerMartyr)
+        {
             Sfx.WorshipperExplode.Play();
             Creature? shrine = null;
             // make blue star the dealer since dead dealers can't deal damage
@@ -42,23 +53,4 @@ public class Martyr() : Ruina2Power
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, shrine, null, null);
         }
     }
-
-    // public override async Task AfterDeath(
-    //     PlayerChoiceContext choiceContext,
-    //     Creature creature,
-    //     bool wasRemovalPrevented,
-    //     float deathAnimLength)
-    // {
-    //     if (creature == Owner && creature.Monster is Worshipper worshipper && worshipper.TriggerMartyr)
-    //     {
-    //         NCombatRoom? instance = NCombatRoom.Instance;
-    //         if (instance != null)
-    //         {
-    //             instance.CombatVfxContainer.AddChildSafely(NFireSmokePuffVfx.Create(Owner)); 
-    //         }
-    //         await Cmd.CustomScaledWait(0.2f, 0.3f);
-    //         Sfx.WorshipperExplode.Play();
-    //         await CreatureCmd.Damage(choiceContext, CombatState.PlayerCreatures, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null, null);
-    //     }
-    // }
 }
