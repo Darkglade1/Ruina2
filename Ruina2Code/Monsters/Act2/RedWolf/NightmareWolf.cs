@@ -18,7 +18,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
 public sealed class NightmareWolf : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 550, 500);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 500, 450);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 

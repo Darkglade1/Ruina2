@@ -1,5 +1,8 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Monsters.Act3.Twilight;
 
@@ -12,26 +15,38 @@ public class LongArms() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.None;
-
-     public override bool TryModifyPowerAmountReceived(
-        PowerModel canonicalPower,
-        Creature target,
-        Decimal amount,
-        Creature? _,
-        out Decimal modifiedAmount)
+     
+    public override async Task AfterSideTurnEndLate(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (!canonicalPower.IsVisible)
+        if (side == CombatSide.Enemy)
         {
-            modifiedAmount = amount;
-            return false;
+            bool triggered = false;
+            foreach (var enemy in CombatState.HittableEnemies)
+            {
+                if (enemy.Monster is LongEgg || enemy.Monster is Twilight)
+                {
+                    var debuffs = new List<PowerModel>();
+                    foreach (var power in enemy.Powers)
+                    {
+                        if (power.Type == PowerType.Debuff)
+                        {
+                            debuffs.Add(power);
+                        }
+                    }
+                    foreach (var debuff in debuffs)
+                    {
+                        triggered = true;
+                        await PowerCmd.Remove(debuff);
+                    }
+                }
+            }
+            if (triggered)
+            {
+                Flash();
+            }
         }
-        if ((target == Owner || target.Monster is Twilight) && canonicalPower.GetTypeForAmount(amount) == PowerType.Debuff)
-        {
-            Flash();
-            modifiedAmount = 0M;
-            return true;
-        }
-        modifiedAmount = amount;
-        return false;
     }
 }

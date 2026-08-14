@@ -23,11 +23,11 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.Jester;
 
 public sealed class JesterOfNihil : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 660, 600);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 550, 500);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 3;
 
-    private int NihilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 29, 26);
+    private int NihilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
     private int DesireDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int DesireHits => 2;
     private int HateDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);

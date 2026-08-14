@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Afflictions;
@@ -21,7 +22,7 @@ public class SmallBeak() : Ruina2Power
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1), new("CardsAffected", 0)];
-    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Punished>();
     public override Task BeforeHandDraw(
         Player player,
         PlayerChoiceContext choiceContext,

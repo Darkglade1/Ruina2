@@ -192,11 +192,11 @@
   "RUINA2-BIG_EYES.title": "Big Eyes",
 
   "RUINA2-LONG_ARMS.description": "",
-  "RUINA2-LONG_ARMS.smartDescription": "Negate ALL [gold]debuffs[/gold] applied to this creature and the [gold]boss[/gold].",
+  "RUINA2-LONG_ARMS.smartDescription": "Remove ALL [gold]debuffs[/gold] from this creature and the [gold]boss[/gold] at the end of the round.",
   "RUINA2-LONG_ARMS.title": "Long Arms",
 
   "RUINA2-SMALL_BEAK.description": "",
-  "RUINA2-SMALL_BEAK.smartDescription": "The first [blue]{Amount}[/blue] cards drawn each turn cost [blue]{CostIncrease:diff()}[/blue] more this turn.",
+  "RUINA2-SMALL_BEAK.smartDescription": "The first [blue]{Amount}[/blue] cards drawn each turn are [gold]Afflicted[/gold] with [purple]Punished[/purple] this turn.",
   "RUINA2-SMALL_BEAK.title": "Small Beak",
 
   "RUINA2-FADING_TWILIGHT.description": "",

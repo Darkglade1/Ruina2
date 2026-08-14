@@ -14,7 +14,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act3.Twilight;
 
 public sealed class BigEgg : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 165, 150);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 140, 125);
     public override int MaxInitialHp => MinInitialHp;
 
     protected override string VisualsPath => "Twilight/Eggs/big_egg.tscn".MonsterImagePath();
