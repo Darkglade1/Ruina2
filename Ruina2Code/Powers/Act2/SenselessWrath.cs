@@ -75,6 +75,7 @@ public class SenselessWrath() : Ruina2Power
                 DynamicVars["Counter"].BaseValue = 1;
                 InvokeDisplayAmountChanged();
                 modifiedAmount = 0M;
+                StopPulsing();
                 return true;
             } else {
                 if (Owner.Monster is AbstractRuinaMonster monster)
@@ -85,10 +86,12 @@ public class SenselessWrath() : Ruina2Power
                 DynamicVars["Counter"].BaseValue++;
                 InvokeDisplayAmountChanged();
                 modifiedAmount = amount;
+                StartPulsing();
                 return false;
             }
         }
         modifiedAmount = 0M;
+        StopPulsing();
         return true;
     }
 }
