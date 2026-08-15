@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -267,7 +268,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     private async Task WillOfNihil(IReadOnlyList<Creature> targets)
     {
         IsMassAttacking = true;
-        var target = targets.FirstOrDefault(t => t.IsAlive);
+        var target = targets.FirstOrDefault(LocalContext.IsMe);
         if (target != null)
         {
             SpawnCurseVfx(target);

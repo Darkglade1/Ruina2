@@ -64,7 +64,7 @@ public class SmallBeak() : Ruina2Power
         Decimal originalCost,
         out Decimal modifiedCost)
     {
-        if (card.Affliction is Punished)
+        if (card.Owner.Creature == Target && card.Affliction is Punished)
         {
             modifiedCost = originalCost + card.Affliction.Amount;
             return true;

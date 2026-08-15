@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -273,7 +274,7 @@ public sealed class Twilight : AbstractRuinaMonster
 
     private async Task ShockwaveAnimation(IReadOnlyList<Creature> targets)
     {
-        var target = targets.FirstOrDefault(t => t.IsAlive);
+        var target = targets.FirstOrDefault(LocalContext.IsMe);
         if (target != null)
         {
             var targetNode = NCombatRoom.Instance?.GetCreatureNode(target);

@@ -18,7 +18,7 @@ public partial class NAllyBlockButton : NAllyButton
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
         if (localPlayer != null)
         {
-            RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new AllyBlockButtonAction(localPlayer, owner.Creature.ModelId, owner.Creature.CombatId));
+            RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new AllyBlockButtonAction(localPlayer, owner.Creature.ModelId));
         }
     }
 
