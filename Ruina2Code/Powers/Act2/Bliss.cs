@@ -15,7 +15,7 @@ public class Bliss() : Ruina2Power
         PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Single;
+        PowerStackType.None;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<FragmentOfBliss>()];
 

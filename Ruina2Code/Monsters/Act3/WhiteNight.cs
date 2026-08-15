@@ -58,7 +58,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
         await PowerCmd.Apply<Advent>(new ThrowingPlayerChoiceContext(), Creature, AdventCards * CombatState.Players.Count, Creature, null);
         if (RegenAmt > 0)
         {
-            await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, RegenAmt, Creature, null);
+            await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(RegenAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
         }
     }
 

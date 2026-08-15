@@ -229,5 +229,21 @@
 
   "RUINA2-TEMP_FRAGILE.description": "Receives more damage from attacks this turn.",
   "RUINA2-TEMP_FRAGILE.smartDescription": "Receives [blue]{Amount}[/blue] more damage from attacks this turn.",
-  "RUINA2-TEMP_FRAGILE.title": "Temporary Fragile"
+  "RUINA2-TEMP_FRAGILE.title": "Temporary Fragile",
+
+  "RUINA2-PUNISHMENT.description": "",
+  "RUINA2-PUNISHMENT.smartDescription": "After this creature is hit by an [gold]Attack[/gold], it will use a [gold]powerful[/gold] attack next turn.",
+  "RUINA2-PUNISHMENT.title": "Punishment",
+
+  "RUINA2-LOCK.description": "",
+  "RUINA2-LOCK.smartDescription": "On death, add a [gold]Forest Keeper's Lock[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-LOCK.title": "Forest Keeper's Lock",
+
+  "RUINA2-SIN.description": "",
+  "RUINA2-SIN.smartDescription": "Whenever you play a card that costs [blue]{Amount}[/blue] or less, increase its cost by [blue]{CostIncrease:diff()}[/blue] this combat.",
+  "RUINA2-SIN.title": "Weight Sin",
+
+  "RUINA2-TICKING_TIME.description": "",
+  "RUINA2-TICKING_TIME.smartDescription": "Whenever {IsMultiplayer:players|you} play [blue]{Amount}[/blue] cards in a single turn, immediately end {IsMultiplayer:everyone's|your} turn.",
+  "RUINA2-TICKING_TIME.title": "Ticking Time"
 }

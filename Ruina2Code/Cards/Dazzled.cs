@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Cards;
 public class Dazzled() : Ruina2Card(0, CardType.Status,
     CardRarity.Status, TargetType.None)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1), new("UnplayableThreshold", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     
@@ -22,15 +22,7 @@ public class Dazzled() : Ruina2Card(0, CardType.Status,
     {
         if (card == this)
         {
-            if (!Keywords.Contains(CardKeyword.Unplayable))
-            {
-                EnergyCost.AddThisCombat(DynamicVars["CostIncrease"].IntValue);
-            }
-            if (EnergyCost.GetResolved() >= DynamicVars["UnplayableThreshold"].IntValue)
-            {
-                EnergyCost.SetThisCombat(-1);
-                AddKeyword(CardKeyword.Unplayable);
-            }
+            EnergyCost.AddThisCombat(DynamicVars["CostIncrease"].IntValue);
         }
         return Task.CompletedTask;
     }

@@ -193,4 +193,10 @@ public static class Sfx
     public static readonly ModSound PinoLie = new("Pino_Lie.ogg".SfxPath());
     public static readonly ModSound PinoFail = new("Pino_Fail.ogg".SfxPath());
     public static readonly ModSound PinoOn = new("Pino_On.ogg".SfxPath());
+    
+    public static readonly ModSound SmallBirdPeck = new("SmallBird_Atk.ogg".SfxPath());
+    public static readonly ModSound SmallBirdPunish = new("SmallBird_StrongAtk.ogg".SfxPath());
+    
+    public static readonly ModSound SilenceEffect = new("Clock_NoCreate.ogg".SfxPath());
+    public static readonly ModSound SilenceStop = new("Clock_StopCard.ogg".SfxPath());
 }
