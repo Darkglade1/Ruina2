@@ -1,9 +1,10 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Afflictions;
 
@@ -13,51 +14,31 @@ public class PromiseOfWinter() : Ruina2Power
 {
     public override PowerType Type =>
         PowerType.Buff;
-
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-    
-    public override int DisplayAmount => DynamicVars["CardCounter"].IntValue;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CardCounter",0)];
-    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Frozen>();
     
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterSideTurnEndLate(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (cardPlay.Card.Owner.Creature == Target)
+        if (side == CombatSide.Enemy)
         {
-            DynamicVars["CardCounter"].BaseValue += 1;
-            if (DynamicVars["CardCounter"].BaseValue == Amount - 1)
+            Flash();
+            foreach (var player in CombatState.Players)
             {
-                StartPulsing();
-            }
-            if (DynamicVars["CardCounter"].BaseValue >= Amount)
-            {
-                Flash();
-                await CardCmd.Afflict<Frozen>(cardPlay.Card, 1);
-                DynamicVars["CardCounter"].BaseValue = 0;
-                StopPulsing();
-            }
-            InvokeDisplayAmountChanged();
-        }
-    }
-    
-    public override CardLocation ModifyCardPlayResultLocation(
-        CardModel card,
-        bool isAutoPlay,
-        ResourceInfo resources,
-        CardLocation cardLocation)
-    {
-        if (card.Owner.Creature == Target && DynamicVars["CardCounter"].BaseValue == Amount - 1)
-        {
-            if (card.Type != CardType.Power && !card.Keywords.Contains(CardKeyword.Exhaust))
-            {
-                return new CardLocation(card.Owner, PileType.Draw, CardPilePosition.Random);
+                var cards = PileType.Discard.GetPile(player).Cards;
+                for (int i = 0; i < Amount; i++)
+                {
+                    CardModel? card = player.RunState.Rng.CombatCardSelection.NextItem(cards);
+                    if (card != null)
+                    {
+                        await CardCmd.Afflict<Frozen>(card, 1);
+                        await CardPileCmd.Add(card, PileType.Draw, CardPilePosition.Random);
+                    }
+                }
             }
         }
-        return cardLocation;
     }
 }

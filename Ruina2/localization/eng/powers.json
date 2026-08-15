@@ -212,7 +212,7 @@
   "RUINA2-MEET_AGAIN.title": "Meet Again as Stars",
 
   "RUINA2-PROMISE_OF_WINTER.description": "",
-  "RUINA2-PROMISE_OF_WINTER.smartDescription": "Every [blue]3rd[/blue] card you played is [gold]Afflicted[/gold] with [purple]Frozen[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
+  "RUINA2-PROMISE_OF_WINTER.smartDescription": "At the end of the round, [gold]Afflict[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards} in your [gold]Discard Pile[/gold] with [purple]Frozen[/purple] and shuffle {Amount:plural:it|them} into your [gold]Draw Pile[/gold].",
   "RUINA2-PROMISE_OF_WINTER.title": "Promise of Winter",
 
   "RUINA2-KAI_AND_GERDA.description": "",

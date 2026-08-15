@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -25,9 +24,10 @@ public sealed class SnowQueen : AbstractRuinaMonster
     private int FrigidDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
     private int IceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 29, 26);
     private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
+    private int FrozenAmt => 1;
     
     private int PlatingAmt => 6;
-    private int DebuffAmt => 3;
+    private int DebuffAmt => 2;
     private int BlockAmt => 16;
 
     protected override string VisualsPath => "SnowQueen/snow_queen.tscn".MonsterImagePath();
@@ -36,23 +36,16 @@ public sealed class SnowQueen : AbstractRuinaMonster
     private const string FRIGID_GAZE = "FRIGID_GAZE";
     private const string ICE_SPLINTERS = "ICE_SPLINTERS";
     private const string FROZEN_THRONE = "FROZEN_THRONE";
-
-    public bool CanBlizzard = true;
     
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        foreach (Creature target in CombatState.PlayerCreatures)
-        {
-            PromiseOfWinter mutable = (PromiseOfWinter) ModelDb.Power<PromiseOfWinter>().ToMutable();
-            mutable.Target = target;
-            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 3, Creature, null);
-        }
+        await PowerCmd.Apply<PromiseOfWinter>(new ThrowingPlayerChoiceContext(), Creature, FrozenAmt, Creature, null);
     }
     
     private MoveState GetBlizzardState()
     {
-        return new MoveState(BLIZZARD, Blizzard, new DebuffIntent());
+        return new MoveState(BLIZZARD, Blizzard, new DebuffIntent(), new BuffIntent());
     }
 
     private MoveState GetFrigidGazeState()
@@ -96,7 +89,7 @@ public sealed class SnowQueen : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (CanBlizzard)
+        if (ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD))
         {
             return BLIZZARD;
         }
@@ -121,8 +114,8 @@ public sealed class SnowQueen : AbstractRuinaMonster
         await SpecialAnimation(targets);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
+        await PowerCmd.Apply<PromiseOfWinter>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
         await ResetIdle(1.0f);
-        CanBlizzard = false;
     }
     
     private async Task FrigidGaze(IReadOnlyList<Creature> targets)
