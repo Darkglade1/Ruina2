@@ -50,7 +50,7 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<DontLeave>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
-        await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, RegenAmt, Creature,  null);
+        await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(RegenAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
     }
 
     private MoveState GetWaitingState()

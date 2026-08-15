@@ -45,10 +45,6 @@ public sealed class DerFreischutz : AbstractMultiIntentMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<NothingThere>();
-        if (CombatState.Players.Count > 1)
-        {
-            await PowerCmd.Apply<MultiplayerAlly>(new ThrowingPlayerChoiceContext(), Creature, AbstractAllyMonster.GetAllyMultiplayerDamageModifier(CombatState), Creature,  null);
-        }
     }
 
     private MoveState GetRuthlessBulletsState()
