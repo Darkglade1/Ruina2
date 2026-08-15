@@ -25,4 +25,7 @@ public static class RuinaEncounterTags
     
     [CustomEnum] 
     public static EncounterTag Butterflies;
+    
+    [CustomEnum] 
+    public static EncounterTag Birds;
 }

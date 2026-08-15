@@ -18,7 +18,7 @@ public class PromiseOfWinter() : Ruina2Power
         PowerStackType.Counter;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Frozen>();
     
-    public override async Task AfterSideTurnEndLate(
+    public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)

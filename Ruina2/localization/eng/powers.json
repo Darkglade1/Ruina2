@@ -217,5 +217,17 @@
 
   "RUINA2-KAI_AND_GERDA.description": "",
   "RUINA2-KAI_AND_GERDA.smartDescription": "On death, remove [purple]Frozen[/purple] from ALL your cards.",
-  "RUINA2-KAI_AND_GERDA.title": "Kai and Gerda"
+  "RUINA2-KAI_AND_GERDA.title": "Kai and Gerda",
+
+  "RUINA2-UNNERVING.description": "",
+  "RUINA2-UNNERVING.smartDescription": "Receives [blue]{Amount}%[/blue] less damage from attacks.\nWhenever you gain [gold]Block[/gold], this creature loses that much HP.",
+  "RUINA2-UNNERVING.title": "Unnerving",
+
+  "RUINA2-LEARN.description": "",
+  "RUINA2-LEARN.smartDescription": "Whenever you play an [gold]Attack[/gold], you gain [blue]{Fragile:diff()}[/blue] [gold]Fragile[/gold] this turn. \nWhenever you play a [gold]Skill[/gold], this creature gains [blue]{Block:diff()}[/blue] [gold]Block[/gold] next turn.",
+  "RUINA2-LEARN.title": "Learn",
+
+  "RUINA2-TEMP_FRAGILE.description": "Receives more damage from attacks this turn.",
+  "RUINA2-TEMP_FRAGILE.smartDescription": "Receives [blue]{Amount}[/blue] more damage from attacks this turn.",
+  "RUINA2-TEMP_FRAGILE.title": "Temporary Fragile"
 }
