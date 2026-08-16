@@ -45,7 +45,22 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
             _reviveState = value;
         }
     }
-    
+
+    public override bool ShouldDisappearFromDoom
+    {
+        get
+        {
+            foreach (var enemy in CombatState.HittableEnemies)
+            {
+                if (enemy.Monster is GalaxyFriend && enemy.IsAlive)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();

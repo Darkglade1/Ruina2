@@ -44,7 +44,7 @@
   "RUINA2-DRAW_REDUCTION.title": "Draw Reduction",
 
   "RUINA2-WORTHLESS.description": "",
-  "RUINA2-WORTHLESS.smartDescription": "If this creature attacks and fails to deal unblocked attack damage to a player, it [red]dies[/red].",
+  "RUINA2-WORTHLESS.smartDescription": "If {IsMultiplayer:everyone|you} fully {IsMultiplayer:blocks|block} this creature's attack, it [red]dies[/red].",
   "RUINA2-WORTHLESS.title": "Worthless",
 
   "RUINA2-DESPAIR.description": "",

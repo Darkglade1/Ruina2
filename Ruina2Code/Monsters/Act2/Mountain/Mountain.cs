@@ -79,6 +79,8 @@ public sealed class Mountain : AbstractMultiIntentMonster
         }
     }
 
+    public override bool ShouldDisappearFromDoom => CanLose;
+
     protected override string VisualsPath => "Mountain/mountain.tscn".MonsterImagePath();
 
     private const string DEVOUR = "DEVOUR";
