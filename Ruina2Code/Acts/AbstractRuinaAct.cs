@@ -209,8 +209,20 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
             return new Color("9B9562");
         }
     }
-     
-    public override Color MapTraveledColor => new("1D1E2F");
+
+    public override Color MapTraveledColor
+    {
+        get {
+            
+            switch (GetFloorBasedOnBoss())
+            {
+                case RuinaFloor.Tiphereth:
+                case RuinaFloor.Keter:
+                    return new Color("1D1E2F");
+            }
+            return Color.Color8(217, 218, 219);
+        }
+    }
     
     public override Color MapUntraveledColor
     {
