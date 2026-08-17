@@ -204,7 +204,7 @@ public static bool UpdateTrack_Prefix(NRunMusicController __instance)
 
     // Handle Shop / Rest Site (must be before stinger guard so stinger fades on room transition)
     var specialProgress = GetSpecialRoomProgress();
-    if (specialProgress.HasValue)
+    if (specialProgress == 3)
     {
         if (_isPlayingRuinaMusic)
         {
