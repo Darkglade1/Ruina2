@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd0l7teaaqqny"]
+
+[ext_resource type="Texture2D" uid="uid://chyd3mg25lqna" path="res://Ruina2/images/afflictions/ui_card_mask.png" id="1_g61no"]
+[ext_resource type="Texture2D" uid="uid://bbths2g6shrs3" path="res://Ruina2/images/afflictions/ui_card_border_vignette.png" id="2_yioky"]
+[ext_resource type="Texture2D" uid="uid://cpctvph66023h" path="res://Ruina2/images/afflictions/ui_card_entangled_main.png" id="3_yaaky"]
+[ext_resource type="Texture2D" uid="uid://dwm8x8ppstsvw" path="res://Ruina2/images/afflictions/ui_card_border_glow.png" id="4_yioky"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_mask" type="TextureRect" parent="Control"]
+clip_children = 1
+custom_minimum_size = Vector2(300, 422)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_g61no")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="card_vignette" type="TextureRect" parent="Control/card_mask"]
+self_modulate = Color(0.2, 0, 0.25, 0.6)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_yioky")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="card_glow" type="TextureRect" parent="Control/card_mask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_yioky")
+expand_mode = 1
+
+[node name="entangled_main" type="TextureRect" parent="Control/card_mask"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -39.0
+offset_right = 11.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+texture = ExtResource("3_yaaky")
+expand_mode = 1
+stretch_mode = 5

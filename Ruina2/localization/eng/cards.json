@@ -33,5 +33,8 @@
   "RUINA2-FOREST_KEEPER_LOCK.title": "Forest Keeper's Lock",
 
   "RUINA2-STOLEN_TIME.description": "Draw {Cards:diff()} card.",
-  "RUINA2-STOLEN_TIME.title": "Stolen Time"
+  "RUINA2-STOLEN_TIME.title": "Stolen Time",
+
+  "RUINA2-TEST_CARD.description": "",
+  "RUINA2-TEST_CARD.title": "TestCard"
 }
