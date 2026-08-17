@@ -199,4 +199,19 @@ public static class Sfx
     
     public static readonly ModSound SilenceEffect = new("Clock_NoCreate.ogg".SfxPath());
     public static readonly ModSound SilenceStop = new("Clock_StopCard.ogg".SfxPath());
+    
+    public static readonly ModSound SwanVertDown = new("BlackSwan_VertDown.ogg".SfxPath());
+    public static readonly ModSound SwanGuard = new("BlackSwan_Guard.ogg".SfxPath());
+    public static readonly ModSound SwanPierce = new("BlackSwan_Pierce.ogg".SfxPath());
+    public static readonly ModSound SwanRevive = new("BlackSwan_Revive.ogg".SfxPath());
+    public static readonly ModSound SwanShout = new("BlackSwan_Shout.ogg".SfxPath());
+    
+    public static readonly ModSound OzStrongAtkStart = new("Oz_StongAtk_Start.ogg".SfxPath());
+    public static readonly ModSound OzStrongAtkDown = new("Oz_StongAtk_Down.ogg".SfxPath());
+    public static readonly ModSound OzStrongAtkFinish = new("Oz_StongAtk_Finish.ogg".SfxPath());
+    public static readonly ModSound OzAtkBoom = new("Oz_Atk_Boom.ogg".SfxPath());
+    public static readonly ModSound OzAtkUp = new("Oz_Atk_Up.ogg".SfxPath());
+    public static readonly ModSound OzMagic = new("Oz_ChangeMagic.ogg".SfxPath());
+    
+    public static readonly ModSound SmokeAtk = new("Cor_S1.ogg".SfxPath());
 }
