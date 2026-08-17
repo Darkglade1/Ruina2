@@ -39,7 +39,7 @@ public class Advent() : Ruina2Power
             DynamicVars["CardCounter"].BaseValue++;
             if (DynamicVars["CardCounter"].BaseValue % 12 == 0)
             {
-                await CardCmd.Afflict<Judas>(cardPlay.Card, 3);
+                await CardCmd.Afflict<Judas>(cardPlay.Card, 1);
             }
             else
             {

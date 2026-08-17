@@ -1,8 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Afflictions;
@@ -11,19 +9,14 @@ public class Judas : Ruina2Affliction
 {
     public override bool HasExtraCardText => true;
     
-    public override Decimal ModifyDamageMultiplicative(
-        Creature? target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+    public override void AfterApplied()
     {
-        if (cardSource != null && cardSource == Card && Card.Affliction is Judas && props.IsPoweredAttack())
-        {
-            return 3;
-        }
-        return 1;
+        ++Card.BaseReplayCount;
+    }
+
+    public override void BeforeRemoved()
+    {
+        --Card.BaseReplayCount;
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

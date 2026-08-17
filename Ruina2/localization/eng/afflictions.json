@@ -8,7 +8,7 @@
   "RUINA2-APOSTLE.extraCardText": "[purple]Apostle.[/purple]",
 
   "RUINA2-JUDAS.title": "Judas",
-  "RUINA2-JUDAS.description": "This card deals triple attack damage but causes you to lose HP when played.",
+  "RUINA2-JUDAS.description": "This card gains [gold]Replay[/gold] but causes you to lose HP when played.",
   "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]",
 
   "RUINA2-PUNISHED.title": "Punished",
