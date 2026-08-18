@@ -8,7 +8,7 @@ public class Corpses() : Ruina2Power
         PowerType.Buff;
 
     public override PowerStackType StackType =>
-        PowerStackType.Counter;
+        PowerStackType.None;
     
     public override bool ShouldOwnerDeathTriggerFatal() => false;
 }

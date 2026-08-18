@@ -26,7 +26,7 @@ public sealed class Corpse : AbstractMultiIntentMonster
         {
             await PowerCmd.Apply<MultiplayerAlly>(new ThrowingPlayerChoiceContext(), Creature, AbstractAllyMonster.GetAllyMultiplayerDamageModifier(CombatState), Creature,  null);
         }
-        await PowerCmd.Apply<Corpses>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(Mountain.CorpseHeal, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
+        await PowerCmd.Apply<Corpses>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 
     private MonsterMoveStateMachine GenerateIntent1StateMachine()

@@ -208,7 +208,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         {
             if (result.Receiver.IsPlayer || result.Receiver.Monster is AbstractRuinaMonster)
             {
-                totalHeal += result.UnblockedDamage + result.OverkillDamage;
+                totalHeal += result.UnblockedDamage;
             }
         }
         if (totalHeal > 0)

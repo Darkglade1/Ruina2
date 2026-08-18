@@ -44,7 +44,6 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private int FrailAmt => 1;
     private int ScreechStatus => 3;
     private int VomitStatus => 2;
-    public static int CorpseHeal = 30;
     
     public MoveState? _reviveState;
     public MoveState? ReviveState
@@ -336,13 +335,6 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await VampireHeal(attackCommand);
-        var targetKilled = attackCommand.Results.SelectMany(r => r)
-            .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
-        if (targets[0].Monster is Corpse && targetKilled)
-        {
-            await WaitAnimation();
-            await CreatureCmd.Heal(Creature, CorpseHeal);
-        }
         await ResetIdle(1.0f);
     }
     
