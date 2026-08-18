@@ -102,7 +102,6 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
         state2.FollowUpState = moveBranch;
         state3.FollowUpState = moveBranch;
         ReviveState.FollowUpState = moveBranch;
-        
 
         states.Add(state1);
         states.Add(state2);

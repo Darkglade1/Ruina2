@@ -79,17 +79,21 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         string path = "Roland2.ogg";
         var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
         var encounter = localPlayer?.Creature.CombatState?.Encounter;
+        if (encounter is BlackSwanBoss)
+        {
+            path = "Angela1.ogg";
+        }
         if (encounter is FairyBoss)
         {
             path = "Angela2.ogg";
         }
-        if (encounter is NothingDerBoss)
-        {
-            path = "Warning3.ogg";
-        }
         if (encounter is OrchestraBoss || encounter is WhiteNightBoss)
         {
             path = "Angela3.ogg";
+        }
+        if (encounter is NothingDerBoss)
+        {
+            path = "Warning3.ogg";
         }
         if (encounter is RedWolfBoss)
         {

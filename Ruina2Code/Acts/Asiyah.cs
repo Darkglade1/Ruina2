@@ -33,12 +33,12 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<LaetitiaElite>(),
             ModelDb.Encounter<FairyBoss>(),
             ModelDb.Encounter<NothingDerBoss>(),
-            //ModelDb.Encounter<BlackSwanBoss>(),
+            ModelDb.Encounter<BlackSwanBoss>(),
             ModelDb.Encounter<OrchestraBoss>()
         ];
     }
 
-    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<FairyBoss>(), ModelDb.Encounter<NothingDerBoss>(), ModelDb.Encounter<OrchestraBoss>()];
+    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<FairyBoss>(), ModelDb.Encounter<BlackSwanBoss>(), ModelDb.Encounter<OrchestraBoss>(), ModelDb.Encounter<NothingDerBoss>()];
 
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Overgrowth>().AllEvents;
     
