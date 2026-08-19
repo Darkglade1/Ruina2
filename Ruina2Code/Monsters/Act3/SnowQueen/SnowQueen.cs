@@ -37,12 +37,6 @@ public sealed class SnowQueen : AbstractRuinaMonster
     private const string ICE_SPLINTERS = "ICE_SPLINTERS";
     private const string FROZEN_THRONE = "FROZEN_THRONE";
     
-    public override async Task AfterAddedToRoom()
-    {
-        await base.AfterAddedToRoom();
-        await PowerCmd.Apply<PromiseOfWinter>(new ThrowingPlayerChoiceContext(), Creature, FrozenAmt, Creature, null);
-    }
-    
     private MoveState GetBlizzardState()
     {
         return new MoveState(BLIZZARD, Blizzard, new DebuffIntent(), new BuffIntent());
@@ -89,7 +83,7 @@ public sealed class SnowQueen : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD))
+        if (CombatState.RoundNumber == 1 || ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD))
         {
             return BLIZZARD;
         }
@@ -114,7 +108,7 @@ public sealed class SnowQueen : AbstractRuinaMonster
         await SpecialAnimation(targets);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
-        await PowerCmd.Apply<PromiseOfWinter>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        await PowerCmd.Apply<PromiseOfWinter>(new ThrowingPlayerChoiceContext(), Creature, FrozenAmt, Creature, null);
         await ResetIdle(1.0f);
     }
     
