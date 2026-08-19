@@ -32,6 +32,18 @@
   "RUINA2-FOREST_KEEPER_LOCK.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "RUINA2-FOREST_KEEPER_LOCK.title": "Forest Keeper's Lock",
 
-  "RUINA2-STOLEN_TIME.description": "Draw {Cards:diff()} card.",
-  "RUINA2-STOLEN_TIME.title": "Stolen Time"
+  "RUINA2-STOLEN_TIME.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RUINA2-STOLEN_TIME.title": "Stolen Time",
+
+  "RUINA2-FALSE_GIFT1.description": "Next turn, gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.\nShuffle {Status:diff()} [gold]Voids[/gold] into your [gold]Discard Pile[/gold].",
+  "RUINA2-FALSE_GIFT1.title": "Accept False Gift",
+
+  "RUINA2-FALSE_GIFT2.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].\nAt the end of {TurnCount:diff()} turns, lose {StrengthLoss:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "RUINA2-FALSE_GIFT2.title": "Accept False Gift",
+
+  "RUINA2-FALSE_GIFT3.description": "Next turn, gain {Block:diff()} [gold]Block[/gold].\nAt the end of {TurnCount:diff()} turns, take {Damage:diff()} damage.",
+  "RUINA2-FALSE_GIFT3.title": "Accept False Gift",
+
+  "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
+  "RUINA2-REFUSE_GIFT.title": "Refuse Gift"
 }

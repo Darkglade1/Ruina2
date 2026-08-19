@@ -5,9 +5,8 @@ using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
-using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Extensions;
-using Ruina2.Ruina2Code.Monsters.Act2.redWolf;
+using Ruina2.Ruina2Code.Monsters.Act2.Oz;
 
 namespace Ruina2.Ruina2Code.Encounters.Act2;
 
@@ -22,9 +21,10 @@ public sealed class OzBoss : CustomEncounterModel
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
-            ["night_forest_bg.tscn".BackgroundImagePath()], 
-            "night_forest_bg.tscn".BackgroundImagePath());
+            ["emerald_bg.tscn".BackgroundImagePath()], 
+            "emerald_bg.tscn".BackgroundImagePath());
     }
+    public override string? CustomScenePath => "oz_boss.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
 
@@ -34,8 +34,8 @@ public sealed class OzBoss : CustomEncounterModel
     {
         get
         {
-            yield return ModelDb.Monster<LittleRed>();
-            yield return ModelDb.Monster<NightmareWolf>();
+            yield return ModelDb.Monster<ScowlingFace>();
+            yield return ModelDb.Monster<Oz>();
         }
     }
 
@@ -43,8 +43,7 @@ public sealed class OzBoss : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<LittleRed>().ToMutable(), null),
-            (ModelDb.Monster<NightmareWolf>().ToMutable(), null)
+            (ModelDb.Monster<Oz>().ToMutable(), "oz"),
         };
     }
 }

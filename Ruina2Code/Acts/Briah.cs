@@ -27,11 +27,11 @@ public class Briah() : AbstractRuinaAct(2)
             ModelDb.Encounter<RoadHomeElite>(),
             ModelDb.Encounter<RedWolfBoss>(),
             ModelDb.Encounter<JesterBoss>(),
-            //ModelDb.Encounter<OzBoss>(),
+            ModelDb.Encounter<OzBoss>(),
         ];
     }
     
-    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<RedWolfBoss>(), ModelDb.Encounter<JesterBoss>()];
+    public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<OzBoss>(), ModelDb.Encounter<RedWolfBoss>(), ModelDb.Encounter<JesterBoss>()];
 
     public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Hive>().AllEvents;
     

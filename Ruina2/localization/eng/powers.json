@@ -249,5 +249,13 @@
 
   "RUINA2-DREAM.description": "",
   "RUINA2-DREAM.smartDescription": "At the end of the first [blue]{TotalBrothers:diff()}[/blue] rounds, summons a [gold]Brother[/gold].\nWhen all [blue]{TotalBrothers:diff()}[/blue] [gold]Brothers[/gold] have died, this creature becomes [gold]Stunned[/gold] for [blue]1[/blue] turn.",
-  "RUINA2-DREAM.title": "Broken Dreams"
+  "RUINA2-DREAM.title": "Broken Dreams",
+
+  "RUINA2-FALSE_GIFT2_POWER.description": "",
+  "RUINA2-FALSE_GIFT2_POWER.smartDescription": "At the end of {Amount:plural:this turn|[blue]{}[/blue] turns}, lose [blue]{StrengthPower:diff()}[/blue] [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "RUINA2-FALSE_GIFT2_POWER.title": "False Gift",
+
+  "RUINA2-FALSE_GIFT3_POWER.description": "",
+  "RUINA2-FALSE_GIFT3_POWER.smartDescription": "At the end of {Amount:plural:this turn|[blue]{}[/blue] turns}, take [blue]{Damage:diff()}[/blue] damage.",
+  "RUINA2-FALSE_GIFT3_POWER.title": "False Gift"
 }
