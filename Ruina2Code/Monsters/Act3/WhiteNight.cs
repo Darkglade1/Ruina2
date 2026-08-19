@@ -36,8 +36,8 @@ public sealed class WhiteNight : AbstractRuinaMonster
     private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
     private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 6, 0);
     private int RitualGain => 1;
-    private int HealAmt => 12;
-    private int BlockAmt => 15;
+    private int HealAmt => 15;
+    private int BlockAmt => 25;
     private int AdventCards => 12;
     private int StatusAmt =>  AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
 
@@ -50,6 +50,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
     private const string BEHOLD = "BEHOLD";
 
     private bool awake;
+    private bool shouldBuff = true;
     public int ApostleUpgradeCount = 0;
     
     public override async Task AfterAddedToRoom()
@@ -122,16 +123,22 @@ public sealed class WhiteNight : AbstractRuinaMonster
         } else if (LastMove(stateMachine, PRAYER))
         {
             return RISE_AND_SERVE;
-        } else if (LastMove(stateMachine, RISE_AND_SERVE) || LastMove(stateMachine, SALVATION))
+        } else if (LastMove(stateMachine, RISE_AND_SERVE) || LastMove(stateMachine, BEHOLD))
         {
-            return BENEDICTION;
-        } else if (LastMove(stateMachine, BENEDICTION))
+            if (shouldBuff)
+            {
+                shouldBuff = !shouldBuff;
+                return BENEDICTION;
+            }
+            else
+            {
+                shouldBuff = !shouldBuff;
+                return SALVATION;
+            }
+            
+        } else 
         {
             return BEHOLD;
-        }
-        else
-        {
-            return SALVATION;
         }
     }
     
@@ -155,32 +162,14 @@ public sealed class WhiteNight : AbstractRuinaMonster
             if (target.Player != null)
             {
                 List<CardModel> allApostles = new List<CardModel>();
-                foreach (var card in PileType.Draw.GetPile(target.Player).Cards)
+                if (target.Player?.PlayerCombatState != null)
                 {
-                    if (card.Affliction is Afflictions.Apostle)
+                    foreach (CardModel card in target.Player.PlayerCombatState.AllCards)
                     {
-                        allApostles.Add(card);
-                    }
-                }
-                foreach (var card in PileType.Discard.GetPile(target.Player).Cards)
-                {
-                    if (card.Affliction is Afflictions.Apostle)
-                    {
-                        allApostles.Add(card);
-                    }
-                }
-                foreach (var card in PileType.Hand.GetPile(target.Player).Cards)
-                {
-                    if (card.Affliction is Afflictions.Apostle)
-                    {
-                        allApostles.Add(card);
-                    }
-                }
-                foreach (var card in PileType.Exhaust.GetPile(target.Player).Cards)
-                {
-                    if (card.Affliction is Afflictions.Apostle)
-                    {
-                        allApostles.Add(card);
+                        if (card.Affliction is Afflictions.Apostle)
+                        {
+                            allApostles.Add(card);
+                        }
                     }
                 }
                 foreach (CardModel apostle in allApostles)
@@ -222,7 +211,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
             }
         }
         ApostleUpgradeCount++;
-        await CardPileCmd.AddToCombatAndPreview<Apostle>(CombatState.PlayerCreatures, PileType.Discard, StatusAmt, null);
+        await CardPileCmd.AddToCombatAndPreview<Apostle>(CombatState.PlayerCreatures, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
         await WaitAnimation(1.0f);
     }
     

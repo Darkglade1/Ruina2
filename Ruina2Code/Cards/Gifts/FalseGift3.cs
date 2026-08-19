@@ -16,7 +16,7 @@ namespace Ruina2.Ruina2Code.Cards.Gifts;
 public class FalseGift3() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Oz.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, ValueProp.Unpowered), new("TurnCount", 3), new DamageVar(30, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, ValueProp.Unpowered), new("TurnCount", 3), new DamageVar(20, ValueProp.Unpowered)];
     
     public override int MaxUpgradeLevel => 0;
 

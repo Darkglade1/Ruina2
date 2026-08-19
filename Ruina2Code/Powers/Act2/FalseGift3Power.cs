@@ -18,7 +18,7 @@ public class FalseGift3Power() : Ruina2Power
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(30, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Unpowered)];
     
     public override string CustomPackedIconPath => "false_gift.png".PowerImagePath();
     public override string CustomBigIconPath => "false_gift.png".BigPowerImagePath();
