@@ -43,16 +43,6 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
             combatState.RunState.CurrentActIndex) - 100);
     }
     
-    public void SetToSide(CombatSide side)
-    {
-        FieldInfo? backingField = typeof(Creature).GetField("<Side>k__BackingField", 
-            BindingFlags.Instance | BindingFlags.NonPublic);
-        if (backingField != null)
-        {
-            backingField.SetValue(Creature, side); 
-        }
-    }
-    
     public override Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,

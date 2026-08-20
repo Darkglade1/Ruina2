@@ -15,6 +15,8 @@ public class NeowAngela : CustomAncientModel
     public override string CustomMapIconOutlinePath => "Angela/AngelaMapOutline.png".EventImagePath();
     public override string CustomRunHistoryIconPath => "Angela/AngelaIcon.png".EventImagePath();
     public override string CustomRunHistoryIconOutlinePath => "Angela/AngelaIconOutline.png".EventImagePath();
+    
+    public override bool IsValidForAct(ActModel act) => false;
 
     protected override async Task BeforeEventStarted(bool isPreFinished)
     {

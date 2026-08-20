@@ -1,8 +1,10 @@
+using System.Reflection;
 using BaseLib.Abstracts;
 using BaseLib.Audio;
 using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -71,6 +73,16 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected bool ThreeTurnCooldownHasPassedForMove(MonsterMoveStateMachine stateMachine, string moveId) {
         return stateMachine.StateLog.Count >= 3 && !LastMove(stateMachine, moveId) && !LastMoveBefore(stateMachine, moveId) && !LastMoveBeforeBefore(stateMachine, moveId);
+    }
+    
+    public void SetToSide(CombatSide side)
+    {
+        FieldInfo? backingField = typeof(Creature).GetField("<Side>k__BackingField", 
+            BindingFlags.Instance | BindingFlags.NonPublic);
+        if (backingField != null)
+        {
+            backingField.SetValue(Creature, side); 
+        }
     }
 
     protected void FlipHorizontal()

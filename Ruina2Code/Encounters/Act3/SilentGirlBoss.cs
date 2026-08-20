@@ -6,8 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
 using Ruina2.Ruina2Code.Extensions;
-using Ruina2.Ruina2Code.Monsters.Act2.Jester;
-using Ruina2.Ruina2Code.Monsters.Act3;
+using Ruina2.Ruina2Code.Monsters.Act3.SilentGirl;
 
 namespace Ruina2.Ruina2Code.Encounters.Act3;
 
@@ -22,10 +21,10 @@ public sealed class SilentGirlBoss : CustomEncounterModel
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
-            ["paradise_bg.tscn".BackgroundImagePath()], 
-            "paradise_bg.tscn".BackgroundImagePath());
+            ["silent_girl_bg.tscn".BackgroundImagePath()], 
+            "silent_girl_bg.tscn".BackgroundImagePath());
     }
-    public override string? CustomScenePath => "white_night_boss.tscn".EncounterImagePath();
+    public override string? CustomScenePath => "silent_girl_boss.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
 
@@ -35,7 +34,9 @@ public sealed class SilentGirlBoss : CustomEncounterModel
     {
         get
         {
-            yield return ModelDb.Monster<WhiteNight>();
+            yield return ModelDb.Monster<Nail>();
+            yield return ModelDb.Monster<Hammer>();
+            yield return ModelDb.Monster<SilentGirl>();
         }
     }
 
@@ -43,7 +44,9 @@ public sealed class SilentGirlBoss : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<WhiteNight>().ToMutable(), "boss")
+            (ModelDb.Monster<Nail>().ToMutable(), "nail"),
+            (ModelDb.Monster<SilentGirl>().ToMutable(), "girl"),
+            (ModelDb.Monster<Hammer>().ToMutable(), "hammer")
         };
     }
 }

@@ -265,5 +265,13 @@
 
   "RUINA2-HUNT.description": "",
   "RUINA2-HUNT.smartDescription": "Whenever a [gold]Spiderling[/gold] dies or if this creature is alone, uses a [gold]strong[/gold] attack next turn.",
-  "RUINA2-HUNT.title": "Hunt"
+  "RUINA2-HUNT.title": "Hunt",
+
+  "RUINA2-NAIL.description": "",
+  "RUINA2-NAIL.smartDescription": "Whenever you play a card this turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-NAIL.title": "Nail",
+
+  "RUINA2-SILENCE.description": "",
+  "RUINA2-SILENCE.smartDescription": "Cannot be targeted while [gold]Hammer[/gold] or [gold]Nail[/gold] are alive.",
+  "RUINA2-SILENCE.title": "Only Silence Remains"
 }

@@ -1,0 +1,1 @@
+{"atlas_data":"hammer.png\nsize:1124,510\nfilter:Linear,Linear\npma:true\nAttack\nbounds:2,2,738,506\nDead\nbounds:742,47,380,144\nIdle\nbounds:742,193,315,366\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Hammer/hammer.atlas","specular_texture_prefix":"s"}

@@ -103,6 +103,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Roland3.ogg";
         }
+        if (encounter is SilentGirlBoss)
+        {
+            path = "Story2.ogg";
+        }
         return path.MusicPath().SimplifyPath();
     }
     

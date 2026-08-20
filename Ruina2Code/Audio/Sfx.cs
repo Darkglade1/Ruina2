@@ -224,4 +224,9 @@ public static class Sfx
     public static readonly ModSound ApostleScytheDown = new("WhiteNight_Apostle_Vert2.ogg".SfxPath());
     public static readonly ModSound ApostleSpear = new("WhiteNight_Apostle_Spear.ogg".SfxPath());
     public static readonly ModSound ApostleWand = new("WhiteNight_Apostle_Wand.ogg".SfxPath());
+    
+    public static readonly ModSound SilentEye = new("Silentgirl_Eye.ogg".SfxPath());
+    public static readonly ModSound SilentHammer = new("Silentgirl_Hammer.ogg".SfxPath());
+    public static readonly ModSound SilentPhaseChange = new("Silentgirl_PhaseChange.ogg".SfxPath());
+    public static readonly ModSound SilentNail = new("Silentgirl_Volt.ogg".SfxPath());
 }

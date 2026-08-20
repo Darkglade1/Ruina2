@@ -15,6 +15,7 @@ using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
 using Ruina2.Ruina2Code.Monsters.Act2.mountain;
+using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Patches;
 
@@ -205,12 +206,12 @@ public static class PatchTargetTextureIcon
 }
 
 [HarmonyPatch(typeof(AttackCommand), nameof(AttackCommand.GetPossibleTargets))]
-public static class RemoveAlliesFromPossibleTargets
+public static class RemoveCreaturesFromPossibleTargets
 {
     public static void Postfix(AttackCommand __instance, ref IReadOnlyList<Creature> __result)
     {
         var newResult = new List<Creature>(__result.ToList());
-        bool removedAlly = false;
+        bool removedCreature = false;
         foreach (var creature in __result)
         {
             if (creature.Monster is AbstractAllyMonster ally)
@@ -218,11 +219,16 @@ public static class RemoveAlliesFromPossibleTargets
                 if (ally.IsAlly && !ally.IsTargetableByPlayers && creature.CombatState?.CurrentSide == CombatSide.Player)
                 {
                     newResult.Remove(creature);
-                    removedAlly = true;
+                    removedCreature = true;
                 }
             }
+            if (creature.HasPower<Silence>())
+            {
+                newResult.Remove(creature);
+                removedCreature = true;
+            }
         }
-        if (removedAlly)
+        if (removedCreature)
         {
             __result = newResult;
         }
