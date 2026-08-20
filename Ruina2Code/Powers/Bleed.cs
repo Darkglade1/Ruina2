@@ -38,7 +38,10 @@ public class Bleed() : Ruina2Power
     {
         if (Owner.Player != null && side == CombatSide.Player)
         {
-            await PowerCmd.Remove<Bleed>(Owner);
+            if (participants.Contains(Owner))
+            {
+                await PowerCmd.Remove<Bleed>(Owner);   
+            }
         }
         if (Owner.Monster != null && side == CombatSide.Enemy)
         {

@@ -1,0 +1,1 @@
+{"atlas_data":"spider_bud.png\nsize:594,612\nfilter:Linear,Linear\npma:true\nAttack\nbounds:2,172,590,438\nIdle\nbounds:2,29,141,295\nrotate:90\nSpecial\nbounds:299,2,168,248\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/SpiderBud/spider_bud.atlas","specular_texture_prefix":"s"}

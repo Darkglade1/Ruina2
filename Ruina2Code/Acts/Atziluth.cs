@@ -19,7 +19,7 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<PunishingBirdNormal>(),
             ModelDb.Encounter<JudgementBirdNormal>(),
             ModelDb.Encounter<PriceOfSilenceNormal>(),
-            // ModelDb.Encounter<OwlMagistrateNormal>(),
+            ModelDb.Encounter<ApostlesNormal>(),
             // ModelDb.Encounter<SlimedBerserkerNormal>(),
             // ModelDb.Encounter<TheLostAndForgottenNormal>(),
             ModelDb.Encounter<BigBirdElite>(),

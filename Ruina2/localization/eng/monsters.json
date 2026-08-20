@@ -138,5 +138,12 @@
   "RUINA2-BROTHER.name": "Brother",
 
   "RUINA2-OZ.name": "Adult Who Tells Lies",
-  "RUINA2-SCOWLING_FACE.name": "Scowling Face"
+  "RUINA2-SCOWLING_FACE.name": "Scowling Face",
+
+  "RUINA2-SCYTHE_APOSTLE.name": "Scythe Apostle",
+  "RUINA2-SPEAR_APOSTLE.name": "Spear Apostle",
+  "RUINA2-STAFF_APOSTLE.name": "Staff Apostle",
+  
+  "RUINA2-SPIDER_BUD.name": "Spider Bud",
+  "RUINA2-SPIDERLING.name": "Spiderling"
 }

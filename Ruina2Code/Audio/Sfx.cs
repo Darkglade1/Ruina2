@@ -214,4 +214,14 @@ public static class Sfx
     public static readonly ModSound OzMagic = new("Oz_ChangeMagic.ogg".SfxPath());
     
     public static readonly ModSound SmokeAtk = new("Cor_S1.ogg".SfxPath());
+    
+    public static readonly ModSound SpiderStrongAtk = new("Spidermom_Strong_Hori.ogg".SfxPath());
+    public static readonly ModSound SpiderBabyAtk = new("Spidermom_Babyatk.ogg".SfxPath());
+    public static readonly ModSound SpiderDown = new("Spidermom_Down.ogg".SfxPath());
+    public static readonly ModSound SpiderProtect = new("Spidermom_Protect.ogg".SfxPath());
+    
+    public static readonly ModSound ApostleScytheUp = new("WhiteNight_Apostle_Vert1.ogg".SfxPath());
+    public static readonly ModSound ApostleScytheDown = new("WhiteNight_Apostle_Vert2.ogg".SfxPath());
+    public static readonly ModSound ApostleSpear = new("WhiteNight_Apostle_Spear.ogg".SfxPath());
+    public static readonly ModSound ApostleWand = new("WhiteNight_Apostle_Wand.ogg".SfxPath());
 }

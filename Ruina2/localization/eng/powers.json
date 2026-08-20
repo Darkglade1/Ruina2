@@ -257,5 +257,13 @@
 
   "RUINA2-FALSE_GIFT3_POWER.description": "",
   "RUINA2-FALSE_GIFT3_POWER.smartDescription": "At the end of {Amount:plural:this turn|[blue]{}[/blue] turns}, take [blue]{Damage:diff()}[/blue] damage.",
-  "RUINA2-FALSE_GIFT3_POWER.title": "False Gift"
+  "RUINA2-FALSE_GIFT3_POWER.title": "False Gift",
+
+  "RUINA2-WEBBED.description": "",
+  "RUINA2-WEBBED.smartDescription": "You cannot play [gold]Attacks[/gold] this turn.",
+  "RUINA2-WEBBED.title": "Webbed",
+
+  "RUINA2-HUNT.description": "",
+  "RUINA2-HUNT.smartDescription": "Whenever a [gold]Spiderling[/gold] dies or if this creature is alone, uses a [gold]strong[/gold] attack next turn.",
+  "RUINA2-HUNT.title": "Hunt"
 }

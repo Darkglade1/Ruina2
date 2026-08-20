@@ -1,0 +1,1 @@
+{"atlas_data":"spear_apostle.png\nsize:1446,259\nfilter:Linear,Linear\npma:true\nBlock\nbounds:1024,21,420,236\nIdle\nbounds:580,2,442,255\nPierce\nbounds:2,31,576,226\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/SpearApostle/spear_apostle.atlas","specular_texture_prefix":"s"}

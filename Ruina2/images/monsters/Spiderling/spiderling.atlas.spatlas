@@ -1,0 +1,1 @@
+{"atlas_data":"spiderling.png\nsize:517,355\nfilter:Linear,Linear\npma:true\nAttack\nbounds:2,2,351,362\nrotate:90\nIdle\nbounds:366,44,309,149\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Spiderling/spiderling.atlas","specular_texture_prefix":"s"}
