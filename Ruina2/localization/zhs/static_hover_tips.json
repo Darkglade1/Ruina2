@@ -1,6 +1,5 @@
 {
-  "RUINA2-ALLY_BLOCK_BUTTON.title": "Transfer Block",
-  "RUINA2-ALLY_BLOCK_BUTTON.description": "[gold]Left-Click:[/gold] transfer up to [blue]\\{0\\}[/blue] [gold]Block[/gold] from you to this [green]ally[/green].",
-
-  "RUINA2-PERFORMER_TYPE.description": "{Type} | Performer"
+  "RUINA2-ALLY_BLOCK_BUTTON.title": "转移格挡",
+  "RUINA2-ALLY_BLOCK_BUTTON.description": "[gold]左键点击：[/gold]将至多[blue]\\{0\\}[/blue]点[gold]格挡[/gold]从你处转移给这名[green]盟友[/green]。",
+  "RUINA2-PERFORMER_TYPE.description": "{Type} | 演奏者"
 }

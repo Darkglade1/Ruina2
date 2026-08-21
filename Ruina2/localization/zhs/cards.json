@@ -1,49 +1,34 @@
 {
-  "RUINA2-FRAGMENT_OF_BLISS.description": "Gain {Block:diff()} [gold]Block[/gold].\nThis card is unaffected by [gold]Block[/gold] modifiers.",
-  "RUINA2-FRAGMENT_OF_BLISS.title": "Fragment of Bliss",
-
-  "RUINA2-WISDOM.description": "Draw {Cards:diff()} card.",
-  "RUINA2-WISDOM.title": "Wisdom",
-
-  "RUINA2-ENLIGHTENMENT.description": "Lose {HpLoss:diff()} HP.\nGain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.",
-  "RUINA2-ENLIGHTENMENT.title": "Enlightenment",
-
-  "RUINA2-GIFT.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
-  "RUINA2-GIFT.title": "Gift",
-
-  "RUINA2-FIRST_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
-  "RUINA2-FIRST_CHAIR.title": "First Chair",
-
-  "RUINA2-SECOND_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], gain {WeakPower:diff()} [gold]Weak[/gold].",
-  "RUINA2-SECOND_CHAIR.title": "Second Chair",
-
-  "RUINA2-THIRD_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], gain {FrailPower:diff()} [gold]Frail[/gold].",
-  "RUINA2-THIRD_CHAIR.title": "Third Chair",
-
-  "RUINA2-FOURTH_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], lose {StrengthPower:diff()} [gold]Strength[/gold].",
-  "RUINA2-FOURTH_CHAIR.title": "Fourth Chair",
-
-  "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
-  "RUINA2-APOSTLE.title": "Apostle",
-
-  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:diff()} this combat.",
-  "RUINA2-DAZZLED.title": "Dazzled",
-
-  "RUINA2-FOREST_KEEPER_LOCK.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "RUINA2-FOREST_KEEPER_LOCK.title": "Forest Keeper's Lock",
-
-  "RUINA2-STOLEN_TIME.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.",
-  "RUINA2-STOLEN_TIME.title": "Stolen Time",
-
-  "RUINA2-FALSE_GIFT1.description": "Next turn, gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.\nShuffle {Status:diff()} [gold]Voids[/gold] into your [gold]Discard Pile[/gold].",
-  "RUINA2-FALSE_GIFT1.title": "Accept False Gift",
-
-  "RUINA2-FALSE_GIFT2.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].\nAt the end of {TurnCount:diff()} turns, lose {StrengthLoss:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].",
-  "RUINA2-FALSE_GIFT2.title": "Accept False Gift",
-
-  "RUINA2-FALSE_GIFT3.description": "Next turn, gain {Block:diff()} [gold]Block[/gold].\nAt the end of {TurnCount:diff()} turns, take {Damage:diff()} damage.",
-  "RUINA2-FALSE_GIFT3.title": "Accept False Gift",
-
-  "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
-  "RUINA2-REFUSE_GIFT.title": "Refuse Gift"
+  "RUINA2-FRAGMENT_OF_BLISS.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n这张牌不受[gold]格挡[/gold]相关效果的影响。",
+  "RUINA2-FRAGMENT_OF_BLISS.title": "至福碎片",
+  "RUINA2-WISDOM.description": "抽{Cards:diff()}张牌。",
+  "RUINA2-WISDOM.title": "智慧",
+  "RUINA2-ENLIGHTENMENT.description": "失去{HpLoss:diff()}点生命。\n获得{Block:diff()}点[gold]格挡[/gold]。\n抽{Cards:diff()}张牌。",
+  "RUINA2-ENLIGHTENMENT.title": "开悟",
+  "RUINA2-GIFT.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将受到{Damage:diff()}点伤害。",
+  "RUINA2-GIFT.title": "礼物",
+  "RUINA2-FIRST_CHAIR.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将受到{Damage:diff()}点伤害。",
+  "RUINA2-FIRST_CHAIR.title": "首席",
+  "RUINA2-SECOND_CHAIR.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将获得{WeakPower:diff()}层[gold]虚弱[/gold]。",
+  "RUINA2-SECOND_CHAIR.title": "副首席",
+  "RUINA2-THIRD_CHAIR.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将获得{FrailPower:diff()}层[gold]脆弱[/gold]。",
+  "RUINA2-THIRD_CHAIR.title": "第三席",
+  "RUINA2-FOURTH_CHAIR.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将失去{StrengthPower:diff()}点[gold]力量[/gold]。",
+  "RUINA2-FOURTH_CHAIR.title": "第四席",
+  "RUINA2-APOSTLE.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，你将受到{Damage:diff()}点伤害。",
+  "RUINA2-APOSTLE.title": "使徒",
+  "RUINA2-DAZZLED.description": "当这张牌被抽到时，其在本场战斗中的耗能增加{CostIncrease:diff()}。",
+  "RUINA2-DAZZLED.title": "目眩",
+  "RUINA2-FOREST_KEEPER_LOCK.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
+  "RUINA2-FOREST_KEEPER_LOCK.title": "森林守望者之锁",
+  "RUINA2-STOLEN_TIME.description": "抽{Cards:diff()}张牌。",
+  "RUINA2-STOLEN_TIME.title": "被窃的时间",
+  "RUINA2-FALSE_GIFT1.description": "下回合，获得{Energy:energyIcons()}并抽{Cards:diff()}张牌。\n将{Status:diff()}张[gold]虚空[/gold]牌洗入你的[gold]弃牌堆[/gold]。",
+  "RUINA2-FALSE_GIFT1.title": "接受虚假的馈赠",
+  "RUINA2-FALSE_GIFT2.description": "获得{StrengthPower:diff()}点[gold]力量[/gold]和[gold]敏捷[/gold]。\n在{TurnCount:diff()}回合结束时，失去{StrengthLoss:diff()}点[gold]力量[/gold]和[gold]敏捷[/gold]。",
+  "RUINA2-FALSE_GIFT2.title": "接受虚假的馈赠",
+  "RUINA2-FALSE_GIFT3.description": "下回合，获得{Block:diff()}点[gold]格挡[/gold]。\n在{TurnCount:diff()}回合结束时，受到{Damage:diff()}点伤害。",
+  "RUINA2-FALSE_GIFT3.title": "接受虚假的馈赠",
+  "RUINA2-REFUSE_GIFT.description": "获得{Fragile:diff()}层[gold]易碎[/gold]。",
+  "RUINA2-REFUSE_GIFT.title": "拒绝馈赠"
 }

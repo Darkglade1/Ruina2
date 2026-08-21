@@ -1,21 +1,17 @@
-﻿{
-  "RUINA2-LAUREL_WREATH.title": "Laurel Wreath",
-  "RUINA2-LAUREL_WREATH.description": "This card deals full damage to [gold]Alriune[/gold].",
+{
+  "RUINA2-LAUREL_WREATH.title": "桂冠",
+  "RUINA2-LAUREL_WREATH.description": "这张牌对[gold]爱温娜[/gold]造成全额伤害。",
   "RUINA2-LAUREL_WREATH.extraCardText": "",
-
-  "RUINA2-APOSTLE.title": "Apostle",
-  "RUINA2-APOSTLE.description": "This card will be [gold]Transformed[/gold] into a [gold]Status[/gold] by the enemy.",
+  "RUINA2-APOSTLE.title": "使徒",
+  "RUINA2-APOSTLE.description": "这张牌将被敌人[gold]变化[/gold]为一张[gold]状态[/gold]牌。",
   "RUINA2-APOSTLE.extraCardText": "",
-
-  "RUINA2-JUDAS.title": "Judas",
-  "RUINA2-JUDAS.description": "This card gains [gold]Replay[/gold] but causes you to lose HP when played.",
-  "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]",
-
-  "RUINA2-PUNISHED.title": "Punished",
-  "RUINA2-PUNISHED.description": "This card costs [blue]1[/blue] more this turn.",
+  "RUINA2-JUDAS.title": "犹大",
+  "RUINA2-JUDAS.description": "这张牌获得[gold]重放[/gold]，但打出时会使你损失生命。",
+  "RUINA2-JUDAS.extraCardText": "[purple]损失{Amount}点生命。[/purple]",
+  "RUINA2-PUNISHED.title": "受罚",
+  "RUINA2-PUNISHED.description": "这张牌本回合的耗能增加[blue]1[/blue]。",
   "RUINA2-PUNISHED.extraCardText": "",
-
-  "RUINA2-FROZEN.title": "Frozen",
-  "RUINA2-FROZEN.description": "This card is [gold]Unplayable[/gold].",
+  "RUINA2-FROZEN.title": "冻结",
+  "RUINA2-FROZEN.description": "这张牌[gold]无法打出[/gold]。",
   "RUINA2-FROZEN.extraCardText": ""
 }
