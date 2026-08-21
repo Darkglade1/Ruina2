@@ -46,8 +46,7 @@ public class Paralysis() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer == Owner && props.IsPoweredAttack()) {
             return (BASE_REDUCTION - (STACK_REDUCTION * (Amount - 1)));

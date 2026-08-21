@@ -48,7 +48,7 @@ public abstract class RuinaAttackIntent : AttackIntent
 
         if (player != null)
         {
-            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
+            totalDamage = Hook.ModifyDamage(player.RunState, player.Creature.CombatState, targetCreature, owner, DamageCalc(), ValueProp.Move, null, ModifyDamageHookType.All, CardPreviewMode.None, out IEnumerable<AbstractModel> _);
             if (targetCreature != null && targetCreature.HasPower<Enchanted>() && owner.Monster is BigBird)
             {
                 totalDamage = 999;

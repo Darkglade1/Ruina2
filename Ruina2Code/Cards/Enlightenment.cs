@@ -18,7 +18,7 @@ public class Enlightenment() : Ruina2Card(0, CardType.Status,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, play);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
         await CommonActions.CardBlock(this, play);
         await CommonActions.Draw(this, choiceContext);
     }

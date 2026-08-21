@@ -19,8 +19,7 @@ public class Fragile() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (target == Owner && props.IsPoweredAttack())
         {

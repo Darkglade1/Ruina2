@@ -24,7 +24,7 @@ public class Judas : Ruina2Affliction
         if (cardPlay.Card == Card && cardPlay.Card.Affliction is Judas)
         {
             await CreatureCmd.Damage(choiceContext, Card.Owner.Creature, Amount,
-                ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, Card, cardPlay);
+                ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, Card);
         }
     }
 }

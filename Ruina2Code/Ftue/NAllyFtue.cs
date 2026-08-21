@@ -93,7 +93,7 @@ public partial class NAllyFtue : NFtue
 				ShowPage(_currentPage - 1, -1);
 				GetViewport().SetInputAsHandled();
 			}
-			else if (inputEvent.IsActionPressed(MegaInput.right) || inputEvent.IsActionPressed(MegaInput.confirm))
+			else if (inputEvent.IsActionPressed(MegaInput.right) || inputEvent.IsActionPressed(MegaInput.accept))
 			{
 				AdvanceOrClose();
 				GetViewport().SetInputAsHandled();

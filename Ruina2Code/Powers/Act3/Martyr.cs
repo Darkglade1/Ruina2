@@ -50,7 +50,7 @@ public class Martyr() : Ruina2Power
                     shrine = enemy;
                 }
             }
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, shrine, null, null);
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, shrine, null);
         }
     }
 }

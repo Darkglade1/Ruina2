@@ -19,8 +19,7 @@ public class Justice() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer == Owner && target != null && target.Block == 0)
         {

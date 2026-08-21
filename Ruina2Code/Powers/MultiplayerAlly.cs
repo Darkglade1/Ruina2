@@ -20,8 +20,7 @@ public class MultiplayerAlly() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer == Owner && props.IsPoweredAttack() && target != null && target.Monster is AbstractRuinaMonster)
         {

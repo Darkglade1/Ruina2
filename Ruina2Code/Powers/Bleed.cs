@@ -27,7 +27,7 @@ public class Bleed() : Ruina2Power
         if (dealer == Owner && props.IsPoweredAttack())
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null, null);
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null);
         }
     }
     

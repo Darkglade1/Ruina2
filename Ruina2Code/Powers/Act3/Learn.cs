@@ -24,7 +24,7 @@ public class Learn() : Ruina2Power
         if (cardPlay.Card.Type == CardType.Attack)
         {
             Flash();
-            await PowerCmd.Apply<TempFragile>(new ThrowingPlayerChoiceContext(), cardPlay.Player.Creature, DynamicVars["Fragile"].IntValue, Owner,  null);
+            await PowerCmd.Apply<TempFragile>(new ThrowingPlayerChoiceContext(), cardPlay.Card.Owner.Creature, DynamicVars["Fragile"].IntValue, Owner,  null);
         }
         if (cardPlay.Card.Type == CardType.Skill)
         {

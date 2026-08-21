@@ -28,8 +28,7 @@ public class WintersInception() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (target == Owner && props.IsPoweredAttack() && dealer != null && dealer == Target && dealer.Player != null && cardSource != null)
         {
@@ -44,13 +43,13 @@ public class WintersInception() : Ruina2Power
     
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (command.Attacker == Target && command.CardPlay != null && command.CardPlay.Card.Type == CardType.Attack)
+        if (command.Attacker == Target && command.ModelSource is CardModel card && card.Type == CardType.Attack)
         {
-            if (!(command.CardPlay.Card.Affliction is LaurelWreath) && !hasTriggered)
+            if (!(card.Affliction is LaurelWreath) && !hasTriggered)
             {
                 Flash();
                 hasTriggered = true;
-                await CardCmd.Afflict<LaurelWreath>(command.CardPlay.Card, 1);
+                await CardCmd.Afflict<LaurelWreath>(card, 1);
             }
         }
     }

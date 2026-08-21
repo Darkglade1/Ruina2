@@ -71,8 +71,7 @@ public class Enchanted() : Ruina2Power
         Creature? target,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer != null && dealer == Owner)
         {

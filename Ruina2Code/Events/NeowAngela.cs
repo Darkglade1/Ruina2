@@ -114,12 +114,10 @@ public class NeowAngela : CustomAncientModel
       return new []
       {
         RelicOption<CursedPearl>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<DowsingRod>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<HeftyTablet>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<LargeCapsule>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<LeafyPoultice>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<NeowsBones>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<NeowsSacrifice>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<PrecariousShears>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<SilkenTress>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<SilverCrucible>(customDonePage: "NEOW.pages.DONE.CURSED.description")
@@ -147,11 +145,6 @@ public class NeowAngela : CustomAncientModel
         list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is NewLeaf));
       if (eventOption?.Relic is PrecariousShears)
         list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is PreciseScissors));
-      if (eventOption?.Relic is NeowsSacrifice)
-      {
-        list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is PhialHolster));
-        list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is LostCoffer));
-      }
       if (!(eventOption?.Relic is LargeCapsule))
       {
         if (Rng.NextBool())

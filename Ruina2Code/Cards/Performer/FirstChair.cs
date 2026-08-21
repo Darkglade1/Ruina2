@@ -19,7 +19,7 @@ public class FirstChair() : PerformerCard(1,
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     { 
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this, null);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this);
     }
 
     public override int MaxUpgradeLevel => 0;

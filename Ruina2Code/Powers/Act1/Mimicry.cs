@@ -26,8 +26,7 @@ public class Mimicry() : Ruina2Power
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {

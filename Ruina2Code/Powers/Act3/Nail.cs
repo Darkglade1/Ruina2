@@ -21,7 +21,7 @@ public class Nail() : Ruina2Power
         if (cardPlay.Card.Owner.Creature == Owner)
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner, null, null);
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner, null);
         }
     }
     

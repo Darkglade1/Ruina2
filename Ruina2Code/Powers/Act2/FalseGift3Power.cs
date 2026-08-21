@@ -43,7 +43,7 @@ public class FalseGift3Power() : Ruina2Power
         else
         {
             Flash();
-            await CreatureCmd.Damage(choiceContext, Owner, DynamicVars.Damage.IntValue, ValueProp.Unpowered, Owner, null, null);
+            await CreatureCmd.Damage(choiceContext, Owner, DynamicVars.Damage.IntValue, ValueProp.Unpowered, Owner, null);
             await PowerCmd.Remove(this);
         }
     }

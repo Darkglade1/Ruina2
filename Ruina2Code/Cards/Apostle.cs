@@ -22,7 +22,7 @@ public class Apostle() : Ruina2Card(1, CardType.Status,
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     { 
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this, null);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this);
     }
     
     public override string Title
