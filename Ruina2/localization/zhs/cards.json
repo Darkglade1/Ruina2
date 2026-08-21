@@ -1,0 +1,49 @@
+{
+  "RUINA2-FRAGMENT_OF_BLISS.description": "Gain {Block:diff()} [gold]Block[/gold].\nThis card is unaffected by [gold]Block[/gold] modifiers.",
+  "RUINA2-FRAGMENT_OF_BLISS.title": "Fragment of Bliss",
+
+  "RUINA2-WISDOM.description": "Draw {Cards:diff()} card.",
+  "RUINA2-WISDOM.title": "Wisdom",
+
+  "RUINA2-ENLIGHTENMENT.description": "Lose {HpLoss:diff()} HP.\nGain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.",
+  "RUINA2-ENLIGHTENMENT.title": "Enlightenment",
+
+  "RUINA2-GIFT.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
+  "RUINA2-GIFT.title": "Gift",
+
+  "RUINA2-FIRST_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
+  "RUINA2-FIRST_CHAIR.title": "First Chair",
+
+  "RUINA2-SECOND_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], gain {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-SECOND_CHAIR.title": "Second Chair",
+
+  "RUINA2-THIRD_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], gain {FrailPower:diff()} [gold]Frail[/gold].",
+  "RUINA2-THIRD_CHAIR.title": "Third Chair",
+
+  "RUINA2-FOURTH_CHAIR.description": "At the end of your turn, if this is in your [gold]Hand[/gold], lose {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-FOURTH_CHAIR.title": "Fourth Chair",
+
+  "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
+  "RUINA2-APOSTLE.title": "Apostle",
+
+  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:diff()} this combat.",
+  "RUINA2-DAZZLED.title": "Dazzled",
+
+  "RUINA2-FOREST_KEEPER_LOCK.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-FOREST_KEEPER_LOCK.title": "Forest Keeper's Lock",
+
+  "RUINA2-STOLEN_TIME.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RUINA2-STOLEN_TIME.title": "Stolen Time",
+
+  "RUINA2-FALSE_GIFT1.description": "Next turn, gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards}.\nShuffle {Status:diff()} [gold]Voids[/gold] into your [gold]Discard Pile[/gold].",
+  "RUINA2-FALSE_GIFT1.title": "Accept False Gift",
+
+  "RUINA2-FALSE_GIFT2.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].\nAt the end of {TurnCount:diff()} turns, lose {StrengthLoss:diff()} [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "RUINA2-FALSE_GIFT2.title": "Accept False Gift",
+
+  "RUINA2-FALSE_GIFT3.description": "Next turn, gain {Block:diff()} [gold]Block[/gold].\nAt the end of {TurnCount:diff()} turns, take {Damage:diff()} damage.",
+  "RUINA2-FALSE_GIFT3.title": "Accept False Gift",
+
+  "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
+  "RUINA2-REFUSE_GIFT.title": "Refuse Gift"
+}
