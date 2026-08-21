@@ -207,9 +207,13 @@ public sealed class Orchestra : AbstractRuinaMonster
     private async Task Curtains(IReadOnlyList<Creature> targets)
     {
         await CurtainAnimation(targets);
+        var curtainEffect = OrchestraCurtainEffect.Create();
+        Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
+        vfxContainer?.AddChildSafely(curtainEffect);
+        await WaitAnimation(6.0f);
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);   
         await CreatureCmd.Heal(Creature, Creature.ScaleHpForMultiplayer(HealAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex));
-        await ResetIdle(1.5f);
+        await ResetIdle();
     }
     
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)
