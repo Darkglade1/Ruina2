@@ -32,12 +32,12 @@ public sealed class WhiteNight : AbstractRuinaMonster
     public override int MinInitialHp => 666;
     public override int MaxInitialHp => MinInitialHp;
     
-    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45);
-    private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
+    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 55, 50);
+    private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
     private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 6, 0);
     private int RitualGain => 1;
-    private int HealAmt => 15;
-    private int BlockAmt => 25;
+    private int HealAmt => 25;
+    private int BlockAmt => 30;
     private int AdventCards => 12;
     private int StatusAmt =>  AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
 

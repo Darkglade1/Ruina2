@@ -150,7 +150,7 @@ public sealed class BlackSwan : AbstractRuinaMonster
                 numAliveBrothers++;
             }
         }
-        if (numAliveBrothers < NumActiveBrothers)
+        if (numAliveBrothers > 0 && numAliveBrothers < NumActiveBrothers)
         {
             int leftOverStr = NumActiveBrothers - numAliveBrothers;
             while (leftOverStr > 0)

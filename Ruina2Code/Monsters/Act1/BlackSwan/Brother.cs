@@ -16,7 +16,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act1.BlackSwan;
 
 public sealed class Brother : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 26, 24);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 33, 30);
     public override int MaxInitialHp => MinInitialHp;
     private int WasteDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
 
