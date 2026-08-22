@@ -1,0 +1,10 @@
+﻿{
+  "RUINA2-THE_PIANIST.title": "The Pianist",
+  "RUINA2-THE_PIANIST.pages.INITIAL.description": "The city [jitter][red]shudders[/red][/jitter], vibrating like a plucked string. The grand [gold]performance[/gold] stretches ever outward, curling around the minds of its victims like a slowly tightening noose. \n\n You try to fight it. You try to beat back those notes ringing in your skull, those beats pounding away at your mind. And in the end, you -.",
+  "RUINA2-THE_PIANIST.pages.INITIAL.options.RETAIN.title": "Retain your sanity",
+  "RUINA2-THE_PIANIST.pages.INITIAL.options.RETAIN.description": "Obtain a random [gold]Rare Relic[/gold]. Receive [red]{Curse}[/red].",
+  "RUINA2-THE_PIANIST.pages.INITIAL.options.SUCCUMB.title": "Succumb",
+  "RUINA2-THE_PIANIST.pages.INITIAL.options.SUCCUMB.description": "[gold]Enchant[/gold] a card with [purple]{Enchantment}[/purple].",
+  "RUINA2-THE_PIANIST.pages.RETAIN.description": "With great force of will, you push away the Distortion's [purple]corrupting[/purple] influence. But where was your family? Your friends? You needed to get them away from here, away from that maddening performer and its [purple]unholy[/purple] melody. \n\n You see your best friend up ahead. He's smiling at you. \n\n His smile is the last thing you ever see.",
+  "RUINA2-THE_PIANIST.pages.SUCCUMB.description": "Your mind [red]fractures[/red] and [red]cracks[/red]. This music was so . . . [green]wonderful[/green]. So [green]beautiful[/green]. You can't help but want to get closer, to press your very body against the instrument that could make such [gold]divine[/gold] melodies. \n\n You can't help but want to [sine]evaporate[/sine] into the air like so many of those notes you [green]love[/green]."
+}
