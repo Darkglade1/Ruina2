@@ -147,7 +147,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected async Task AnimationAction(string animationKey, ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
     {
-        if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
         {
             await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
             if (sfx != null && Creature.IsAlive)
@@ -159,7 +159,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected async Task SoundAnimation(ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
     {
-        if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
         {
             if (sfx != null && Creature.IsAlive)
             {

@@ -43,6 +43,15 @@ public class Absorption() : Ruina2Power
         }
         return false;
     }
+    
+    public override bool ShouldOwnerDeathTriggerFatal()
+    {
+        if (Owner.Monster is Mountain mountain && mountain.CanLose)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature)
     {
