@@ -176,11 +176,14 @@ public sealed class BlueStar : AbstractRuinaMonster
     
     public override async Task BeforeDeath(Creature creature)
     {
-        foreach (var enemy in CombatState.Enemies)
+        if (creature == Creature)
         {
-            if (enemy.Monster is Worshipper worshipper)
+            foreach (var enemy in CombatState.Enemies)
             {
-                worshipper.TriggerMartyr = false;
+                if (enemy.Monster is Worshipper worshipper)
+                {
+                    worshipper.TriggerMartyr = false;
+                }
             }
         }
     }
