@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://kqmtkyapgl27"]
+
+[ext_resource type="Texture2D" uid="uid://chyd3mg25lqna" path="res://Ruina2/images/afflictions/ui_card_mask.png" id="1_g61no"]
+[ext_resource type="Texture2D" uid="uid://bbths2g6shrs3" path="res://Ruina2/images/afflictions/ui_card_border_vignette.png" id="2_yioky"]
+[ext_resource type="Texture2D" uid="uid://b5usjahjq3yyf" path="res://Ruina2/images/afflictions/ca_butterflies.png" id="3_yaaky"]
+[ext_resource type="Texture2D" uid="uid://dwm8x8ppstsvw" path="res://Ruina2/images/afflictions/ui_card_border_glow.png" id="4_yioky"]
+
+[node name="Coffin" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_mask" type="TextureRect" parent="Control"]
+clip_children = 1
+custom_minimum_size = Vector2(300, 422)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_g61no")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="card_glow" type="TextureRect" parent="Control/card_mask"]
+self_modulate = Color(0.01876802, 0.042823114, 0.14225253, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_yioky")
+expand_mode = 1
+
+[node name="card_vignette" type="TextureRect" parent="Control/card_mask"]
+self_modulate = Color(0.0036058987, 0.049392268, 0.10294295, 0.5019608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_right = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_yioky")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="coffin_main" type="TextureRect" parent="Control/card_mask"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -42.0
+offset_right = 18.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+texture = ExtResource("3_yaaky")
+expand_mode = 1
+stretch_mode = 5

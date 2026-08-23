@@ -273,5 +273,9 @@
 
   "RUINA2-SILENCE.description": "",
   "RUINA2-SILENCE.smartDescription": "Cannot be targeted while [gold]Hammer[/gold] or [gold]Nail[/gold] are alive.",
-  "RUINA2-SILENCE.title": "Only Silence Remains"
+  "RUINA2-SILENCE.title": "Only Silence Remains",
+
+  "RUINA2-LAMENTATION.description": "",
+  "RUINA2-LAMENTATION.smartDescription": "The first card you play from your [gold]Hand[/gold] each turn is [gold]Afflicted[/gold] with [purple]Coffin[/purple].",
+  "RUINA2-LAMENTATION.title": "Lamentation"
 }

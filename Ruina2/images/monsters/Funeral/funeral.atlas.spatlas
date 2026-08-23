@@ -1,0 +1,1 @@
+{"atlas_data":"funeral.png\nsize:749,537\nfilter:Linear,Linear\npma:true\nAttack\nbounds:2,4,533,256\nBlock\nbounds:574,275,162,260\nIdle\nbounds:537,2,210,258\nSpecial\nbounds:2,262,570,273\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Funeral/funeral.atlas","specular_texture_prefix":"s"}
