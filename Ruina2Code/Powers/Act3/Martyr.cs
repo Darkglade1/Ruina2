@@ -24,7 +24,7 @@ public class Martyr() : Ruina2Power
         if (creature == Owner && creature.Monster is Worshipper worshipper && worshipper.TriggerMartyr)
         {
             NCombatRoom? instance = NCombatRoom.Instance;
-            if (instance != null)
+            if (instance != null && instance.GetCreatureNode(Owner) != null)
             {
                 instance.CombatVfxContainer.AddChildSafely(NFireSmokePuffVfx.Create(Owner)); 
             }
