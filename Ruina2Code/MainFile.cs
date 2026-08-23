@@ -3,6 +3,7 @@ using BaseLib.Config;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using Ruina2.Ruina2Code.Data;
 
 namespace Ruina2.Ruina2Code;
 
@@ -24,5 +25,15 @@ public partial class MainFile : Node
         
         harmony.PatchAll();
         ModConfigRegistry.Register(ModId, new Config());
+        
+        ModManager.OnMetricsUpload += Ruina2Metrics.OnMetricsUpload;
     }
+    
+    public static string GetVersion()
+    {
+        var mod = ModManager.GetLoadedMods().FirstOrDefault(m => m.manifest?.id == ModId);
+
+        return mod?.manifest?.version ?? "unknown";
+    }
+
 }

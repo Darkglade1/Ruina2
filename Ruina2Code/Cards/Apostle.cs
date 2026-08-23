@@ -1,10 +1,14 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Extensions;
+using BaseLib.Utils;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Cards;
 
@@ -19,6 +23,9 @@ public class Apostle() : Ruina2Card(1, CardType.Status,
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public override bool HasTurnEndInHandEffect => true;
+    
+    public override bool HasBuiltInOverlay => true;
+    public string? CustomOverlayPath =>  $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.tscn".AfflictionImagePath();
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     { 
@@ -53,4 +60,16 @@ public class Apostle() : Ruina2Card(1, CardType.Status,
     }
 
     public override int MaxUpgradeLevel => 0;
+    
+    [HarmonyPatch(typeof (CardModel), "OverlayPath", MethodType.Getter)]
+    private static class IconPatch
+    {
+        private static bool Prefix(CardModel __instance, ref string? __result)
+        {
+            if (!(__instance is Apostle apostle))
+                return true;
+            __result = apostle.CustomOverlayPath;
+            return __result == null;
+        }
+    }
 }

@@ -17,5 +17,9 @@
 
   "RUINA2-FROZEN.title": "Frozen",
   "RUINA2-FROZEN.description": "This card is [gold]Unplayable[/gold].",
-  "RUINA2-FROZEN.extraCardText": ""
+  "RUINA2-FROZEN.extraCardText": "",
+
+  "RUINA2-COFFIN.title": "Coffin",
+  "RUINA2-COFFIN.description": "This card is [gold]Ethereal[/gold] and [gold]Unplayable[/gold].",
+  "RUINA2-COFFIN.extraCardText": ""
 }
