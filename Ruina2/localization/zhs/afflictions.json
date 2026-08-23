@@ -13,5 +13,8 @@
   "RUINA2-PUNISHED.extraCardText": "",
   "RUINA2-FROZEN.title": "冻结",
   "RUINA2-FROZEN.description": "这张牌[gold]无法打出[/gold]。",
-  "RUINA2-FROZEN.extraCardText": ""
+  "RUINA2-FROZEN.extraCardText": "",
+  "RUINA2-COFFIN.title": "棺材",
+  "RUINA2-COFFIN.description": "这张牌是[gold]虚无[/gold]且[gold]无法打出[/gold]的。",
+  "RUINA2-COFFIN.extraCardText": ""
 }

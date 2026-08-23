@@ -26,7 +26,7 @@ public class Asiyah() : AbstractRuinaAct(1)
             ModelDb.Encounter<GalaxyFriendNormal>(),
             ModelDb.Encounter<ShyLookNormal>(),
             ModelDb.Encounter<SpiderBudNormal>(),
-            // ModelDb.Encounter<SnappingJaxfruitNormal>(),
+            ModelDb.Encounter<FuneralNormal>(),
             // ModelDb.Encounter<VineShamblerNormal>(),
             ModelDb.Encounter<AlriuneElite>(),
             ModelDb.Encounter<HelpersElite>(),

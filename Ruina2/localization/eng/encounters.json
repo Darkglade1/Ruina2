@@ -70,6 +70,7 @@
   "RUINA2-GALAXY_FRIEND_NORMAL.title": "Friends to the Galaxy",
   "RUINA2-SHY_LOOK_NORMAL.title": "Today's Shy Look",
   "RUINA2-SPIDER_BUD_NORMAL.title": "Spider Bud",
+  "RUINA2-FUNERAL_NORMAL.title": "Funeral of the Dead Butterflies",
   "RUINA2-FORSAKEN_MURDERER_WEAK.loss": "{character} was bludgeoned by [gold]{encounter}[/gold].",
   "RUINA2-FRAGMENT_WEAK.loss": "{character}'s eardrums were ruptured [gold]{encounter}[/gold].",
   "RUINA2-BUTTERFLIES_WEAK.loss": "{character} was laid to rest by [gold]{encounter}[/gold].",
@@ -84,6 +85,7 @@
   "RUINA2-GALAXY_FRIEND_NORMAL.loss": "{character} was blasted by [gold]{encounter}[/gold].",
   "RUINA2-SHY_LOOK_NORMAL.loss": "{character} was bludgeoned by [gold]{encounter}[/gold].",
   "RUINA2-SPIDER_BUD_NORMAL.loss": "{character} was turned into spider food by [gold]{encounter}[/gold].",
+  "RUINA2-FUNERAL_NORMAL.loss": "{character} was laid to rest by [gold]{encounter}[/gold].",
 
   "RUINA2-TWILIGHT_BOSS.title": "Apocalypse Bird",
   "RUINA2-WHITE_NIGHT_BOSS.title": "White Night",
