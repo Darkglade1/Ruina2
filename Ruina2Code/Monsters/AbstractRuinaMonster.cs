@@ -149,7 +149,10 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     {
         if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
         {
-            await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
+            if (Creature.GetCreatureNode() != null)
+            {
+                await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
+            }
             if (sfx != null && Creature.IsAlive)
             {
                 sfx.Play(0, volume);   
@@ -210,6 +213,16 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         if (Creature.GetCreatureNode() != null)
         {
             await CreatureCmd.TriggerAnim(Creature, "Idle", 0);
+        }
+    }
+    
+    protected virtual async Task ResetIdle(float waitTime, int phase)
+    {
+        IsMassAttacking = false;
+        await WaitAnimation(waitTime);
+        if (Creature.GetCreatureNode() != null)
+        {
+            await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
         }
     }
     

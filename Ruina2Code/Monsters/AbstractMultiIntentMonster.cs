@@ -39,7 +39,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     {
         for (int i = 0; i < NumIntents; i++)
         {
-            if (i >= NextMoves.Count)
+            if (i >= NextMoves.Count || (Creature.IsDead && !IsReviving))
             {
                 break;
             }

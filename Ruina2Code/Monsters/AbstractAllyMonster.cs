@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Monsters;
@@ -90,6 +91,23 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         }
         modifiedAmount = amount;
         return false;
+    }
+    
+    public override Decimal ModifyHpLostAfterOstyLate(
+        Creature target,
+        Decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource)
+    {
+        if (target == Creature && dealer != null && dealer.IsPlayer)
+        {
+            if (IsAlly && !IsTargetableByPlayers)
+            {
+                return 0;
+            }
+        }
+        return amount;
     }
     
     protected void SetUpAllyButton(string scene, string path, int positionIndex)
