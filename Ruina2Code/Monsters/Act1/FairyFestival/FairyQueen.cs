@@ -23,7 +23,7 @@ public sealed class FairyQueen : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 200, 180);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int PredationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int PredationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int PredationHits => 2;
     private int SummonStr => 1;
     private int BuffStrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);

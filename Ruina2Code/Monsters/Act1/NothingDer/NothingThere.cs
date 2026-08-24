@@ -26,8 +26,8 @@ public sealed class NothingThere : AbstractMultiIntentMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int EyeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int ReachingDamage => 5;
+    private int EyeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int ReachingDamage => 3;
     private int ReachingHits => 2;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int BlockAmount => 12;

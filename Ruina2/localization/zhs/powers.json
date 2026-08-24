@@ -204,7 +204,7 @@
   "RUINA2-NAIL.smartDescription": "本回合每当你打出一张牌，就受到[blue]{Amount}[/blue]点伤害。",
   "RUINA2-NAIL.title": "钉子",
   "RUINA2-SILENCE.description": "",
-  "RUINA2-SILENCE.smartDescription": "当[gold]锤子[/gold]或[gold]钉子[/gold]存活时，无法被选为目标。",
+  "RUINA2-SILENCE.smartDescription": "这个生物尚未苏醒。",
   "RUINA2-SILENCE.title": "唯余静默",
   "RUINA2-LAMENTATION.description": "",
   "RUINA2-LAMENTATION.smartDescription": "你每回合从[gold]手牌[/gold]中打出的第一张牌将被[gold]侵蚀[/gold]为[purple]棺材[/purple]。",

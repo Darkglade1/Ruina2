@@ -20,9 +20,9 @@ public sealed class TeddyBear : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 60, 55);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 64, 59);
     
-    private int AffectionDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
+    private int AffectionDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
     private int BlockAmt => 11;
-    private int DebuffAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 1, 1);
+    private int DebuffAmt => 1;
 
     protected override string VisualsPath => "TeddyBear/teddy.tscn".MonsterImagePath();
 

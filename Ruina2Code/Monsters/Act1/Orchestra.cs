@@ -25,12 +25,12 @@ public sealed class Orchestra : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 250, 230);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int FirstDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
-    private int SecondDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
-    private int ThirdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
-    private int FinaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
+    private int FirstDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int SecondDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int ThirdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
+    private int FinaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 24, 22);
     private int WeakAmt => 1;
-    private int FerventDmg => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 2);
+    private int FerventDmg => 2;
     private int PlayerDrawAmt => 2;
     private int StatusAmt => 1;
     private int BlockAmt => 8;

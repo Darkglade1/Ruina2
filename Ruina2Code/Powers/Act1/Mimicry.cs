@@ -43,7 +43,7 @@ public class Mimicry() : Ruina2Power
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (target == Owner && props.IsPoweredAttack() && (cardSource != null || (dealer != null && dealer.Monster is AbstractRuinaMonster)) && !result.WasFullyBlocked)
+        if (target == Owner && props.IsPoweredAttack() && cardSource != null && !result.WasFullyBlocked)
         {
             DynamicVars["MostRecentDamage"].BaseValue = result.UnblockedDamage;
             if (DynamicVars["MostRecentDamage"].BaseValue > DynamicVars["DamageCap"].BaseValue)
