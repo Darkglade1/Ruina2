@@ -22,13 +22,28 @@ public sealed class Butterflies : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 17, 15);
 
     private int TranquilityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
-    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int StatusAmt => 1;
     private int ParalysisAmt => 1;
 
     protected override string VisualsPath => "Butterflies/butterflies.tscn".MonsterImagePath();
 
     private const string TRANQUILITY = "TRANQUILITY";
     private const string LIBERATION = "LIBERATION";
+
+    private int attackCounter;
+    
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        for (int i = 0; i < CombatState.HittableEnemies.Count; i++)
+        {
+            if (Creature == CombatState.HittableEnemies[i])
+            {
+                attackCounter = i;
+                break;
+            }
+        }
+    }
 
     private MoveState GetTranquilityState()
     {
@@ -60,14 +75,28 @@ public sealed class Butterflies : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        List<string> possibilities = new List<string>();
-        if (!LastTwoMoves(stateMachine, TRANQUILITY)) {
-            possibilities.Add(TRANQUILITY);
+        if (attackCounter % 2 == 1)
+        {
+            if (LastMove(stateMachine, LIBERATION))
+            {
+                return TRANQUILITY;
+            }
+            else
+            {
+                return LIBERATION;
+            }
         }
-        if (!LastMove(stateMachine, LIBERATION)) {
-            possibilities.Add(LIBERATION);
+        else
+        {
+            if (LastMove(stateMachine, TRANQUILITY))
+            {
+                return LIBERATION;
+            }
+            else
+            {
+                return TRANQUILITY;
+            }
         }
-        return possibilities[rng.NextInt(possibilities.Count)];
     }
     
     private async Task Tranquility(IReadOnlyList<Creature> targets)

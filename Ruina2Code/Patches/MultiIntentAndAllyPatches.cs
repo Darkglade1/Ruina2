@@ -222,11 +222,6 @@ public static class RemoveCreaturesFromPossibleTargets
                     removedCreature = true;
                 }
             }
-            if (creature.HasPower<Silence>())
-            {
-                newResult.Remove(creature);
-                removedCreature = true;
-            }
         }
         if (removedCreature)
         {

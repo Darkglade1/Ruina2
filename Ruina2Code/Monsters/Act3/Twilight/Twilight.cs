@@ -27,10 +27,10 @@ public sealed class Twilight : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 530, 480);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int PeaceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 44, 40);
-    private int SurveillanceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
-    private int TornDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 24, 22);
-    private int TalonsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
+    private int PeaceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 40, 36);
+    private int SurveillanceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
+    private int TornDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
+    private int TalonsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int TalonsHits => 2;
     private int FrailAmt => 2;
     private int BleedAmt => 3;

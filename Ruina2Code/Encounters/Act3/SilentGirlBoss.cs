@@ -34,8 +34,6 @@ public sealed class SilentGirlBoss : CustomEncounterModel
     {
         get
         {
-            yield return ModelDb.Monster<Nail>();
-            yield return ModelDb.Monster<Hammer>();
             yield return ModelDb.Monster<SilentGirl>();
         }
     }
@@ -44,9 +42,7 @@ public sealed class SilentGirlBoss : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<Nail>().ToMutable(), "nail"),
-            (ModelDb.Monster<SilentGirl>().ToMutable(), "girl"),
-            (ModelDb.Monster<Hammer>().ToMutable(), "hammer")
+            (ModelDb.Monster<SilentGirl>().ToMutable(), "girl")
         };
     }
 }

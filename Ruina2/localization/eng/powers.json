@@ -160,7 +160,7 @@
   "RUINA2-ENDLESS_PERFORMANCE.title": "Endless Performance",
 
   "RUINA2-MIMICRY.description": "",
-  "RUINA2-MIMICRY.smartDescription": "This creature deals additional damage with attacks equal to the most recent instance of unblocked attack damage it has received. (Max [blue]{DamageCap:diff()}[/blue]).",
+  "RUINA2-MIMICRY.smartDescription": "This creature deals additional damage with attacks equal to the most recent instance of unblocked attack damage it has received from [gold]Attacks[/gold]. (Max [blue]{DamageCap:diff()}[/blue]).",
   "RUINA2-MIMICRY.title": "Mimicry",
 
   "RUINA2-DONT_LEAVE.description": "",
@@ -272,7 +272,7 @@
   "RUINA2-NAIL.title": "Nail",
 
   "RUINA2-SILENCE.description": "",
-  "RUINA2-SILENCE.smartDescription": "Cannot be targeted while [gold]Hammer[/gold] or [gold]Nail[/gold] are alive.",
+  "RUINA2-SILENCE.smartDescription": "This creature hasn't awakened yet.",
   "RUINA2-SILENCE.title": "Only Silence Remains",
 
   "RUINA2-LAMENTATION.description": "",
