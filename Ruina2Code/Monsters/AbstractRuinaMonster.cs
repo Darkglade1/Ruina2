@@ -236,7 +236,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
                 totalHeal += result.UnblockedDamage;
             }
         }
-        if (totalHeal > 0)
+        if (totalHeal > 0 && Creature.IsAlive)
         {
             await CreatureCmd.Heal(Creature, totalHeal);
         }

@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Platform;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs.History;
@@ -20,7 +21,7 @@ public static class Ruina2Metrics
             EndpointUrl = "https://zmnptjpiigfclvjjqgiv.supabase.co/rest/v1/runs",
             ApiKey = "sb_publishable_FPdLGP8AjyXJ0tmqhUi1UQ__gz4IIDx",
             ModVersionProvider = MainFile.GetVersion,
-            IsOwnCharacter = e => true,
+            IsOwnCharacter = e => e is Ironclad or Silent or Defect or Regent or Necrobinder,
             Logger = MainFile.Logger,
             WrapPayload = (data, version, modName, hasForeign) =>
                 $"{{\"mod_version\":{JsonSerializer.Serialize(version)},\"has_foreign_content\":{JsonSerializer.Serialize(hasForeign)},\"data\":{data}}}"

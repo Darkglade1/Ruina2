@@ -3,7 +3,7 @@
   "name": "Ruina 2",
   "author": "Darkglade",
   "description": "A port of the Slay the Spire 1 Ruina Act mod.",
-  "version": "v1.0.1",
+  "version": "v1.0.2",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [{"id": "BaseLib", "min_version": "3.4.0"}],
