@@ -335,7 +335,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await VampireHeal(attackCommand);
-        await ResetIdle(1.0f);
+        await ResetIdle(1.0f, phase);
     }
     
     private async Task Bite(IReadOnlyList<Creature> targets)
@@ -346,7 +346,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, WeakAmt, Creature,  null);
-        await ResetIdle(0.75f);
+        await ResetIdle(0.75f, phase);
     }
     
     private async Task Ram(IReadOnlyList<Creature> targets)
@@ -356,14 +356,14 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ResetIdle(0.75f);
+        await ResetIdle(0.75f, phase);
     }
 
     private async Task Screech(IReadOnlyList<Creature> targets)
     {
         await ScreechAnimation();
         await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, ScreechStatus,null);
-        await ResetIdle(1.0f);
+        await ResetIdle(1.0f, phase);
     }
     
     private async Task Vomit(IReadOnlyList<Creature> targets)
@@ -371,7 +371,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
         await VomitAnimation();
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, FrailAmt, Creature,  null);
         await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, VomitStatus,null);
-        await ResetIdle(1.0f);
+        await ResetIdle(1.0f, phase);
     }
     
     private async Task Revive(IReadOnlyList<Creature> targets)
@@ -439,7 +439,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
         }
         Decimal scaledHp = Creature.ScaleHpForMultiplayer(maxHP, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
         await CreatureCmd.SetMaxHp(Creature, scaledHp);
-        await ResetIdle(0.0f);
+        await ResetIdle(0.0f, phase);
         Sfx.GROW.Play(0, 0.7f);
         CanLose = false;
     }
@@ -468,7 +468,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
         Decimal scaledHp = Creature.ScaleHpForMultiplayer(baseRespawnHp, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
         await CreatureCmd.SetMaxHp(Creature, scaledHp);
         await CreatureCmd.Heal(Creature, (int)((float)scaledHp * REVIVE_PERCENT));
-        await ResetIdle(0.0f);
+        await ResetIdle(0.0f, phase);
         Sfx.SHRINK.Play(0, 0.7f);
         if (phase == STAGE1)
         {
@@ -510,18 +510,6 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private async Task VomitAnimation()
     {
         await AnimationAction("Vomit", Sfx.VOMIT, 0.5f);
-    }
-    
-    protected override async Task ResetIdle()
-    {
-        await WaitAnimation();
-        await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
-    }
-    
-    protected override async Task ResetIdle(float waitTime)
-    {
-        await WaitAnimation(waitTime);
-        await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
     }
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
