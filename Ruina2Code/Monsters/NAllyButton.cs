@@ -34,7 +34,6 @@ public abstract partial class NAllyButton : BaseButton
 
     public override void _Process(double delta)
     {
-        Disabled = owner.CombatState.CurrentSide == CombatSide.Enemy;
         if (_icon != null)
         {
             if (Disabled)
