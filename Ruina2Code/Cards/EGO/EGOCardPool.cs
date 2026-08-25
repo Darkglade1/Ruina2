@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using Godot;
+using MegaCrit.Sts2.Core.Assets;
 using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Cards.EGO;
@@ -16,15 +17,15 @@ public class EGOCardPool : CustomCardPoolModel
     They are applied as a shader onto an already colored image,
     so it may take some experimentation to find a color you like.
     Generally they should be values between 0 and 1. */
-    public override float H => 0.93f; //Hue; changes the color.
-    public override float S => 0.97f; //Saturation
-    public override float V => 0.27f; //Brightness
+    public override float H => 1.0f; //Hue; changes the color.
+    public override float S => 1.0f; //Saturation
+    public override float V => 1.0f; //Brightness
 
     //Alternatively, leave these values at 1 and provide a custom frame image.
-    // public override Texture2D CustomFrame(CustomCardModel card)
-    // {
-    //     return PreloadManager.Cache.GetTexture2D("cards/frame.png".ImagePath());
-    // }
+    public override Texture2D CustomFrame(CustomCardModel card)
+    {
+        return PreloadManager.Cache.GetTexture2D("cards/frame.png".ImagePath());
+    }
 
     //Color of small card icons
     public override Color DeckEntryCardColor => Color.Color8(69, 2, 30);
