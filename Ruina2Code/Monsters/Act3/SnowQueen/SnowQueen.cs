@@ -30,6 +30,8 @@ public sealed class SnowQueen : AbstractRuinaMonster
     private int DebuffAmt => 2;
     private int BlockAmt => 16;
 
+    private int MaxBlizzards = 2;
+
     protected override string VisualsPath => "SnowQueen/snow_queen.tscn".MonsterImagePath();
 
     private const string BLIZZARD = "BLIZZARD";
@@ -83,7 +85,7 @@ public sealed class SnowQueen : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (CombatState.RoundNumber == 1 || ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD))
+        if ((CombatState.RoundNumber == 1 || ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD)) && stateMachine.StateLog.FindAll(m => m.Id == BLIZZARD).Count < MaxBlizzards)
         {
             return BLIZZARD;
         }

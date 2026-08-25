@@ -71,7 +71,7 @@ public sealed class SanguineBat : AbstractRuinaMonster
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
         List<string> possibilities = new List<string>();
-        if (!LastMove(stateMachine, BLOODSUCKING) && CombatState.RoundNumber > 1) {
+        if (!LastMove(stateMachine, BLOODSUCKING)) {
             possibilities.Add(BLOODSUCKING);
         }
         if (!LastMove(stateMachine, DIGGING_TEETH)) {
