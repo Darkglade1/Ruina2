@@ -45,5 +45,8 @@
   "RUINA2-FALSE_GIFT3.title": "Accept False Gift",
 
   "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
-  "RUINA2-REFUSE_GIFT.title": "Refuse Gift"
+  "RUINA2-REFUSE_GIFT.title": "Refuse Gift",
+
+  "RUINA2-CRIMSON_SCAR.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Scry[/gold] {Scry:diff()}. Gain {VigorPower:diff()} [gold]Vigor[/gold] for each card discarded.",
+  "RUINA2-CRIMSON_SCAR.title": "Crimson Scar"
 }
