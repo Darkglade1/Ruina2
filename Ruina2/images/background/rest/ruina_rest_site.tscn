@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://clx8gststbcnu"]
+
+[ext_resource type="Texture2D" uid="uid://bj4ujp821n5m6" path="res://Ruina2/images/background/rest/BG.png" id="1_ko5bp"]
+[ext_resource type="Texture2D" uid="uid://dqfbqk7atnjgy" path="res://Ruina2/images/background/rest/BenchL.png" id="2_aw07q"]
+[ext_resource type="Texture2D" uid="uid://cnw0ty30bc2wi" path="res://Ruina2/images/background/rest/BenchR.png" id="3_vbrmc"]
+[ext_resource type="Texture2D" uid="uid://d12ryh8f487xr" path="res://Ruina2/images/background/rest/CampfireEmpty.png" id="4_bma2y"]
+
+[node name="RuinaRestSite" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RestSiteBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -444.0
+offset_top = -139.0
+offset_right = 2320.8
+offset_bottom = 1157.0
+texture = ExtResource("1_ko5bp")
+expand_mode = 1
+
+[node name="RestSiteLLog3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 515.0
+offset_right = 891.0
+offset_bottom = 748.15
+texture = ExtResource("2_aw07q")
+expand_mode = 1
+
+[node name="RestSiteRLog3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 933.0
+offset_top = 505.0
+offset_right = 1363.0
+offset_bottom = 768.0
+texture = ExtResource("3_vbrmc")
+expand_mode = 1
+
+[node name="RestSiteFireLogs3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 667.0
+offset_right = 1015.0
+offset_bottom = 791.0
+texture = ExtResource("4_bma2y")
+expand_mode = 1
+
+[node name="RestSiteLighting" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -6.0
+offset_top = -96.0
+offset_right = -6.0
+offset_bottom = -96.0
