@@ -50,7 +50,7 @@ public class Asiyah() : AbstractRuinaAct(1)
     {
         get
         {
-            if (RunManager.Instance.State != null && RunManager.Instance.State.Modifiers.Count > 0)
+            if ((RunManager.Instance.State != null && RunManager.Instance.State.Modifiers.Count > 0) || !Config.NeowAngelaAppears)
             {
                 return [ModelDb.AncientEvent<Neow>()];
             }
