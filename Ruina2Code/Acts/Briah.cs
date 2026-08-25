@@ -39,8 +39,8 @@ public class Briah() : AbstractRuinaAct(2)
         {
             return [
                 ModelDb.Event<ThePianist>(),
-                ModelDb.Event<Bugslayer>(),
-                ModelDb.Event<ColorfulPhilosophers>(),
+                ModelDb.Event<ChurchOfGears>(),
+                ModelDb.Event<RCorp>(),
                 ModelDb.Event<ColossalFlower>(),
                 ModelDb.Event<FieldOfManSizedHoles>(),
                 ModelDb.Event<InfestedAutomaton>(),

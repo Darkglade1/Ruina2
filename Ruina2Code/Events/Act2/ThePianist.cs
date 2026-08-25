@@ -1,5 +1,4 @@
-﻿using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Events;
@@ -12,11 +11,10 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using Ruina2.Ruina2Code.Enchantments;
-using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
 
-public class ThePianist() : CustomEventModel()
+public class ThePianist() : Ruina2Event()
 {
     protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
     [
@@ -53,6 +51,4 @@ public class ThePianist() : CustomEventModel()
         }
         SetEventFinished(PageDescription("SUCCUMB"));
     }
-
-    public override string CustomInitialPortraitPath => "the_pianist.png".EventImagePath();
 }
