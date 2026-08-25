@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d28mtgqcif67w"]
+[gd_scene load_steps=5 format=3 uid="uid://d28mtgqcif67w"]
 
 [ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/SilentGirl/silent_girl.tres" id="1_j1ot4"]
 [ext_resource type="Script" uid="uid://d1eh0n6i2pr1r" path="res://Ruina2Code/Nodes/Ruina2NCreatureVisuals.cs" id="1_se58w"]
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Nail/nail.tres" id="2_j1ot4"]
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Hammer/hammer.tres" id="3_j1ot4"]
 
 [node name="SilentGirl" type="Node2D"]
 script = ExtResource("1_se58w")
@@ -30,3 +32,23 @@ preview_animation = "Idle1"
 preview_frame = false
 preview_time = 0.0
 unique_name_in_owner = true
+
+[node name="NailVisuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("2_j1ot4")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(-194, -3.1352043e-05)
+scale = Vector2(0.8, 0.8)
+
+[node name="HammerVisuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("3_j1ot4")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(212.00002, 0.99999934)
+scale = Vector2(0.8, 0.8)

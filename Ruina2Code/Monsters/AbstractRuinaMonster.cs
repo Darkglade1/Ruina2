@@ -147,9 +147,12 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected async Task AnimationAction(string animationKey, ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
     {
-        if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
         {
-            await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
+            if (Creature.GetCreatureNode() != null)
+            {
+                await CreatureCmd.TriggerAnim(Creature, animationKey, 0);
+            }
             if (sfx != null && Creature.IsAlive)
             {
                 sfx.Play(0, volume);   
@@ -159,7 +162,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     
     protected async Task SoundAnimation(ModSound? sfx, IReadOnlyList<Creature>? targets, float volume)
     {
-        if (targets == null || targets[0].IsPlayer || targets[0].IsAlive)
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
         {
             if (sfx != null && Creature.IsAlive)
             {
@@ -213,6 +216,16 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         }
     }
     
+    protected virtual async Task ResetIdle(float waitTime, int phase)
+    {
+        IsMassAttacking = false;
+        await WaitAnimation(waitTime);
+        if (Creature.GetCreatureNode() != null)
+        {
+            await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
+        }
+    }
+    
     protected async Task VampireHeal(AttackCommand attackCommand)
     {
         int totalHeal = 0;
@@ -223,7 +236,7 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
                 totalHeal += result.UnblockedDamage;
             }
         }
-        if (totalHeal > 0)
+        if (totalHeal > 0 && Creature.IsAlive)
         {
             await CreatureCmd.Heal(Creature, totalHeal);
         }

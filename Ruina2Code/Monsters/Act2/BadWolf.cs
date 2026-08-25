@@ -20,10 +20,10 @@ public sealed class BadWolf : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 88, 80);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 92, 84);
     
-    private int ClawDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
-    private int BiteDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
-    private int HuntDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
+    private int ClawDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
+    private int BiteDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
+    private int HuntDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
+    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
     private int BleedAmt => 2;
 
     public int phase = 1;
@@ -106,7 +106,7 @@ public sealed class BadWolf : AbstractRuinaMonster
             .FromMonster(this)
             .Execute(null);
         await ApplyPowerAndSkipNextDurationTick<Bleed>(targets, BleedAmt);
-        await ResetIdle();
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task Bite(IReadOnlyList<Creature> targets)
@@ -116,7 +116,7 @@ public sealed class BadWolf : AbstractRuinaMonster
             .FromMonster(this)
             .Execute(null);
         await VampireHeal(attackCommand);
-        await ResetIdle();
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task Hunt(IReadOnlyList<Creature> targets)
@@ -125,7 +125,7 @@ public sealed class BadWolf : AbstractRuinaMonster
         await DamageCmd.Attack(HuntDamage)
             .FromMonster(this)
             .Execute(null);
-        await ResetIdle();
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task SlashAnimation(IReadOnlyList<Creature> targets)
@@ -136,12 +136,6 @@ public sealed class BadWolf : AbstractRuinaMonster
     private async Task BiteAnimation(IReadOnlyList<Creature> targets)
     {
         await AnimationAction("Bite" + phase, Sfx.WOLF_BITE, targets);
-    }
-    
-    protected override async Task ResetIdle()
-    {
-        await WaitAnimation();
-        await CreatureCmd.TriggerAnim(Creature, "Idle" + phase, 0);
     }
     
     public async Task SetPhase(int newPhase)

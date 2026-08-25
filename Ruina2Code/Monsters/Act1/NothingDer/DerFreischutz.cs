@@ -24,9 +24,9 @@ public sealed class DerFreischutz : AbstractMultiIntentMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int RuthlessDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
-    private int InevitableDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
-    private int MagicDamage => 15;
+    private int RuthlessDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
+    private int InevitableDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int MagicDamage => 13;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int BlockAmount => 10;
     private int WeakAmt => 1;

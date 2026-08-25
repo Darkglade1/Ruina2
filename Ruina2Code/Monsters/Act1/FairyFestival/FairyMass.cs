@@ -21,8 +21,8 @@ public sealed class FairyMass : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 20, 18);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 22, 20);
     
-    private int WingbeatsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
-    private int GluttonyDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
+    private int WingbeatsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int GluttonyDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
     private int DebuffAmt => 1;
 
     protected override string VisualsPath => "FairyMass/fairy_mass.tscn".MonsterImagePath();

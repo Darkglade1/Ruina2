@@ -1,14 +1,18 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
@@ -16,12 +20,15 @@ using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Monsters.Act3.SilentGirl;
 
-public sealed class SilentGirl : AbstractMultiIntentMonster
+public sealed class SilentGirl : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 330, 300);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 280, 250);
     public override int MaxInitialHp => MinInitialHp;
-    public override int NumIntents => 1;
     
+    private int NailDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
+    private int NailAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int HammerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
     private int BrokenDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int BrokenHits => 2;
     private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
@@ -32,7 +39,8 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
     private const string BROKEN = "BROKEN";
     private const string LEER = "LEER";
     private const string SUPPRESS = "SUPPRESS";
-    private const string NONE = "NONE";
+    private const string NAIL = "NAIL";
+    private const string HAMMER = "HAMMER";
     
     public MoveState? _suppressState;
     public MoveState? SuppressState
@@ -47,11 +55,74 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
 
     public int Phase = 1;
     
+    private CreatureAnimator? nailAnimator;
+    private CreatureAnimator? hammerAnimator;
+
+    public override bool ShouldDisappearFromDoom => !Creature.HasPower<Silence>();
+    
     public override async Task AfterAddedToRoom()
     {
+        if (NCombatRoom.Instance != null)
+        {
+            NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
+            if (creatureNode != null)
+            {
+                var nailVisuals = creatureNode.Visuals.GetNodeOrNull<Node2D>((NodePath) "%NailVisuals");
+                if (nailVisuals != null)
+                {
+                    var otherSpineBody = new MegaSprite((Variant) (GodotObject) nailVisuals);
+                    if (otherSpineBody?.GetSkeleton()?.GetData() == null)
+                    {
+                        otherSpineBody = null;
+                    }
+                    if (otherSpineBody != null)
+                    {
+                        var idle = new AnimState("Idle", true);
+                        var pierce = new AnimState("Pierce");
+                        var dead = new AnimState("Dead", true);
+                        var animator = new CreatureAnimator(idle, otherSpineBody);
+                        animator.AddAnyState("Idle", idle);
+                        animator.AddAnyState("Pierce", pierce);
+                        animator.AddAnyState("Dead", dead);
+                        nailAnimator = animator;
+                        nailAnimator.SetTrigger("Idle");
+                    }
+                }
+                var hammerVisuals = creatureNode.Visuals.GetNodeOrNull<Node2D>((NodePath) "%HammerVisuals");
+                if (hammerVisuals != null)
+                {
+                    var otherSpineBody = new MegaSprite((Variant) (GodotObject) hammerVisuals);
+                    if (otherSpineBody?.GetSkeleton()?.GetData() == null)
+                    {
+                        otherSpineBody = null;
+                    }
+                    if (otherSpineBody != null)
+                    {
+                        var idle = new AnimState("Idle", true);
+                        var blunt = new AnimState("Blunt");
+                        var dead = new AnimState("Dead", true);
+                        var animator = new CreatureAnimator(idle, otherSpineBody);
+                        animator.AddAnyState("Idle", idle);
+                        animator.AddAnyState("Blunt", blunt);
+                        animator.AddAnyState("Dead", dead);
+                        hammerAnimator = animator;
+                        hammerAnimator.SetTrigger("Idle");
+                    }
+                }
+            }
+        }
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<Silence>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
-        SetToSide(CombatSide.Player);
+    }
+    
+    private MoveState GetNailState()
+    {
+        return new MoveState(NAIL, Nail, new SingleAttackIntent(NailDamage), new DebuffIntent(), new StatusIntent(StatusAmt));
+    }
+    
+    private MoveState GetHammerState()
+    {
+        return new MoveState(HAMMER, Hammer, new SingleAttackIntent(HammerDamage), new BuffIntent());
     }
 
     private MoveState GetBrokenState()
@@ -66,20 +137,16 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
 
     private MoveState GetSuppressState()
     {
-        return new MoveState(SUPPRESS, Suppress, new UnknownIntent());
+        return new MoveState(SUPPRESS, Suppress, new HealIntent());
     }
     
-    private MoveState GetNoneState()
-    {
-        return new MoveState(NONE, _ => Task.CompletedTask);
-    }
-    
-    private MonsterMoveStateMachine GenerateIntent1StateMachine()
+    protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         var states = new List<MonsterState>();
         var state1 = GetBrokenState();
         var state2 = GetLeerState();
-        var state3 = GetNoneState();
+        var state3 = GetNailState();
+        var state4 = GetHammerState();
         SuppressState = GetSuppressState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
@@ -87,25 +154,25 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
         state3.FollowUpState = moveBranch;
+        state4.FollowUpState = moveBranch;
         SuppressState.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
         states.Add(state3);
+        states.Add(state4);
         states.Add(SuppressState);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
     }
     
-    public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
-    {
-        return [GenerateIntent1StateMachine()];
-    }
-    
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (Phase == 2)
+        if (Creature.IsDead)
+        {
+            return SUPPRESS;
+        } else if (Phase == 2)
         {
             if (LastMove(stateMachine, BROKEN) && LastMoveBefore(stateMachine, BROKEN))
             {
@@ -118,13 +185,38 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
         }
         else
         {
-            return NONE;
+            if (LastMove(stateMachine, NAIL))
+            {
+                return HAMMER;
+            }
+            else
+            {
+                return NAIL;
+            }
         }
     }
     
-    public override Creature DetermineTargetForIntent(int intentNum)
+    private async Task Nail(IReadOnlyList<Creature> targets)
     {
-        return CombatState.PlayerCreatures[0];
+        await NailAnimation(targets);
+        await DamageCmd.Attack(NailDamage)
+            .FromMonster(this)
+            .Execute(null);
+        await PowerCmd.Apply<Powers.Act3.Nail>(new ThrowingPlayerChoiceContext(), targets, NailAmt, Creature,  null);
+        await CardPileCmd.AddToCombatAndPreview<Wound>(targets, PileType.Discard, StatusAmt, null);
+        await WaitAnimation();
+        await ResetNailHammerIdle();
+    }
+    
+    private async Task Hammer(IReadOnlyList<Creature> targets)
+    {
+        await HammerAnimation(targets);
+        await DamageCmd.Attack(HammerDamage)
+            .FromMonster(this)
+            .Execute(null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature,  null);
+        await WaitAnimation();
+        await ResetNailHammerIdle();
     }
     
     private async Task Broken(IReadOnlyList<Creature> targets)
@@ -154,34 +246,18 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
     
     private async Task Suppress(IReadOnlyList<Creature> targets)
     {
-        await PhaseChangeAnimation(targets);
+        await CreatureCmd.Heal(Creature, Creature.MaxHp);
+        await PhaseChangeAnimation();
         Phase = 2;
+        await PowerCmd.Remove<Silence>(Creature);
         await ResetIdle(1.0f);
     }
     
-    public override async Task AfterDeath(
-        PlayerChoiceContext choiceContext,
-        Creature creature,
-        bool wasRemovalPrevented,
-        float deathAnimLength)
+    public async Task TriggerDeadState()
     {
-        if (creature.Monster is Hammer || creature.Monster is Nail)
+        if (SuppressState != null)
         {
-            bool aliveHammerOrNail = false;
-            foreach (var enemy in CombatState.HittableEnemies)
-            {
-                if (enemy.Monster is Hammer || enemy.Monster is Nail)
-                {
-                    aliveHammerOrNail = true;
-                }
-            }
-
-            if (!aliveHammerOrNail && SuppressState != null)
-            {
-                SetToSide(CombatSide.Enemy);
-                await PowerCmd.Remove<Silence>(Creature);
-                SetMoveImmediateMultiIntentMonster(SuppressState, 0);   
-            }
+            SetMoveImmediate(SuppressState);
         }
     }
     
@@ -200,9 +276,47 @@ public sealed class SilentGirl : AbstractMultiIntentMonster
         await AnimationAction("Ranged", Sfx.SilentEye, targets);
     }
     
-    private async Task PhaseChangeAnimation(IReadOnlyList<Creature> targets)
+    private async Task PhaseChangeAnimation()
     {
-        await AnimationAction("Ranged", Sfx.SilentPhaseChange, targets);
+        await AnimationAction("Ranged", Sfx.SilentPhaseChange);
+        if (nailAnimator != null)
+        {
+            nailAnimator.SetTrigger("Dead");
+        }
+        if (hammerAnimator != null)
+        {
+            hammerAnimator.SetTrigger("Dead");
+        }
+    }
+    
+    private async Task NailAnimation(IReadOnlyList<Creature> targets)
+    {
+        if (nailAnimator != null)
+        {
+            nailAnimator.SetTrigger("Pierce");
+        }
+        await SoundAnimation(Sfx.SilentNail, targets);
+    }
+    
+    private async Task ResetNailHammerIdle()
+    {
+        if (nailAnimator != null)
+        {
+            nailAnimator.SetTrigger("Idle");
+        }
+        if (hammerAnimator != null)
+        {
+            hammerAnimator.SetTrigger("Idle");
+        }
+    }
+    
+    private async Task HammerAnimation(IReadOnlyList<Creature> targets)
+    {
+        if (hammerAnimator != null)
+        {
+            hammerAnimator.SetTrigger("Blunt");
+        }
+        await SoundAnimation(Sfx.SilentHammer, targets);
     }
     
     protected override async Task ResetIdle(float waitTime)

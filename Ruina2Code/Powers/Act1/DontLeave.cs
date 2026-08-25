@@ -42,6 +42,18 @@ public class DontLeave() : Ruina2Power
     }
 
     public override bool ShouldPowerBeRemovedAfterOwnerDeath() => false;
+
+    public override bool ShouldOwnerDeathTriggerFatal()
+    {
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            if (enemy != Owner && enemy.Monster is GalaxyFriend && enemy.IsAlive)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     
     public class Data
     {
