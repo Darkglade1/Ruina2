@@ -13,7 +13,7 @@ public sealed class AllyBlockButtonAction : GameAction
 {
   public override ulong OwnerId => Player.NetId;
 
-  public override GameActionType ActionType => GameActionType.Combat;
+  public override GameActionType ActionType => GameActionType.CombatPlayPhaseOnly;
 
   public Player Player { get; }
   public ModelId ModelId { get; }

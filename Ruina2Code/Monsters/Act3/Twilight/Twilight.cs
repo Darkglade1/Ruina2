@@ -24,7 +24,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act3.Twilight;
 
 public sealed class Twilight : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 530, 480);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 500, 450);
     public override int MaxInitialHp => MinInitialHp;
     
     private int PeaceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 40, 36);
@@ -33,7 +33,7 @@ public sealed class Twilight : AbstractRuinaMonster
     private int TalonsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int TalonsHits => 2;
     private int FrailAmt => 2;
-    private int BleedAmt => 3;
+    private int ParalysisAmt => 2;
     private int VulnerableAmt => 1;
     private int BlockAmt => 24;
     private int HPLossPercent => 25;
@@ -232,7 +232,7 @@ public sealed class Twilight : AbstractRuinaMonster
         await DamageCmd.Attack(TornDamage)
             .FromMonster(this)
             .Execute(null);
-        await PowerCmd.Apply<Bleed>(new ThrowingPlayerChoiceContext(), targets, BleedAmt, Creature, null);
+        await PowerCmd.Apply<Paralysis>(new ThrowingPlayerChoiceContext(), targets, ParalysisAmt, Creature, null);
         await ResetIdle();
     }
     private async Task TiltedScale(IReadOnlyList<Creature> targets)

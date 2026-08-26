@@ -22,7 +22,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act1.NothingDer;
 
 public sealed class NothingThere : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 240, 220);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 220, 200);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 

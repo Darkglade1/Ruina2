@@ -2,11 +2,9 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -14,7 +12,6 @@ using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Powers.Act3;
-using Fear = Ruina2.Ruina2Code.Powers.Act1.Fear;
 
 namespace Ruina2.Ruina2Code.Monsters.Act3.PunshingBird;
 
@@ -25,9 +22,8 @@ public sealed class PunishingBird : AbstractRuinaMonster
     
     private int PeckDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int PeckHits => 3;
-    private int PunishmentDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 60, 50);
+    private int PunishmentDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45);
     private int StrengthAmount => 1;
-    private int StatusAmt => 1;
 
     protected override string VisualsPath => "PunishingBird/punishing_bird.tscn".MonsterImagePath();
 
@@ -44,7 +40,7 @@ public sealed class PunishingBird : AbstractRuinaMonster
 
     private MoveState GetPeckState()
     {
-        return new MoveState(PECK, Peck, new MultiAttackIntent(PeckDamage, PeckHits), new BuffIntent(), new StatusIntent(StatusAmt));
+        return new MoveState(PECK, Peck, new MultiAttackIntent(PeckDamage, PeckHits), new BuffIntent());
     }
 
     private MoveState GetPunishmentState()
@@ -96,7 +92,6 @@ public sealed class PunishingBird : AbstractRuinaMonster
         }
         await ResetIdle(0.0f);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
-        await CardPileCmd.AddToCombatAndPreview<Wound>(targets, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
     }
     
     private async Task Punishment(IReadOnlyList<Creature> targets)

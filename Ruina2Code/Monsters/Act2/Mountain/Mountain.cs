@@ -117,12 +117,12 @@ public sealed class Mountain : AbstractMultiIntentMonster
 
     private MoveState GetScreechState()
     {
-        return new MoveState(SCREECH, Screech, new DebuffIntent());
+        return new MoveState(SCREECH, Screech, new StatusIntent(ScreechStatus));
     }
     
     private MoveState GetVomitState()
     {
-        return new MoveState(VOMIT, Vomit, new DebuffIntent(true));
+        return new MoveState(VOMIT, Vomit, new StatusIntent(VomitStatus), new DebuffIntent(true));
     }
     
     private MoveState GetReviveState()

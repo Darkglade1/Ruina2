@@ -249,5 +249,5 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
     protected override string CustomMapTopBgPath => $"map/map_top_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
     protected override string CustomMapMidBgPath => $"map/map_middle_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
     protected override string CustomMapBotBgPath => $"map/map_bottom_{GetFloorBasedOnBoss().ToString().ToLowerInvariant()}.png".UIImagePath();
-    protected override string CustomRestSiteBackgroundPath => ModelDb.Act<Glory>().RestSiteBackgroundPath;
+    protected override string CustomRestSiteBackgroundPath => "rest/ruina_rest_site.tscn".BackgroundImagePath();
 }

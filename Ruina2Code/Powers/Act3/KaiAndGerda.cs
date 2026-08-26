@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Afflictions;
 using Ruina2.Ruina2Code.Audio;
@@ -15,6 +16,7 @@ public class KaiAndGerda() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Single;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Frozen>();
 
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
