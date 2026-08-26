@@ -23,7 +23,6 @@ public sealed class Butterflies : AbstractRuinaMonster
 
     private int TranquilityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int StatusAmt => 1;
-    private int ParalysisAmt => 1;
 
     protected override string VisualsPath => "Butterflies/butterflies.tscn".MonsterImagePath();
 
@@ -111,8 +110,7 @@ public sealed class Butterflies : AbstractRuinaMonster
     private async Task Liberation(IReadOnlyList<Creature> targets)
     {
         await SpecialAnimation(targets);
-        await PowerCmd.Apply<Paralysis>(new ThrowingPlayerChoiceContext(), targets, ParalysisAmt, Creature,  null);
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, StatusAmt, null);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
         await ResetIdle();
     }
     

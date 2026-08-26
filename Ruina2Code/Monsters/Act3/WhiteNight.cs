@@ -34,7 +34,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
     
     private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 55, 50);
     private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
-    private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 8, 0);
+    private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 16, 8);
     private int RitualGain => 1;
     private int HealAmt => 25;
     private int BlockAmt => 30;

@@ -20,7 +20,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act1.NothingDer;
 
 public sealed class DerFreischutz : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 200, 180);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 190, 170);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
