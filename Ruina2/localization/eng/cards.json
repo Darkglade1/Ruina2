@@ -48,5 +48,17 @@
   "RUINA2-REFUSE_GIFT.title": "Refuse Gift",
 
   "RUINA2-CRIMSON_SCAR.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Scry[/gold] {Scry:diff()}. Gain {VigorPower:diff()} [gold]Vigor[/gold] for each card discarded.",
-  "RUINA2-CRIMSON_SCAR.title": "Crimson Scar"
+  "RUINA2-CRIMSON_SCAR.title": "Crimson Scar",
+
+  "RUINA2-SMILE.description": "Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold] to ALL enemies.",
+  "RUINA2-SMILE.title": "Smile",
+
+  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage. Heal HP equal to damage dealt.",
+  "RUINA2-MIMICRY.title": "Mimicry",
+
+  "RUINA2-THIRST.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nWhenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-THIRST.title": "Thirst",
+
+  "RUINA2-COBALT_SCAR.description": "Whenever you play {Cards:diff()} [gold]Attacks[/gold], deal {Damage:diff()} to ALL enemies.",
+  "RUINA2-COBALT_SCAR.title": "Cobalt Scar"
 }

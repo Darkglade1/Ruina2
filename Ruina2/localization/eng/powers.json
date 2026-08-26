@@ -277,5 +277,13 @@
 
   "RUINA2-LAMENTATION.description": "",
   "RUINA2-LAMENTATION.smartDescription": "The first card you play from your [gold]Hand[/gold] each turn is [gold]Afflicted[/gold] with [purple]Coffin[/purple].",
-  "RUINA2-LAMENTATION.title": "Lamentation"
+  "RUINA2-LAMENTATION.title": "Lamentation",
+
+  "RUINA2-THIRST_POWER.description": "",
+  "RUINA2-THIRST_POWER.smartDescription": "Whenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-THIRST_POWER.title": "Thirst",
+
+  "RUINA2-COBALT_SCAR_POWER.description": "",
+  "RUINA2-COBALT_SCAR_POWER.smartDescription": "Whenever you play [blue]{Amount}[/blue] [gold]Attacks[/gold], deal [blue]{Damage:diff()}[/blue] damage to ALL enemies.",
+  "RUINA2-COBALT_SCAR_POWER.title": "Cobalt Scar"
 }
