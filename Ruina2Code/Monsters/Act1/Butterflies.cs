@@ -51,7 +51,7 @@ public sealed class Butterflies : AbstractRuinaMonster
 
     private MoveState GetLiberationState()
     {
-        return new MoveState(LIBERATION, Liberation, new DebuffIntent(), new StatusIntent(StatusAmt));
+        return new MoveState(LIBERATION, Liberation, new StatusIntent(StatusAmt));
     }
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
