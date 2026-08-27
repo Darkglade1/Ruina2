@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Cards;
 public class Dazzled() : Ruina2Card(0, CardType.Status,
     CardRarity.Status, TargetType.None)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar("CostIncrease", 1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     

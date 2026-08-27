@@ -26,7 +26,7 @@
   "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
   "RUINA2-APOSTLE.title": "Apostle",
 
-  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:diff()} this combat.",
+  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:energyIcons()} this combat.",
   "RUINA2-DAZZLED.title": "Dazzled",
 
   "RUINA2-FOREST_KEEPER_LOCK.description": "Gain {Block:diff()} [gold]Block[/gold].",
@@ -47,13 +47,13 @@
   "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
   "RUINA2-REFUSE_GIFT.title": "Refuse Gift",
 
-  "RUINA2-CRIMSON_SCAR.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Scry[/gold] {Scry:diff()}. Gain {VigorPower:diff()} [gold]Vigor[/gold] for each card discarded.",
+  "RUINA2-CRIMSON_SCAR.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Scry[/gold] {Scry:diff()}.\nGain {VigorPower:diff()} [gold]Vigor[/gold] for each card discarded.",
   "RUINA2-CRIMSON_SCAR.title": "Crimson Scar",
 
   "RUINA2-SMILE.description": "Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold] to ALL enemies.",
   "RUINA2-SMILE.title": "Smile",
 
-  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage. Heal HP equal to damage dealt.",
+  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage.\nHeal HP equal to damage dealt.",
   "RUINA2-MIMICRY.title": "Mimicry",
 
   "RUINA2-THIRST.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nWhenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain {StrengthPower:diff()} [gold]Strength[/gold].",
@@ -75,5 +75,18 @@
   "RUINA2-NIHIL.title": "Nihil",
 
   "RUINA2-SWORD_SHARPENED.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nIf played on an enemy from your [gold]Hand[/gold] {PlayThreshold:diff()} times, [gold]Stun[/gold] the enemy and [gold]Exhaust[/gold] instead.{IfUpgraded:show:\nShuffle this card into your [gold]Draw Pile[/gold].}",
-  "RUINA2-SWORD_SHARPENED.title": "Sword Sharpened by Tears"
+  "RUINA2-SWORD_SHARPENED.title": "Sword Sharpened by Tears",
+
+  "RUINA2-HARVEST.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] 1 card. Gain {energyPrefix:energyIcons(1)} equal to its cost.",
+  "RUINA2-HARVEST.title": "Harvest",
+
+  "RUINA2-FALSE_THRONE.description": "Put {Cards:diff()} {Cards:plural:card|cards} from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].\n{Cards:plural:It costs|They cost} {CostReduction:energyIcons()} less this turn.",
+  "RUINA2-FALSE_THRONE.selectionScreenPrompt": "Choose {Amount} {Amount:plural:card|cards} to put into your [gold]Hand[/gold]",
+  "RUINA2-FALSE_THRONE.title": "False Throne",
+
+  "RUINA2-LUMBER.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.\nAdd the damage of any Attacks [gold]Exhausted[/gold] to this card.",
+  "RUINA2-LUMBER.title": "Lumber",
+
+  "RUINA2-FADED_MEMORIES.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\n[gold]Exhaust[/gold] {Exhaust:diff()} {Exhaust:plural:card|cards}.",
+  "RUINA2-FADED_MEMORIES.title": "Faded Memories"
 }
