@@ -12,7 +12,7 @@ namespace Ruina2.Ruina2Code.Cards;
 public class Gift() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Unpowered | ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Unpowered | ValueProp.Move)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
     

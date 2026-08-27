@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baj2m01tnlx2u"
-path="res://.godot/imported/map_bottom_tiphereth.png-abc8d076466d1395c1d2afff95b03ed8.ctex"
+uid="uid://b2c0hujrfduc4"
+path="res://.godot/imported/map_bottom_unused.png-d2320aef9c123ab0b42d7f39e80c87c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/ui/map/map_bottom_tiphereth.png"
-dest_files=["res://.godot/imported/map_bottom_tiphereth.png-abc8d076466d1395c1d2afff95b03ed8.ctex"]
+source_file="res://Ruina2/images/ui/map/map_bottom_unused.png"
+dest_files=["res://.godot/imported/map_bottom_unused.png-d2320aef9c123ab0b42d7f39e80c87c1.ctex"]
 
 [params]
 

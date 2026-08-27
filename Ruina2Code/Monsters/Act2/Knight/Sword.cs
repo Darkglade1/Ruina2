@@ -21,7 +21,7 @@ public sealed class Sword : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 44, 40);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int TearDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
+    private int TearDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
     private int BlockAmt => 8;
 
     protected override string VisualsPath => "Sword/sword.tscn".MonsterImagePath();

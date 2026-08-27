@@ -14,7 +14,7 @@ public class FragmentOfBliss() : Ruina2Card(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(30, ValueProp.Unpowered)];
     
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
