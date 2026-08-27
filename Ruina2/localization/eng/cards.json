@@ -60,5 +60,20 @@
   "RUINA2-THIRST.title": "Thirst",
 
   "RUINA2-COBALT_SCAR.description": "Whenever you play {Cards:diff()} [gold]Attacks[/gold], deal {Damage:diff()} to ALL enemies.",
-  "RUINA2-COBALT_SCAR.title": "Cobalt Scar"
+  "RUINA2-COBALT_SCAR.title": "Cobalt Scar",
+
+  "RUINA2-LOVE_AND_HATE.description": "Deal {Damage:diff()}*X damage to ALL enemies.\nDeals {firstThresholdBonus:diff()}% more damage if X is {firstThreshold:diff()} or higher.{IfUpgraded:show:\nAdditionally deals {secondThresholdBonus:diff()}% more damage if X is {secondThreshold:diff()} or higher.}",
+  "RUINA2-LOVE_AND_HATE.title": "In the Name of Love and Hate",
+
+  "RUINA2-BLIND_RAGE.description": "Deal {Damage:diff()} damage to ALL enemies.\nTake {SelfDamage:diff()} damage.\nCosts 0 while your HP is at or below {HpThreshold:diff()}%.",
+  "RUINA2-BLIND_RAGE.title": "Blind Rage",
+
+  "RUINA2-GOLD_RUSH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nIf the last card you played this combat is an [gold]Attack[/gold], double your [gold]Strength[/gold].",
+  "RUINA2-GOLD_RUSH.title": "Gold Rush",
+
+  "RUINA2-NIHIL.description": "ALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold].\nIf you have no cards in your [gold]Hand[/gold], this effect is doubled.",
+  "RUINA2-NIHIL.title": "Nihil",
+
+  "RUINA2-SWORD_SHARPENED.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nIf played on an enemy from your [gold]Hand[/gold] {PlayThreshold:diff()} times, [gold]Stun[/gold] the enemy and [gold]Exhaust[/gold] instead.{IfUpgraded:show:\nShuffle this card into your [gold]Draw Pile[/gold].}",
+  "RUINA2-SWORD_SHARPENED.title": "Sword Sharpened by Tears"
 }

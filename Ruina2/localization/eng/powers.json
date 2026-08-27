@@ -285,5 +285,9 @@
 
   "RUINA2-COBALT_SCAR_POWER.description": "",
   "RUINA2-COBALT_SCAR_POWER.smartDescription": "Whenever you play [blue]{Amount}[/blue] [gold]Attacks[/gold], deal [blue]{Damage:diff()}[/blue] damage to ALL enemies.",
-  "RUINA2-COBALT_SCAR_POWER.title": "Cobalt Scar"
+  "RUINA2-COBALT_SCAR_POWER.title": "Cobalt Scar",
+
+  "RUINA2-SWORD_SHARPENED_POWER.description": "",
+  "RUINA2-SWORD_SHARPENED_POWER.smartDescription": "[gold]Sword Sharpened by Tears[/gold] has been played from your [gold]Hand[/gold] on this enemy [blue]{Amount}[/blue] {Amount:plural:time|times}.",
+  "RUINA2-SWORD_SHARPENED_POWER.title": "Sword Sharpened by Tears"
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d12ryh8f487xr"
-path="res://.godot/imported/CampfireEmpty.png-ca1c63e683d07be4e46e59395dd9a486.ctex"
+uid="uid://desxocnbe6i4b"
+path="res://.godot/imported/blind_rage.png-6b99f783bbdeeed46638981214aa803e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/background/rest/CampfireEmpty.png"
-dest_files=["res://.godot/imported/CampfireEmpty.png-ca1c63e683d07be4e46e59395dd9a486.ctex"]
+source_file="res://Ruina2/images/card_portraits/big/blind_rage.png"
+dest_files=["res://.godot/imported/blind_rage.png-6b99f783bbdeeed46638981214aa803e.ctex"]
 
 [params]
 
