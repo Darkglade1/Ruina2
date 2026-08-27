@@ -59,7 +59,7 @@
   "RUINA2-THIRST.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nWhenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain {StrengthPower:diff()} [gold]Strength[/gold].",
   "RUINA2-THIRST.title": "Thirst",
 
-  "RUINA2-COBALT_SCAR.description": "Whenever you play {Cards:diff()} [gold]Attacks[/gold], deal {Damage:diff()} to ALL enemies.",
+  "RUINA2-COBALT_SCAR.description": "Whenever you play {Cards:diff()} [gold]Attacks[/gold], deal {Damage:diff()} damage to ALL enemies.",
   "RUINA2-COBALT_SCAR.title": "Cobalt Scar",
 
   "RUINA2-LOVE_AND_HATE.description": "Deal {Damage:diff()}*X damage to ALL enemies.\nDeals {firstThresholdBonus:diff()}% more damage if X is {firstThreshold:diff()} or higher.{IfUpgraded:show:\nAdditionally deals {secondThresholdBonus:diff()}% more damage if X is {secondThreshold:diff()} or higher.}",
