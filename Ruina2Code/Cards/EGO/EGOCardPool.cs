@@ -24,7 +24,7 @@ public class EGOCardPool : CustomCardPoolModel
     //Alternatively, leave these values at 1 and provide a custom frame image.
     public override Texture2D CustomFrame(CustomCardModel card)
     {
-        return PreloadManager.Cache.GetTexture2D("cards/frame.png".ImagePath());
+        return PreloadManager.Cache.GetTexture2D("cards/frame_power_ego.png".ImagePath());
     }
 
     //Color of small card icons
