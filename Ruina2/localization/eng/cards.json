@@ -84,9 +84,12 @@
   "RUINA2-FALSE_THRONE.selectionScreenPrompt": "Choose {Amount} {Amount:plural:card|cards} to put into your [gold]Hand[/gold]",
   "RUINA2-FALSE_THRONE.title": "False Throne",
 
-  "RUINA2-LUMBER.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.\nAdd the damage of any Attacks [gold]Exhausted[/gold] to this card.",
+  "RUINA2-LUMBER.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.\nAdd the damage of any [gold]Attacks[/gold] [gold]Exhausted[/gold] to this card.",
   "RUINA2-LUMBER.title": "Lumber",
 
   "RUINA2-FADED_MEMORIES.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\n[gold]Exhaust[/gold] {Exhaust:diff()} {Exhaust:plural:card|cards}.",
-  "RUINA2-FADED_MEMORIES.title": "Faded Memories"
+  "RUINA2-FADED_MEMORIES.title": "Faded Memories",
+
+  "RUINA2-HOMING_INSTINCT.description": "At the start of your turn, apply {HomingInstinctPower:diff()} [gold]Yellow Brick Road[/gold] to a random enemy.",
+  "RUINA2-HOMING_INSTINCT.title": "Homing Instinct"
 }

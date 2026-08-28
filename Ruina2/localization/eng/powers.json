@@ -289,5 +289,13 @@
 
   "RUINA2-SWORD_SHARPENED_POWER.description": "",
   "RUINA2-SWORD_SHARPENED_POWER.smartDescription": "[gold]Sword Sharpened by Tears[/gold] has been played from your [gold]Hand[/gold] on this enemy [blue]{Amount}[/blue] {Amount:plural:time|times}.",
-  "RUINA2-SWORD_SHARPENED_POWER.title": "Sword Sharpened by Tears"
+  "RUINA2-SWORD_SHARPENED_POWER.title": "Sword Sharpened by Tears",
+
+  "RUINA2-HOMING_INSTINCT_POWER.description": "",
+  "RUINA2-HOMING_INSTINCT_POWER.smartDescription": "At the start of your turn, apply [blue]{Amount}[/blue] [gold]Yellow Brick Road[/gold] to a random enemy.",
+  "RUINA2-HOMING_INSTINCT_POWER.title": "Homing Instinct",
+
+  "RUINA2-YELLOW_BRICK_ROAD.description": "The next time you hit this creature with an [gold]Attack[/gold], gain {energyPrefix:energyIcons(1)}.",
+  "RUINA2-YELLOW_BRICK_ROAD.smartDescription": "The next time you hit this creature with an [gold]Attack[/gold], gain {Amount:energyIcons()}.",
+  "RUINA2-YELLOW_BRICK_ROAD.title": "Yellow Brick Road"
 }

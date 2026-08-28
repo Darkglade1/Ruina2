@@ -43,6 +43,16 @@ public class EGOCardPool : CustomCardPoolModel
         cards.Add(ModelDb.Card<CrimsonScar>());
         cards.Add(ModelDb.Card<GoldRush>());
         cards.Add(ModelDb.Card<LoveAndHate>());
+        cards.Add(ModelDb.Card<FadedMemories>());
+        cards.Add(ModelDb.Card<FalseThrone>());
+        cards.Add(ModelDb.Card<Harvest>());
+        cards.Add(ModelDb.Card<HomingInstinct>());
+        cards.Add(ModelDb.Card<Lumber>());
+        cards.Add(ModelDb.Card<Mimicry>());
+        cards.Add(ModelDb.Card<Nihil>());
+        cards.Add(ModelDb.Card<Smile>());
+        cards.Add(ModelDb.Card<SwordSharpened>());
+        cards.Add(ModelDb.Card<Thirst>());
         return cards;
     }
 }
