@@ -24,7 +24,7 @@ public sealed class Ozma : AbstractRuinaMonster
     
     private int HinderDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 11);
     private int SquashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int StrengthAmount => 3;
     private int DRAW_DEBUFF => 1;
     private int ParalysisAmt => 2;
     private int BlockAmt => 9;

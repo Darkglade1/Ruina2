@@ -2,9 +2,11 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -26,7 +28,7 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
     private int GlimmerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int BlockAmt => 7;
     private int RegenAmt => 2;
-    private int DebuffAmt => 1;
+    private int StatusAmt => 1;
 
     protected override string VisualsPath => "GalaxyFriend/galaxy_friend.tscn".MonsterImagePath();
 
@@ -80,7 +82,7 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
     
     private MoveState GetGlimmerState()
     {
-        return new MoveState(GLIMMER, Glimmer, new SingleAttackIntent(GlimmerDamage), new DebuffIntent());
+        return new MoveState(GLIMMER, Glimmer, new SingleAttackIntent(GlimmerDamage), new StatusIntent(StatusAmt));
     }
     
     private MoveState GetReviveState()
@@ -156,7 +158,7 @@ public sealed class GalaxyFriend : AbstractRuinaMonster
         await DamageCmd.Attack(GlimmerDamage)
             .FromMonster(this)
             .Execute(null);
-        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Discard, StatusAmt, null);
         await ResetIdle();
     }
     

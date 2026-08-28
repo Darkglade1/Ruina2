@@ -22,9 +22,9 @@ public sealed class Funeral : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 68, 62);
     
     private int LamentDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 3);
-    private int LamentHits => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int LamentHits => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int GuidingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int BlockAmt => 5;
+    private int BlockAmt => 9;
     private int DebuffAmt => 2;
 
     protected override string VisualsPath => "Funeral/funeral.tscn".MonsterImagePath();

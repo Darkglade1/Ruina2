@@ -22,7 +22,7 @@ public sealed class Nosferatu : AbstractRuinaMonster
     
     private int DroughtDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
     private int GestureDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int StrengthAmount => 3;
     private int VulnAmt => 1;
     private int ParalysisAmt => 2;
 

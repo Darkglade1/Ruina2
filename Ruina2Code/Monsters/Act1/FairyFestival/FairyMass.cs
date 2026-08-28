@@ -30,7 +30,7 @@ public sealed class FairyMass : AbstractRuinaMonster
     private const string WINGBEATS = "WINGBEATS";
     private const string GLUTTONY = "GLUTTONY";
 
-    private float ConsumeThreshold = 0.33f;
+    private float ConsumeThreshold = 0.35f;
     
     public override async Task AfterAddedToRoom()
     {

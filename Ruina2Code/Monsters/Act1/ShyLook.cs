@@ -27,8 +27,8 @@ public sealed class ShyLook : AbstractRuinaMonster
     private int BlockAmt => 13;
     private int AtkBlock => 6;
     private int DebuffAmt => 1;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
-    private int CardThreshold => 3;
+    private int StrengthAmount => 3;
+    private int CardThreshold => 4;
 
     protected override string VisualsPath => "ShyLook/shy_look.tscn".MonsterImagePath();
     
