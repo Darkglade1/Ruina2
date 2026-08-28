@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://038aygaqpgd3"
-path="res://.godot/imported/frame.png-5549db252cf5c6ded2d5ecfb8ec488d1.ctex"
+uid="uid://cu1tq1ua375qr"
+path="res://.godot/imported/frame_skill_ego.png-208609d21908ce2dc10459f1610c4ac2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/cards/frame.png"
-dest_files=["res://.godot/imported/frame.png-5549db252cf5c6ded2d5ecfb8ec488d1.ctex"]
+source_file="res://Ruina2/images/cards/frame_skill_ego.png"
+dest_files=["res://.godot/imported/frame_skill_ego.png-208609d21908ce2dc10459f1610c4ac2.ctex"]
 
 [params]
 
