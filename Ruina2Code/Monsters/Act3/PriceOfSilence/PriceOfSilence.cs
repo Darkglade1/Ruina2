@@ -21,7 +21,7 @@ public sealed class PriceOfSilence : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 97, 88);
     
     private int SilentDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
-    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
+    private int StatusAmt => 3;
     private int CardPlayThreshold => 6;
 
     protected override string VisualsPath => "PriceOfSilence/price_of_silence.tscn".MonsterImagePath();

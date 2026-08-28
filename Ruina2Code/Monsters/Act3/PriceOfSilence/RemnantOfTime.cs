@@ -21,7 +21,7 @@ public sealed class RemnantOfTime : AbstractRuinaMonster
     
     private int BacklashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int BacklashHits => 2;
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StrAmt => 2;
     private int BlockAmt => 9;
 
     protected override string VisualsPath => "Remnant/remnant.tscn".MonsterImagePath();
