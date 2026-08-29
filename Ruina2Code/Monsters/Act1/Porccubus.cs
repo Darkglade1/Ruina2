@@ -23,7 +23,7 @@ public sealed class Porccubus : AbstractRuinaMonster
     private int PleasureDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int BristleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int ThornsAmt => 1;
-    private int PowerDmg => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
+    private int PowerDmg => 5;
 
     protected override string VisualsPath => "Porccubus/porccubus.tscn".MonsterImagePath();
 
