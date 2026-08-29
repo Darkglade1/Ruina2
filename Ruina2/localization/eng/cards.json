@@ -53,7 +53,7 @@
   "RUINA2-SMILE.description": "Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold] to ALL enemies.",
   "RUINA2-SMILE.title": "Smile",
 
-  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage.\nHeal HP equal to damage dealt.",
+  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage.\nHeal {Heal:diff()} HP.",
   "RUINA2-MIMICRY.title": "Mimicry",
 
   "RUINA2-THIRST.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nWhenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain {StrengthPower:diff()} [gold]Strength[/gold].",
@@ -91,5 +91,20 @@
   "RUINA2-FADED_MEMORIES.title": "Faded Memories",
 
   "RUINA2-HOMING_INSTINCT.description": "At the start of your turn, apply {HomingInstinctPower:diff()} [gold]Yellow Brick Road[/gold] to a random enemy.",
-  "RUINA2-HOMING_INSTINCT.title": "Homing Instinct"
+  "RUINA2-HOMING_INSTINCT.title": "Homing Instinct",
+
+  "RUINA2-THE_FORGOTTEN.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nIf the enemy intends to attack, apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "RUINA2-THE_FORGOTTEN.title": "The Forgotten",
+
+  "RUINA2-HORNET.description": "Deal {Damage:diff()} damage.\nYour next [gold]Attack[/gold] costs 0 and deals double damage.",
+  "RUINA2-HORNET.title": "Hornet",
+
+  "RUINA2-WINGBEAT.description": "[gold]Exhaust[/gold] X{IfUpgraded:show:+1} cards.\nHeal HP and gain [gold]Dexterity[/gold] equal to their combined costs.",
+  "RUINA2-WINGBEAT.title": "Wingbeat",
+
+  "RUINA2-GREEN_STEM.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\nIf this card is [gold]Exhausted[/gold], double the [gold]Poison[/gold] on ALL enemies.\n[gold]Exhaustive[/gold] {Exhaustive:diff()}.",
+  "RUINA2-GREEN_STEM.title": "Green Stem",
+
+  "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add 1 [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame"
 }

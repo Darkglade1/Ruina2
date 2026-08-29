@@ -4,29 +4,27 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Powers.EGO;
 
-namespace Ruina2.Ruina2Code.Cards.EGO.Act2;
+namespace Ruina2.Ruina2Code.Cards.EGO.Act1;
 
-public class Mimicry() : EGOCard(3,
+public class Hornet() : EGOCard(3,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, ValueProp.Move), new HealVar(13)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        Sfx.NothingGoodbye.Play();
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.IntValue);
+        await PowerCmd.Apply<HornetPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars.Heal.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(10);
     }
 }
