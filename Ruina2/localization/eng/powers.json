@@ -3,10 +3,6 @@
   "RUINA2-FURY.smartDescription": "[gold]Little Red[/gold] begins as your [green]ally[/green]. If she lands the killing blow on the [gold]Wolf[/gold], you win. If the [gold]Wolf[/gold] dies by any other means, [gold]Little Red[/gold] heals to full HP, enters an [red]enraged[/red] state, and becomes your [red]enemy[/red].",
   "RUINA2-FURY.title": "Fury With No Outlet",
 
-  "RUINA2-BLEED.description": "Whenever this creature hits with an attack this turn, it takes damage.",
-  "RUINA2-BLEED.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
-  "RUINA2-BLEED.title": "Bleed",
-
   "RUINA2-PARALYSIS.description": "The next Attack you play this turn deals less damage.",
   "RUINA2-PARALYSIS.smartDescription": "The next Attack you play this turn deals [blue]{DamageReduction:diff()}%[/blue] less damage.",
   "RUINA2-PARALYSIS.title": "Paralysis",
@@ -279,5 +275,13 @@
 
   "RUINA2-ADVENT.description": "",
   "RUINA2-ADVENT.smartDescription": "The [blue]{Amount}th[/blue] card you play this combat becomes [gold]Afflicted[/gold] with [purple]Judas[/purple] and loses [purple]Apostle[/purple].",
-  "RUINA2-ADVENT.title": "God's Traitor"
+  "RUINA2-ADVENT.title": "God's Traitor",
+
+  "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, you take damage.",
+  "RUINA2-BLEED.smartDescription": "Whenever you hit with an [gold]Attack[/gold] this turn, you take [blue]{Amount}[/blue] damage.",
+  "RUINA2-BLEED.title": "Bleed",
+
+  "RUINA2-BLEED_ENEMY.description": "Whenever this creature hits with an attack this turn, it takes damage.",
+  "RUINA2-BLEED_ENEMY.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
+  "RUINA2-BLEED_ENEMY.title": "Bleed"
 }
