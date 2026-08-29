@@ -22,13 +22,29 @@ public class Apostle() : Ruina2Card(1, CardType.Status,
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    public override bool HasTurnEndInHandEffect => true;
+    public override bool HasTurnEndInHandEffect
+    {
+        get
+        {
+            if (JustTransformed)
+            {
+                JustTransformed = false;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
     
     public override bool HasBuiltInOverlay => true;
     public string? CustomOverlayPath =>  $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.tscn".AfflictionImagePath();
 
+    public bool JustTransformed = false;
+
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
-    { 
+    {
         await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.Damage, this, null);
     }
     

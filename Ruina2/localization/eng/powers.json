@@ -3,10 +3,6 @@
   "RUINA2-FURY.smartDescription": "[gold]Little Red[/gold] begins as your [green]ally[/green]. If she lands the killing blow on the [gold]Wolf[/gold], you win. If the [gold]Wolf[/gold] dies by any other means, [gold]Little Red[/gold] heals to full HP, enters an [red]enraged[/red] state, and becomes your [red]enemy[/red].",
   "RUINA2-FURY.title": "Fury With No Outlet",
 
-  "RUINA2-BLEED.description": "Whenever this creature hits with an attack this turn, it takes damage.",
-  "RUINA2-BLEED.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
-  "RUINA2-BLEED.title": "Bleed",
-
   "RUINA2-PARALYSIS.description": "The next Attack you play this turn deals less damage.",
   "RUINA2-PARALYSIS.smartDescription": "The next Attack you play this turn deals [blue]{DamageReduction:diff()}%[/blue] less damage.",
   "RUINA2-PARALYSIS.title": "Paralysis",
@@ -175,10 +171,6 @@
   "RUINA2-EXPRESSION.smartDescription": "Whenever {IsMultiplayer:players|you} play [blue]{Amount}[/blue] cards, this creature immediately changes its intent.",
   "RUINA2-EXPRESSION.title": "Today's Expression",
 
-  "RUINA2-ADVENT.description": "",
-  "RUINA2-ADVENT.smartDescription": "The first [blue]{Amount}[/blue] cards {IsMultiplayer:players|you} play this combat are [gold]Afflicted[/gold] with [purple]Apostle[/purple]. {IsMultiplayer:Every|The} [blue]12th[/blue] card is [gold]Afflicted[/gold] with [purple]Judas[/purple] instead.\nAfter [blue]{Amount}[/blue] cards have been played or [blue]{Turns:diff()}[/blue] turns have passed, this creature will [gold]Transform[/gold] at the end of the round.",
-  "RUINA2-ADVENT.title": "Advent",
-
   "RUINA2-ENCHANTED.description": "",
   "RUINA2-ENCHANTED.smartDescription": "This creature's attacks deal [blue]1[/blue] damage.\n[gold]Enchanted[/gold] is removed after this creature loses [blue]{DamageCounter:diff()}[/blue] more HP.",
   "RUINA2-ENCHANTED.title": "Enchanted",
@@ -194,10 +186,6 @@
   "RUINA2-LONG_ARMS.description": "",
   "RUINA2-LONG_ARMS.smartDescription": "Remove ALL [gold]debuffs[/gold] from this creature and the [gold]boss[/gold] at the end of the round.",
   "RUINA2-LONG_ARMS.title": "Long Arms",
-
-  "RUINA2-SMALL_BEAK.description": "",
-  "RUINA2-SMALL_BEAK.smartDescription": "The first [blue]{Amount}[/blue] cards drawn each turn are [gold]Afflicted[/gold] with [purple]Punished[/purple].",
-  "RUINA2-SMALL_BEAK.title": "Small Beak",
 
   "RUINA2-FADING_TWILIGHT.description": "",
   "RUINA2-FADING_TWILIGHT.smartDescription": "Whenever an [gold]Egg[/gold] is destroyed, this creature loses [blue]{Amount}%[/blue] of its current HP.",
@@ -279,6 +267,22 @@
   "RUINA2-LAMENTATION.smartDescription": "The first card you play from your [gold]Hand[/gold] each turn is [gold]Afflicted[/gold] with [purple]Coffin[/purple].",
   "RUINA2-LAMENTATION.title": "Lamentation",
 
+  "RUINA2-SMALL_BEAK.description": "",
+  "RUINA2-SMALL_BEAK.smartDescription": "The first card drawn each turn is [gold]Afflicted[/gold] with [purple]Punished[/purple] until this [gold]Egg[/gold] is destroyed.",
+  "RUINA2-SMALL_BEAK.title": "Small Beak",
+
+  "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, you take damage.",
+  "RUINA2-BLEED.smartDescription": "Whenever you hit with an [gold]Attack[/gold] this turn, you take [blue]{Amount}[/blue] damage.",
+  "RUINA2-BLEED.title": "Bleed",
+
+  "RUINA2-BLEED_ENEMY.description": "Whenever this creature hits with an attack this turn, it takes damage.",
+  "RUINA2-BLEED_ENEMY.smartDescription": "Whenever this creature hits with an attack this turn, it takes [blue]{Amount}[/blue] damage.",
+  "RUINA2-BLEED_ENEMY.title": "Bleed",
+
+  "RUINA2-ADVENT.description": "",
+  "RUINA2-ADVENT.smartDescription": "Every [blue]{Amount}th[/blue] card you play this combat becomes [gold]Afflicted[/gold] with [purple]Judas[/purple]. If the card has [purple]Apostle[/purple], it loses [purple]Apostle[/purple] instead.",
+  "RUINA2-ADVENT.title": "God's Traitor",
+  
   "RUINA2-THIRST_POWER.description": "",
   "RUINA2-THIRST_POWER.smartDescription": "Whenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain [blue]{Amount}[/blue] [gold]Strength[/gold].",
   "RUINA2-THIRST_POWER.title": "Thirst",

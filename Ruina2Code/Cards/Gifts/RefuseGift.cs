@@ -14,7 +14,7 @@ namespace Ruina2.Ruina2Code.Cards.Gifts;
 public class RefuseGift() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Oz.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Fragile>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Fragile>(2)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromPower<Fragile>()

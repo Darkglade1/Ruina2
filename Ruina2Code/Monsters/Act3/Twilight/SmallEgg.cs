@@ -27,7 +27,7 @@ public sealed class SmallEgg : AbstractRuinaMonster
         {
             SmallBeak mutable = (SmallBeak) ModelDb.Power<SmallBeak>().ToMutable();
             mutable.Target = target;
-            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 2, Creature, null);
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
         }
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }

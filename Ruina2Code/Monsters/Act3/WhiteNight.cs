@@ -1,11 +1,13 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
@@ -32,14 +34,16 @@ public sealed class WhiteNight : AbstractRuinaMonster
     public override int MinInitialHp => 666;
     public override int MaxInitialHp => MinInitialHp;
     
-    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 55, 50);
-    private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
-    private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 16, 8);
-    private int RitualGain => 1;
+    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45);
+    private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
+    private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 8, 0);
+    private int RitualGain => 2;
+    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
     private int HealAmt => 25;
     private int BlockAmt => 30;
     private int AdventCards => 12;
     private int StatusAmt => 3;
+    private int NumAfflictions => 11;
 
     protected override string VisualsPath => "WhiteNight/white_night.tscn".MonsterImagePath();
 
@@ -56,7 +60,12 @@ public sealed class WhiteNight : AbstractRuinaMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<Advent>(new ThrowingPlayerChoiceContext(), Creature, AdventCards * CombatState.Players.Count, Creature, null);
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            Advent mutable = (Advent) ModelDb.Power<Advent>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, AdventCards, Creature, null);
+        }
         if (RegenAmt > 0)
         {
             await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(RegenAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
@@ -120,10 +129,11 @@ public sealed class WhiteNight : AbstractRuinaMonster
         if (!awake)
         {
             return PRAYER;
-        } else if (LastMove(stateMachine, PRAYER))
+        }  else if (LastMove(stateMachine, PRAYER) && LastMoveBefore(stateMachine, PRAYER))
         {
             return RISE_AND_SERVE;
-        } else if (LastMove(stateMachine, RISE_AND_SERVE) || LastMove(stateMachine, BEHOLD))
+        }
+        else if (LastMove(stateMachine, RISE_AND_SERVE) || LastMove(stateMachine, BEHOLD))
         {
             if (shouldBuff)
             {
@@ -159,22 +169,27 @@ public sealed class WhiteNight : AbstractRuinaMonster
         await RiseAndServeFullScreenEffect();
         foreach (var target in targets)
         {
-            if (target.Player != null)
+            if (target.Player != null && target.Player?.PlayerCombatState != null)
             {
-                List<CardModel> allApostles = new List<CardModel>();
-                if (target.Player?.PlayerCombatState != null)
+                int numAfflictionsLeft = NumAfflictions;
+                List<CardModel> allCards = target.Player.PlayerCombatState.AllCards.ToList()
+                    .StableShuffle(target.Player.RunState.Rng.Shuffle);
+                foreach (CardModel card in allCards)
                 {
-                    foreach (CardModel card in target.Player.PlayerCombatState.AllCards)
+                    if (numAfflictionsLeft <= 0)
                     {
-                        if (card.Affliction is Afflictions.Apostle)
+                        break;
+                    }
+
+                    if (card.Affliction == null && card.Pile != PileType.Exhaust.GetPile(target.Player))
+                    {
+                        if (card.Type == CardType.Attack || card.Type == CardType.Skill || card.Type == CardType.Power)
                         {
-                            allApostles.Add(card);
+                            await CardCmd.Afflict<Afflictions.Apostle>(card, 1);
+                            CardCmd.Preview(card);
+                            numAfflictionsLeft--;
                         }
                     }
-                }
-                foreach (CardModel apostle in allApostles)
-                {
-                    await CardCmd.TransformTo<Apostle>(apostle, CardPreviewStyle.MessyLayout);
                 }
             }
         }
@@ -186,13 +201,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
         await BlessAnimation();
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);   
         await CreatureCmd.Heal(Creature, Creature.ScaleHpForMultiplayer(HealAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex));
-        int strAmt = 3;
-        int ritualAmount = Creature.GetPowerAmount<RitualPower>();
-        if (ritualAmount > 0)
-        {
-            strAmt = ritualAmount;
-        }
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, strAmt, Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature, null);
         await WaitAnimation(1.0f);
     }
     
@@ -223,6 +232,20 @@ public sealed class WhiteNight : AbstractRuinaMonster
             .Execute(null); 
         await WaitAnimation(1.0f);
     }
+    
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (side == CombatSide.Enemy)
+        {
+            if (MoveStateMachine != null && LastMove(MoveStateMachine, PRAYER) && LastMoveBefore(MoveStateMachine, PRAYER)) 
+            {
+                await Awaken();
+            }
+        }
+    }
 
     public async Task Awaken()
     {
@@ -237,7 +260,6 @@ public sealed class WhiteNight : AbstractRuinaMonster
                 visuals.SetSpineIdleAnimation();
                 Sfx.WhiteNightAppear.Play();
                 MusicPatches.RuinaActMusicPatches.OnWhiteNightAwakened();
-                await PowerCmd.Remove<Advent>(Creature);
                 awake = true;
                 await WaitAnimation(1.0f);
             }

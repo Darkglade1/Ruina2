@@ -11,19 +11,19 @@ public class Judas : Ruina2Affliction
     
     public override void AfterApplied()
     {
-        ++Card.BaseReplayCount;
+        Card.BaseReplayCount+= Amount;
     }
 
     public override void BeforeRemoved()
     {
-        --Card.BaseReplayCount;
+        Card.BaseReplayCount-= Amount;
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card == Card && cardPlay.Card.Affliction is Judas)
         {
-            await CreatureCmd.Damage(choiceContext, Card.Owner.Creature, Amount,
+            await CreatureCmd.Damage(choiceContext, Card.Owner.Creature, 1,
                 ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, Card, cardPlay);
         }
     }

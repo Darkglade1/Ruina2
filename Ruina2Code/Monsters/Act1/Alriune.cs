@@ -27,7 +27,7 @@ public sealed class Alriune : AbstractRuinaMonster
     private int EndDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     private int StatusAmt => 1;
     private int DexDown => 1;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StrengthAmount => 2;
     private int DAMAGE_REDUCTION => 50;
 
     protected override string VisualsPath => "Alriune/alriune.tscn".MonsterImagePath();

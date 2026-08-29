@@ -18,7 +18,7 @@ public sealed class KnightOfDespair : AbstractRuinaMonster
 {
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 180, 160);
     public override int MaxInitialHp => MinInitialHp;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int StrengthAmount => 3;
     private int HPLossAmt => 40;
 
     protected override string VisualsPath => "Knight/knight.tscn".MonsterImagePath();

@@ -21,8 +21,8 @@ public sealed class Bloodbath : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 103, 94);
     
     private int PaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
-    private int DebuffAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
-    private int BleedAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
+    private int DebuffAmt => 1;
+    private int BleedAmt => 3;
     private int BlockAmt => 7;
 
     protected override string VisualsPath => "Bloodbath/bloodbath.tscn".MonsterImagePath();

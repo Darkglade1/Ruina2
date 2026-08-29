@@ -23,9 +23,9 @@ public sealed class BlueStar : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 220, 200);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int SoundDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 31, 28);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
-    private int VulnAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int SoundDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
+    private int StrAmt => 4;
+    private int VulnAmt => 1;
     private int BlockAmt => 13;
 
     protected override string VisualsPath => "BlueStar/Shrine/shrine.tscn".MonsterImagePath();

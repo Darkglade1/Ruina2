@@ -22,7 +22,7 @@ public sealed class AllAroundHelper : AbstractRuinaMonster
     
     private int CleanDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int CleanHits => 2;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 2);
+    private int StrengthAmount => 2;
     private int DamageThreshold => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
 
     protected override string VisualsPath => "Helper/helper.tscn".MonsterImagePath();

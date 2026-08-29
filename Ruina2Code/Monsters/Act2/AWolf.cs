@@ -21,7 +21,7 @@ public sealed class AWolf : AbstractRuinaMonster
     
     private int SwipeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int CripplingStrikeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StrengthAmount => 2;
     private int VulnAmt => 1;
     private int BlockAmt => 7;
 

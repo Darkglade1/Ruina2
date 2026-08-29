@@ -130,7 +130,18 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
             await ResetIdle(0.25f);
             await WaitAnimation(0.25f);
         }
-        await ApplyPowerAndSkipNextDurationTick<Bleed>(targets, BleedAmount);
+
+        if (targets.Count > 0)
+        {
+            if (targets[0].IsPlayer)
+            {
+                await PowerCmd.Apply<Bleed>(new ThrowingPlayerChoiceContext(), targets, BleedAmount, Creature, null);
+            }
+            else
+            {
+                await ApplyPowerAndSkipNextDurationTick<BleedEnemy>(targets, BleedAmount);
+            }
+        }
     }
     
     private async Task Hunt(IReadOnlyList<Creature> targets)
