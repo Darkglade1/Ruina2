@@ -33,7 +33,7 @@ public class Advent() : Ruina2Power
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Player.Creature == Target && DynamicVars["CardCounter"].BaseValue < Amount)
+        if (cardPlay.Card.Owner.Creature == Target && DynamicVars["CardCounter"].BaseValue < Amount)
         {
             DynamicVars["CardCounter"].BaseValue++;
             if (DynamicVars["CardCounter"].BaseValue >= Amount)
