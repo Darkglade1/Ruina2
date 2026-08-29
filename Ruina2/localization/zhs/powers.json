@@ -203,13 +203,13 @@
   "RUINA2-SMALL_BEAK.description": "",
   "RUINA2-SMALL_BEAK.smartDescription": "在这个[gold]蛋[/gold]被摧毁之前，每回合抽到的第一张牌将被[gold]侵蚀[/gold]为[purple]受罚[/purple]。",
   "RUINA2-SMALL_BEAK.title": "小喙",
-  "RUINA2-ADVENT.description": "",
-  "RUINA2-ADVENT.smartDescription": "本场战斗中，你打出的第[blue]{Amount}[/blue]张牌会被[gold]侵蚀[/gold]为[purple]犹大[/purple]，并移除[purple]使徒[/purple]。",
-  "RUINA2-ADVENT.title": "神的背叛者",
   "RUINA2-BLEED.description": "本回合内，每当你以[gold]攻击[/gold]命中目标时，你就会受到伤害。",
   "RUINA2-BLEED.smartDescription": "本回合内，每当你以[gold]攻击[/gold]命中目标时，你就会受到[blue]{Amount}[/blue]点伤害。",
   "RUINA2-BLEED.title": "流血",
   "RUINA2-BLEED_ENEMY.description": "本回合内，每当这个生物以攻击命中目标时，它就会受到伤害。",
   "RUINA2-BLEED_ENEMY.smartDescription": "本回合内，每当这个生物以攻击命中目标时，它就会受到[blue]{Amount}[/blue]点伤害。",
-  "RUINA2-BLEED_ENEMY.title": "流血"
+  "RUINA2-BLEED_ENEMY.title": "流血",
+  "RUINA2-ADVENT.description": "",
+  "RUINA2-ADVENT.smartDescription": "本场战斗中，每第[blue]{Amount}[/blue]张打出的牌都会被[gold]侵蚀[/gold]为[purple]犹大[/purple]。如果该牌带有[purple]使徒[/purple]，则改为移除[purple]使徒[/purple]。",
+  "RUINA2-ADVENT.title": "神的背叛者"
 }

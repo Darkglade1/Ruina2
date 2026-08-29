@@ -36,14 +36,18 @@ public class Advent() : Ruina2Power
         if (cardPlay.Player.Creature == Target && DynamicVars["CardCounter"].BaseValue < Amount)
         {
             DynamicVars["CardCounter"].BaseValue++;
-            if (DynamicVars["CardCounter"].BaseValue % Amount == 0)
+            if (DynamicVars["CardCounter"].BaseValue >= Amount)
             {
+                Flash();
                 if (cardPlay.Card.Affliction != null)
                 {
                     CardCmd.ClearAffliction(cardPlay.Card);
                 }
-                Flash();
-                await CardCmd.Afflict<Judas>(cardPlay.Card, 2);
+                else
+                {
+                    await CardCmd.Afflict<Judas>(cardPlay.Card, 1);   
+                }
+                DynamicVars["CardCounter"].BaseValue = 0;
             }
             InvokeDisplayAmountChanged();
         }
