@@ -23,7 +23,7 @@ public sealed class KingOfGreed : AbstractRuinaMonster
     private int FixationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int EdacityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
     private int VulnAmt => 1;
-    private int FrailAmt => 2;
+    private int FrailAmt => 1;
 
     protected override string VisualsPath => "Greed/greed.tscn".MonsterImagePath();
 
@@ -50,7 +50,7 @@ public sealed class KingOfGreed : AbstractRuinaMonster
 
     private MoveState GetEdacityState()
     {
-        return new MoveState(EDACITY, Edacity, new SingleAttackIntent(EdacityDamage), new DebuffIntent());
+        return new MoveState(EDACITY, Edacity, new SingleAttackIntent(EdacityDamage));
     }
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -87,6 +87,7 @@ public sealed class KingOfGreed : AbstractRuinaMonster
             .FromMonster(this)
             .Execute(null);
         await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, VulnAmt, Creature,  null);
+        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, FrailAmt, Creature,  null);
         await ResetIdle();
         await WaitAnimation(0.25f);
         await SpecialReadyAnimation();
@@ -98,7 +99,6 @@ public sealed class KingOfGreed : AbstractRuinaMonster
         await DamageCmd.Attack(EdacityDamage)
             .FromMonster(this)
             .Execute(null);
-        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, FrailAmt, Creature,  null);
         await ResetIdle();
     }
     

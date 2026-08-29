@@ -3,17 +3,9 @@
   "RUINA2-LAUREL_WREATH.description": "This card deals full damage to [gold]Alriune[/gold].",
   "RUINA2-LAUREL_WREATH.extraCardText": "",
 
-  "RUINA2-APOSTLE.title": "Apostle",
-  "RUINA2-APOSTLE.description": "This card will be [gold]Transformed[/gold] into a [gold]Status[/gold] by the enemy.",
-  "RUINA2-APOSTLE.extraCardText": "",
-
   "RUINA2-JUDAS.title": "Judas",
   "RUINA2-JUDAS.description": "This card gains [gold]Replay[/gold] but causes you to lose HP when played.",
-  "RUINA2-JUDAS.extraCardText": "[purple]Lose {Amount} HP.[/purple]",
-
-  "RUINA2-PUNISHED.title": "Punished",
-  "RUINA2-PUNISHED.description": "This card costs [blue]1[/blue] more this turn.",
-  "RUINA2-PUNISHED.extraCardText": "",
+  "RUINA2-JUDAS.extraCardText": "[purple]Lose 1 HP.[/purple]",
 
   "RUINA2-FROZEN.title": "Frozen",
   "RUINA2-FROZEN.description": "This card is [gold]Unplayable[/gold].",
@@ -21,5 +13,17 @@
 
   "RUINA2-COFFIN.title": "Coffin",
   "RUINA2-COFFIN.description": "This card is [gold]Ethereal[/gold] and [gold]Unplayable[/gold].",
-  "RUINA2-COFFIN.extraCardText": ""
+  "RUINA2-COFFIN.extraCardText": "",
+
+  "RUINA2-PUNISHED.title": "Punished",
+  "RUINA2-PUNISHED.description": "This card costs [blue]1[/blue] more.",
+  "RUINA2-PUNISHED.extraCardText": "",
+
+  "RUINA2-APOSTLE.title": "Apostle",
+  "RUINA2-APOSTLE.description": "At the end of your turn, if this card is in your [gold]Hand[/gold], it is [gold]Transformed[/gold] into a [gold]Status[/gold].",
+  "RUINA2-APOSTLE.extraCardText": "",
+
+  "RUINA2-BLEED.title": "Bleed",
+  "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, take damage.",
+  "RUINA2-BLEED.extraCardText": ""
 }

@@ -22,7 +22,7 @@ public sealed class SanguineBat : AbstractRuinaMonster
     
     private int BloodsuckingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
     private int BloodsuckingHits => 2;
-    private int TeethDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int TeethDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int StrengthAmount => 2;
     private int ParalysisAmt => 1;
 

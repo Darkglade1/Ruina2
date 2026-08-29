@@ -2,9 +2,11 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -23,8 +25,8 @@ public sealed class Pinocchio : AbstractRuinaMonster
     private int LearnDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int LearnHits => 2;
     private int LieDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int DebuffAmt => 1;
+    private int StrAmt => 2;
+    private int StatusAmt => 2;
     private int BlockAmt => 20;
     private int ArtifactAmt => 2;
 
@@ -54,7 +56,7 @@ public sealed class Pinocchio : AbstractRuinaMonster
 
     private MoveState GetFibState()
     {
-        return new MoveState(FIB, Fib, new DefendIntent(), new DebuffIntent());
+        return new MoveState(FIB, Fib, new DefendIntent(), new StatusIntent(StatusAmt));
     }
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -102,8 +104,7 @@ public sealed class Pinocchio : AbstractRuinaMonster
     {
         await BlockAnimation(targets);
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);
-        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
-        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
+        await CardPileCmd.AddToCombatAndPreview<Wound>(targets, PileType.Discard, StatusAmt, null);
         await ResetIdle(1.0f);
     }
     

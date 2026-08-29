@@ -22,7 +22,7 @@ public sealed class QueenBee : AbstractRuinaMonster
     
     private int HornetDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 11);
     private int BlockAmt => 9;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StrengthAmount => 2;
 
     protected override string VisualsPath => "QueenBee/queen_bee.tscn".MonsterImagePath();
 

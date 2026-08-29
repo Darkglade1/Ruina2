@@ -2,9 +2,11 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -24,12 +26,12 @@ public sealed class BlackSwan : AbstractRuinaMonster
     
     private int WritheDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int WritheHits => 2;
-    private int RealityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int RealityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int ShriekDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     
     private int BlockAmt => 7;
     private int StrAmt => 1;
-    private int FrailAmt => 1;
+    private int StatusAmt => 2;
     private int ErosionAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
 
     protected override string VisualsPath => "BlackSwan/black_swan.tscn".MonsterImagePath();
@@ -60,7 +62,7 @@ public sealed class BlackSwan : AbstractRuinaMonster
 
     private MoveState GetRealityState()
     {
-        return new MoveState(REALITY, Reality, new SingleAttackIntent(RealityDamage), new DebuffIntent());
+        return new MoveState(REALITY, Reality, new SingleAttackIntent(RealityDamage), new StatusIntent(StatusAmt));
     }
     
     private MoveState GetShriekState()
@@ -184,7 +186,7 @@ public sealed class BlackSwan : AbstractRuinaMonster
         await DamageCmd.Attack(RealityDamage)
             .FromMonster(this)
             .Execute(null);
-        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, FrailAmt, Creature,  null);
+        await CardPileCmd.AddToCombatAndPreview<Slimed>(targets, PileType.Discard, StatusAmt, null);
         await ResetIdle();
     }
     

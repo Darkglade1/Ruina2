@@ -23,7 +23,7 @@ public sealed class ForsakenMurderer : AbstractRuinaMonster
     private int ChainedDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int RingingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int RingingHits => 2;
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int StrengthAmount => 1;
 
     protected override string VisualsPath => "ForsakenMurderer/murderer.tscn".MonsterImagePath();
 

@@ -20,7 +20,7 @@ public sealed class HeartOfAspiration : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 61, 55);
     
     private int BeatsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StrAmt => 2;
 
     protected override string VisualsPath => "Heart/heart.tscn".MonsterImagePath();
 

@@ -21,6 +21,7 @@ public sealed class SpiderBud : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 42, 38);
     
     private int CatchingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
+    private int AttackDamage  => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int BlockAmt => 5;
 
     protected override string VisualsPath => "SpiderBud/spider_bud.tscn".MonsterImagePath();
@@ -28,6 +29,7 @@ public sealed class SpiderBud : AbstractRuinaMonster
     private const string PROTECTIVE_INSTINCTS = "PROTECTIVE_INSTINCTS";
     private const string COCOON = "COCOON";
     private const string CATCHING_FOOD = "CATCHING_FOOD";
+    private const string ATTACK = "ATTACK";
 
     public bool SpiderlingJustDied = false;
     
@@ -53,22 +55,30 @@ public sealed class SpiderBud : AbstractRuinaMonster
         return new MoveState(CATCHING_FOOD, CatchingFood, new SingleAttackIntent(CatchingDamage));
     }
     
+    private MoveState GetAttackState()
+    {
+        return new MoveState(ATTACK, Attack, new SingleAttackIntent(AttackDamage));
+    }
+    
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         var states = new List<MonsterState>();
         var state1 = GetProtectiveInstinctsState();
         var state2 = GetCocoonState();
         var state3 = GetCatchingFoodState();
+        var state4 = GetAttackState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
 
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
         state3.FollowUpState = moveBranch;
+        state4.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
         states.Add(state3);
+        states.Add(state4);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
@@ -86,6 +96,10 @@ public sealed class SpiderBud : AbstractRuinaMonster
             if (LastMoveIgnoringMove(stateMachine, PROTECTIVE_INSTINCTS, CATCHING_FOOD))
             {
                 return COCOON;
+            }
+            if (LastMoveIgnoringMove(stateMachine, COCOON, CATCHING_FOOD))
+            {
+                return ATTACK;
             }
             else
             {
@@ -115,6 +129,15 @@ public sealed class SpiderBud : AbstractRuinaMonster
     {
         await AttackAnimation(targets);
         await DamageCmd.Attack(CatchingDamage)
+            .FromMonster(this)
+            .Execute(null);
+        await ResetIdle(1.0f);
+    }
+    
+    private async Task Attack(IReadOnlyList<Creature> targets)
+    {
+        await AttackAnimation(targets);
+        await DamageCmd.Attack(AttackDamage)
             .FromMonster(this)
             .Execute(null);
         await ResetIdle(1.0f);

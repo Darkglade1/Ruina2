@@ -19,7 +19,7 @@ public sealed class LeftShoe : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 26, 24);
     
     private int DesireDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
-    private int BleedAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int BleedAmt => 1;
 
     protected override string VisualsPath => "LeftShoe/left_shoe.tscn".MonsterImagePath();
 

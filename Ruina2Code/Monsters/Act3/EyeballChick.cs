@@ -18,11 +18,9 @@ public sealed class EyeballChick : AbstractRuinaMonster
 {
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 44, 40);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 51, 46);
-
-    private int StareDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
-    private int PierceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
-    private int DebuffAmt => 1;
+    
+    private int PierceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int StrAmt => 4;
 
     protected override string VisualsPath => "EyeballChick/eyeball_chick.tscn".MonsterImagePath();
 
@@ -31,12 +29,12 @@ public sealed class EyeballChick : AbstractRuinaMonster
 
     private MoveState GetStareState()
     {
-        return new MoveState(STARE, Stare, new SingleAttackIntent(StareDamage), new DebuffIntent());
+        return new MoveState(STARE, Stare, new BuffIntent());
     }
 
     private MoveState GetPierceState()
     {
-        return new MoveState(PIERCE, Pierce, new SingleAttackIntent(PierceDamage), new BuffIntent());
+        return new MoveState(PIERCE, Pierce, new SingleAttackIntent(PierceDamage));
     }
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -60,7 +58,7 @@ public sealed class EyeballChick : AbstractRuinaMonster
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
         List<string> possibilities = new List<string>();
-        if (!LastTwoMoves(stateMachine, STARE)) {
+        if (!LastMove(stateMachine, STARE)) {
             possibilities.Add(STARE);
         }
         if (!LastTwoMoves(stateMachine, PIERCE)) {
@@ -71,11 +69,7 @@ public sealed class EyeballChick : AbstractRuinaMonster
     
     private async Task Stare(IReadOnlyList<Creature> targets)
     {
-        await AttackAnimation(targets);
-        await DamageCmd.Attack(StareDamage)
-            .FromMonster(this)
-            .Execute(null);
-        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature,  null);
         await ResetIdle();
     }
     
@@ -85,7 +79,6 @@ public sealed class EyeballChick : AbstractRuinaMonster
         await DamageCmd.Attack(PierceDamage)
             .FromMonster(this)
             .Execute(null);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature,  null);
         await ResetIdle();
     }
     

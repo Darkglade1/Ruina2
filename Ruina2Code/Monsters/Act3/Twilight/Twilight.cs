@@ -24,7 +24,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act3.Twilight;
 
 public sealed class Twilight : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 500, 450);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 530, 480);
     public override int MaxInitialHp => MinInitialHp;
     
     private int PeaceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 40, 36);

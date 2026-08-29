@@ -24,13 +24,13 @@ public sealed class Worshipper : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 42, 38);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 48, 44);
     
-    private int ForDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
-    private int FaithDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int HearDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
+    private int ForDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
+    private int FaithDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int HearDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     private int MartyrDamage => 15;
     private int DebuffAmt => 1;
-    private const float STRONG_ATTACK_HP_THRESHOLD = 0.66f;
-    private const float MEET_AGAIN_HP_THRESHOLD = 0.33f;
+    private const float STRONG_ATTACK_HP_THRESHOLD = 0.65f;
+    private const float MEET_AGAIN_HP_THRESHOLD = 0.35f;
 
     protected override string VisualsPath => "Worshipper/worshipper.tscn".MonsterImagePath();
 

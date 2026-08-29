@@ -11,12 +11,12 @@ public class Judas : Ruina2Affliction
     
     public override void AfterApplied()
     {
-        ++Card.BaseReplayCount;
+        Card.BaseReplayCount+= Amount;
     }
 
     public override void BeforeRemoved()
     {
-        --Card.BaseReplayCount;
+        Card.BaseReplayCount-= Amount;
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
