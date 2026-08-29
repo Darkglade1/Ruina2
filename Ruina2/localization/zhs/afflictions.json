@@ -7,7 +7,7 @@
   "RUINA2-APOSTLE.extraCardText": "",
   "RUINA2-JUDAS.title": "犹大",
   "RUINA2-JUDAS.description": "这张牌获得[gold]重放[/gold]，但打出时会使你损失生命。",
-  "RUINA2-JUDAS.extraCardText": "[purple]损失{Amount}点生命。[/purple]",
+  "RUINA2-JUDAS.extraCardText": "[purple]损失1点生命。[/purple]",
   "RUINA2-PUNISHED.title": "受罚",
   "RUINA2-PUNISHED.description": "这张牌本回合的耗能增加[blue]1[/blue]。",
   "RUINA2-PUNISHED.extraCardText": "",

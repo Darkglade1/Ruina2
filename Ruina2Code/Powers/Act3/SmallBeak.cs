@@ -23,6 +23,7 @@ public class SmallBeak() : Ruina2Power
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1), new("CardsAffected", 0)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Punished>();
+    
     public override Task BeforeHandDraw(
         Player player,
         PlayerChoiceContext choiceContext,
@@ -30,13 +31,6 @@ public class SmallBeak() : Ruina2Power
     {
         if (player.Creature == Target)
         {
-            if (player.PlayerCombatState != null)
-            {
-                foreach (CardModel card in player.PlayerCombatState.AllCards.Where(c => c.Affliction is Punished))
-                {
-                    CardCmd.ClearAffliction(card);
-                }
-            }
             DynamicVars["CardsAffected"].BaseValue = 0;
         }
         return Task.CompletedTask;
