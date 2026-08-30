@@ -317,5 +317,13 @@
 
   "RUINA2-GRINDER_POWER.description": "",
   "RUINA2-GRINDER_POWER.smartDescription": "The first time you deal [blue]{DamageThreshold:diff()}[/blue] attack damage each turn, gain {Amount:energyIcons()} next turn.",
-  "RUINA2-GRINDER_POWER.title": "Grinder Mk. 5-2"
+  "RUINA2-GRINDER_POWER.title": "Grinder Mk. 5-2",
+
+  "RUINA2-RED_EYES_POWER.description": "",
+  "RUINA2-RED_EYES_POWER.smartDescription": "The next debuff applied to this creature is increased by [blue]{Amount}%[/blue].",
+  "RUINA2-RED_EYES_POWER.title": "Red Eyes",
+
+  "RUINA2-LAETITIA_POWER.description": "",
+  "RUINA2-LAETITIA_POWER.smartDescription": "The first{Amount:plural:| [blue]{Amount}[/blue]} [blue]0[/blue] or [blue]1[/blue] cost {Amount:plural:card|cards} you play each turn {Amount:plural:is|are} played twice.",
+  "RUINA2-LAETITIA_POWER.title": "Laetitia"
 }

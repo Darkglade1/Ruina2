@@ -124,5 +124,26 @@
   "RUINA2-MAGIC_BULLET.title": "Magic Bullet",
 
   "RUINA2-GRINDER.description": "The first time you deal {DamageThreshold:diff()} attack damage each turn, gain {Energy:energyIcons()} next turn.",
-  "RUINA2-GRINDER.title": "Grinder Mk. 5-2"
+  "RUINA2-GRINDER.title": "Grinder Mk. 5-2",
+
+  "RUINA2-BLACK_SWAN.description": "Apply {Erosion:diff()} [gold]Erosion[/gold].",
+  "RUINA2-BLACK_SWAN.title": "Black Swan",
+
+  "RUINA2-RED_EYES.description": "Deal {Damage:diff()} damage.\nDouble the next debuff applied to the enemy.",
+  "RUINA2-RED_EYES.title": "Red Eyes",
+
+  "RUINA2-SANGUINE_DESIRE.description": "Deal {Damage:diff()} damage.\nApply [gold]Bleed[/gold] equal to half the damage dealt.",
+  "RUINA2-SANGUINE_DESIRE.title": "Sanguine Desire",
+
+  "RUINA2-LAETITIA.description": "The first 0 or 1 cost card you play each turn is played twice.",
+  "RUINA2-LAETITIA.title": "Laetitia",
+
+  "RUINA2-TODAYS_EXPRESSION.description": "Choose one:\nGain {Block:diff()} [gold]Block[/gold] or {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-TODAYS_EXPRESSION.title": "Today's Expression",
+
+  "RUINA2-SHY_LOOK.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-SHY_LOOK.title": "Shy Look",
+
+  "RUINA2-FIERCE_LOOK.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-FIERCE_LOOK.title": "Fierce Look"
 }

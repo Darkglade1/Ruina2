@@ -24,10 +24,10 @@ public class EGOCardPool : CustomCardPoolModel
     public override float V => 1.0f; //Brightness
 
     //Alternatively, leave these values at 1 and provide a custom frame image.
-    public override Texture2D CustomFrame(CustomCardModel card)
-    {
-        return PreloadManager.Cache.GetTexture2D($"cards/frame_{card.Type.ToString().ToLowerInvariant()}_ego.png".ImagePath());
-    }
+    // public override Texture2D CustomFrame(CustomCardModel card)
+    // {
+    //     return PreloadManager.Cache.GetTexture2D($"cards/frame_{card.Type.ToString().ToLowerInvariant()}_ego.png".ImagePath());
+    // }
 
     //Color of small card icons
     public override Color DeckEntryCardColor => Color.Color8(69, 2, 30);
