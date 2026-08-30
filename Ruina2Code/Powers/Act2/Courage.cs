@@ -21,7 +21,7 @@ public class Courage() : Ruina2Power
         PowerStackType.Counter;
     
     public override int DisplayAmount => DynamicVars["AttackedCount"].IntValue;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("AttackedCount",0), new ("StrengthGain", AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2))];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("AttackedCount",0), new ("StrengthGain", 2)];
 
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
