@@ -309,5 +309,13 @@
 
   "RUINA2-FOURTH_MATCH_FLAME_POWER.description": "",
   "RUINA2-FOURTH_MATCH_FLAME_POWER.smartDescription": "At the start of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies and add 1 [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
-  "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "Fourth Match Flame"
+  "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "Fourth Match Flame",
+
+  "RUINA2-MAGIC_BULLET_POWER.description": "",
+  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "Receives [blue]{Amount}%[/blue] more damage from attacks this turn.",
+  "RUINA2-MAGIC_BULLET_POWER.title": "Magic Bullet",
+
+  "RUINA2-GRINDER_POWER.description": "",
+  "RUINA2-GRINDER_POWER.smartDescription": "The first time you deal [blue]{DamageThreshold:diff()}[/blue] attack damage each turn, gain {Amount:energyIcons()} next turn.",
+  "RUINA2-GRINDER_POWER.title": "Grinder Mk. 5-2"
 }

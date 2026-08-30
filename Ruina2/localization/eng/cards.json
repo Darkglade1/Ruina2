@@ -106,5 +106,23 @@
   "RUINA2-GREEN_STEM.title": "Green Stem",
 
   "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add 1 [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
-  "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame"
+  "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame",
+
+  "RUINA2-REGRET.description": "Deal {Damage:diff()} damage.\nDeal {Damage:diff()} damage again for each [gold]Status[/gold] or [gold]Curse[/gold] in your [gold]Hand[/gold].{InCombat:\n(Hits {CalculatedHits:diff()} extra {CalculatedHits:plural:time|times})|}",
+  "RUINA2-REGRET.title": "Regret",
+
+  "RUINA2-HARMONY.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].\nIf [gold]Fatal[/gold], permanently increase the [gold]Strength[/gold] gain by {Increase:diff()}.",
+  "RUINA2-HARMONY.title": "Harmony",
+
+  "RUINA2-SOLEMN_LAMENT.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nShuffle a [gold]Eternal Rest[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-SOLEMN_LAMENT.title": "Solemn Lament",
+
+  "RUINA2-ETERNAL_REST.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-ETERNAL_REST.title": "Eternal Rest",
+
+  "RUINA2-MAGIC_BULLET.description": "Enemy receives {MagicBulletPower:diff()}% more damage from attacks this turn.{IfUpgraded:show:\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.}",
+  "RUINA2-MAGIC_BULLET.title": "Magic Bullet",
+
+  "RUINA2-GRINDER.description": "The first time you deal {DamageThreshold:diff()} attack damage each turn, gain {Energy:energyIcons()} next turn.",
+  "RUINA2-GRINDER.title": "Grinder Mk. 5-2"
 }

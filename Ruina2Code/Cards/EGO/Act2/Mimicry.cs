@@ -14,6 +14,7 @@ public class Mimicry() : EGOCard(3,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, ValueProp.Move), new HealVar(13)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
