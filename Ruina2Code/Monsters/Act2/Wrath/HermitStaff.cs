@@ -82,7 +82,7 @@ public sealed class HermitStaff : AbstractMultiIntentMonster
         if (creature != Creature)
             return;
     
-        if (OtherSideTargetMonster != null && OtherSideTargetMonster.Monster is ServantOfWrath wrath && hermit != null)
+        if (OtherSideTargetMonster != null && OtherSideTargetMonster.Monster is ServantOfWrath wrath && hermit != null && !wrath.enraged)
         {
             wrath.Targets = [hermit];
         }
