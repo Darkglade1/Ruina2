@@ -325,5 +325,17 @@
 
   "RUINA2-LAETITIA_POWER.description": "",
   "RUINA2-LAETITIA_POWER.smartDescription": "The first{Amount:plural:| [blue]{Amount}[/blue]} [blue]0[/blue] or [blue]1[/blue] cost {Amount:plural:card|cards} you play each turn {Amount:plural:is|are} played twice.",
-  "RUINA2-LAETITIA_POWER.title": "Laetitia"
+  "RUINA2-LAETITIA_POWER.title": "Laetitia",
+
+  "RUINA2-FAINT_AROMA_POWER.description": "",
+  "RUINA2-FAINT_AROMA_POWER.smartDescription": "The first [gold]Attack[/gold] you play each turn applies [gold]Poison[/gold] equal to [blue]{Amount}%[/blue] of the damage dealt.",
+  "RUINA2-FAINT_AROMA_POWER.title": "Faint Aroma",
+
+  "RUINA2-ASPIRATION_POWER.description": "",
+  "RUINA2-ASPIRATION_POWER.smartDescription": "At the end of combat, heal [blue]{Amount}[/blue] HP.",
+  "RUINA2-ASPIRATION_POWER.title": "Aspiration",
+
+  "RUINA2-STARBOUND.description": "At the start of this creature's turn, it loses HP based on your current {singleStarIcon}.",
+  "RUINA2-STARBOUND.smartDescription": "At the start of this creature's turn, it loses HP equal to [blue]{Amount}[/blue] times your current {singleStarIcon}.",
+  "RUINA2-STARBOUND.title": "Starbound"
 }
