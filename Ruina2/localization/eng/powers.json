@@ -308,7 +308,7 @@
   "RUINA2-HORNET_POWER.title": "Hornet",
 
   "RUINA2-FOURTH_MATCH_FLAME_POWER.description": "",
-  "RUINA2-FOURTH_MATCH_FLAME_POWER.smartDescription": "At the start of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies and add 1 [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-FOURTH_MATCH_FLAME_POWER.smartDescription": "At the start of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies and add a [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
   "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "Fourth Match Flame",
 
   "RUINA2-MAGIC_BULLET_POWER.description": "",

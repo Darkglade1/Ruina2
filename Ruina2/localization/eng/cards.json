@@ -105,7 +105,7 @@
   "RUINA2-GREEN_STEM.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\nIf this card is [gold]Exhausted[/gold], double the [gold]Poison[/gold] on ALL enemies.\n[gold]Exhaustive[/gold] {Exhaustive:diff()}.",
   "RUINA2-GREEN_STEM.title": "Green Stem",
 
-  "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add 1 [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add a [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
   "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame",
 
   "RUINA2-REGRET.description": "Deal {Damage:diff()} damage.\nDeal {Damage:diff()} damage again for each [gold]Status[/gold] or [gold]Curse[/gold] in your [gold]Hand[/gold].{InCombat:\n(Hits {CalculatedHits:diff()} extra {CalculatedHits:plural:time|times})|}",
@@ -145,5 +145,21 @@
   "RUINA2-SHY_LOOK.title": "Shy Look",
 
   "RUINA2-FIERCE_LOOK.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].",
-  "RUINA2-FIERCE_LOOK.title": "Fierce Look"
+  "RUINA2-FIERCE_LOOK.title": "Fierce Look",
+
+  "RUINA2-FRAGMENTS_FROM_SOMEWHERE.description": "Steal the enemy's [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-FRAGMENTS_FROM_SOMEWHERE.title": "Fragments from Somewhere",
+
+  "RUINA2-PLEASURE.description": "Gain {Energy:energyIcons()} and {ThornsPower:diff()} [gold]Thorns[/gold].\nIf this card is [gold]Exhausted[/gold], lose {HpLoss:diff()} HP.\nThis card is automatically played when drawn.\n[gold]Exhaustive[/gold] {Exhaustive:diff()}.",
+  "RUINA2-PLEASURE.title": "Pleasure",
+
+  "RUINA2-OUR_GALAXY.description": "Put {Cards:diff()} cards from your [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+  "RUINA2-OUR_GALAXY.selectionScreenPrompt": "Choose {Cards:diff()} cards to add to your [gold]Hand[/gold].",
+  "RUINA2-OUR_GALAXY.title": "Our Galaxy",
+
+  "RUINA2-REMORSE.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nThis card costs {energyPrefix:energyIcons(1)} less and [gold]Exhausts[/gold] 1 card for each other card in your [gold]Hand[/gold] up to a max of {Cap:diff()}.{InCombat:\n([gold]Exhausts[/gold] {CalculatedExhaust:diff()} {CalculatedExhaust:plural:card|cards})|}",
+  "RUINA2-REMORSE.title": "Remorse",
+
+  "RUINA2-WRIST_CUTTER.description": "Gain {Energy:energyIcons()}.\nAdd a [gold]Wound[/gold] with [gold]Retain[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-WRIST_CUTTER.title": "Wrist Cutter"
 }
