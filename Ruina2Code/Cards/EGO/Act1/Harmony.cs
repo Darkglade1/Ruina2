@@ -12,12 +12,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Cards.EGO.Act1;
 
-public class Harmony() : EGOCard(1,
+public class Harmony() : EGOCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    public const int _baseStrength = 1;
-    public int _currentStrength = 1;
+    public const int _baseStrength = 2;
+    public int _currentStrength = 2;
     public int _increasedStrength;
     
     [SavedProperty]

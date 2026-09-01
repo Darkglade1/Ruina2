@@ -10,7 +10,7 @@ using Ruina2.Ruina2Code.Powers.EGO;
 
 namespace Ruina2.Ruina2Code.Cards.EGO.Act3;
 
-public class SoundOfAStar() : EGOCard(2,
+public class SoundOfAStar() : EGOCard(3,
     CardType.Attack, CardRarity.Rare,
     TargetType.AllEnemies)
 {

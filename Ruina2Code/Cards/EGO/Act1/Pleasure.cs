@@ -14,7 +14,7 @@ public class Pleasure() : EGOCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<ThornsPower>(2), new ExhaustiveVar(3), new HpLossVar(8)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<ThornsPower>(2), new ExhaustiveVar(3), new HpLossVar(6)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [EnergyHoverTip, HoverTipFactory.FromPower<ThornsPower>()];
 
