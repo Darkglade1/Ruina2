@@ -194,5 +194,8 @@
   "RUINA2-PARADISE_LOST.title": "Paradise Lost",
 
   "RUINA2-TWILIGHT.description": "[gold]Evoke[/gold] your [gold]Dark[/gold] Orbs twice.\n[gold]Channel[/gold] 1 [gold]Dark[/gold]. It grows 50% faster and deals damage to ALL enemies.{IfUpgraded:show:\nTrigger the passive ability of all [gold]Dark[/gold] Orbs.}",
-  "RUINA2-TWILIGHT.title": "Twilight"
+  "RUINA2-TWILIGHT.title": "Twilight",
+
+  "RUINA2-APOCALYPSE.description": "Deal {Damage:diff()} damage.\nIf your HP is at or below {PlayerHPThreshold:diff()}%, deals double damage.\nIf the enemy's HP is at or below {EnemyHPThreshold:diff()}%, applies [gold]Doom[/gold] equal to damage dealt.",
+  "RUINA2-APOCALYPSE.title": "Apocalypse"
 }
