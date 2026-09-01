@@ -157,8 +157,11 @@
   "RUINA2-OUR_GALAXY.selectionScreenPrompt": "Choose {Cards:diff()} cards to add to your [gold]Hand[/gold].",
   "RUINA2-OUR_GALAXY.title": "Our Galaxy",
 
-  "RUINA2-FAINT_AROMA.description": "The first [gold]Attack[/gold] you play each turn applies [gold]Poison[/gold] equal to damage dealt.",
+  "RUINA2-FAINT_AROMA.description": "The first [gold]Attack[/gold] you play each turn applies [gold]Poison[/gold] equal to half the damage dealt.",
   "RUINA2-FAINT_AROMA.title": "Faint Aroma",
+
+  "RUINA2-DA_CAPO.description": "Deal {Damage:diff()} damage to ALL enemies.\nPlay a copy of the last card you played this combat.",
+  "RUINA2-DA_CAPO.title": "Da Capo",
 
   "RUINA2-REMORSE.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nThis card costs {energyPrefix:energyIcons(1)} less and [gold]Exhausts[/gold] 1 card for each other card in your [gold]Hand[/gold] up to a max of {Cap:diff()}.{InCombat:\n([gold]Exhausts[/gold] {CalculatedExhaust:diff()} {CalculatedExhaust:plural:card|cards})|}",
   "RUINA2-REMORSE.title": "Remorse",
@@ -172,6 +175,21 @@
   "RUINA2-MARIONETTE.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.\nIncrease this card's cost{IfUpgraded:show: and card draw} by {CostIncrease:diff()} this combat.",
   "RUINA2-MARIONETTE.title": "Marionette",
 
+  "RUINA2-FROST_SPLINTER.description": "At the start of your turn, gain {Energy:energyIcons()}, draw [blue]{FrostSplinterPower:diff()}[/blue] additional {FrostSplinterPower:plural:card|cards}, and [purple]Freeze[/purple] [blue]{FrostSplinterPower:diff()}[/blue] {FrostSplinterPower:plural:card|cards}.",
+  "RUINA2-FROST_SPLINTER.title": "Frost Splinter",
+
   "RUINA2-SOUND_OF_A_STAR.description": "Deal {Damage:diff()} damage and apply {Starbound:diff()} [gold]Starbound[/gold] to ALL enemies.\nGain {Stars:starIcons()}.",
-  "RUINA2-SOUND_OF_A_STAR.title": "Sound of a Star"
+  "RUINA2-SOUND_OF_A_STAR.title": "Sound of a Star",
+
+  "RUINA2-PENITENCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nHeal {Heal:diff()} HP.",
+  "RUINA2-PENITENCE.title": "Penitence",
+
+  "RUINA2-DEAD_SILENCE.description": "Deal {Damage:diff()} damage.\nIf this kills an enemy, gain {Energy:energyIcons()} next turn.\nTake an extra turn after this one.",
+  "RUINA2-DEAD_SILENCE.title": "Dead Silence",
+
+  "RUINA2-HEAVEN.description": "Gain {Block:diff()} [gold]Block[/gold] X times.\nWhenever you are attacked this turn, deal damage back equal to your remaining [gold]Block[/gold].",
+  "RUINA2-HEAVEN.title": "Heaven",
+
+  "RUINA2-PARADISE_LOST.description": "Whenever you [gold]Exhaust[/gold] 12 cards, deal {Damage:diff()} damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.",
+  "RUINA2-PARADISE_LOST.title": "Paradise Lost"
 }

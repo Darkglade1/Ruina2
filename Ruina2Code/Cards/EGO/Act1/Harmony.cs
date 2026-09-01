@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Cards.EGO.Act1;
 
-public class Harmony() : EGOCard(2,
+public class Harmony() : EGOCard(1,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {

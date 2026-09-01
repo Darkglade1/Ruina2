@@ -335,7 +335,19 @@
   "RUINA2-ASPIRATION_POWER.smartDescription": "At the end of combat, heal [blue]{Amount}[/blue] HP.",
   "RUINA2-ASPIRATION_POWER.title": "Aspiration",
 
+  "RUINA2-FROST_SPLINTER_POWER.description": "",
+  "RUINA2-FROST_SPLINTER_POWER.smartDescription": "At the start of your turn, gain {Amount:energyIcons()}, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}, and [purple]Freeze[/purple] [blue]{Amount}[/blue] {Amount:plural:card|cards}.",
+  "RUINA2-FROST_SPLINTER_POWER.title": "Frost Splinter",
+
   "RUINA2-STARBOUND.description": "At the start of this creature's turn, it loses HP based on your current {singleStarIcon}.",
   "RUINA2-STARBOUND.smartDescription": "At the start of this creature's turn, it loses HP equal to [blue]{Amount}[/blue] times your current {singleStarIcon}.",
-  "RUINA2-STARBOUND.title": "Starbound"
+  "RUINA2-STARBOUND.title": "Starbound",
+
+  "RUINA2-HEAVEN_POWER.description": "",
+  "RUINA2-HEAVEN_POWER.smartDescription": "Whenever you are attacked this turn, deal damage back equal to your remaining [gold]Block[/gold].",
+  "RUINA2-HEAVEN_POWER.title": "Heaven",
+
+  "RUINA2-PARADISE_LOST_POWER.description": "",
+  "RUINA2-PARADISE_LOST_POWER.smartDescription": "Whenever you [gold]Exhaust[/gold] [blue]12[/blue] cards, deal [blue]{Amount}[/blue] damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] [blue]{ExhaustAmount:diff()}[/blue] {ExhaustAmount:plural:card|cards}.",
+  "RUINA2-PARADISE_LOST_POWER.title": "Paradise Lost"
 }

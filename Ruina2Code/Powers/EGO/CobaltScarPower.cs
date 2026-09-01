@@ -27,7 +27,7 @@ public class CobaltScarPower() : Ruina2Power
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type == CardType.Attack)
+        if (cardPlay.Card.Type == CardType.Attack && cardPlay.Card.Owner.Creature == Owner)
         {
             DynamicVars["AttackCounter"].BaseValue += 1;
             if (DynamicVars["AttackCounter"].BaseValue >= Amount)
