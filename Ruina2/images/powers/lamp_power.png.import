@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqxdq0mr0gjod"
-path="res://.godot/imported/justicia.png-b1810ba615bf9b4b48bd7d2c1ef91a24.ctex"
+uid="uid://cgnjpcoy7hoxs"
+path="res://.godot/imported/lamp_power.png-48e61e5dc8437cd1275e467e553daeda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/card_portraits/justicia.png"
-dest_files=["res://.godot/imported/justicia.png-b1810ba615bf9b4b48bd7d2c1ef91a24.ctex"]
+source_file="res://Ruina2/images/powers/lamp_power.png"
+dest_files=["res://.godot/imported/lamp_power.png-48e61e5dc8437cd1275e467e553daeda.ctex"]
 
 [params]
 

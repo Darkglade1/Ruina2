@@ -197,5 +197,14 @@
   "RUINA2-TWILIGHT.title": "Twilight",
 
   "RUINA2-APOCALYPSE.description": "Deal {Damage:diff()} damage.\nIf your HP is at or below {PlayerHPThreshold:diff()}%, deals double damage.\nIf the enemy's HP is at or below {EnemyHPThreshold:diff()}%, applies [gold]Doom[/gold] equal to damage dealt.",
-  "RUINA2-APOCALYPSE.title": "Apocalypse"
+  "RUINA2-APOCALYPSE.title": "Apocalypse",
+
+  "RUINA2-JUSTITIA.description": "Deal {Damage:diff()} damage.\nIf the enemy's HP is at or below {HPThreshold:diff()}%, kill them instead.{InCombat:\n(Enemy's HP threshold is {CalculatedHP:diff()}.)|}",
+  "RUINA2-JUSTITIA.title": "Justitia",
+
+  "RUINA2-LAMP.description": "Enemy loses {StrengthPower:diff()} [gold]Strength[/gold] this turn.\nWhenever you are attacked this turn, deal {LampPower:diff()} damage back.",
+  "RUINA2-LAMP.title": "Lamp",
+
+  "RUINA2-BEAK.description": "At the start of your turn, reduce the cost of the highest cost card in your [gold]Hand[/gold] to 0 and give it [gold]Exhaust[/gold].",
+  "RUINA2-BEAK.title": "Beak"
 }

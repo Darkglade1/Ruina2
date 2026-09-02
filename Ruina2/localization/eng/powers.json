@@ -349,5 +349,13 @@
 
   "RUINA2-PARADISE_LOST_POWER.description": "",
   "RUINA2-PARADISE_LOST_POWER.smartDescription": "Whenever you [gold]Exhaust[/gold] [blue]12[/blue] cards, deal [blue]{Amount}[/blue] damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] [blue]{ExhaustAmount:diff()}[/blue] {ExhaustAmount:plural:card|cards}.",
-  "RUINA2-PARADISE_LOST_POWER.title": "Paradise Lost"
+  "RUINA2-PARADISE_LOST_POWER.title": "Paradise Lost",
+
+  "RUINA2-LAMP_POWER.description": "",
+  "RUINA2-LAMP_POWER.smartDescription": "Whenever you are attacked this turn, deal [blue]{Amount}[/blue] damage back.",
+  "RUINA2-LAMP_POWER.title": "Lamp",
+
+  "RUINA2-BEAK_POWER.description": "",
+  "RUINA2-BEAK_POWER.smartDescription": "At the start of your turn, reduce the cost of the{Amount:plural:| [blue]{Amount}[/blue]} highest cost {Amount:plural:card|cards} in your [gold]Hand[/gold] to [blue]0[/blue] and give {Amount:plural:it|them} [gold]Exhaust[/gold].",
+  "RUINA2-BEAK_POWER.title": "Beak"
 }
