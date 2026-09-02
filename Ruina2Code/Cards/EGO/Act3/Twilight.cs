@@ -18,6 +18,7 @@ public class Twilight() : EGOCard(1,
     TargetType.Self)
 {
     public static readonly SpireField<DarkOrb, bool> IsTwilightDarkOrb = new(() => false);
+    public static readonly SpireField<DarkOrb, bool> IsTwilightDarkOrbUpgraded = new(() => false);
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Channeling), HoverTipFactory.FromOrb<DarkOrb>()];
@@ -43,15 +44,11 @@ public class Twilight() : EGOCard(1,
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         var darkOrb = (DarkOrb)ModelDb.Orb<DarkOrb>().ToMutable();
         IsTwilightDarkOrb.Set(darkOrb, true);
-        await OrbCmd.Channel(choiceContext, darkOrb, Owner);
         if (IsUpgraded)
         {
-            IEnumerable<OrbModel> orbModels = Owner.PlayerCombatState.OrbQueue.Orbs.Where(orb => orb is DarkOrb);
-            foreach (OrbModel darknessOrb in orbModels)
-            {
-                await OrbCmd.Passive(choiceContext, darknessOrb, null);
-            }
+            IsTwilightDarkOrbUpgraded.Set(darkOrb, true);
         }
+        await OrbCmd.Channel(choiceContext, darkOrb, Owner);
     }
 
     protected override void OnUpgrade()
@@ -96,8 +93,8 @@ public class Twilight() : EGOCard(1,
         {
             if (__instance is DarkOrb dark)
             {
-                var isTwilightDarkOrb = IsTwilightDarkOrb.Get(dark);
-                if (isTwilightDarkOrb)
+                var isTwilightDarkOrbUpgraded = IsTwilightDarkOrbUpgraded.Get(dark);
+                if (isTwilightDarkOrbUpgraded)
                 {
                     __result = new LocString("orbs","RUINA2-TWILIGHT_DARK_ORB.smartDescription");
                     return false;
@@ -112,8 +109,8 @@ public class Twilight() : EGOCard(1,
     {
         private static bool Prefix(DarkOrb __instance, PlayerChoiceContext playerChoiceContext, ref Task<IEnumerable<Creature>> __result)
         {
-            var isTwilightDarkOrb = IsTwilightDarkOrb.Get(__instance);
-            if (isTwilightDarkOrb)
+            var isTwilightDarkOrbUpgraded = IsTwilightDarkOrbUpgraded.Get(__instance);
+            if (isTwilightDarkOrbUpgraded)
             {
                 __result = Wrap(__instance, playerChoiceContext);
                 return false;
