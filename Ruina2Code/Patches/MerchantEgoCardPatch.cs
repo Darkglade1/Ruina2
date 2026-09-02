@@ -17,7 +17,23 @@ public static class MerchantEgoCardPatch
         if (RunManager.Instance.State?.Act is AbstractRuinaAct)
         {
             __instance._colorlessCardEntries.Clear();
-            List<CardModel> list = EGOCardPool.GetAct2EgoCards();
+            List<CardModel> list;
+            if (RunManager.Instance.State?.Act is Asiyah)
+            {
+                list = EGOCardPool.GetAct1EgoCards();
+            } else if (RunManager.Instance.State?.Act is Briah)
+            {
+                list = EGOCardPool.GetAct2EgoCards();
+            } else if (RunManager.Instance.State?.Act is Atziluth)
+            {
+                list = EGOCardPool.GetAct3EgoCards();
+            }
+            else
+            {
+                list = EGOCardPool.GetAct1EgoCards();
+                list.AddRange(EGOCardPool.GetAct2EgoCards());
+                list.AddRange(EGOCardPool.GetAct3EgoCards());
+            }
             for (int i = 0; i < 2; i++)
             {
                 MerchantCardEntry merchantCardEntry = new MerchantCardEntry(__instance.Player, __instance, list, CardRarity.Rare);

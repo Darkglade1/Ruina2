@@ -15,7 +15,7 @@ public class Apocalypse() : EGOCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move), 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(22, ValueProp.Move), 
         new("PlayerHPThreshold", 50), new("EnemyHPThreshold", 50)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DoomPower>()];
@@ -73,6 +73,6 @@ public class Apocalypse() : EGOCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 }
