@@ -19,7 +19,7 @@ public class RCorp() : Ruina2Event()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new ("UpgradeCards", 2),
-        new ("UpgradeCost", 16),
+        new ("UpgradeCost", 18),
         new("RemoveCards", 1),
         new("RemoveCost", 4),
     ];

@@ -24,5 +24,40 @@
   "RUINA2-R_CORP.pages.INITIAL.options.COWARD.title": "The Coward",
   "RUINA2-R_CORP.pages.INITIAL.options.COWARD.description": "[gold]Remove[/gold] [blue]{RemoveCards}[/blue] card. Lose [red]{RemoveCost}[/red] Max HP.",
   "RUINA2-R_CORP.pages.KILLER.description": "\"It appears my deduction was correct. So I suppose that means the next round of drinks is on you, Maxim.\"\n\n\"Damnit! I thought that one looked wily enough to survive, but I guess not.\"\n\nAs the others bickered, the commander simply looked on impassively. For she knew that it was likely that they would all be replaced someday.",
-  "RUINA2-R_CORP.pages.COWARD.description": "\"Hah! I guess running isn't always such a bad option for a rabbit, is it?\"\n\n\"I didn't think such a passive variant of Myo could win; I suppose it’s my loss then.\"\n\nAs the others bickered, the commander simply looked on impassively. For she knew that it was likely that they would all be replaced someday."
+  "RUINA2-R_CORP.pages.COWARD.description": "\"Hah! I guess running isn't always such a bad option for a rabbit, is it?\"\n\n\"I didn't think such a passive variant of Myo could win; I suppose it’s my loss then.\"\n\nAs the others bickered, the commander simply looked on impassively. For she knew that it was likely that they would all be replaced someday.",
+
+  "RUINA2-LANGUAGE.title": "Floor of Language",
+  "RUINA2-LANGUAGE.pages.INITIAL.description": "\"Are you really a lowly Grade 9 Fixer?\"\n\nThe man in front of her coughed, waving away the [purple]smoke[/purple] from her cigar. \"It's the truth, I swear! Why are you so skeptical?\"\n\n\"Gut feeling. But if you really are bottom of the barrel, that means you'd be grateful to be trained by me, a former [gold]Color[/gold] of the City, right?\"\n\n\". . . I just remembered I have an appointment with Netzach -\"\n\n\"No, you don't.\" She grabs him before he can run off.",
+  "RUINA2-LANGUAGE.pages.INITIAL.options.CROSS_SWORDS.title": "Cross Swords",
+  "RUINA2-LANGUAGE.pages.INITIAL.options.CROSS_SWORDS.description": "[gold]Enchant[/gold] an [gold]Attack[/gold] with [purple]{Enchantment}[/purple] [blue]{EnchantmentAmt}[/blue].",
+  "RUINA2-LANGUAGE.pages.INITIAL.options.TRAIN_EGO.title": "Train EGO",
+  "RUINA2-LANGUAGE.pages.INITIAL.options.TRAIN_EGO.description": "Obtain a random [gold]EGO[/gold] card.",
+  "RUINA2-LANGUAGE.pages.CROSS_SWORDS.description": "He eyes her greatsword, the [purple]eyeballs[/purple] embedded in the grotesque blade staring back at him in turn. \"Are you really going to use that monster of a thing on me?\"\n\nShe hefts her weapon, relishing in the [gold]familiar[/gold] feeling. \"Don't worry, it's not like you're going to die. Not permanently, anyway.\"\n\n\"That doesn't make me feel any better!\"",
+  "RUINA2-LANGUAGE.pages.TRAIN_EGO.description": "A familiar [red]burning[/red] feeling fills her body, and once it abated, she was once again clad in the [purple]terrifying[/purple] visage that earned her Color.\n\n\"Hey, wait, I thought you were going to show me how to do that!\"\n\n\"I just did, didn't I? Now, hurry up and manifest yours before I split you in half.\"\n\nThat day, she learned that Roland had a very colorful vocabulary. She would have to add some of the lesser-known words to the language books later.",
+
+  "RUINA2-ZWEI_ASSOCIATION.title": "Zwei Association",
+  "RUINA2-ZWEI_ASSOCIATION.pages.INITIAL.description":  "\"Our [red]casualty[/red] rates have [jitter]skyrocketed[/jitter] over the past few months. This level of attrition is unsustainable; at this rate, our [gold]Association[/gold] will cease to be [gold]relevant[/gold]!\"\n\nThe woman pounds her fist on the table. \"Something needs to be done. Either we make efforts to [gold]improve[/gold] our training and equipment, or we make efforts to scout out these [purple]monstrosities[/purple] before facing them.\"",
+  "RUINA2-ZWEI_ASSOCIATION.pages.INITIAL.options.TRAINING.title": "Training",
+  "RUINA2-ZWEI_ASSOCIATION.pages.INITIAL.options.TRAINING.description": "Pay [red]{GoldCost}[/red] [gold]Gold[/gold]. Obtain a [gold]Rare[/gold] card reward.",
+  "RUINA2-ZWEI_ASSOCIATION.pages.INITIAL.options.SCOUTING.title": "Scouting",
+  "RUINA2-ZWEI_ASSOCIATION.pages.INITIAL.options.SCOUTING.description": "Lose [red]{ScoutingCost}[/red] Max HP. Obtain an [gold]EGO[/gold] card reward.",
+  "RUINA2-ZWEI_ASSOCIATION.pages.TRAINING.description": "\"Very good. I'll make plans for a new training regimen immediately.\"\n\nThe meeting adjourns, and you find yourself finally free of a [gold]memory[/gold] that was not yours.",
+  "RUINA2-ZWEI_ASSOCIATION.pages.SCOUTING.description": "\"Very well then. I will lead the first expedition myself.\"\n\nThe meeting adjourns, and you find yourself finally free of a [gold]memory[/gold] that was not yours.",
+
+  "RUINA2-SOCIAL_SCIENCES.title": "Floor of Social Sciences",
+  "RUINA2-SOCIAL_SCIENCES.pages.INITIAL.description": "You see a [blue]blue[/blue]-haired man pouring a drink. Despite his apparently [gold]normal[/gold] look, you can't help but wonder if this is a trick of one of the [red]monsters[/red].\n\n\"Ah, a guest! You don't look like one of the librarians here, but that's no reason to be a rude host! Come, allow me to pour you a drink.\"\n\nHis calm demeanor and [green]pleasant[/green] attitude win you over. You sit yourself down at the table.",
+  "RUINA2-SOCIAL_SCIENCES.pages.INITIAL.options.DRINK.title": "Drink",
+  "RUINA2-SOCIAL_SCIENCES.pages.INITIAL.options.DRINK.description": "Heal [green]{Heal}[/green] HP.",
+  "RUINA2-SOCIAL_SCIENCES.pages.INITIAL.options.AUGMENT.title": "Augment the drink first",
+  "RUINA2-SOCIAL_SCIENCES.pages.INITIAL.options.AUGMENT.description": "Lose [gold]{Potion}[/gold]. Gain [blue]{MaxHP}[/blue] Max HP.",
+  "RUINA2-SOCIAL_SCIENCES.pages.DRINK.description": "The drink was soothing, like relaxing after a long day of work.\n\nYou wish this moment could last [gold]forever[/gold].",
+  
+  "RUINA2-BLANK.title": "",
+  "RUINA2-BLANK.pages.INITIAL.description": "",
+  "RUINA2-BLANK.pages.INITIAL.options.OPTION1.title": "",
+  "RUINA2-BLANK.pages.INITIAL.options.OPTION1.description": "",
+  "RUINA2-BLANK.pages.INITIAL.options.OPTION2.title": "",
+  "RUINA2-BLANK.pages.INITIAL.options.OPTION2.description": "",
+  "RUINA2-BLANK.pages.OPTION1.description": "",
+  "RUINA2-BLANK.pages.OPTION2.description": ""
 }
