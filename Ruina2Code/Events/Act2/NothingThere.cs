@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Relics;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
@@ -42,5 +43,10 @@ public class NothingThere() : Ruina2Event()
     {
         await PlayerCmd.GainGold(goldReward, Owner!);
         SetEventFinished(PageDescription("NEAR"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

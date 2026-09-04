@@ -1,11 +1,11 @@
 {
   "RUINA2-GLIMPSE_OF_EGO.description": "Upon pickup, obtain a random [gold]EGO[/gold] card to add to your [gold]Deck[/gold].",
-  "RUINA2-GLIMPSE_OF_EGO.eventDescription": "Obtain a random [gold]EGO[/gold] card to add to your [gold]Deck[/gold].",
+  "RUINA2-GLIMPSE_OF_EGO.eventDescription": "Obtain a random [gold]EGO[/gold] card.",
   "RUINA2-GLIMPSE_OF_EGO.flavor": "The human mind holds infinite potential. This is but a tiny sliver of it.",
   "RUINA2-GLIMPSE_OF_EGO.title": "Glimpse of EGO",
 
   "RUINA2-BOOK_OF_EGO.description": "Upon pickup, choose [blue]1[/blue] of [blue]3[/blue] [gold]EGO[/gold] cards to add to your Deck, and add [blue]1[/blue] [red]Decay[/red] to your [gold]Deck[/gold].",
-  "RUINA2-BOOK_OF_EGO.eventDescription": "Choose [blue]1[/blue] of [blue]3[/blue] [gold]EGO[/gold] cards to add to your Deck, and add [blue]1[/blue] [red]Decay[/red] to your [gold]Deck[/gold].",
+  "RUINA2-BOOK_OF_EGO.eventDescription": "Choose [blue]1[/blue] of [blue]3[/blue] [gold]EGO[/gold] cards to add to your Deck. Add [blue]1[/blue] [red]Decay[/red] to your [gold]Deck[/gold].",
   "RUINA2-BOOK_OF_EGO.flavor": "There is a light within all of us. A light that will one day break free and change the world.",
   "RUINA2-BOOK_OF_EGO.title": "Book of EGO",
 

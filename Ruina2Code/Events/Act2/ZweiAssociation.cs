@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Cards.EGO;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
@@ -60,5 +61,10 @@ public class ZweiAssociation() : Ruina2Event()
             cardReward
         });
         SetEventFinished(PageDescription("SCOUTING"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

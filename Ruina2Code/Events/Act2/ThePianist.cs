@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Enchantments;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
@@ -50,5 +51,10 @@ public class ThePianist() : Ruina2Event()
             }
         }
         SetEventFinished(PageDescription("SUCCUMB"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

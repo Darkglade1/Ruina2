@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Cards.EGO.Act2;
 using Ruina2.Ruina2Code.Relics;
 
@@ -35,5 +36,10 @@ public class WizardOfOz() : Ruina2Event()
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         await CardPileCmd.AddCurseToDeck<Injury>(Owner!);
         SetEventFinished(PageDescription("REFUSE"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

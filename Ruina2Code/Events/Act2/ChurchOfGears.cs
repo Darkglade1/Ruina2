@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Acts;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
 
@@ -50,5 +51,10 @@ public class ChurchOfGears() : Ruina2Event()
             CardCmd.Upgrade(random.cardAdded);
         }
         SetEventFinished(PageDescription("ESCAPE"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

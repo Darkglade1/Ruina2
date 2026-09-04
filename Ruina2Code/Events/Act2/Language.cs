@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Cards.EGO;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
@@ -52,5 +53,10 @@ public class Language() : Ruina2Event()
         var card = Owner.RunState.CreateCard(egoCards[0], Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         SetEventFinished(PageDescription("TRAIN_EGO"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }

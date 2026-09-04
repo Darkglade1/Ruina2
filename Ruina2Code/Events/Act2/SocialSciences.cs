@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Ruina2.Ruina2Code.Acts;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
 
@@ -70,4 +71,9 @@ public class SocialSciences() : Ruina2Event()
     }
 
     protected override void OnEventFinished() => Owner!.CanUseOrRemovePotions = true;
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
+    }
 }

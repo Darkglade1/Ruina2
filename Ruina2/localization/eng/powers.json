@@ -300,7 +300,7 @@
   "RUINA2-HOMING_INSTINCT_POWER.title": "Homing Instinct",
 
   "RUINA2-YELLOW_BRICK_ROAD.description": "The next time you hit this creature with an [gold]Attack[/gold], gain {energyPrefix:energyIcons(1)}.",
-  "RUINA2-YELLOW_BRICK_ROAD.smartDescription": "The next time you hit this creature with an [gold]Attack[/gold], gain {Amount:energyIcons()}.",
+  "RUINA2-YELLOW_BRICK_ROAD.smartDescription": "The next time {Applier.StringValue:cond:[gold]{Applier.StringValue}[/gold] hits|you hit} this creature with an [gold]Attack[/gold], gain {Amount:energyIcons()}.",
   "RUINA2-YELLOW_BRICK_ROAD.title": "Yellow Brick Road",
 
   "RUINA2-HORNET_POWER.description": "",
@@ -340,7 +340,7 @@
   "RUINA2-FROST_SPLINTER_POWER.title": "Frost Splinter",
 
   "RUINA2-STARBOUND.description": "At the start of this creature's turn, it loses HP based on your current {singleStarIcon}.",
-  "RUINA2-STARBOUND.smartDescription": "At the start of this creature's turn, it loses HP equal to [blue]{Amount}[/blue] times your current {singleStarIcon}.",
+  "RUINA2-STARBOUND.smartDescription": "At the start of this creature's turn, it loses HP equal to [blue]{Amount}[/blue] times {Applier.StringValue:cond:[gold]{Applier.StringValue}'s[/gold]|your} current {singleStarIcon}.",
   "RUINA2-STARBOUND.title": "Starbound",
 
   "RUINA2-HEAVEN_POWER.description": "",

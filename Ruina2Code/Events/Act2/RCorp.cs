@@ -3,8 +3,10 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Acts;
 
 namespace Ruina2.Ruina2Code.Events.Act2;
 
@@ -43,5 +45,10 @@ public class RCorp() : Ruina2Event()
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, DynamicVars["RemoveCards"].IntValue);
         await CardPileCmd.RemoveFromDeck((await CardSelectCmd.FromDeckForRemoval(Owner, prefs)).ToList());
         SetEventFinished(PageDescription("COWARD"));
+    }
+    
+    protected override bool IsAllowedForAct(ActModel act)
+    {
+        return act is Briah;
     }
 }
