@@ -281,5 +281,85 @@
 
   "RUINA2-ADVENT.description": "",
   "RUINA2-ADVENT.smartDescription": "Every [blue]{Amount}th[/blue] card you play this combat becomes [gold]Afflicted[/gold] with [purple]Judas[/purple]. If the card has [purple]Apostle[/purple], it loses [purple]Apostle[/purple] instead.",
-  "RUINA2-ADVENT.title": "God's Traitor"
+  "RUINA2-ADVENT.title": "God's Traitor",
+  
+  "RUINA2-THIRST_POWER.description": "",
+  "RUINA2-THIRST_POWER.smartDescription": "Whenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-THIRST_POWER.title": "Thirst",
+
+  "RUINA2-COBALT_SCAR_POWER.description": "",
+  "RUINA2-COBALT_SCAR_POWER.smartDescription": "Whenever you play [blue]{Amount}[/blue] [gold]Attacks[/gold], deal [blue]{Damage:diff()}[/blue] damage to ALL enemies.",
+  "RUINA2-COBALT_SCAR_POWER.title": "Cobalt Scar",
+
+  "RUINA2-SWORD_SHARPENED_POWER.description": "",
+  "RUINA2-SWORD_SHARPENED_POWER.smartDescription": "[gold]Sword Sharpened by Tears[/gold] has been played from your [gold]Hand[/gold] on this enemy [blue]{Amount}[/blue] {Amount:plural:time|times}.",
+  "RUINA2-SWORD_SHARPENED_POWER.title": "Sword Sharpened by Tears",
+
+  "RUINA2-HOMING_INSTINCT_POWER.description": "",
+  "RUINA2-HOMING_INSTINCT_POWER.smartDescription": "At the start of your turn, apply [blue]{Amount}[/blue] [gold]Yellow Brick Road[/gold] to a random enemy.",
+  "RUINA2-HOMING_INSTINCT_POWER.title": "Homing Instinct",
+
+  "RUINA2-YELLOW_BRICK_ROAD.description": "The next time you hit this creature with an [gold]Attack[/gold], gain {energyPrefix:energyIcons(1)}.",
+  "RUINA2-YELLOW_BRICK_ROAD.smartDescription": "The next time {Applier.StringValue:cond:[gold]{Applier.StringValue}[/gold] hits|you hit} this creature with an [gold]Attack[/gold], gain {Amount:energyIcons()}.",
+  "RUINA2-YELLOW_BRICK_ROAD.title": "Yellow Brick Road",
+
+  "RUINA2-HORNET_POWER.description": "",
+  "RUINA2-HORNET_POWER.smartDescription": "Your next{Amount:plural:| [blue]{Amount}[/blue]} [gold]{Amount:plural:Attack|Attacks}[/gold] costs [blue]0[/blue] and [gold]{Amount:plural:deals|deal}[/gold] double damage.",
+  "RUINA2-HORNET_POWER.title": "Hornet",
+
+  "RUINA2-FOURTH_MATCH_FLAME_POWER.description": "",
+  "RUINA2-FOURTH_MATCH_FLAME_POWER.smartDescription": "At the start of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies and add a [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "Fourth Match Flame",
+
+  "RUINA2-MAGIC_BULLET_POWER.description": "",
+  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "Receives [blue]{Amount}%[/blue] more damage from attacks this turn.",
+  "RUINA2-MAGIC_BULLET_POWER.title": "Magic Bullet",
+
+  "RUINA2-GRINDER_POWER.description": "",
+  "RUINA2-GRINDER_POWER.smartDescription": "The first time you deal [blue]{DamageThreshold:diff()}[/blue] attack damage each turn, gain {Amount:energyIcons()} next turn.",
+  "RUINA2-GRINDER_POWER.title": "Grinder Mk. 5-2",
+
+  "RUINA2-RED_EYES_POWER.description": "",
+  "RUINA2-RED_EYES_POWER.smartDescription": "The next debuff applied to this creature is increased by [blue]{Amount}%[/blue].",
+  "RUINA2-RED_EYES_POWER.title": "Red Eyes",
+
+  "RUINA2-LAETITIA_POWER.description": "",
+  "RUINA2-LAETITIA_POWER.smartDescription": "The first{Amount:plural:| [blue]{Amount}[/blue]} [blue]0[/blue] or [blue]1[/blue] cost {Amount:plural:card|cards} you play each turn {Amount:plural:is|are} played twice.",
+  "RUINA2-LAETITIA_POWER.title": "Laetitia",
+
+  "RUINA2-FAINT_AROMA_POWER.description": "",
+  "RUINA2-FAINT_AROMA_POWER.smartDescription": "The first [gold]Attack[/gold] you play each turn applies [gold]Poison[/gold] equal to [blue]{Amount}%[/blue] of the damage dealt.",
+  "RUINA2-FAINT_AROMA_POWER.title": "Faint Aroma",
+
+  "RUINA2-ASPIRATION_POWER.description": "",
+  "RUINA2-ASPIRATION_POWER.smartDescription": "At the end of combat, heal [blue]{Amount}[/blue] HP.",
+  "RUINA2-ASPIRATION_POWER.title": "Aspiration",
+
+  "RUINA2-FROST_SPLINTER_POWER.description": "",
+  "RUINA2-FROST_SPLINTER_POWER.smartDescription": "At the start of your turn, gain {Amount:energyIcons()}, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}, and [purple]Freeze[/purple] [blue]{Amount}[/blue] {Amount:plural:card|cards}.",
+  "RUINA2-FROST_SPLINTER_POWER.title": "Frost Splinter",
+
+  "RUINA2-STARBOUND.description": "At the start of this creature's turn, it loses HP based on your current {singleStarIcon}.",
+  "RUINA2-STARBOUND.smartDescription": "At the start of this creature's turn, it loses HP equal to [blue]{Amount}[/blue] times {Applier.StringValue:cond:[gold]{Applier.StringValue}'s[/gold]|your} current {singleStarIcon}.",
+  "RUINA2-STARBOUND.title": "Starbound",
+
+  "RUINA2-HEAVEN_POWER.description": "",
+  "RUINA2-HEAVEN_POWER.smartDescription": "Whenever you are attacked this turn, deal damage back equal to your remaining [gold]Block[/gold].",
+  "RUINA2-HEAVEN_POWER.title": "Heaven",
+
+  "RUINA2-PARADISE_LOST_POWER.description": "",
+  "RUINA2-PARADISE_LOST_POWER.smartDescription": "Whenever you [gold]Exhaust[/gold] [blue]12[/blue] cards, deal [blue]{Amount}[/blue] damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] [blue]{ExhaustAmount:diff()}[/blue] {ExhaustAmount:plural:card|cards}.",
+  "RUINA2-PARADISE_LOST_POWER.title": "Paradise Lost",
+
+  "RUINA2-LAMP_POWER.description": "",
+  "RUINA2-LAMP_POWER.smartDescription": "Whenever you are attacked this turn, deal [blue]{Amount}[/blue] damage back.",
+  "RUINA2-LAMP_POWER.title": "Lamp",
+
+  "RUINA2-BEAK_POWER.description": "",
+  "RUINA2-BEAK_POWER.smartDescription": "At the start of your turn, reduce the cost of the{Amount:plural:| [blue]{Amount}[/blue]} highest cost {Amount:plural:card|cards} in your [gold]Hand[/gold] to [blue]0[/blue] and give {Amount:plural:it|them} [gold]Exhaust[/gold].",
+  "RUINA2-BEAK_POWER.title": "Beak",
+
+  "RUINA2-GOODBYE_POWER.description": "",
+  "RUINA2-GOODBYE_POWER.smartDescription": "The next [gold]Attack[/gold] you play deals double damage.",
+  "RUINA2-GOODBYE_POWER.title": "Goodbye"
 }

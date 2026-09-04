@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Ruina2.Ruina2Code.Extensions;
-using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Powers.Act1;
 
@@ -12,8 +11,8 @@ public class FearTempStrLoss : TemporaryStrengthPower, ICustomPower
 {
     public override AbstractModel OriginModel => ModelDb.Power<Fear>();
     
-    public string CustomPackedIconPath => "flex.png".PowerImagePath();
-    public string CustomBigIconPath => "flex.png".BigPowerImagePath();
+    public string CustomPackedIconPath => "shackle.png".PowerImagePath();
+    public string CustomBigIconPath => "shackle.png".BigPowerImagePath();
 
     protected override bool IsPositive => false;
     

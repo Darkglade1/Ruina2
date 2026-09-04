@@ -1,6 +1,6 @@
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Acts;
 using Ruina2.Ruina2Code.Encounters.Act2;
+using Ruina2.Ruina2Code.Events.Act2;
 
 namespace Ruina2.Ruina2Code.Acts;
 
@@ -33,7 +33,23 @@ public class Briah() : AbstractRuinaAct(2)
     
     public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<OzBoss>(), ModelDb.Encounter<RedWolfBoss>(), ModelDb.Encounter<JesterBoss>()];
 
-    public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Hive>().AllEvents;
+    public override IEnumerable<EventModel> AllEvents {
+        get
+        {
+            return [
+                ModelDb.Event<ThePianist>(),
+                ModelDb.Event<ChurchOfGears>(),
+                ModelDb.Event<RCorp>(),
+                ModelDb.Event<Language>(),
+                ModelDb.Event<ZweiAssociation>(),
+                ModelDb.Event<SocialSciences>(),
+                ModelDb.Event<NothingThere>(),
+                ModelDb.Event<WizardOfOz>(),
+                //ModelDb.Event<TheLanternKey>(),
+                //ModelDb.Event<ZenWeaver>()
+            ];
+        }
+    }
     
     public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act2";
     

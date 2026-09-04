@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Relics;
 
 namespace Ruina2.Ruina2Code.Events;
 public class NeowAngela : CustomAncientModel
@@ -58,7 +59,6 @@ public class NeowAngela : CustomAncientModel
         RelicOption<FishingRod>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<GoldenPearl>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<Kaleidoscope>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<LeadPaperweight>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<LostCoffer>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<MassiveScroll>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<NeowsTorment>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
@@ -66,7 +66,8 @@ public class NeowAngela : CustomAncientModel
         RelicOption<PhialHolster>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<PreciseScissors>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<ScrollBoxes>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<WingedBoots>(customDonePage: "NEOW.pages.DONE.POSITIVE.description")
+        RelicOption<WingedBoots>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
+        RelicOption<GlimpseOfEgo>(customDonePage: "NEOW.pages.DONE.POSITIVE.description")
       };
     }
   }
@@ -120,7 +121,8 @@ public class NeowAngela : CustomAncientModel
         RelicOption<NeowsBones>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
         RelicOption<PrecariousShears>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
         RelicOption<SilkenTress>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<SilverCrucible>(customDonePage: "NEOW.pages.DONE.CURSED.description")
+        RelicOption<SilverCrucible>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
+        RelicOption<BookOfEgo>(customDonePage: "NEOW.pages.DONE.CURSED.description")
       };
     }
   }
@@ -145,6 +147,8 @@ public class NeowAngela : CustomAncientModel
         list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is NewLeaf));
       if (eventOption?.Relic is PrecariousShears)
         list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is PreciseScissors));
+      if (eventOption?.Relic is BookOfEgo)
+        list2.RemoveAll((Predicate<EventOption>) (o => o.Relic is GlimpseOfEgo));
       if (!(eventOption?.Relic is LargeCapsule))
       {
         if (Rng.NextBool())

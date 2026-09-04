@@ -26,7 +26,7 @@
   "RUINA2-APOSTLE.description": "At the end of your turn, if this is in your [gold]Hand[/gold], take {Damage:diff()} damage.",
   "RUINA2-APOSTLE.title": "Apostle",
 
-  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:diff()} this combat.",
+  "RUINA2-DAZZLED.description": "When this card is drawn, increase its cost by {CostIncrease:energyIcons()} this combat.",
   "RUINA2-DAZZLED.title": "Dazzled",
 
   "RUINA2-FOREST_KEEPER_LOCK.description": "Gain {Block:diff()} [gold]Block[/gold].",
@@ -45,5 +45,166 @@
   "RUINA2-FALSE_GIFT3.title": "Accept False Gift",
 
   "RUINA2-REFUSE_GIFT.description": "Gain {Fragile:diff()} [gold]Fragile[/gold].",
-  "RUINA2-REFUSE_GIFT.title": "Refuse Gift"
+  "RUINA2-REFUSE_GIFT.title": "Refuse Gift",
+
+  "RUINA2-CRIMSON_SCAR.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Scry[/gold] {Scry:diff()}.\nGain {VigorPower:diff()} [gold]Vigor[/gold] for each card discarded.",
+  "RUINA2-CRIMSON_SCAR.title": "Crimson Scar",
+
+  "RUINA2-SMILE.description": "Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold] to ALL enemies.",
+  "RUINA2-SMILE.title": "Smile",
+
+  "RUINA2-MIMICRY.description": "Deal {Damage:diff()} damage.\nHeal {Heal:diff()} HP.",
+  "RUINA2-MIMICRY.title": "Mimicry",
+
+  "RUINA2-THIRST.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nWhenever you hit a [gold]Bleeding[/gold] enemy with an [gold]Attack[/gold] this turn, gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-THIRST.title": "Thirst",
+
+  "RUINA2-COBALT_SCAR.description": "Whenever you play {Cards:diff()} [gold]Attacks[/gold], deal {Damage:diff()} damage to ALL enemies.",
+  "RUINA2-COBALT_SCAR.title": "Cobalt Scar",
+
+  "RUINA2-LOVE_AND_HATE.description": "Deal {Damage:diff()}*X damage to ALL enemies.\nDeals {firstThresholdBonus:diff()}% more damage if X is {firstThreshold:diff()} or higher.{IfUpgraded:show:\nAdditionally deals {secondThresholdBonus:diff()}% more damage if X is {secondThreshold:diff()} or higher.}",
+  "RUINA2-LOVE_AND_HATE.title": "In the Name of Love and Hate",
+
+  "RUINA2-BLIND_RAGE.description": "Deal {Damage:diff()} damage to ALL enemies.\nTake {SelfDamage:diff()} damage.\nCosts 0 while your HP is at or below {HpThreshold:diff()}%.",
+  "RUINA2-BLIND_RAGE.title": "Blind Rage",
+
+  "RUINA2-GOLD_RUSH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nIf the last card you played this combat is an [gold]Attack[/gold], double your [gold]Strength[/gold].",
+  "RUINA2-GOLD_RUSH.title": "Gold Rush",
+
+  "RUINA2-NIHIL.description": "ALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold].\nIf you have no cards in your [gold]Hand[/gold], this effect is doubled.",
+  "RUINA2-NIHIL.title": "Nihil",
+
+  "RUINA2-SWORD_SHARPENED.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nIf played on an enemy from your [gold]Hand[/gold] {PlayThreshold:diff()} times, [gold]Stun[/gold] the enemy and [gold]Exhaust[/gold] instead.{IfUpgraded:show:\nShuffle this card into your [gold]Draw Pile[/gold].}",
+  "RUINA2-SWORD_SHARPENED.title": "Sword Sharpened by Tears",
+
+  "RUINA2-HARVEST.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] 1 card. Gain {energyPrefix:energyIcons(1)} equal to its cost.",
+  "RUINA2-HARVEST.title": "Harvest",
+
+  "RUINA2-FALSE_THRONE.description": "Put {Cards:diff()} {Cards:plural:card|cards} from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].\n{Cards:plural:It costs|They cost} {CostReduction:energyIcons()} less this turn.",
+  "RUINA2-FALSE_THRONE.selectionScreenPrompt": "Choose {Amount} {Amount:plural:card|cards} to put into your [gold]Hand[/gold]",
+  "RUINA2-FALSE_THRONE.title": "False Throne",
+
+  "RUINA2-LUMBER.description": "Deal {Damage:diff()} damage.\n[gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.\nAdd the damage of any [gold]Attacks[/gold] [gold]Exhausted[/gold] to this card.",
+  "RUINA2-LUMBER.title": "Lumber",
+
+  "RUINA2-FADED_MEMORIES.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\n[gold]Exhaust[/gold] {Exhaust:diff()} {Exhaust:plural:card|cards}.",
+  "RUINA2-FADED_MEMORIES.title": "Faded Memories",
+
+  "RUINA2-HOMING_INSTINCT.description": "At the start of your turn, apply {HomingInstinctPower:diff()} [gold]Yellow Brick Road[/gold] to a random enemy.",
+  "RUINA2-HOMING_INSTINCT.title": "Homing Instinct",
+
+  "RUINA2-THE_FORGOTTEN.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nIf the enemy intends to attack, apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "RUINA2-THE_FORGOTTEN.title": "The Forgotten",
+
+  "RUINA2-HORNET.description": "Deal {Damage:diff()} damage.\nYour next [gold]Attack[/gold] costs 0 and deals double damage.",
+  "RUINA2-HORNET.title": "Hornet",
+
+  "RUINA2-WINGBEAT.description": "[gold]Exhaust[/gold] X{IfUpgraded:show:+1} cards.\nHeal HP and gain [gold]Dexterity[/gold] equal to their combined costs.",
+  "RUINA2-WINGBEAT.title": "Wingbeat",
+
+  "RUINA2-GREEN_STEM.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\nIf this card is [gold]Exhausted[/gold], double the [gold]Poison[/gold] on ALL enemies.\n[gold]Exhaustive[/gold] {Exhaustive:diff()}.",
+  "RUINA2-GREEN_STEM.title": "Green Stem",
+
+  "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add a [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame",
+
+  "RUINA2-REGRET.description": "Deal {Damage:diff()} damage.\nDeal {Damage:diff()} damage again for each [gold]Status[/gold] or [gold]Curse[/gold] in your [gold]Hand[/gold].{InCombat:\n(Hits {CalculatedHits:diff()} extra {CalculatedHits:plural:time|times})|}",
+  "RUINA2-REGRET.title": "Regret",
+
+  "RUINA2-HARMONY.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].\nIf [gold]Fatal[/gold], permanently increase the [gold]Strength[/gold] gain by {Increase:diff()}.",
+  "RUINA2-HARMONY.title": "Harmony",
+
+  "RUINA2-SOLEMN_LAMENT.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nShuffle a [gold]Eternal Rest[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-SOLEMN_LAMENT.title": "Solemn Lament",
+
+  "RUINA2-ETERNAL_REST.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-ETERNAL_REST.title": "Eternal Rest",
+
+  "RUINA2-MAGIC_BULLET.description": "Enemy receives {MagicBulletPower:diff()}% more damage from attacks this turn.{IfUpgraded:show:\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.}",
+  "RUINA2-MAGIC_BULLET.title": "Magic Bullet",
+
+  "RUINA2-GRINDER.description": "The first time you deal {DamageThreshold:diff()} attack damage each turn, gain {Energy:energyIcons()} next turn.",
+  "RUINA2-GRINDER.title": "Grinder Mk. 5-2",
+
+  "RUINA2-BLACK_SWAN.description": "Apply {Erosion:diff()} [gold]Erosion[/gold].",
+  "RUINA2-BLACK_SWAN.title": "Black Swan",
+
+  "RUINA2-RED_EYES.description": "Deal {Damage:diff()} damage.\nDouble the next debuff applied to the enemy.",
+  "RUINA2-RED_EYES.title": "Red Eyes",
+
+  "RUINA2-SANGUINE_DESIRE.description": "Deal {Damage:diff()} damage.\nApply [gold]Bleed[/gold] equal to half the damage dealt.",
+  "RUINA2-SANGUINE_DESIRE.title": "Sanguine Desire",
+
+  "RUINA2-LAETITIA.description": "The first 0 or 1 cost card you play each turn is played twice.",
+  "RUINA2-LAETITIA.title": "Laetitia",
+
+  "RUINA2-TODAYS_EXPRESSION.description": "Choose one:\nGain {Block:diff()} [gold]Block[/gold] or {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-TODAYS_EXPRESSION.title": "Today's Expression",
+
+  "RUINA2-SHY_LOOK.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-SHY_LOOK.title": "Shy Look",
+
+  "RUINA2-FIERCE_LOOK.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-FIERCE_LOOK.title": "Fierce Look",
+
+  "RUINA2-FRAGMENTS_FROM_SOMEWHERE.description": "Steal the enemy's [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-FRAGMENTS_FROM_SOMEWHERE.title": "Fragments from Somewhere",
+
+  "RUINA2-PLEASURE.description": "Gain {Energy:energyIcons()} and {ThornsPower:diff()} [gold]Thorns[/gold].\nIf this card is [gold]Exhausted[/gold], lose {HpLoss:diff()} HP.\nThis card is automatically played when drawn.\n[gold]Exhaustive[/gold] {Exhaustive:diff()}.",
+  "RUINA2-PLEASURE.title": "Pleasure",
+
+  "RUINA2-OUR_GALAXY.description": "Put {Cards:diff()} cards from your [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+  "RUINA2-OUR_GALAXY.selectionScreenPrompt": "Choose {Cards:diff()} cards to add to your [gold]Hand[/gold].",
+  "RUINA2-OUR_GALAXY.title": "Our Galaxy",
+
+  "RUINA2-FAINT_AROMA.description": "The first [gold]Attack[/gold] you play each turn applies [gold]Poison[/gold] equal to half the damage dealt.",
+  "RUINA2-FAINT_AROMA.title": "Faint Aroma",
+
+  "RUINA2-DA_CAPO.description": "Deal {Damage:diff()} damage to ALL enemies.\nPlay a copy of the last card you played this combat.",
+  "RUINA2-DA_CAPO.title": "Da Capo",
+
+  "RUINA2-REMORSE.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nThis card costs {energyPrefix:energyIcons(1)} less and [gold]Exhausts[/gold] 1 card for each other card in your [gold]Hand[/gold] up to a max of {Cap:diff()}.{InCombat:\n([gold]Exhausts[/gold] {CalculatedExhaust:diff()} {CalculatedExhaust:plural:card|cards})|}",
+  "RUINA2-REMORSE.title": "Remorse",
+
+  "RUINA2-WRIST_CUTTER.description": "Gain {Energy:energyIcons()}.\nAdd a [gold]Wound[/gold] with [gold]Retain[/gold] to your [gold]Hand[/gold].",
+  "RUINA2-WRIST_CUTTER.title": "Wrist Cutter",
+
+  "RUINA2-ASPIRATION.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nLose {HpLoss:diff()} HP.\nAt the end of combat, heal the HP lost from this card.",
+  "RUINA2-ASPIRATION.title": "Aspiration",
+
+  "RUINA2-MARIONETTE.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.\nIncrease this card's cost{IfUpgraded:show: and card draw} by {CostIncrease:diff()} this combat.",
+  "RUINA2-MARIONETTE.title": "Marionette",
+
+  "RUINA2-FROST_SPLINTER.description": "At the start of your turn, gain {Energy:energyIcons()}, draw [blue]{FrostSplinterPower:diff()}[/blue] additional {FrostSplinterPower:plural:card|cards}, and [purple]Freeze[/purple] [blue]{FrostSplinterPower:diff()}[/blue] {FrostSplinterPower:plural:card|cards}.",
+  "RUINA2-FROST_SPLINTER.title": "Frost Splinter",
+
+  "RUINA2-SOUND_OF_A_STAR.description": "Deal {Damage:diff()} damage and apply {Starbound:diff()} [gold]Starbound[/gold] to ALL enemies.\nGain {Stars:starIcons()}.",
+  "RUINA2-SOUND_OF_A_STAR.title": "Sound of a Star",
+
+  "RUINA2-PENITENCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nHeal {Heal:diff()} HP.",
+  "RUINA2-PENITENCE.title": "Penitence",
+
+  "RUINA2-DEAD_SILENCE.description": "Deal {Damage:diff()} damage.\nIf this kills an enemy, gain {Energy:energyIcons()} next turn.\nTake an extra turn after this one.",
+  "RUINA2-DEAD_SILENCE.title": "Dead Silence",
+
+  "RUINA2-HEAVEN.description": "Gain {Block:diff()} [gold]Block[/gold] X times.\nWhenever you are attacked this turn, deal damage back equal to your remaining [gold]Block[/gold].",
+  "RUINA2-HEAVEN.title": "Heaven",
+
+  "RUINA2-PARADISE_LOST.description": "Whenever you [gold]Exhaust[/gold] 12 cards, deal {Damage:diff()} damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards}.",
+  "RUINA2-PARADISE_LOST.title": "Paradise Lost",
+
+  "RUINA2-TWILIGHT.description": "[gold]Evoke[/gold] your [gold]Dark[/gold] Orbs twice.\n[gold]Channel[/gold] 1 [gold]Dark[/gold]. It grows 50% faster{IfUpgraded:show: and deals damage to ALL enemies}.",
+  "RUINA2-TWILIGHT.title": "Twilight",
+
+  "RUINA2-APOCALYPSE.description": "Deal {Damage:diff()} damage.\nIf your HP is at or below {PlayerHPThreshold:diff()}%, deals double damage.\nIf the enemy's HP is at or below {EnemyHPThreshold:diff()}%, applies [gold]Doom[/gold] equal to damage dealt.",
+  "RUINA2-APOCALYPSE.title": "Apocalypse",
+
+  "RUINA2-JUSTITIA.description": "Deal {Damage:diff()} damage.\nIf the enemy's HP is at or below {HPThreshold:diff()}%, kill them instead.{InCombat:\n(Enemy's HP threshold is {CalculatedHP:diff()}.)|}",
+  "RUINA2-JUSTITIA.title": "Justitia",
+
+  "RUINA2-LAMP.description": "Enemy loses {StrengthPower:diff()} [gold]Strength[/gold] this turn.\nWhenever you are attacked this turn, deal {LampPower:diff()} damage back.",
+  "RUINA2-LAMP.title": "Lamp",
+
+  "RUINA2-BEAK.description": "At the start of your turn, reduce the cost of the highest cost card in your [gold]Hand[/gold] to 0 and give it [gold]Exhaust[/gold].",
+  "RUINA2-BEAK.title": "Beak"
 }

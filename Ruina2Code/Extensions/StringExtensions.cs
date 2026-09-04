@@ -104,6 +104,11 @@ public static class StringExtensions
         return Path.Join(MainFile.ResPath, "images", "afflictions", path);
     }
     
+    public static string EnchantmentImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "enchantments", path);
+    }
+    
     public static string SfxPath(this string path)
     {
         return Path.Join(MainFile.ResPath, "audio", "sfx", path);

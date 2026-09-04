@@ -1,3 +1,16 @@
 {
-  
+  "RUINA2-GLIMPSE_OF_EGO.description": "拾取时，获得一张随机的[gold]EGO[/gold]卡牌并加入你的[gold]牌组[/gold]。",
+  "RUINA2-GLIMPSE_OF_EGO.eventDescription": "获得一张随机的[gold]EGO[/gold]卡牌。",
+  "RUINA2-GLIMPSE_OF_EGO.flavor": "人类的心灵蕴藏着无限的潜能。而这，不过是其中微不足道的一角。",
+  "RUINA2-GLIMPSE_OF_EGO.title": "EGO之窥",
+  "RUINA2-BOOK_OF_EGO.description": "拾取时，从[blue]3[/blue]张[gold]EGO[/gold]卡牌中选择[blue]1[/blue]张加入你的牌组，并将[blue]1[/blue]张[red]腐朽[/red]加入你的[gold]牌组[/gold]。",
+  "RUINA2-BOOK_OF_EGO.eventDescription": "从[blue]3[/blue]张[gold]EGO[/gold]卡牌中选择[blue]1[/blue]张加入你的牌组。将[blue]1[/blue]张[red]腐朽[/red]加入你的[gold]牌组[/gold]。",
+  "RUINA2-BOOK_OF_EGO.flavor": "我们每个人心中都存在着一道光。终有一天，它将挣脱束缚，改变这个世界。",
+  "RUINA2-BOOK_OF_EGO.title": "EGO之书",
+  "RUINA2-GOODBYE.description": "你每场战斗中打出的第一张[gold]攻击牌[/gold]造成双倍伤害。",
+  "RUINA2-GOODBYE.flavor": "它试图模仿人类。对着镜子喃喃自语，试图调整自己的骨骼结构……仿佛真的想要成为人类一般。",
+  "RUINA2-GOODBYE.title": "再见",
+  "RUINA2-FALSE_PRESENT.description": "拾取时，失去[blue]{HpLoss}[/blue]点最大生命。你每场战斗中抽到的前[blue]{Cards}[/blue]张牌在被打出前耗能为[blue]0[/blue]。",
+  "RUINA2-FALSE_PRESENT.flavor": "可怜的奥兹玛。她不知道，说谎的成年人从不会无缘无故地接近别人。",
+  "RUINA2-FALSE_PRESENT.title": "虚假的礼物"
 }

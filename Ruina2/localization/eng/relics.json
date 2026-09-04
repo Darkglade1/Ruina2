@@ -1,3 +1,19 @@
 {
-  
+  "RUINA2-GLIMPSE_OF_EGO.description": "Upon pickup, obtain a random [gold]EGO[/gold] card to add to your [gold]Deck[/gold].",
+  "RUINA2-GLIMPSE_OF_EGO.eventDescription": "Obtain a random [gold]EGO[/gold] card.",
+  "RUINA2-GLIMPSE_OF_EGO.flavor": "The human mind holds infinite potential. This is but a tiny sliver of it.",
+  "RUINA2-GLIMPSE_OF_EGO.title": "Glimpse of EGO",
+
+  "RUINA2-BOOK_OF_EGO.description": "Upon pickup, choose [blue]1[/blue] of [blue]3[/blue] [gold]EGO[/gold] cards to add to your Deck, and add [blue]1[/blue] [red]Decay[/red] to your [gold]Deck[/gold].",
+  "RUINA2-BOOK_OF_EGO.eventDescription": "Choose [blue]1[/blue] of [blue]3[/blue] [gold]EGO[/gold] cards to add to your Deck. Add [blue]1[/blue] [red]Decay[/red] to your [gold]Deck[/gold].",
+  "RUINA2-BOOK_OF_EGO.flavor": "There is a light within all of us. A light that will one day break free and change the world.",
+  "RUINA2-BOOK_OF_EGO.title": "Book of EGO",
+
+  "RUINA2-GOODBYE.description": "The first [gold]Attack[/gold] you play each combat deals double damage.",
+  "RUINA2-GOODBYE.flavor": "It tries to mimic humans. Looking into a mirror, mumbling to itself, trying to fix its skeletal structure . . . it's as if it was trying to become human.",
+  "RUINA2-GOODBYE.title": "Goodbye",
+
+  "RUINA2-FALSE_PRESENT.description": "Upon pickup, lose [blue]{HpLoss}[/blue] Max HP. The first [blue]{Cards}[/blue] cards you draw each combat cost [blue]0[/blue] until played.",
+  "RUINA2-FALSE_PRESENT.flavor": "Poor Ozma. She didn't know that lying adults don't approach others without reason.",
+  "RUINA2-FALSE_PRESENT.title": "False Present"
 }
