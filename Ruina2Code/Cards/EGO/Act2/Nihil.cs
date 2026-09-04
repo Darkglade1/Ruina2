@@ -25,7 +25,7 @@ public class Nihil() : EGOCard(1,
         if (CombatState != null)
         {
             int strLossMultiplier = 1;
-            if (NoCardsInHand)
+            if (PileType.Hand.GetPile(Owner).Cards.Count <= 0)
             {
                 strLossMultiplier = 2;
             }
