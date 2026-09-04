@@ -37,7 +37,7 @@ public sealed class Twilight : AbstractRuinaMonster
     private int VulnerableAmt => 1;
     private int BlockAmt => 24;
     private int HPLossPercent => 25;
-
+    public override bool CanChangeScale => false;
     protected override string VisualsPath => "Twilight/twilight.tscn".MonsterImagePath();
 
     private const string PEACE_FOR_ALL = "PEACE_FOR_ALL";

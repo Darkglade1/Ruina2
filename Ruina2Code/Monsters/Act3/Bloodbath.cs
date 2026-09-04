@@ -17,13 +17,13 @@ namespace Ruina2.Ruina2Code.Monsters.Act3;
 
 public sealed class Bloodbath : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 97, 88);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 103, 94);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 102, 93);
+    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 109, 99);
     
-    private int PaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
+    private int PaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
     private int DebuffAmt => 1;
     private int BleedAmt => 3;
-    private int BlockAmt => 7;
+    private int BlockAmt => 14;
 
     protected override string VisualsPath => "Bloodbath/bloodbath.tscn".MonsterImagePath();
 

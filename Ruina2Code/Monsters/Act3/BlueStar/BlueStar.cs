@@ -27,7 +27,7 @@ public sealed class BlueStar : AbstractRuinaMonster
     private int StrAmt => 4;
     private int VulnAmt => 1;
     private int BlockAmt => 13;
-
+    public override bool CanChangeScale => false;
     protected override string VisualsPath => "BlueStar/Shrine/shrine.tscn".MonsterImagePath();
 
     private const string RISING_STAR = "RISING_STAR";
