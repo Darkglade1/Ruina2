@@ -23,7 +23,7 @@ public class Thirst() : EGOCard(0,
     {
         if (play.Target != null)
         {
-            await PowerCmd.Apply<Bleed>(new ThrowingPlayerChoiceContext(), play.Target, DynamicVars["Bleed"].IntValue , Owner.Creature, this);
+            await PowerCmd.Apply<BleedEnemy>(new ThrowingPlayerChoiceContext(), play.Target, DynamicVars["Bleed"].IntValue , Owner.Creature, this);
             await PowerCmd.Apply<ThirstPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["StrengthPower"].IntValue , Owner.Creature, this);
         }
     }

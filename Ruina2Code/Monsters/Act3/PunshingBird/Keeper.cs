@@ -47,7 +47,7 @@ public sealed class Keeper : AbstractRuinaMonster
 
     private MoveState GetSmackState()
     {
-        return new MoveState(SMACK, Smack, new SingleAttackIntent(SmackDamage));
+        return new MoveState(SMACK, Smack, new SingleAttackIntent(SmackDamage), new DebuffIntent());
     }
 
     private MoveState GetCuckooState()

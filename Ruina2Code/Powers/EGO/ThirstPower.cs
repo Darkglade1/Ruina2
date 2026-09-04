@@ -25,7 +25,7 @@ public class ThirstPower() : Ruina2Power
         Creature target,
         CardModel? cardSource)
     {
-        if (dealer != null && dealer == Owner && cardSource != null && target.HasPower<Bleed>() && props.IsPoweredAttack())
+        if (dealer != null && dealer == Owner && cardSource != null && target.HasPower<BleedEnemy>() && props.IsPoweredAttack())
         {
             Flash();
             await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, Amount , Owner, null);
