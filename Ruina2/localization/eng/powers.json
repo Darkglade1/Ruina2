@@ -357,5 +357,9 @@
 
   "RUINA2-BEAK_POWER.description": "",
   "RUINA2-BEAK_POWER.smartDescription": "At the start of your turn, reduce the cost of the{Amount:plural:| [blue]{Amount}[/blue]} highest cost {Amount:plural:card|cards} in your [gold]Hand[/gold] to [blue]0[/blue] and give {Amount:plural:it|them} [gold]Exhaust[/gold].",
-  "RUINA2-BEAK_POWER.title": "Beak"
+  "RUINA2-BEAK_POWER.title": "Beak",
+
+  "RUINA2-GOODBYE_POWER.description": "",
+  "RUINA2-GOODBYE_POWER.smartDescription": "The next [gold]Attack[/gold] you play deals double damage.",
+  "RUINA2-GOODBYE_POWER.title": "Goodbye"
 }

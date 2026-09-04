@@ -1,5 +1,4 @@
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Events;
 using Ruina2.Ruina2Code.Encounters.Act2;
 using Ruina2.Ruina2Code.Events.Act2;
 
@@ -44,10 +43,10 @@ public class Briah() : AbstractRuinaAct(2)
                 ModelDb.Event<Language>(),
                 ModelDb.Event<ZweiAssociation>(),
                 ModelDb.Event<SocialSciences>(),
-                ModelDb.Event<LostWisp>(),
-                ModelDb.Event<SpiritGrafter>(),
-                ModelDb.Event<TheLanternKey>(),
-                ModelDb.Event<ZenWeaver>()
+                ModelDb.Event<NothingThere>(),
+                ModelDb.Event<WizardOfOz>(),
+                //ModelDb.Event<TheLanternKey>(),
+                //ModelDb.Event<ZenWeaver>()
             ];
         }
     }
