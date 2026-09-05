@@ -69,6 +69,15 @@
   "RUINA2-WIZARD_OF_OZ.pages.INITIAL.options.REFUSE.description": "Obtain [gold]{Card}[/gold]. Receive [red]{Curse}[/red].",
   "RUINA2-WIZARD_OF_OZ.pages.ACCEPT.description": "The wizard smiled in [gold]delight[/gold].\n\n\"Wonderful! You will all make very fine servants; come closer and receive your presents.\"",
   "RUINA2-WIZARD_OF_OZ.pages.REFUSE.description": "The wizard [purple]frowned[/purple].\n\n\"What an insolent lot we have here. To think you would all defy the [gold]mighty[/gold] Wizard of Oz!\"\n\nA fight breaks out, but the book closes before you can see what happens to the travelers. Your body throbs [red]painfully[/red], as if you had experienced that [red]heart-racing[/red] battle for yourself.",
+
+  "RUINA2-MESSENGER.title": "Messenger of the Index",
+  "RUINA2-MESSENGER.pages.INITIAL.description": "Another day, another Prescript delivered to some poor, [purple]hapless[/purple] soul.\n\nSneak [red]needles[/red] into your friend’s birthday cake. [red]Cut[/red] off your right leg and eat it raw. Wave to the first pedestrian you meet on the street.\n\nAll of them seemed like such pointless, meaningless Prescripts. But it was his duty to deliver them nonetheless. The Messenger glanced at the final Prescript he was to deliver for the day.\n\n\"Take the heart of the one you love.\"",
+  "RUINA2-MESSENGER.pages.INITIAL.options.DELIVER.title": "Deliver the Prescript",
+  "RUINA2-MESSENGER.pages.INITIAL.options.DELIVER.description": "Obtain [gold]{Quest}[/gold].",
+  "RUINA2-MESSENGER.pages.INITIAL.options.DISCARD.title": "Discard the Prescript",
+  "RUINA2-MESSENGER.pages.INITIAL.options.DISCARD.description": "[gold]Remove[/gold] [blue]{RemoveCards}[/blue] cards. Receive [red]{Curse}[/red].",
+  "RUINA2-MESSENGER.pages.DELIVER.description": "What a [purple]cruel[/purple], [purple]wretched[/purple] order. It would be so easy for him to replace it with his own fabricated, gentler Prescript. It would be so easy for him to betray the organization he had belonged to for so long.\n\nBut today was not that day.\n\nWith a [purple]heavy[/purple] heart, he delivered the final Prescript.",
+  "RUINA2-MESSENGER.pages.DISCARD.description": "What a [purple]cruel[/purple], [purple]wretched[/purple] order. Enough was enough. He was done with following these [purple]absurd[/purple], [purple]vile[/purple] orders. He was done with forcing others to follow these [purple]heinous[/purple], [purple]unspeakable[/purple] commands.\n\nHe would grant the people of this City what small [gold]mercy[/gold] he could muster.\n\nEven if [gold]Karma[/gold] would fall on his head for doing so.\n\nCrumpling the final Prescript up, he took out pen and paper and began writing.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

@@ -15,5 +15,9 @@
 
   "RUINA2-FALSE_PRESENT.description": "Upon pickup, lose [blue]{HpLoss}[/blue] Max HP. The first [blue]{Cards}[/blue] cards you draw each combat cost [blue]0[/blue] until played.",
   "RUINA2-FALSE_PRESENT.flavor": "Poor Ozma. She didn't know that lying adults don't approach others without reason.",
-  "RUINA2-FALSE_PRESENT.title": "False Present"
+  "RUINA2-FALSE_PRESENT.title": "False Present",
+
+  "RUINA2-PRESCRIPTS_GRACE.description": "At start of each turn, randomly chooses between [gold]Attack[/gold], [gold]Skill[/gold], and [gold]Power[/gold]. The first card you play each turn of the chosen type is played twice.",
+  "RUINA2-PRESCRIPTS_GRACE.flavor": "It all made sense now. All those pointless endeavours converged onto a single, definite meaning.",
+  "RUINA2-PRESCRIPTS_GRACE.title": "Prescript's Grace"
 }

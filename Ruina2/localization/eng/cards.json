@@ -206,5 +206,11 @@
   "RUINA2-LAMP.title": "Lamp",
 
   "RUINA2-BEAK.description": "At the start of your turn, reduce the cost of the highest cost card in your [gold]Hand[/gold] to 0 and give it [gold]Exhaust[/gold].",
-  "RUINA2-BEAK.title": "Beak"
+  "RUINA2-BEAK.title": "Beak",
+
+  "RUINA2-PRESCRIPT.description": "Burn this at a [gold]Rest Site[/gold], then deliver the ashes to the [gold]Merchant[/gold].",
+  "RUINA2-PRESCRIPT.title": "Prescript",
+
+  "RUINA2-PRESCRIPT_ASHES.description": "Deliver this to the [gold]Merchant[/gold].",
+  "RUINA2-PRESCRIPT_ASHES.title": "Prescript's Ashes"
 }

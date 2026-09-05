@@ -361,5 +361,17 @@
 
   "RUINA2-GOODBYE_POWER.description": "",
   "RUINA2-GOODBYE_POWER.smartDescription": "The next [gold]Attack[/gold] you play deals double damage.",
-  "RUINA2-GOODBYE_POWER.title": "Goodbye"
+  "RUINA2-GOODBYE_POWER.title": "Goodbye",
+
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.smartDescription": "Your next {Amount:plural:[gold]Attack[/gold] is|[blue]{}[/blue] [gold]Attacks[/gold] are} played an extra time this turn.",
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.title": "Prescript's Grace - Attack",
+
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.smartDescription": "Your next {Amount:plural:[gold]Skill[/gold] is|[blue]{}[/blue] [gold]Skills[/gold] are} played an extra time this turn.",
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.title": "Prescript's Grace - Skill",
+
+  "RUINA2-PRESCRIPTS_GRACE_POWER.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_POWER.smartDescription": "Your next {Amount:plural:[gold]Power[/gold] is|[blue]{}[/blue] [gold]Powers[/gold] are} played an extra time this turn.",
+  "RUINA2-PRESCRIPTS_GRACE_POWER.title": "Prescript's Grace - Power"
 }
