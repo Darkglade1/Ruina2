@@ -18,7 +18,7 @@ public class CobaltScar() : EGOCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        (await PowerCmd.Apply<CobaltScarPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this))?.SetDamage(DynamicVars.Damage.BaseValue);
+        (await PowerCmd.Apply<CobaltScarPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Damage.BaseValue, Owner.Creature, this))?.SetCards(DynamicVars.Cards.BaseValue);
     }
 
     protected override void OnUpgrade()

@@ -17,12 +17,12 @@ public class CobaltScarPower() : Ruina2Power
 
     public override int DisplayAmount => DynamicVars["AttackCounter"].IntValue;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Unpowered), new("AttackCounter",0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(0), new("AttackCounter",0)];
     
-    public void SetDamage(Decimal damage)
+    public void SetCards(Decimal cards)
     {
         AssertMutable();
-        DynamicVars.Damage.BaseValue = damage;
+        DynamicVars.Cards.BaseValue = cards;
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -30,10 +30,10 @@ public class CobaltScarPower() : Ruina2Power
         if (cardPlay.Card.Type == CardType.Attack && cardPlay.Card.Owner.Creature == Owner)
         {
             DynamicVars["AttackCounter"].BaseValue += 1;
-            if (DynamicVars["AttackCounter"].BaseValue >= Amount)
+            if (DynamicVars["AttackCounter"].BaseValue >= DynamicVars.Cards.IntValue)
             {
                 Flash();
-                await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage.IntValue, ValueProp.Unpowered, Owner);
+                await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner);
                 DynamicVars["AttackCounter"].BaseValue = 0;
             }
             InvokeDisplayAmountChanged();
