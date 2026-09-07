@@ -46,9 +46,9 @@ public class Asiyah() : AbstractRuinaAct(1)
             return [
                 ModelDb.Event<GalaxyChild>(),
                 ModelDb.Event<Funeral>(),
-                ModelDb.Event<DenseVegetation>(),
-                ModelDb.Event<JungleMazeAdventure>(),
-                ModelDb.Event<LuminousChoir>(),
+                ModelDb.Event<SnowWhiteApple>(),
+                ModelDb.Event<DerFreischutz>(),
+                ModelDb.Event<WarpTrain>(),
                 ModelDb.Event<MorphicGrove>(),
                 ModelDb.Event<SapphireSeed>(),
                 ModelDb.Event<SunkenStatue>(),

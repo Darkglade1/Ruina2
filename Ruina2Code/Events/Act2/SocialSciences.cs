@@ -48,7 +48,7 @@ public class SocialSciences() : Ruina2Event()
     
     public override bool IsAllowed(IRunState runState)
     {
-        return runState.Players.All(p => p.Potions.Count() >= 1);
+        return base.IsAllowed(runState) && runState.Players.All(p => p.Potions.Count() >= 1);
     }
     
     public async Task Drink()
