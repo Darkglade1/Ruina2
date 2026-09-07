@@ -22,8 +22,8 @@ public sealed class BurrowingHeaven : AbstractRuinaMonster
     
     private int HeavenDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 23, 21);
     private int WingsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
-    private int FrailAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
-    private int VulnerableAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int FrailAmt => 2;
+    private int VulnerableAmt => 2;
     private int StrDown => 2;
     private int DamageReduction => 50;
 

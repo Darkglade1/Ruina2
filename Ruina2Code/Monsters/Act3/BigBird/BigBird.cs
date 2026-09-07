@@ -30,10 +30,10 @@ public sealed class BigBird : AbstractMultiIntentMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 3;
 
-    private int SalvationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 21, 19);
-    private int IlluminateDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
-    private int Illuminate2Damage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int SalvationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 23, 21);
+    private int IlluminateDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
+    private int Illuminate2Damage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
+    private int StrengthAmount => 2;
     private int StatusAmt => 2;
     private int DebuffAmt => 1;
     
