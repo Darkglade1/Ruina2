@@ -27,5 +27,13 @@
 
   "RUINA2-SEVENTH_BULLET.description": "Gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] at the start of combat. Whenever you play [blue]{Cards}[/blue] [gold]Attacks[/gold], take [blue]{Damage}[/blue] damage.",
   "RUINA2-SEVENTH_BULLET.flavor": "One day, the marksman realized the Devil no longer followed him. He pondered why, then realized that his soul had already fallen to Hell from the beginning.",
-  "RUINA2-SEVENTH_BULLET.title": "The Seventh Bullet"
+  "RUINA2-SEVENTH_BULLET.title": "The Seventh Bullet",
+
+  "RUINA2-OVEREXERTION.description": "Start each combat with an additional {Energy:energyIcons()}. Gain [blue]{WeakPower}[/blue] [gold]Weak[/gold] and [gold]Frail[/gold] at the start of your second turn.",
+  "RUINA2-OVEREXERTION.flavor": "She just had to keep pushing forward. Keep on pushing until the way was clear. Keep on pushing until she could push no more.",
+  "RUINA2-OVEREXERTION.title": "Overexertion",
+
+  "RUINA2-LIFE_FIBERS.description": "The next time you die, heal [blue]{Heal}[/blue] HP instead. At the end of combat, increase the heal amount by [blue]{HealIncrease}[/blue].",
+  "RUINA2-LIFE_FIBERS.flavor": "When night falls in the Backstreets, they will come.",
+  "RUINA2-LIFE_FIBERS.title": "Life Fibers"
 }
