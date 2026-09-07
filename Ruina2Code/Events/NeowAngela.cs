@@ -3,6 +3,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
@@ -35,15 +36,9 @@ public class NeowAngela : CustomAncientModel
   {
     get
     {
-      List<EventOption> items = new List<EventOption>();
-      items.AddRange(CurseOptions);
-      items.AddRange(PositiveOptions);
-      items.Add(LavaRockOption);
-      items.Add(NeowsTalismanOption);
-      items.Add(NutritiousOysterOption);
-      items.Add(PomanderOption);
-      items.Add(SmallCapsuleOption);
-      items.Add(StoneHumidifierOption);
+      List<EventOption> items = ModelDb.AncientEvent<Neow>().AllPossibleOptions.ToList();
+      items.Add(GlimpseOfEgoOption);
+      items.Add(BookOfEgoOption);
       return items;
     }
   }
@@ -52,59 +47,18 @@ public class NeowAngela : CustomAncientModel
   {
     get
     {
-      return new[]
+      List<EventOption> neowItems = ModelDb.AncientEvent<Neow>().PositiveOptions.ToList();
+      List<EventOption> items = new List<EventOption>();
+      foreach (var neowItem in neowItems)
       {
-        RelicOption<ArcaneScroll>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<BoomingConch>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<FishingRod>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<GoldenPearl>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<Kaleidoscope>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<LostCoffer>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<MassiveScroll>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<NeowsTorment>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<NewLeaf>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<PhialHolster>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<PreciseScissors>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<ScrollBoxes>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<WingedBoots>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<GlimpseOfEgo>(customDonePage: "NEOW.pages.DONE.POSITIVE.description")
-      };
-    }
-  }
-
-  public EventOption LavaRockOption
-  {
-    get => RelicOption<LavaRock>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
-  }
-
-  public EventOption NeowsTalismanOption
-  {
-    get => RelicOption<NeowsTalisman>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
-  }
-
-  public EventOption NutritiousOysterOption
-  {
-    get
-    {
-      return RelicOption<NutritiousOyster>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
-    }
-  }
-
-  public EventOption PomanderOption
-  {
-    get => RelicOption<Pomander>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
-  }
-
-  public EventOption SmallCapsuleOption
-  {
-    get => RelicOption<SmallCapsule>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
-  }
-
-  public EventOption StoneHumidifierOption
-  {
-    get
-    {
-      return RelicOption<StoneHumidifier>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
+        var relic = neowItem.Relic;
+        if (relic != null)
+        {
+          items.Add(RelicOption(relic, customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+        }
+      }
+      items.Add(GlimpseOfEgoOption);
+      return items;
     }
   }
 
@@ -112,23 +66,31 @@ public class NeowAngela : CustomAncientModel
   {
     get
     {
-      return new []
+      List<EventOption> neowItems = ModelDb.AncientEvent<Neow>().CurseOptions.ToList();
+      List<EventOption> items = new List<EventOption>();
+      foreach (var neowItem in neowItems)
       {
-        RelicOption<CursedPearl>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<DowsingRod>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<HeftyTablet>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<LargeCapsule>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<LeafyPoultice>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<NeowsBones>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"),
-        RelicOption<NeowsSacrifice>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<PrecariousShears>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<SilkenTress>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<SilverCrucible>(customDonePage: "NEOW.pages.DONE.CURSED.description"),
-        RelicOption<BookOfEgo>(customDonePage: "NEOW.pages.DONE.CURSED.description")
-      };
+        var relic = neowItem.Relic;
+        if (relic != null)
+        {
+          items.Add(RelicOption(relic, customDonePage: "NEOW.pages.DONE.CURSED.description"));
+        }
+      }
+      items.Add(BookOfEgoOption);
+      return items;
     }
   }
-    
+  
+  public EventOption GlimpseOfEgoOption
+  {
+    get => RelicOption<GlimpseOfEgo>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
+  }
+  
+  public EventOption BookOfEgoOption
+  {
+    get => RelicOption<BookOfEgo>(customDonePage: "NEOW.pages.DONE.CURSED.description");
+  }
+
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
   {
     if (Owner?.RunState.Modifiers.Count <= 0)
@@ -159,18 +121,18 @@ public class NeowAngela : CustomAncientModel
       if (!(eventOption?.Relic is LargeCapsule))
       {
         if (Rng.NextBool())
-          list2.Add(LavaRockOption);
+          list2.Add(RelicOption<LavaRock>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
         else
-          list2.Add(SmallCapsuleOption);
+          list2.Add(RelicOption<SmallCapsule>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
       }
       if (Rng.NextBool())
-        list2.Add(NutritiousOysterOption);
+        list2.Add(RelicOption<NutritiousOyster>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
       else
-        list2.Add(StoneHumidifierOption);
+        list2.Add(RelicOption<StoneHumidifier>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
       if (Rng.NextBool())
-        list2.Add(NeowsTalismanOption);
+        list2.Add(RelicOption<NeowsTalisman>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
       else
-        list2.Add(PomanderOption);
+        list2.Add(RelicOption<Pomander>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
       list2.RemoveAll((Predicate<EventOption>) (r =>
       {
         RelicModel? relic = r.Relic;
@@ -178,7 +140,7 @@ public class NeowAngela : CustomAncientModel
       }));
       List<EventOption> items = new List<EventOption>();
       items.AddRange(list2.ToList().UnstableShuffle(Rng).Take(2));
-      items.Add(eventOption);
+      items.Add(eventOption!);
       return items;
     }
     return [];
