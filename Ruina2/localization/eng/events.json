@@ -11,7 +11,7 @@
   "RUINA2-CHURCH_OF_GEARS.title": "Church of Gears",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.description": "[jitter]WHIRRRRRRRRRRRRRRRR[/jitter]\n\nYou hear bones [red]cracking[/red], blood [red]splattering[/red], and joints [red]breaking[/red]. And through it all, an intense whirring noise fills the air.\n\nThe hooded figure next to the noisy machine turns to face you. \"Join us, stranger. Join us and be free of your [purple]heavy[/purple] thoughts and worldly burdens!\"\n\nThe door shuts behind you. It seems they weren't willing to take \"no\" for an answer.",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.title": "Accept the offer",
-  "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.description": "[gold]Upgrade[/gold] a card, then [gold]Duplicate[/gold] it. Lose [red]{UpgradeCost}[/red] HP.",
+  "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.description": "[gold]Duplicate[/gold] a card. Lose [red]{DupeCost}[/red] HP.",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ESCAPE.title": "Find an escape route",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ESCAPE.description": "[gold]Transform[/gold] a card, then [gold]Upgrade[/gold] it. Lose [red]{TransformCost}[/red] HP.",
   "RUINA2-CHURCH_OF_GEARS.pages.ACCEPT.description": "You sit down in the machine, and it feels as if a [purple]vise[/purple] had clamped itself over your head.\n\nThe [jitter]whirring[/jitter] noise grows [gold]louder[/gold] and [gold]louder[/gold], the dull pain flares [red]higher[/red] and [red]higher[/red] until suddenly, it all [red]stops[/red].\n\nYour head had never felt lighter.",

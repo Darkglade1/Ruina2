@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -17,29 +18,30 @@ public class ChurchOfGears() : Ruina2Event()
 {
     protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
     [
-        Option(Accept).ThatDoesDamage(DynamicVars["UpgradeCost"].IntValue),
+        Option(Accept).ThatDoesDamage(DynamicVars["DupeCost"].IntValue),
         Option(Escape,[HoverTipFactory.Static(StaticHoverTip.Transform)]).ThatDoesDamage(DynamicVars["TransformCost"].IntValue)
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ("UpgradeCost", 24),
+        new ("DupeCost", 16),
         new("TransformCost", 8),
     ];
     
-    public override bool IsAllowed(IRunState runState) => base.IsAllowed(runState) && runState.Players.All(p => p.Creature.CurrentHp > DynamicVars["UpgradeCost"].IntValue);
+    public override bool IsAllowed(IRunState runState) => base.IsAllowed(runState) && runState.Players.All(p => p.Creature.CurrentHp > DynamicVars["DupeCost"].IntValue);
     
     public async Task Accept()
     {
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner!.Creature, DynamicVars["UpgradeCost"].IntValue, ValueProp.Unblockable | ValueProp.Unpowered, null, null);
-        CardModel? card = (await CardSelectCmd.FromDeckForUpgrade(Owner!, new CardSelectorPrefs(CardSelectorPrefs.UpgradeSelectionPrompt, 1))).FirstOrDefault();
-        if (card != null)
-        {
-            CardCmd.Upgrade(card);
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(Owner!.RunState.CloneCard(card), PileType.Deck));
-        }
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner!.Creature, DynamicVars["DupeCost"].IntValue, ValueProp.Unblockable | ValueProp.Unpowered, null, null);
+        CardSelectorPrefs prefs = new CardSelectorPrefs(new LocString("card_selection", "RUINA2-TO_DUPE"), 1);
+        CardModel? mutableCard = (await CardSelectCmd.FromDeckGeneric(Owner!, prefs, Filter)).FirstOrDefault();
+        if (mutableCard == null)
+            return;
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(Owner.RunState.CloneCard(mutableCard), PileType.Deck));
         SetEventFinished(PageDescription("ACCEPT"));
     }
+    
+    public bool Filter(CardModel c) => c.Type != CardType.Quest;
 
     public async Task Escape()
     {
