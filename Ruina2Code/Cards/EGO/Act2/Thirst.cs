@@ -9,11 +9,11 @@ using Ruina2.Ruina2Code.Powers.EGO;
 
 namespace Ruina2.Ruina2Code.Cards.EGO.Act2;
 
-public class Thirst() : EGOCard(0,
+public class Thirst() : EGOCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Bleed>(6), new PowerVar<StrengthPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Bleed>(8), new PowerVar<StrengthPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<Bleed>(), HoverTipFactory.FromPower<StrengthPower>()];
 
