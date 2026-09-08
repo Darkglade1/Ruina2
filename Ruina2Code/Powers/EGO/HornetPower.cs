@@ -60,7 +60,7 @@ public class HornetPower() : Ruina2Power
         Decimal originalCost,
         out Decimal modifiedCost)
     {
-        if (card.Type == CardType.Attack)
+        if (card.Owner.Creature == Owner && card.Type == CardType.Attack)
         {
             modifiedCost = 0M;
             return true; 
