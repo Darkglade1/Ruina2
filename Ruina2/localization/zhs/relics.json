@@ -12,5 +12,20 @@
   "RUINA2-GOODBYE.title": "再见",
   "RUINA2-FALSE_PRESENT.description": "拾取时，失去[blue]{HpLoss}[/blue]点最大生命。你每场战斗中抽到的前[blue]{Cards}[/blue]张牌在被打出前耗能为[blue]0[/blue]。",
   "RUINA2-FALSE_PRESENT.flavor": "可怜的奥兹玛。她不知道，说谎的成年人从不会无缘无故地接近别人。",
-  "RUINA2-FALSE_PRESENT.title": "虚假的礼物"
+  "RUINA2-FALSE_PRESENT.title": "虚假的礼物",
+  "RUINA2-PRESCRIPTS_GRACE.description": "在每回合开始时，从[gold]攻击[/gold]、[gold]技能[/gold]、[gold]能力[/gold]中随机选择一种牌型。你每回合打出的第一张该类型的牌将被打出两次。",
+  "RUINA2-PRESCRIPTS_GRACE.flavor": "现在一切都说得通了。那些看似毫无意义的努力，最终都汇聚成了一个明确而唯一的意义。",
+  "RUINA2-PRESCRIPTS_GRACE.title": "指令的恩惠",
+  "RUINA2-MALICE.description": "在你的回合开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害。如果你的生命值等于或低于[blue]{HPThreshold}%[/blue]，则改为对所有敌人造成[blue]{IncreasedDamage}[/blue]点伤害。",
+  "RUINA2-MALICE.flavor": "与生俱来的恶意，让一切生命尚未绽放便已凋零。",
+  "RUINA2-MALICE.title": "恶意",
+  "RUINA2-SEVENTH_BULLET.description": "在战斗开始时，获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。每当你打出[blue]{Cards}[/blue]张[gold]攻击牌[/gold]，受到[blue]{Damage}[/blue]点伤害。",
+  "RUINA2-SEVENTH_BULLET.flavor": "有一天，那位神枪手察觉到魔鬼已不再跟随他。他思索其中缘由，才明白自己的灵魂，早已从一开始就坠入了地狱。",
+  "RUINA2-SEVENTH_BULLET.title": "第七发子弹",
+  "RUINA2-OVEREXERTION.description": "每场战斗开始时获得额外的{Energy:energyIcons()}。在你的第二回合开始时，获得[blue]{WeakPower}[/blue]层[gold]虚弱[/gold]和[gold]脆弱[/gold]。",
+  "RUINA2-OVEREXERTION.flavor": "她只需不断向前。不断前进，直到前路豁然开朗。不断前进，直到她再也无法前进。",
+  "RUINA2-OVEREXERTION.title": "过度劳累",
+  "RUINA2-LIFE_FIBERS.description": "下一次你将死亡时，改为恢复[blue]{Heal}[/blue]点生命。在战斗结束时，恢复量增加[blue]{HealIncrease}[/blue]点。",
+  "RUINA2-LIFE_FIBERS.flavor": "当夜幕降临后巷，他们便会到来。",
+  "RUINA2-LIFE_FIBERS.title": "生命之丝"
 }

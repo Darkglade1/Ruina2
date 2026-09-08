@@ -271,5 +271,14 @@
   "RUINA2-BEAK_POWER.title": "尖喙",
   "RUINA2-GOODBYE_POWER.description": "",
   "RUINA2-GOODBYE_POWER.smartDescription": "你打出的下一张[gold]攻击牌[/gold]造成双倍伤害。",
-  "RUINA2-GOODBYE_POWER.title": "再见"
+  "RUINA2-GOODBYE_POWER.title": "再见",
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.smartDescription": "你的下{Amount:plural:一张[gold]攻击牌[/gold]|[blue]{}[/blue]张[gold]攻击牌[/gold]}本回合将额外被打出一次。",
+  "RUINA2-PRESCRIPTS_GRACE_ATTACK.title": "指令的恩惠 - 攻击",
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.smartDescription": "你的下{Amount:plural:一张[gold]技能牌[/gold]|[blue]{}[/blue]张[gold]技能牌[/gold]}本回合将额外被打出一次。",
+  "RUINA2-PRESCRIPTS_GRACE_SKILL.title": "指令的恩惠 - 技能",
+  "RUINA2-PRESCRIPTS_GRACE_POWER.description": "",
+  "RUINA2-PRESCRIPTS_GRACE_POWER.smartDescription": "你的下{Amount:plural:一张[gold]能力牌[/gold]|[blue]{}[/blue]张[gold]能力牌[/gold]}本回合将额外被打出一次。",
+  "RUINA2-PRESCRIPTS_GRACE_POWER.title": "指令的恩惠 - 能力"
 }
