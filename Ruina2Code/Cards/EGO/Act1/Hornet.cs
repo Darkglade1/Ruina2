@@ -12,7 +12,7 @@ public class Hornet() : EGOCard(3,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
 
     protected override async Task OnPlay(
@@ -25,6 +25,6 @@ public class Hornet() : EGOCard(3,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(10);
+        DynamicVars.Damage.UpgradeValueBy(8);
     }
 }

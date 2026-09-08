@@ -14,7 +14,7 @@ public class Harvest() : EGOCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(17, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

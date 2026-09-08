@@ -71,7 +71,7 @@
   "RUINA2-GOLD_RUSH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nIf the last card you played this combat is an [gold]Attack[/gold], double your [gold]Strength[/gold].",
   "RUINA2-GOLD_RUSH.title": "Gold Rush",
 
-  "RUINA2-NIHIL.description": "ALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold].\nIf you have no cards in your [gold]Hand[/gold], this effect is doubled.",
+  "RUINA2-NIHIL.description": "ALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold].\nCosts 0 if this is the only card in your [gold]Hand[/gold].",
   "RUINA2-NIHIL.title": "Nihil",
 
   "RUINA2-SWORD_SHARPENED.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].\nIf played on an enemy from your [gold]Hand[/gold] {PlayThreshold:diff()} times, [gold]Stun[/gold] the enemy and [gold]Exhaust[/gold] instead.{IfUpgraded:show:\nShuffle this card into your [gold]Draw Pile[/gold].}",
@@ -206,5 +206,11 @@
   "RUINA2-LAMP.title": "Lamp",
 
   "RUINA2-BEAK.description": "At the start of your turn, reduce the cost of the highest cost card in your [gold]Hand[/gold] to 0 and give it [gold]Exhaust[/gold].",
-  "RUINA2-BEAK.title": "Beak"
+  "RUINA2-BEAK.title": "Beak",
+
+  "RUINA2-PRESCRIPT.description": "Burn this at a [gold]Rest Site[/gold], then deliver the ashes to the [gold]Merchant[/gold].",
+  "RUINA2-PRESCRIPT.title": "Prescript",
+
+  "RUINA2-PRESCRIPT_ASHES.description": "Deliver this to the [gold]Merchant[/gold].",
+  "RUINA2-PRESCRIPT_ASHES.title": "Prescript's Ashes"
 }

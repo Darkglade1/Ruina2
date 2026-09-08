@@ -45,7 +45,7 @@ public class Briah() : AbstractRuinaAct(2)
                 ModelDb.Event<SocialSciences>(),
                 ModelDb.Event<NothingThere>(),
                 ModelDb.Event<WizardOfOz>(),
-                //ModelDb.Event<TheLanternKey>(),
+                ModelDb.Event<Messenger>(),
                 //ModelDb.Event<ZenWeaver>()
             ];
         }

@@ -1,9 +1,9 @@
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Events;
+using Ruina2.Ruina2Code.Events.Act1;
 
 namespace Ruina2.Ruina2Code.Acts;
 
@@ -40,7 +40,26 @@ public class Asiyah() : AbstractRuinaAct(1)
 
     public override IEnumerable<EncounterModel> BossDiscoveryOrder => [ModelDb.Encounter<FairyBoss>(), ModelDb.Encounter<BlackSwanBoss>(), ModelDb.Encounter<OrchestraBoss>(), ModelDb.Encounter<NothingDerBoss>()];
 
-    public override IEnumerable<EventModel> AllEvents => ModelDb.Act<Overgrowth>().AllEvents;
+    public override IEnumerable<EventModel> AllEvents {
+        get
+        {
+            return [
+                ModelDb.Event<GalaxyChild>(),
+                ModelDb.Event<Funeral>(),
+                ModelDb.Event<SnowWhiteApple>(),
+                ModelDb.Event<DerFreischutz>(),
+                ModelDb.Event<WarpTrain>(),
+                ModelDb.Event<ShiAssociation>(),
+                ModelDb.Event<NightInTheBackstreets>(),
+                ModelDb.Event<Art>(),
+                //ModelDb.Event<TabletOfTruth>(),
+                //ModelDb.Event<UnrestSite>(),
+                //ModelDb.Event<Wellspring>(),
+                //ModelDb.Event<WhisperingHollow>(),
+                //ModelDb.Event<WoodCarvings>()
+            ];
+        }
+    }
     
     public override string ChestOpenSfx => "event:/sfx/ui/treasure/treasure_act1";
     
@@ -54,10 +73,8 @@ public class Asiyah() : AbstractRuinaAct(1)
             {
                 return [ModelDb.AncientEvent<Neow>()];
             }
-            else
-            {
-               return  [ModelDb.AncientEvent<NeowAngela>()];
-            }
+
+            return  [ModelDb.AncientEvent<NeowAngela>()];
         }
     }
 }

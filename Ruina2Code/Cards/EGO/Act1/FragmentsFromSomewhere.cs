@@ -12,7 +12,7 @@ public class FragmentsFromSomewhere() : EGOCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(17, ValueProp.Move), new PowerVar<WeakPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
     protected override async Task OnPlay(
@@ -34,7 +34,7 @@ public class FragmentsFromSomewhere() : EGOCard(2,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(3);
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 }

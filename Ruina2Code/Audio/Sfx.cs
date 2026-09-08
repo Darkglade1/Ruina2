@@ -229,4 +229,6 @@ public static class Sfx
     public static readonly ModSound SilentHammer = new("Silentgirl_Hammer.ogg".SfxPath());
     public static readonly ModSound SilentPhaseChange = new("Silentgirl_PhaseChange.ogg".SfxPath());
     public static readonly ModSound SilentNail = new("Silentgirl_Volt.ogg".SfxPath());
+    
+    public static readonly ModSound IndexUnlock = new("IndexUnlock.ogg".SfxPath());
 }

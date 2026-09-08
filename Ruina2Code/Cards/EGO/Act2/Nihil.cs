@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace Ruina2.Ruina2Code.Cards.EGO.Act2;
@@ -16,7 +17,7 @@ public class Nihil() : EGOCard(1,
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
     
-    protected override bool ShouldGlowGoldInternal => NoCardsInHand;
+    protected override bool ShouldGlowGoldInternal => OnlyCardInHand;
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -24,17 +25,29 @@ public class Nihil() : EGOCard(1,
     {
         if (CombatState != null)
         {
-            int strLossMultiplier = 1;
-            if (PileType.Hand.GetPile(Owner).Cards.Count <= 0)
-            {
-                strLossMultiplier = 2;
-            }
             await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), CombatState.HittableEnemies,
-                -DynamicVars["StrengthPower"].BaseValue * strLossMultiplier, Owner.Creature, this);
+                -DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
         }
     }
+    
+    public override bool TryModifyEnergyCostInCombatLate(
+        CardModel card,
+        Decimal originalCost,
+        out Decimal modifiedCost)
+    {
+        if (card == this)
+        {
+            if (OnlyCardInHand)
+            {
+                modifiedCost = 0M;
+                return true;
+            }   
+        }
+        modifiedCost = originalCost;
+        return false;
+    }
 
-    public bool NoCardsInHand => PileType.Hand.GetPile(Owner).Cards.Count - 1 <= 0; //excludes itself
+    public bool OnlyCardInHand => PileType.Hand.GetPile(Owner).Cards.Count <= 1 && PileType.Hand.GetPile(Owner).Cards.Contains(this);
 
     protected override void OnUpgrade()
     {

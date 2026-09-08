@@ -15,5 +15,25 @@
 
   "RUINA2-FALSE_PRESENT.description": "Upon pickup, lose [blue]{HpLoss}[/blue] Max HP. The first [blue]{Cards}[/blue] cards you draw each combat cost [blue]0[/blue] until played.",
   "RUINA2-FALSE_PRESENT.flavor": "Poor Ozma. She didn't know that lying adults don't approach others without reason.",
-  "RUINA2-FALSE_PRESENT.title": "False Present"
+  "RUINA2-FALSE_PRESENT.title": "False Present",
+
+  "RUINA2-PRESCRIPTS_GRACE.description": "At start of each turn, randomly chooses between [gold]Attack[/gold], [gold]Skill[/gold], and [gold]Power[/gold]. The first card you play each turn of the chosen type is played twice.",
+  "RUINA2-PRESCRIPTS_GRACE.flavor": "It all made sense now. All those pointless endeavours converged onto a single, definite meaning.",
+  "RUINA2-PRESCRIPTS_GRACE.title": "Prescript's Grace",
+
+  "RUINA2-MALICE.description": "At the start of your turn, deal [blue]{Damage}[/blue] to ALL enemies. If your HP is at or below [blue]{HPThreshold}%[/blue], deal [blue]{IncreasedDamage}[/blue] damage to ALL enemies instead.",
+  "RUINA2-MALICE.flavor": "The inherent malice caused all life to crumble as soon as it bloomed.",
+  "RUINA2-MALICE.title": "Malice",
+
+  "RUINA2-SEVENTH_BULLET.description": "Gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] at the start of combat. Whenever you play [blue]{Cards}[/blue] [gold]Attacks[/gold], take [blue]{Damage}[/blue] damage.",
+  "RUINA2-SEVENTH_BULLET.flavor": "One day, the marksman realized the Devil no longer followed him. He pondered why, then realized that his soul had already fallen to Hell from the beginning.",
+  "RUINA2-SEVENTH_BULLET.title": "The Seventh Bullet",
+
+  "RUINA2-OVEREXERTION.description": "Start each combat with an additional {Energy:energyIcons()}. Gain [blue]{WeakPower}[/blue] [gold]Weak[/gold] and [gold]Frail[/gold] at the start of your second turn.",
+  "RUINA2-OVEREXERTION.flavor": "She just had to keep pushing forward. Keep on pushing until the way was clear. Keep on pushing until she could push no more.",
+  "RUINA2-OVEREXERTION.title": "Overexertion",
+
+  "RUINA2-LIFE_FIBERS.description": "The next time you die, heal [blue]{Heal}[/blue] HP instead. At the end of combat, increase the heal amount by [blue]{HealIncrease}[/blue].",
+  "RUINA2-LIFE_FIBERS.flavor": "When night falls in the Backstreets, they will come.",
+  "RUINA2-LIFE_FIBERS.title": "Life Fibers"
 }

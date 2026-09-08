@@ -25,7 +25,7 @@ public sealed class JudgementBird : AbstractRuinaMonster
     
     private int JudgementDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     private int GuiltDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
+    private int StrAmt => 3;
     private int DebuffAmt => 1;
     private int ParalysisAmt => 2;
 

@@ -11,7 +11,7 @@ public class Laetitia() : EGOCard(2,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -22,6 +22,6 @@ public class Laetitia() : EGOCard(2,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        RemoveKeyword(CardKeyword.Ethereal);
     }
 }

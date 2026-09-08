@@ -23,7 +23,7 @@ public sealed class SnowQueen : AbstractRuinaMonster
     
     private int FrigidDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
     private int IceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 32, 29);
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
+    private int StrAmt => 5;
     private int FrozenAmt => 1;
     
     private int PlatingAmt => 7;

@@ -15,7 +15,7 @@ public class CrimsonScar() : EGOCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, ValueProp.Move), new ScryVar(3), new PowerVar<VigorPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, ValueProp.Move), new ScryVar(2), new PowerVar<VigorPower>(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()];
 
@@ -33,7 +33,7 @@ public class CrimsonScar() : EGOCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3);
+        DynamicVars.Block.UpgradeValueBy(2);
         DynamicVars.Scry().UpgradeValueBy(1);
     }
 }

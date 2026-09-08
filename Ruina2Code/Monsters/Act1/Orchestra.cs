@@ -30,7 +30,7 @@ public sealed class Orchestra : AbstractRuinaMonster
     private int ThirdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int FinaleDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 24, 22);
     private int WeakAmt => 1;
-    private int FerventDmg => 2;
+    private int FerventDmg => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int PlayerDrawAmt => 2;
     private int StatusAmt => 1;
     private int BlockAmt => 8;

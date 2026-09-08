@@ -94,6 +94,11 @@ public static class StringExtensions
         return Path.Join(MainFile.ResPath, "images", "events", path);
     }
     
+    public static string PotionImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "potions", path);
+    }
+    
     public static string VfxImagePath(this string path)
     {
         return Path.Join(MainFile.ResPath, "images", "vfx", path);
