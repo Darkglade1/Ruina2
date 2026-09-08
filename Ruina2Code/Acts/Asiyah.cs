@@ -51,12 +51,12 @@ public class Asiyah() : AbstractRuinaAct(1)
                 ModelDb.Event<WarpTrain>(),
                 ModelDb.Event<ShiAssociation>(),
                 ModelDb.Event<NightInTheBackstreets>(),
-                ModelDb.Event<SunkenStatue>(),
-                ModelDb.Event<TabletOfTruth>(),
-                ModelDb.Event<UnrestSite>(),
-                ModelDb.Event<Wellspring>(),
-                ModelDb.Event<WhisperingHollow>(),
-                ModelDb.Event<WoodCarvings>()
+                ModelDb.Event<Art>(),
+                //ModelDb.Event<TabletOfTruth>(),
+                //ModelDb.Event<UnrestSite>(),
+                //ModelDb.Event<Wellspring>(),
+                //ModelDb.Event<WhisperingHollow>(),
+                //ModelDb.Event<WoodCarvings>()
             ];
         }
     }
