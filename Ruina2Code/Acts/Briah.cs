@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Encounters.Act2;
 using Ruina2.Ruina2Code.Events.Act2;
+using Index = Ruina2.Ruina2Code.Events.Act2.Index;
 
 namespace Ruina2.Ruina2Code.Acts;
 
@@ -46,7 +47,7 @@ public class Briah() : AbstractRuinaAct(2)
                 ModelDb.Event<NothingThere>(),
                 ModelDb.Event<WizardOfOz>(),
                 ModelDb.Event<Messenger>(),
-                //ModelDb.Event<ZenWeaver>()
+                ModelDb.Event<Index>()
             ];
         }
     }

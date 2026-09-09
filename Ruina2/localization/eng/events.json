@@ -163,6 +163,15 @@
   "RUINA2-YOUR_BOOK.pages.INITIAL.options.SUCCUMB.description": "Obtain [gold]{Card}[/gold].",
   "RUINA2-YOUR_BOOK.pages.OVERCOME.description": "In the depths of your [purple]despair[/purple], you cling onto a [green]glimmer[/green] of [gold]hope[/gold]. You cling to the thought that surely, one day you will break out of this cycle of life and death.\n\nYou feel your resolve harden and [gold]manifest[/gold], and you feel that you had become stronger through this experience.",
   "RUINA2-YOUR_BOOK.pages.SUCCUMB.description": "Your [purple]despair[/purple] bubbles up to your throat, [red]choking[/red] you with its weight. You feel a cold [blue]chill[/blue] spread throughout your body, something [purple]hollow[/purple] permeating your very being and shaping your very self.\n\nThere is no hope. There is no escape.\n\nAfter all, there is no conclusion more natural than [purple]death[/purple].",
+
+  "RUINA2-INDEX.title": "The Index",
+  "RUINA2-INDEX.pages.INITIAL.description": "The machine [jitter]thrummed[/jitter] in rhythm with the heartbeat of the [gold]City[/gold]. Every footstep caused the machine to [jitter]shudder[/jitter], every off-hand comment caused it to [jitter]rotate[/jitter], every wayward deed displaced its pen a little.\n\nThe [gold]Weaver[/gold] thought it was [green]beautiful[/green]. The City was creating [gold]Prescripts[/gold] for its people to follow, like a parent giving instructions to their children.\n\nBut she was not a part of that. As a [gold]Weaver[/gold], it was her duty to prepare Prescripts, not to receive them. Yet she desperately wished to be the recipient of one of these [gold]heavenly[/gold] messages.",
+  "RUINA2-INDEX.pages.INITIAL.options.SWIPE.title": "Swipe a Prescript",
+  "RUINA2-INDEX.pages.INITIAL.options.SWIPE.description": "Obtain a random [gold]Relic[/gold]. Receive [red]{Curse}[/red].",
+  "RUINA2-INDEX.pages.INITIAL.options.RESIST.title": "Resist the urge",
+  "RUINA2-INDEX.pages.INITIAL.options.RESIST.description": "[gold]Enchant[/gold] a card with [purple]{Enchantment}[/purple].",
+  "RUINA2-INDEX.pages.SWIPE.description": "It wouldn't hurt if she took one for herself, right? She was a child of the [gold]City[/gold] too. It was her right!\n\nSwiping the next [gold]Prescript[/gold] the machine printed out, she looked at what instruction the [gold]City[/gold] had for her.\n\n\"Do not go home until you finish reading the value of e.\"",
+  "RUINA2-INDEX.pages.RESIST.description": "No. She had to resist the [purple]temptation[/purple]. There was a reason she was chosen to be a [gold]Weaver[/gold]. For the sake of the [gold]City[/gold], she had to continue faithfully fulfilling her duty.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",
