@@ -15,7 +15,14 @@ public class LaetitiaPower() : Ruina2Power
 
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        return card.Owner.Creature != Owner || CombatManager.Instance.History.CardPlaysStarted.Count(e => e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && (e.CardPlay.Card.EnergyCost.GetResolved() == 0 || e.CardPlay.Card.EnergyCost.GetResolved() == 1)) >= Amount ? playCount : playCount + 1;
+        if (card.Owner.Creature == Owner && (card.EnergyCost.GetResolved() == 0 || card.EnergyCost.GetResolved() == 1))
+        {
+            if (CombatManager.Instance.History.CardPlaysStarted.Count(e => e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && (e.CardPlay.Card.EnergyCost.GetResolved() == 0 || e.CardPlay.Card.EnergyCost.GetResolved() == 1)) < Amount)
+            {
+                return playCount + 1;
+            }
+        }
+        return playCount;
     }
 
     public override Task AfterModifyingCardPlayCount(CardModel card)
