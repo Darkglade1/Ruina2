@@ -81,7 +81,7 @@
   "RUINA2-FUNERAL.title": "亡蝶葬仪",
   "RUINA2-FUNERAL.pages.INITIAL.description": "它静坐在一片蝴蝶飞舞的原野中，是那些[purple]逝者[/purple]的无声守护者。它站起身，向你递出它的[gold]棺材[/gold]，为你提供一处在这奇异而混沌之地[green]安息[/green]的场所。\n\n你躺进棺材，棺盖在你身上合拢。当外界的世界消失时，你发现自己[gold]梦见[/gold]了一个——",
   "RUINA2-FUNERAL.pages.INITIAL.options.BLACK.title": "漆黑的黑暗",
-  "RUINA2-FUNERAL.pages.INITIAL.options.BLACK.description": "随机获得一张[gold]已升级的EGO[/gold]卡牌。失去[red]{BlackCost}[/red]点生命。",
+  "RUINA2-FUNERAL.pages.INITIAL.options.BLACK.description": "[gold]变化[/gold][blue]{TransformCards}[/blue]张牌。失去[red]{BlackCost}[/red]点生命。",
   "RUINA2-FUNERAL.pages.INITIAL.options.WHITE.title": "洁白的纯真",
   "RUINA2-FUNERAL.pages.INITIAL.options.WHITE.description": "[gold]移除[/gold][blue]{RemoveCards}[/blue]张牌。失去[red]{WhiteCost}[/red]点最大生命值。",
   "RUINA2-FUNERAL.pages.BLACK.description": "[purple]暴毙之死[/purple]。它寻觅着那些最意想不到它到来的人。它从[purple]阴影[/purple]中突袭而出，将他们扼杀在[purple]黑暗[/purple]之中。\n\n在梦中，你既是捕食者，也是猎物。当你惊叫着、双手颤抖着醒来时，你感到自己有一部分已经[gold]永远[/gold]改变了。",
