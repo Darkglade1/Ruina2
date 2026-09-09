@@ -10,7 +10,7 @@
   "RUINA2-CHURCH_OF_GEARS.title": "齿轮教堂",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.description": "[jitter]呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜[/jitter]\n\n你听见骨骼[red]碎裂[/red]，鲜血[red]飞溅[/red]，关节[red]断裂[/red]的声音。而在这一切之中，一阵剧烈的嗡鸣声弥漫在空气里。\n\n那台喧闹机器旁的兜帽人影转身面向你。“加入我们吧，陌生人。加入我们，从此摆脱[purple]沉重[/purple]的思绪与尘世的负累！”\n\n身后的门在你身后关上了。看来他们并不打算接受“不”作为答案。",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.title": "接受提议",
-  "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.description": "[gold]升级[/gold]一张牌，然后[gold]复制[/gold]它。失去[red]{UpgradeCost}[/red]点生命。",
+  "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ACCEPT.description": "[gold]复制[/gold]一张牌。失去[red]{DupeCost}[/red]点生命。",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ESCAPE.title": "寻找逃生路线",
   "RUINA2-CHURCH_OF_GEARS.pages.INITIAL.options.ESCAPE.description": "[gold]变化[/gold]一张牌，然后将其[gold]升级[/gold]。失去[red]{TransformCost}[/red]点生命。",
   "RUINA2-CHURCH_OF_GEARS.pages.ACCEPT.description": "你在机器中坐下，感觉仿佛有一把[purple]虎钳[/purple]夹住了你的头颅。\n\n那[jitter]嗡鸣[/jitter]声愈发[gold]响亮[/gold]，那钝痛也愈发[red]剧烈[/red]，直到突然间，一切[red]戛然而止[/red]。\n\n你的脑袋从未如此轻松过。",

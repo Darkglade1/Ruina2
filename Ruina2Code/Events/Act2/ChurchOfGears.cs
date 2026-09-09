@@ -2,12 +2,12 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Acts;
@@ -49,8 +49,9 @@ public class ChurchOfGears() : Ruina2Event()
         CardModel? original = (await CardSelectCmd.FromDeckForTransformation(Owner!, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1))).FirstOrDefault();
         if (original != null)
         {
-            CardPileAddResult random = await CardCmd.TransformToRandom(original, Rng, CardPreviewStyle.EventLayout);
-            CardCmd.Upgrade(random.cardAdded);
+            CardModel cardForTransform = CardFactory.CreateRandomCardForTransform(original, false, Owner.RunState.Rng.Niche);
+            CardCmd.Upgrade(cardForTransform);
+            await CardCmd.Transform(original, cardForTransform);
         }
         SetEventFinished(PageDescription("ESCAPE"));
     }
