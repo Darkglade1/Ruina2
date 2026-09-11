@@ -212,5 +212,8 @@
   "RUINA2-PRESCRIPT.title": "Prescript",
 
   "RUINA2-PRESCRIPT_ASHES.description": "Deliver this to the [gold]Merchant[/gold].",
-  "RUINA2-PRESCRIPT_ASHES.title": "Prescript's Ashes"
+  "RUINA2-PRESCRIPT_ASHES.title": "Prescript's Ashes",
+
+  "RUINA2-DISTORTED.description": "",
+  "RUINA2-DISTORTED.title": "Distorted"
 }

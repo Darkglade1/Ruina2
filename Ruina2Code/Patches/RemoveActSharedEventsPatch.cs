@@ -14,7 +14,7 @@ public static class RemoveActSharedEventsPatch
 {
     public static void Postfix(ActModel __instance, Rng rng, UnlockState unlockState, bool isMultiplayer)
     {
-        if (__instance is Asiyah || __instance is Briah)
+        if (__instance is AbstractRuinaAct)
         {
             __instance._rooms.events.Clear();
             var list = __instance.AllEvents.ToList();

@@ -35,5 +35,13 @@
 
   "RUINA2-LIFE_FIBERS.description": "The next time you die, heal [blue]{Heal}[/blue] HP instead. At the end of combat, increase the heal amount by [blue]{HealIncrease}[/blue].",
   "RUINA2-LIFE_FIBERS.flavor": "When night falls in the Backstreets, they will come.",
-  "RUINA2-LIFE_FIBERS.title": "Life Fibers"
+  "RUINA2-LIFE_FIBERS.title": "Life Fibers",
+
+  "RUINA2-LOWELLS_GIFT.description": "At the start of your [blue]3rd[/blue] turn, gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold].",
+  "RUINA2-LOWELLS_GIFT.flavor": "It's those small moments you end up remembering for the rest of your life.",
+  "RUINA2-LOWELLS_GIFT.title": "Lowell's Gift",
+
+  "RUINA2-FOUR_TRIGRAMS.description": "At the start of your turn, activate the effect that corresponds to the current turn:\n[blue]1st[/blue] turn - Draw [blue]{Cards}[/blue] card.\n[blue]2nd[/blue] turn - Gain {Energy:energyIcons()}.\n[blue]3rd[/blue] turn - Gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold].\n[blue]4th[/blue] turn - Gain [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold].",
+  "RUINA2-FOUR_TRIGRAMS.flavor": "The balance of the City must be upheld.",
+  "RUINA2-FOUR_TRIGRAMS.title": "Four Trigrams"
 }
