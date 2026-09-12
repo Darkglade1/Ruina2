@@ -16,7 +16,7 @@ public class Learn() : Ruina2Power
     public override PowerStackType StackType =>
         PowerStackType.None;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Fragile",2), new("Block",4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Fragile",2), new("Block",3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<TempFragile>()];
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

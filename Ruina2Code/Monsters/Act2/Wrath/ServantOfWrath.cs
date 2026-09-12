@@ -26,9 +26,9 @@ public sealed class ServantOfWrath : AbstractAllyMonster
     public override string TargetTexturePath => "WrathIcon.png".UIImagePath();
     private bool talked = false;
 
-    private int EvilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int EvilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int EvilHits = 3;
-    private int RageDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 8);
+    private int RageDamage => 8;
     private int RageHits => 2;
     private int DebuffAmt => 2;
     private int BlindFuryThreshold => 20;

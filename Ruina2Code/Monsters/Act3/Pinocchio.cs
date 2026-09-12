@@ -22,7 +22,7 @@ public sealed class Pinocchio : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 190, 170);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int LearnDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int LearnDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int LearnHits => 2;
     private int LieDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int StrAmt => 2;
@@ -66,15 +66,15 @@ public sealed class Pinocchio : AbstractRuinaMonster
         var state2 = GetLieState();
         var state3 = GetFibState();
 
-        state1.FollowUpState = state2;
-        state2.FollowUpState = state3;
-        state3.FollowUpState = state1;
+        state1.FollowUpState = state3;
+        state2.FollowUpState = state1;
+        state3.FollowUpState = state2;
 
         states.Add(state1);
         states.Add(state2);
         states.Add(state3);
         
-        return new MonsterMoveStateMachine(states, state1);
+        return new MonsterMoveStateMachine(states, state2);
     }
     
     private async Task Learn(IReadOnlyList<Creature> targets)

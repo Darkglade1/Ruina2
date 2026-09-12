@@ -20,7 +20,7 @@ public sealed class HermitStaff : AbstractMultiIntentMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 53, 48);
     public override int NumIntents => 1;
 
-    private int AttackDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int AttackDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
 
     protected override string VisualsPath => "Staff/staff.tscn".MonsterImagePath();
 
