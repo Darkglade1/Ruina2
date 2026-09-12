@@ -20,7 +20,7 @@ public class SnowWhiteApple() : Ruina2Event()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ("MaxHP", 14),
+        new ("MaxHP", 12),
         new("MaxHPLoss", 8),
         new StringVar("Curse", ModelDb.Card<SporeMind>().Title),
         new StringVar("Relic", ModelDb.Relic<Malice>().Title.GetFormattedText())
