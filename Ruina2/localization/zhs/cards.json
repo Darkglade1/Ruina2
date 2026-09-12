@@ -142,5 +142,7 @@
   "RUINA2-PRESCRIPT.description": "在[gold]休息处[/gold]烧毁这张牌，然后将灰烬交给[gold]商人[/gold]。",
   "RUINA2-PRESCRIPT.title": "指令",
   "RUINA2-PRESCRIPT_ASHES.description": "将其交给[gold]商人[/gold]。",
-  "RUINA2-PRESCRIPT_ASHES.title": "指令的灰烬"
+  "RUINA2-PRESCRIPT_ASHES.title": "指令的灰烬",
+  "RUINA2-DISTORTED.description": "",
+  "RUINA2-DISTORTED.title": "扭曲"
 }

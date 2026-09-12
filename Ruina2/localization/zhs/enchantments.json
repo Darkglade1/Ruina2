@@ -1,5 +1,12 @@
 {
   "RUINA2-OBSESSION.title": "执念",
   "RUINA2-OBSESSION.description": "这张牌拥有[gold]固有[/gold]，但必须在你[gold]手牌[/gold]中其他牌之前被打出。",
-  "RUINA2-OBSESSION.extraCardText": "[purple]必须在其他牌之前打出[/purple]。"
+  "RUINA2-OBSESSION.extraCardText": "[purple]必须在其他牌之前打出[/purple]。",
+  "RUINA2-STEADY_HEART.title": "坚定之心",
+  "RUINA2-STEADY_HEART.description": "这张牌拥有[gold]保留[/gold]和[gold]消耗[/gold]。只能[gold]附魔[/gold]于[gold]非消耗性[/gold]、[gold]非能力[/gold]的牌。",
+  "RUINA2-STEADY_HEART.extraCardText": "",
+  "RUINA2-VANISHING.title": "消逝",
+  "RUINA2-VANISHING.description": "这张牌耗能减少[blue]{Amount}[/blue]，并获得[gold]消耗[/gold]。只能[gold]附魔[/gold]于[gold]非消耗性[/gold]、[gold]非能力[/gold]的牌。",
+  "RUINA2-PILLAR.title": "石柱",
+  "RUINA2-PILLAR.description": "这张牌获得[blue]{Amount}[/blue]点额外[gold]格挡[/gold]，但拥有[gold]虚无[/gold]。"
 }
