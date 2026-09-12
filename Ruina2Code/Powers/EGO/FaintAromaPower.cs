@@ -20,7 +20,7 @@ public class FaintAromaPower() : Ruina2Power
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (command.Attacker == Owner && CombatManager.Instance.History.CardPlaysStarted.Count(e => e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && e.CardPlay.Card.Type == CardType.Attack) == 1)
+        if (command.Attacker != null && (command.Attacker == Owner || command.Attacker.PetOwner == Owner.Player) && command.ModelSource is CardModel && CombatManager.Instance.History.CardPlaysStarted.Count(e => (e.Actor == Owner || e.Actor.PetOwner == Owner.Player) && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && e.CardPlay.Card.Type == CardType.Attack) == 1)
         {
             Flash();
             foreach (var result in command.Results)

@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace Ruina2.Ruina2Code.Enchantments;
 
@@ -24,7 +25,7 @@ public class Obsession : Ruina2Enchantment
         if (card.Owner != Card.Owner)
             return true;
         CardPile? pile = Card.Pile;
-        return (pile != null ? (pile.Type != PileType.Hand ? 1 : 0) : 1) != 0 || card.Enchantment is Obsession || autoPlayType != AutoPlayType.None;
+        return (pile != null ? (pile.Type != PileType.Hand ? 1 : 0) : 1) != 0 || card.Enchantment is Obsession || card is Enthralled || autoPlayType != AutoPlayType.None;
     }
    
 }

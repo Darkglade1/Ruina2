@@ -36,7 +36,7 @@ public class SingingMachine() : Ruina2Event()
     
     public override bool IsAllowed(IRunState runState)
     {
-        return base.IsAllowed(runState) && runState.Players.All(p => PileType.Deck.GetPile(p).Cards.Any(card => card.Rarity != CardRarity.Basic));
+        return base.IsAllowed(runState) && runState.Players.All(p => PileType.Deck.GetPile(p).Cards.Count(card => card.Rarity != CardRarity.Basic) >= 2);
     }
     
     public async Task OfferCard()
