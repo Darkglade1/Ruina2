@@ -17,7 +17,7 @@ public class SocialSciences() : Ruina2Event()
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
         List<PotionModel> list = Owner!.Potions.ToList();
-        list.StableShuffle(Owner.PlayerRng.Rewards);
+        list.StableShuffle(Rng);
         chosenPotion = list[0];
         if (chosenPotion.Rarity == PotionRarity.Rare)
         {

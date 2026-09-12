@@ -225,7 +225,16 @@
   "RUINA2-DISTORTED_YAN.pages.INITIAL.options.GIVE_UP.title": "Give up",
   "RUINA2-DISTORTED_YAN.pages.INITIAL.options.GIVE_UP.description": "Lose [red]{HpLoss}[/red] HP.",
   "RUINA2-DISTORTED_YAN.pages.GIVE_IN.description": "Something inside him [purple]cracked[/purple], [purple]fractured[/purple].\n\nHis thoughts changed, restructured, [jitter]twisted[/jitter] into a single, perfect moment of [gold]clarity[/gold].\n\nNothing mattered anymore. Nothing, except carrying out the [gold]City's[/gold] will.",
-  "RUINA2-DISTORTED_YAN.pages.GIVE_UP.description":  "There was still another [gold]path[/gold] left to him. A [gold]path[/gold] that he should've taken long ago when he first received the [gold]Prescript[/gold] to become a [gold]Messenger[/gold].\n\nHe didn't care if this would be part of another plan of the Prescripts. He didn't care if even this action would not truly be of his own free will.\n\nHe just didn't care anymore.\n\nRaising his sword, he pointed it at himself.",
+  "RUINA2-DISTORTED_YAN.pages.GIVE_UP.description": "There was still another [gold]path[/gold] left to him. A [gold]path[/gold] that he should've taken long ago when he first received the [gold]Prescript[/gold] to become a [gold]Messenger[/gold].\n\nHe didn't care if this would be part of another plan of the Prescripts. He didn't care if even this action would not truly be of his own free will.\n\nHe just didn't care anymore.\n\nRaising his sword, he pointed it at himself.",
+
+  "RUINA2-PHILOSOPHY.title": "Floor of Philosophy",
+  "RUINA2-PHILOSOPHY.pages.INITIAL.description":  "\"You're not supposed to be here.\"\n\nThe stern-looking woman takes a sip of [gold]tea[/gold] and sighs as she places it back down. \"If I were interested in doing my job properly, I'd [red]chase[/red]  you out. But luckily for you, I can't be bothered to do so at the moment. So why don't you join me for a cup of [gold]tea[/gold] instead?\"",
+  "RUINA2-PHILOSOPHY.pages.INITIAL.options.ACCEPT.title": "Accept her offer",
+  "RUINA2-PHILOSOPHY.pages.INITIAL.options.ACCEPT.description": "Lose [gold]{Card}[/gold]. Heal [blue]{Heal}[/blue] HP.",
+  "RUINA2-PHILOSOPHY.pages.INITIAL.options.REJECT.title": "Reject her offer",
+  "RUINA2-PHILOSOPHY.pages.INITIAL.options.REJECT.description": "[gold]Enchant[/gold] a card with [purple]{Enchantment}[/purple] [blue]{EnchantAmt}[/blue].",
+  "RUINA2-PHILOSOPHY.pages.ACCEPT.description": "You sit down and take a sip of the [gold]tea[/gold]. It tastes rather [purple]strange[/purple] to you.\n\n\"So, how is it? Enjoying the flavor?\"\n\nLooking at the woman's [gold]expectant[/gold] expression, you decide that [gold]discretion[/gold] is truly the better part of [gold]valor[/gold] and praise the tea's quality.",
+  "RUINA2-PHILOSOPHY.pages.REJECT.description": "\"Well, that's too bad I suppose.\"\n\nThe floor rumbles and shakes, strange [gold]pillars[/gold] rising out of the ground near her.\n\n\"I'll give you a ten second head-start. After that . . . well, you better pray that you can run faster than a [red]speeding pillar[/red].\"\n\nYou've never booked it faster than you have in this moment.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

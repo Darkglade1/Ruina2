@@ -5,5 +5,11 @@
 
   "RUINA2-STEADY_HEART.title": "Steady Heart",
   "RUINA2-STEADY_HEART.description": "This card has [gold]Retain[/gold] and [gold]Exhaust[/gold]. Can only [gold]Enchant[/gold] [gold]non-Exhausting[/gold], [gold]non-Power[/gold] cards.",
-  "RUINA2-STEADY_HEART.extraCardText": ""
+  "RUINA2-STEADY_HEART.extraCardText": "",
+
+  "RUINA2-VANISHING.title": "Vanishing",
+  "RUINA2-VANISHING.description": "This card costs [blue]{Amount}[/blue] less and [gold]Exhausts[/gold]. Can only [gold]Enchant[/gold] [gold]non-Exhausting[/gold], [gold]non-Power[/gold] cards.",
+
+  "RUINA2-PILLAR.title": "Pillar",
+  "RUINA2-PILLAR.description": "This card gains [blue]{Amount}[/blue] additional [gold]Block[/gold] but has [gold]Ethereal[/gold]."
 }
