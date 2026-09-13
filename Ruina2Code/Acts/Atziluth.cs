@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
 using Ruina2.Ruina2Code.Encounters.Act3;
+using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 using Ruina2.Ruina2Code.Events.Act3;
 
 namespace Ruina2.Ruina2Code.Acts;
@@ -27,7 +28,9 @@ public class Atziluth() : AbstractRuinaAct(3)
             ModelDb.Encounter<SnowQueenElite>(),
             ModelDb.Encounter<TwilightBoss>(),
             ModelDb.Encounter<WhiteNightBoss>(),
-            ModelDb.Encounter<SilentGirlBoss>()
+            ModelDb.Encounter<SilentGirlBoss>(),
+            
+            ModelDb.Encounter<OswaldEncounter>(),
         ];
     }
     

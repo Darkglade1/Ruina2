@@ -373,5 +373,9 @@
 
   "RUINA2-PRESCRIPTS_GRACE_POWER.description": "",
   "RUINA2-PRESCRIPTS_GRACE_POWER.smartDescription": "Your next {Amount:plural:[gold]Power[/gold] is|[blue]{}[/blue] [gold]Powers[/gold] are} played an extra time this turn.",
-  "RUINA2-PRESCRIPTS_GRACE_POWER.title": "Prescript's Grace - Power"
+  "RUINA2-PRESCRIPTS_GRACE_POWER.title": "Prescript's Grace - Power",
+
+  "RUINA2-BRAINWASH.description": "",
+  "RUINA2-BRAINWASH.smartDescription": "The first single-target [gold]Attack[/gold] or [gold]Skill[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Brainwash[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
+  "RUINA2-BRAINWASH.title": "Brainwash"
 }

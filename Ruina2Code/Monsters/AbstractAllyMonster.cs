@@ -9,6 +9,8 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Afflictions;
+using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Monsters;

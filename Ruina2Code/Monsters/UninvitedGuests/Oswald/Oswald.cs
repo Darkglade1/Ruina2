@@ -1,0 +1,235 @@
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Monsters.Act2.Wrath;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
+
+namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
+
+public sealed class Oswald : AbstractMultiIntentMonster
+{
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 770, 700);
+    public override int MaxInitialHp => MinInitialHp;
+    public override int NumIntents => 2;
+
+    private int HoldDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int MakeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
+    private int StrengthAmount => 2;
+    private int BlockAmount => 11;
+    private int DebuffAmt => 1;
+
+    protected override string VisualsPath => "Hermit/hermit.tscn".MonsterImagePath();
+
+    private const string HOLD_STILL = "HOLD_STILL";
+    private const string MAKE_WAY = "MAKE_WAY";
+    private const string CRACKLE  = "CRACKLE";
+    private const string HELLO = "HELLO";
+
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        OtherSideTargetMonster = FindTarget<Tiph>();
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            Brainwash mutable = (Brainwash) ModelDb.Power<Brainwash>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
+        }
+    }
+
+    private MoveState GetHoldStillState()
+    {
+        return new MoveState(HOLD_STILL, HoldStill, new RuinaSingleAttackIntent(HoldDamage), new RuinaDebuffIntent());
+    }
+
+    private MoveState GetMakeWayState()
+    {
+        return new MoveState(MAKE_WAY, MakeWay, new RuinaSingleAttackIntent(MakeDamage));
+    }
+
+    private MoveState GetCrackleState()
+    {
+        return new MoveState(CRACKLE, Crackle, new DefendIntent(), new BuffIntent());
+    }
+
+    private MonsterMoveStateMachine GenerateIntent1StateMachine()
+    {
+        var states = new List<MonsterState>();
+        var state1 = GetHoldStillState();
+        var state2 = GetMakeWayState();
+        
+        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
+
+        state1.FollowUpState = moveBranch;
+        state2.FollowUpState = moveBranch;
+
+        states.Add(state1);
+        states.Add(state2);
+        states.Add(moveBranch);
+        
+        return new MonsterMoveStateMachine(states, moveBranch);
+    }
+
+    private MonsterMoveStateMachine GenerateIntent2StateMachine()
+    {
+        var states = new List<MonsterState>();
+        var state1 = GetHoldStillState();
+        var state2 = GetMakeWayState();
+        var state3 = GetCrackleState();
+        
+        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove2, 1);
+
+        state1.FollowUpState = moveBranch;
+        state2.FollowUpState = moveBranch;
+        state3.FollowUpState = moveBranch;
+
+        states.Add(state1);
+        states.Add(state2);
+        states.Add(state3);
+        states.Add(moveBranch);
+        
+        return new MonsterMoveStateMachine(states, moveBranch);
+    }
+    
+    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
+    {
+        List<string> possibilities = new List<string>();
+        if (!LastMove(stateMachine, HOLD_STILL)) {
+            possibilities.Add(HOLD_STILL);
+        }
+        if (!LastTwoMoves(stateMachine, MAKE_WAY)) {
+            possibilities.Add(MAKE_WAY);
+        }
+        return possibilities[rng.NextInt(possibilities.Count)];
+    }
+    
+    private string SelectNextMove2(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
+    {
+        if (LastMove(stateMachine, HOLD_STILL) || CombatState.RoundNumber == 1)
+        {
+            return MAKE_WAY;
+        }
+        else
+        {
+            List<string> possibilities = new List<string>();
+            if (!LastMove(stateMachine, HOLD_STILL)) {
+                possibilities.Add(HOLD_STILL);
+            }
+            if (!LastTwoMoves(stateMachine, MAKE_WAY)) {
+                possibilities.Add(MAKE_WAY);
+            }
+            if (!LastMove(stateMachine, CRACKLE) && !LastMoveBefore(stateMachine, CRACKLE)) {
+                possibilities.Add(CRACKLE);
+            }
+            return possibilities[rng.NextInt(possibilities.Count)];
+        }
+    }
+
+    public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
+    {
+        return [GenerateIntent1StateMachine(), GenerateIntent2StateMachine()];
+    }
+
+    public override Creature DetermineTargetForIntent(int intentNum)
+    {
+        if (intentNum == 0)
+        {
+            return CombatState.PlayerCreatures[0];
+        }
+        if (intentNum == 1 && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
+        {
+            return OtherSideTargetMonster;
+        }
+        return CombatState.PlayerCreatures[0];
+    }
+
+    private async Task HoldStill(IReadOnlyList<Creature> targets)
+    {
+        await PierceAnimation(targets);
+        await DamageCmd.Attack(HoldDamage)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
+            .Execute(null);
+        if (targets[0].IsPlayer)
+        {
+            await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
+        }
+        else
+        {
+            await ApplyPowerAndSkipNextDurationTick<VulnerablePower>(targets, DebuffAmt);
+        }
+        await ResetIdle();
+    }
+    
+    private async Task MakeWay(IReadOnlyList<Creature> targets)
+    {
+        await BluntAnimation(targets);
+        await DamageCmd.Attack(MakeDamage)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
+            .Execute(null);
+        await ResetIdle();
+    }
+    
+    private async Task Crackle(IReadOnlyList<Creature> targets)
+    {
+        await SpecialAnimation();
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            if (!(enemy.Monster is AbstractAllyMonster))
+            {
+                await CreatureCmd.GainBlock(enemy, BlockAmount, ValueProp.Move, null);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), enemy, StrengthAmount, Creature,  null);
+            }
+        }
+        await ResetIdle(1.0f);
+    }
+    
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature && OtherSideTargetMonster?.Monster is ServantOfWrath wrath)
+        {
+            if (wrath.Creature.IsAlive)
+            {
+                await wrath.OnHermitDeath();
+            }
+        }
+    }
+
+    private async Task PierceAnimation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Pierce", Sfx.HermitAtk, targets);
+    }
+    
+    private async Task BluntAnimation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Blunt", Sfx.HermitStrongAtk, targets);
+    }
+    
+    private async Task SpecialAnimation()
+    {
+        await AnimationAction("Special", Sfx.HermitWand);
+    }
+    
+    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    {
+        return GenerateAnimatorFromKeys(["Idle", "Blunt", "Pierce", "Special"], controller);
+    }
+}

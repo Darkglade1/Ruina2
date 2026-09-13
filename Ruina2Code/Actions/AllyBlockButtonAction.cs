@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 namespace Ruina2.Ruina2Code.Actions;
 
@@ -31,6 +32,10 @@ public sealed class AllyBlockButtonAction : GameAction
       return;
     }
     var creature = Player.Creature.CombatState.Enemies.FirstOrDefault(c => c.ModelId == ModelId && c.IsAlive);
+    if (creature?.Monster is Tiph && !Player.PlayerCombatState!.PlayPile.IsEmpty)
+    {
+      return;
+    }
     if (creature?.Monster is AbstractAllyMonster)
     {
       var blockToGive = Math.Min(NAllyBlockButton.BLOCK_TRANSFER, Player.Creature.Block);
