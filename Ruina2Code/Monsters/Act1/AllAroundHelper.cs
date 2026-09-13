@@ -43,7 +43,7 @@ public sealed class AllAroundHelper : AbstractRuinaMonster
                 attackCounter = i;
                 if (attackCounter == 0)
                 {
-                    Sfx.HelperOn.Play(0, 5.0f);
+                    Sfx.HelperOn.Play(0, 4.0f);
                 }
                 break;
             }
