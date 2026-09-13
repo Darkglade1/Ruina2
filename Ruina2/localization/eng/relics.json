@@ -43,5 +43,9 @@
 
   "RUINA2-FOUR_TRIGRAMS.description": "At the start of your turn, activate the effect that corresponds to the current turn:\n[blue]1st[/blue] turn - Draw [blue]{Cards}[/blue] card.\n[blue]2nd[/blue] turn - Gain {Energy:energyIcons()}.\n[blue]3rd[/blue] turn - Gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold].\n[blue]4th[/blue] turn - Gain [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold].",
   "RUINA2-FOUR_TRIGRAMS.flavor": "The balance of the City must be upheld.",
-  "RUINA2-FOUR_TRIGRAMS.title": "Four Trigrams"
+  "RUINA2-FOUR_TRIGRAMS.title": "Four Trigrams",
+
+  "RUINA2-BOOK_OF_SOMEONE.description": "At the end of combat, heal [blue]{Heal}%[/blue] of your HP.",
+  "RUINA2-BOOK_OF_SOMEONE.flavor": "Some must fight so that all may be free.",
+  "RUINA2-BOOK_OF_SOMEONE.title": "Book of Someone"
 }

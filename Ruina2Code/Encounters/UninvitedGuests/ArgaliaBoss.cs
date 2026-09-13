@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
@@ -9,11 +10,14 @@ using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 namespace Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 
-public sealed class OswaldEncounter : CustomEncounterModel
+public sealed class ArgaliaBoss : CustomEncounterModel
 {
-    public OswaldEncounter() : base(RoomType.Elite)
+    public ArgaliaBoss() : base(RoomType.Boss)
     {
     }
+    public override string BossNodePath => "Argalia/ArgaliaMap".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconPath => "Argalia/ArgaliaIcon.png".MonsterImagePath().SimplifyPath();
+    public override string? CustomRunHistoryIconOutlinePath => "Argalia/ArgaliaIconOutline.png".MonsterImagePath().SimplifyPath();
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",

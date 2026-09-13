@@ -39,7 +39,9 @@ public class MusicPatches
             None,
             Asiyah,
             Briah,
-            Atziluth
+            Atziluth,
+            Guests,
+            BlackSilence
         }
 
         private static TrackType _currentTrackType = TrackType.None;
@@ -49,8 +51,6 @@ public class MusicPatches
         private const string BaseGameBankPath = "res://banks/desktop/act1_a1.bank";
         private const string BaseGameTrack = "event:/music/act1_a1_v1";
 
-        private static bool _whiteNightAwake = false;
-
         private static RuinaAct GetCurrentRuinaAct()
         {
             var runState = StateProperty?.GetValue(RunManager.Instance) as RunState;
@@ -59,6 +59,7 @@ public class MusicPatches
                 Asiyah => RuinaAct.Asiyah,
                 Briah => RuinaAct.Briah,
                 Atziluth => RuinaAct.Atziluth,
+                UninvitedGuests => RuinaAct.Guests,
                 _ => RuinaAct.None
             };
         }
@@ -110,7 +111,6 @@ public class MusicPatches
         
         public static void OnWhiteNightAwakened()
         {
-            _whiteNightAwake = true;
             RuinaAudio.FadeIn("WhiteNightBGM.ogg".MusicPath(), 1f);
             _isPlayingRuinaMusic = true;
             _currentTrackType = TrackType.Boss;

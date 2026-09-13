@@ -254,6 +254,12 @@
   "RUINA2-CRYING_CHILDREN.pages.INITIAL.options.SUPPRESS.description": "Gain [blue]{MaxHP}[/blue] Max HP.",
   "RUINA2-CRYING_CHILDREN.pages.UNLEASH.description":  "The world shifts, becoming [purple]blurry[/purple] and [purple]distorted[/purple]. You do not know who you are. You do not know where you are. All you know is that a [purple]crying child[/purple] is in front of you . . . \n\nAnd you desperately wish to [red]kill[/red] it.",
   "RUINA2-CRYING_CHILDREN.pages.SUPPRESS.description": "The [red]rage[/red] abates, leaving you feeling drained and empty. A hollow [purple]emptiness[/purple] fills you, sharp and silent just like that child's tears.\n\nThere was nothing here for you anymore.",
+
+  "RUINA2-ENSEMBLE.title": "Reverberation Ensemble",
+  "RUINA2-ENSEMBLE.pages.INITIAL.description":  "\"Ohohohoho! Knock, and the door shall open!\"\n\n\"The entrance to this place was super strong, even after many blows we barely got inside.\"\n\n\"It's a test of endurance, after all! There's no use giving up after a couple of knocks!\"\n\n\"Now friends, if you're any rowdier we might scare away the residents of this place. It would be wise that we show the utmost respect so they don't go hiding behind bookshelves, no?\"",
+  "RUINA2-ENSEMBLE.pages.INITIAL.options.MAKE_A_STAND.title": "Make a Stand",
+  "RUINA2-ENSEMBLE.pages.INITIAL.options.MAKE_A_STAND.description": "Obtain [gold]{Relic}[/gold].",
+  "RUINA2-ENSEMBLE.pages.MAKE_A_STAND.description": "You don't know what compelled you to do so, to risk your very [gold]life[/gold] for a place such as this. But you could tell there was a [gold]Light[/gold] here, a ray of hope that these villains sought to [purple]defile[/purple].\n\nAnd you would not stand for it.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

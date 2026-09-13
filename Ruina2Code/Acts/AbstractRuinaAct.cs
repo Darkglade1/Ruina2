@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Encounters.Act2;
 using Ruina2.Ruina2Code.Encounters.Act3;
+using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Acts;
@@ -70,6 +71,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         if (RunManager.Instance.State?.Act.BossEncounter is SilentGirlBoss)
         {
             return RuinaFloor.Keter;
+        }
+        if (RunManager.Instance.State?.Act.BossEncounter is ArgaliaBoss)
+        {
+            return RuinaFloor.Guests;
         }
         return RuinaFloor.Gebura;
     }
@@ -191,8 +196,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
                 case RuinaFloor.Gebura:
                     return new Color(0.5f, 0.2f, 0.2f);
                 case RuinaFloor.Chesed:
+                case RuinaFloor.Guests:
                     return Color.Color8(50, 89, 134);
                 case RuinaFloor.Binah:
+                case RuinaFloor.BlackSilence:
                     return Color.Color8(22, 22, 22);
                 case RuinaFloor.Hokma:
                     return Color.Color8(84, 84, 84);
