@@ -7,11 +7,11 @@ namespace Ruina2.Ruina2Code.Cards;
 
 [Pool(typeof(CurseCardPool))]
 public class Distorted() : Ruina2Card(-1, CardType.Curse,
-    CardRarity.Curse, TargetType.Self)
+    CardRarity.Curse, TargetType.None)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Innate, CardKeyword.Eternal];
-    
+    public override bool CanBeGeneratedByModifiers => false;
     public override int MaxUpgradeLevel => 0;
 }
