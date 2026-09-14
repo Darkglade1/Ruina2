@@ -37,6 +37,7 @@ public sealed class LittleRed : AbstractAllyMonster
     private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int BulletShowerHits => 3;
     private int StrengthAmount => 2;
+    private int EnrageStrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int HealAmount => 10;
     private int DebuffAmt = 1;
     public bool enraged;
@@ -249,7 +250,7 @@ public sealed class LittleRed : AbstractAllyMonster
         FlipHorizontal();
         RemoveAllyBlockButton();
         await CreatureCmd.Heal(Creature, Creature.MaxHp);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, EnrageStrengthAmount, Creature, null);
         enraged = true;
         NCreature? creatureNode = Creature.GetCreatureNode();
         if (creatureNode != null)

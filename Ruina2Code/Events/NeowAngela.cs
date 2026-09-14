@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
@@ -27,7 +28,11 @@ public class NeowAngela : CustomAncientModel
         {
             return;
         }
-        Sfx.FingerSnap.Play(0, 0.8f);
+
+        if (LocalContext.IsMe(Owner))
+        {
+          Sfx.FingerSnap.Play(0, 0.8f);
+        }
     }
     
     protected override OptionPools MakeOptionPools => new([]);
