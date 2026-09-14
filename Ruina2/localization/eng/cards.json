@@ -135,7 +135,7 @@
   "RUINA2-SANGUINE_DESIRE.description": "Deal {Damage:diff()} damage.\nApply [gold]Bleed[/gold] equal to half the damage dealt.",
   "RUINA2-SANGUINE_DESIRE.title": "Sanguine Desire",
 
-  "RUINA2-LAETITIA.description": "The first 0 or 1 cost card you play each turn is played twice.",
+  "RUINA2-LAETITIA.description": "{IfUpgraded:show:|End your turn.\n}The first 0 or 1 cost card you play each turn is played twice.",
   "RUINA2-LAETITIA.title": "Laetitia",
 
   "RUINA2-TODAYS_EXPRESSION.description": "Choose one:\nGain {Block:diff()} [gold]Block[/gold] or {StrengthPower:diff()} [gold]Strength[/gold].",

@@ -90,7 +90,7 @@
   "RUINA2-RED_EYES.title": "赤瞳",
   "RUINA2-SANGUINE_DESIRE.description": "造成{Damage:diff()}点伤害。\n给予等同于所造成伤害一半的[gold]流血[/gold]。",
   "RUINA2-SANGUINE_DESIRE.title": "血欲",
-  "RUINA2-LAETITIA.description": "你每回合打出的第一张耗能为0或1的牌将被打出两次。",
+  "RUINA2-LAETITIA.description": "{IfUpgraded:show:|结束你的回合。\n}你每回合打出的第一张耗能为0或1的牌将被打出两次。",
   "RUINA2-LAETITIA.title": "Laetitia",
   "RUINA2-TODAYS_EXPRESSION.description": "选择其一：\n获得{Block:diff()}点[gold]格挡[/gold]或{StrengthPower:diff()}点[gold]力量[/gold]。",
   "RUINA2-TODAYS_EXPRESSION.title": "此刻的神情",

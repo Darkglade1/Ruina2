@@ -11,17 +11,20 @@ public class Laetitia() : EGOCard(2,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         await PowerCmd.Apply<LaetitiaPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, this);
+        if (!IsUpgraded)
+        {
+            PlayerCmd.EndTurn(Owner, false);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Ethereal);
     }
 }
