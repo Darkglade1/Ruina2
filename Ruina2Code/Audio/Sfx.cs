@@ -231,4 +231,17 @@ public static class Sfx
     public static readonly ModSound SilentNail = new("Silentgirl_Volt.ogg".SfxPath());
     
     public static readonly ModSound IndexUnlock = new("IndexUnlock.ogg".SfxPath());
+    
+    public static readonly ModSound OswaldVert = new("Oswald_Vert.ogg".SfxPath());
+    public static readonly ModSound OswaldAttract = new("Oswald_Attract.ogg".SfxPath());
+    public static readonly ModSound OswaldHori = new("Oswald_Hori.ogg".SfxPath());
+    public static readonly ModSound OswaldStab = new("Oswald_Stab.ogg".SfxPath());
+    public static readonly ModSound OswaldFinish = new("Oswald_Strong_Up.ogg".SfxPath());
+    public static readonly ModSound OswaldLaugh = new("Oswald_Standby.ogg".SfxPath());
+    
+    public static readonly ModSound HanaBlunt = new("Hana_Blow.ogg".SfxPath());
+    public static readonly ModSound HanaStab = new("Hana_Stab.ogg".SfxPath());
+    public static readonly ModSound HanaStrongStart = new("Hana_Strong_Start.ogg".SfxPath());
+    public static readonly ModSound HanaStrongCharge = new("Hana_Strong_Charge.ogg".SfxPath());
+    public static readonly ModSound HanaStrongFin = new("Hana_Strong_Fin.ogg".SfxPath());
 }

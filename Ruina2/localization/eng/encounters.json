@@ -120,5 +120,7 @@
   "RUINA2-PUNISHING_BIRD_NORMAL.loss": "{character} was punished by [gold]{encounter}[/gold].",
   "RUINA2-JUDGEMENT_BIRD_NORMAL.loss": "{character} was judged by [gold]{encounter}[/gold].",
   "RUINA2-PRICE_OF_SILENCE_NORMAL.loss": "{character}'s time ran out.",
-  "RUINA2-APOSTLES_NORMAL.loss": "{character} was ripped to shreds by a group of [gold]{encounter}[/gold]."
+  "RUINA2-APOSTLES_NORMAL.loss": "{character} was ripped to shreds by a group of [gold]{encounter}[/gold].",
+
+  "RUINA2-OSWALD_ENCOUNTER.title": "Oswald"
 }

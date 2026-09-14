@@ -2,21 +2,18 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
-using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Afflictions;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
-using Ruina2.Ruina2Code.Monsters.Act2.Wrath;
-using Ruina2.Ruina2Code.Powers;
-using Ruina2.Ruina2Code.Powers.Act2;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
@@ -25,35 +22,20 @@ public sealed class Tiph : AbstractAllyMonster
     public override int MinInitialHp => 300;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
-    public override string TargetTexturePath => "WrathIcon.png".UIImagePath();
+    public override string TargetTexturePath => "TiphIcon.png".UIImagePath();
     private bool talked = false;
 
-    private int EvilDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int EvilHits = 3;
-    private int RageDamage => 8;
-    private int RageHits => 2;
-    private int DebuffAmt => 2;
-    private int BlindFuryThreshold => 20;
-    private int DamageIncrease = 2;
-    private int CurrentDamageIncrease = 0;
-    public decimal EvilTotalDamage => EvilDamage + CurrentDamageIncrease;
-    public bool enraged;
-    
-    public MoveState? _evilState;
-    public MoveState? EvilState
-    {
-        get => _evilState;
-        set
-        {
-            AssertMutable();
-            _evilState = value;
-        }
-    }
+    private int KickDamage => 10;
+    private int ConfrontationDamage => 16;
+    private int TrigramDamage => 12;
+    private int TrigramHits => 2;
+    private int StrengthAmt => 2;
+    private int BlockAmt => 10;
+    protected override string VisualsPath => "Tiph/tiph.tscn".MonsterImagePath();
 
-    protected override string VisualsPath => "ServantOfWrath/wrath.tscn".MonsterImagePath();
-
-    private const string RAGE = "RAGE";
-    private const string EMBODIMENTS_OF_EVIL = "EMBODIMENTS_OF_EVIL";
+    private const string AUGURY_KICK = "AUGURY_KICK";
+    private const string CONFRONTATION = "CONFRONTATION";
+    private const string TRIGRAM = "TRIGRAM";
 
     public override async Task AfterAddedToRoom()
     { 
@@ -61,44 +43,37 @@ public sealed class Tiph : AbstractAllyMonster
         OtherSideTargetMonster = FindTarget<Oswald>();
     }
 
-    private MoveState GetRageState()
+    private MoveState GetAuguryKickState()
     {
-        return new MoveState(RAGE, Rage, new RuinaMultiAttackIntent(RageDamage, RageHits), new RuinaDebuffIntent());
+        return new MoveState(AUGURY_KICK, AuguryKick, new RuinaSingleAttackIntent(KickDamage), new BuffIntent());
     }
 
-    private MoveState GetEmbodimentsOfEvilState()
+    private MoveState GetConfrontationState()
     {
-        return new MoveState(EMBODIMENTS_OF_EVIL, EmbodimentsOfEvil, new RuinaMultiMassAttackIntent((Func<decimal>) (() => EvilTotalDamage), EvilHits));
+        return new MoveState(CONFRONTATION, Confrontation, new RuinaSingleAttackIntent(ConfrontationDamage), new DefendIntent());
+    }
+    
+    private MoveState GetTrigramState()
+    {
+        return new MoveState(TRIGRAM, Trigram, new RuinaMultiAttackIntent(TrigramDamage, TrigramHits));
     }
 
     private MonsterMoveStateMachine GenerateIntent1StateMachine()
     {
         var states = new List<MonsterState>();
-        var state1 = GetRageState();
-        EvilState = GetEmbodimentsOfEvilState();
-        
-        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
+        var state1 = GetAuguryKickState();
+        var state2 = GetConfrontationState();
+        var state3 = GetTrigramState();
 
-        state1.FollowUpState = moveBranch;
-        EvilState.FollowUpState = moveBranch;
+        state1.FollowUpState = state3;
+        state2.FollowUpState = state1;
+        state3.FollowUpState = state2;
 
         states.Add(state1);
-        states.Add(EvilState);
-        states.Add(moveBranch);
+        states.Add(state2);
+        states.Add(state3);
         
-        return new MonsterMoveStateMachine(states, moveBranch);
-    }
-    
-    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
-    {
-        if (enraged)
-        {
-            return EMBODIMENTS_OF_EVIL;
-        }
-        else
-        {
-            return RAGE;
-        }
+        return new MonsterMoveStateMachine(states, state3);
     }
 
 
@@ -116,55 +91,72 @@ public sealed class Tiph : AbstractAllyMonster
         return CombatState.PlayerCreatures[0];
     }
 
-    private async Task Rage(IReadOnlyList<Creature> targets)
+    private void Talk()
     {
         if (!talked)
         {
-            TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.combatStart"), Creature, VfxColor.Green);
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-TIPH.response"), Creature, VfxColor.Gold);
             talked = true;
         }
-        for (int i = 0; i < RageHits; i++)
+    }
+
+    private async Task AuguryKick(IReadOnlyList<Creature> targets)
+    {
+        Talk();
+        await BluntAnimation(targets);
+        await DamageCmd.Attack(KickDamage)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
+            .Execute(null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmt, Creature,  null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, StrengthAmt, Creature,  null);
+        await ResetIdle();
+    }
+    
+    private async Task Confrontation(IReadOnlyList<Creature> targets)
+    {
+        Talk();
+        await PierceAnimation(targets);
+        await DamageCmd.Attack(ConfrontationDamage)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
+            .Execute(null);
+        await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);
+        foreach (var player in CombatState.PlayerCreatures)
         {
-            if (i % 2 == 0)
-            {
-                await Attack1Animation(targets);
+            await CreatureCmd.GainBlock(player, BlockAmt, ValueProp.Move, null);
+        }
+        await ResetIdle();
+    }
+    
+    private async Task Trigram(IReadOnlyList<Creature> targets)
+    {
+        Talk();
+        for (int i = 0; i < TrigramHits; i++)
+        {
+            if (i % 2 == 0) {
+                await Special1Animation(targets);
+                await WaitAnimation(1.0f);
+                await Special2Animation(targets);
             } else {
-                await Attack2Animation(targets);
+                await Special1AnimationNoSound(targets);
+                await WaitAnimation();
+                await Special4Animation(targets);
             }
-            await DamageCmd.Attack(RageDamage)
+            await DamageCmd.Attack(TrigramDamage)
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await ResetIdle();
+            await WaitAnimation();
         }
-        await ApplyPowerAndSkipNextDurationTickIfNotPresent<Erosion>(targets, DebuffAmt);
+        await ResetIdle();
     }
     
-    private async Task EmbodimentsOfEvil(IReadOnlyList<Creature> targets)
-    {
-        for (int i = 0; i < EvilHits; i++)
-        {
-            IsMassAttacking = true;
-            if (i == 0) {
-                await BigAttack1Animation(targets);
-            } else if (i == 1){
-                await BigAttack2Animation(targets);
-            } else {
-                await BigAttack3Animation(targets);
-            }
-            await DamageCmd.Attack(EvilTotalDamage).FromMonsterCreature(this).TargetingCreatures(targets, CombatState).Execute(null);
-            await ResetIdle(0.9f);
-            await WaitAnimation(0.1f);
-        }
-        CurrentDamageIncrease += DamageIncrease;
-        enraged = false;
-    }
-    
-    public async Task OnHermitDeath()
+    public async Task OnBossDeath()
     {
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
-        TalkCmd.Play(L10NMonsterLookup("RUINA2-WRATH.hermitDeath"), Creature, VfxColor.Green);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-TIPH.victory"), Creature, VfxColor.Gold);
         await WaitAnimation(2.0f);
         await CreatureCmd.Kill(Creature);
     }
@@ -194,33 +186,38 @@ public sealed class Tiph : AbstractAllyMonster
         return Task.CompletedTask;
     }
 
-    private async Task Attack1Animation(IReadOnlyList<Creature> targets)
+    private async Task BluntAnimation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("Attack1", Sfx.WrathAtk1, targets);
+        await AnimationAction("Blunt", Sfx.HanaBlunt, targets);
     }
     
-    private async Task Attack2Animation(IReadOnlyList<Creature> targets)
+    private async Task PierceAnimation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("Attack2", Sfx.WrathAtk2, targets);
+        await AnimationAction("Pierce", Sfx.HanaStab, targets);
     }
     
-    private async Task BigAttack1Animation(IReadOnlyList<Creature> targets)
+    private async Task Special1Animation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("BigAttack1", Sfx.WrathStrong1, targets);
+        await AnimationAction("Special1", Sfx.HanaStrongCharge, targets);
     }
     
-    private async Task BigAttack2Animation(IReadOnlyList<Creature> targets)
+    private async Task Special1AnimationNoSound(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("BigAttack2", Sfx.WrathStrong2, targets);
+        await AnimationAction("Special1", null, targets);
     }
     
-    private async Task BigAttack3Animation(IReadOnlyList<Creature> targets)
+    private async Task Special2Animation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("BigAttack3", Sfx.WrathStrong3, targets);
+        await AnimationAction("Special2", Sfx.HanaStrongStart, targets);
+    }
+    
+    private async Task Special4Animation(IReadOnlyList<Creature> targets)
+    {
+        await AnimationAction("Special4", Sfx.HanaStrongFin, targets);
     }
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
     {
-        return GenerateAnimatorFromKeys(["Idle", "Attack1", "Attack2", "BigAttack1", "BigAttack2", "BigAttack3"], controller);
+        return GenerateAnimatorFromKeys(["Idle", "Blunt", "Pierce", "Special1", "Special2", "Special4"], controller);
     }
 }

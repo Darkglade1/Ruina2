@@ -151,5 +151,11 @@
   "RUINA2-HAMMER.name": "Hammer",
   "RUINA2-NAIL.name": "Nail",
 
-  "RUINA2-FUNERAL.name": "Funeral of the Dead Butterflies"
+  "RUINA2-FUNERAL.name": "Funeral of the Dead Butterflies",
+
+  "RUINA2-OSWALD.name": "Oswald",
+  "RUINA2-OSWALD.talk": "Fancy some clown-to-clown communication?",
+  "RUINA2-TIPH.name": "Tiphereth",
+  "RUINA2-TIPH.response": "The only clown here is you.",
+  "RUINA2-TIPH.victory": "What a nuisance."
 }

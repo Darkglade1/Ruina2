@@ -17,10 +17,10 @@ public sealed class OswaldEncounter : CustomEncounterModel
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
-            ["wrath_bg.tscn".BackgroundImagePath()], 
-            "wrath_bg.tscn".BackgroundImagePath());
+            ["tiph_bg.tscn".BackgroundImagePath()], 
+            "tiph_bg.tscn".BackgroundImagePath());
     }
-    public override string? CustomScenePath => "wrath_elite.tscn".EncounterImagePath();
+    public override string? CustomScenePath => "oswald_encounter.tscn".EncounterImagePath();
     public override float GetCameraScaling() => 0.9f;
     public override bool IsValidForAct(ActModel act) => false;
     public override IEnumerable<EncounterTag> Tags => Array.Empty<EncounterTag>();
@@ -37,8 +37,8 @@ public sealed class OswaldEncounter : CustomEncounterModel
     {
         return new List<(MonsterModel, string?)>
         {
-            (ModelDb.Monster<Tiph>().ToMutable(), "wrath"),
-            (ModelDb.Monster<Oswald>().ToMutable(), "hermit")
+            (ModelDb.Monster<Tiph>().ToMutable(), "ally"),
+            (ModelDb.Monster<Oswald>().ToMutable(), "boss")
         };
     }
 }
