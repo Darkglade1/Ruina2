@@ -218,11 +218,26 @@
   "RUINA2-DISTORTED.title": "Distorted",
 
   "RUINA2-TRIGRAM.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
-  "RUINA2-TRIGRAM.title": "Trigram",
+  "RUINA2-TRIGRAM.title": "True Trigram Formation",
 
   "RUINA2-CONFRONTATION.description": "Deal {Damage:diff()} damage.\nALL allies gain {Block:diff()} [gold]Block[/gold].",
   "RUINA2-CONFRONTATION.title": "Confrontation",
 
   "RUINA2-AUGURY_KICK.description": "Deal {Damage:diff()} damage.\nALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
-  "RUINA2-AUGURY_KICK.title": "Augury Kick"
+  "RUINA2-AUGURY_KICK.title": "Augury Kick",
+
+  "RUINA2-CATCH.description": "Shuffle {Cards:diff()} [gold]Wounds[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-CATCH.title": "Here, Catch",
+
+  "RUINA2-FUN.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-FUN.title": "Let's Have Some Fun",
+
+  "RUINA2-CLIMAX.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nIncrease the number of hits this combat by {Increase:diff()}.",
+  "RUINA2-CLIMAX.title": "CLIMAX!!!",
+
+  "RUINA2-POW.description": "Apply {WeakPower:diff()} [gold]Weak[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-POW.title": "Pow! Kablammo!",
+
+  "RUINA2-WE_NEED_YOU.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "RUINA2-WE_NEED_YOU.title": "We Need You, You Know"
 }

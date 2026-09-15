@@ -15,6 +15,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
     public List<CardModel> CardIntents = new();
     public Dictionary<string, CardModel> MoveToCardMap = new();
     public List<NGridCardHolder?> NCardHolders = new([null, null, null]);
+    public static float CardIntentY = -115f;
     
     public virtual Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
@@ -26,13 +27,12 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
         if (NCombatRoom.Instance != null)
         {
             NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
-            creatureNode?.MoveChildSafely(creatureNode?.IntentContainer, 0);
             Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
             if (specialNode != null)
             {
-                List<Vector2> positionOffsetSet1 = [new(0, -100f)];
-                List<Vector2> positionOffsetSet2 = [new(-25f, -100f), new(25f, -100f)];
-                List<Vector2> positionOffsetSet3 = [new(-50f, -100f), new(0, -100f), new(50f, -100f)];
+                List<Vector2> positionOffsetSet1 = [new(0, CardIntentY)];
+                List<Vector2> positionOffsetSet2 = [new(-60f, CardIntentY), new(60f, CardIntentY)];
+                List<Vector2> positionOffsetSet3 = [new(-120f, CardIntentY), new(0, CardIntentY), new(120f, CardIntentY)];
                 var positionOffsetSetToUse = new List<Vector2>();
                 if (CardIntents.Count == 1)
                 {

@@ -11,12 +11,13 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
-using Ruina2.Ruina2Code.Afflictions;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Tiph;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
+using Brainwash = Ruina2.Ruina2Code.Afflictions.Brainwash;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
@@ -34,6 +35,9 @@ public sealed class Tiph : AbstractAllyCardMonster
     private int TrigramHits => 2;
     private int StrengthAmt => 2;
     private int BlockAmt => 10;
+    public static int GEON = 50;
+    public static int GON = 50;
+    public static int RI = 1;
     protected override string VisualsPath => "Tiph/tiph.tscn".MonsterImagePath();
 
     private const string AUGURY_KICK = "AUGURY_KICK";
@@ -44,6 +48,7 @@ public sealed class Tiph : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Oswald>();
+        await PowerCmd.Apply<Geon>(new ThrowingPlayerChoiceContext(), Creature, GEON, Creature,  null);
     }
 
     private MoveState GetAuguryKickState()
@@ -96,18 +101,15 @@ public sealed class Tiph : AbstractAllyCardMonster
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
-        var card1 = CombatState.CreateCard<Trigram>(CombatState.PlayerCreatures[0].Player!);
+        var card1 = CreateCardForIntent<Trigram>();
         card1.SetDamage(TrigramDamage);
         card1.SetRepeat(TrigramHits);
-        EnemyCard.EnemyCardOwner.Set(card1, Creature);
-        var card2 = CombatState.CreateCard<Confrontation>(CombatState.PlayerCreatures[0].Player!);
+        var card2 = CreateCardForIntent<Confrontation>();
         card2.SetDamage(ConfrontationDamage);
         card2.SetBlock(BlockAmt);
-        EnemyCard.EnemyCardOwner.Set(card2, Creature);
-        var card3 = CombatState.CreateCard<AuguryKick>(CombatState.PlayerCreatures[0].Player!);
+        var card3 = CreateCardForIntent<AuguryKick>();
         card3.SetDamage(KickDamage);
         card3.SetStrength(StrengthAmt);
-        EnemyCard.EnemyCardOwner.Set(card3, Creature);
         return new Dictionary<string, CardModel>()
         {
             {TRIGRAM, card1},

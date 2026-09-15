@@ -26,13 +26,12 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
         if (NCombatRoom.Instance != null)
         {
             NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
-            creatureNode?.MoveChildSafely(creatureNode?.IntentContainer, 0);
             Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
             if (specialNode != null)
             {
-                List<Vector2> positionOffsetSet1 = [new(0, -100f)];
-                List<Vector2> positionOffsetSet2 = [new(-25f, -100f), new(25f, -100f)];
-                List<Vector2> positionOffsetSet3 = [new(-50f, -100f), new(0, -100f), new(50f, -100f)];
+                List<Vector2> positionOffsetSet1 = [new(0, AbstractCardMonster.CardIntentY)];
+                List<Vector2> positionOffsetSet2 = [new(-60f, AbstractCardMonster.CardIntentY), new(60f, AbstractCardMonster.CardIntentY)];
+                List<Vector2> positionOffsetSet3 = [new(-120f, AbstractCardMonster.CardIntentY), new(0, AbstractCardMonster.CardIntentY), new(120f, AbstractCardMonster.CardIntentY)];
                 var positionOffsetSetToUse = new List<Vector2>();
                 if (CardIntents.Count == 1)
                 {

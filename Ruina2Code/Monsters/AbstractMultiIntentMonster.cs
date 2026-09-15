@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using Ruina2.Ruina2Code.Cards.EnemyCards;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -137,6 +138,13 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
                 return;
             TaskHelper.RunSafely(creatureNode.RefreshIntents());
         }
+    }
+
+    protected T CreateCardForIntent<T>() where T : CardModel
+    {
+        var card = CombatState.CreateCard<T>(CombatState.PlayerCreatures[0].Player!);
+        EnemyCard.EnemyCardOwner.Set(card, Creature);
+        return card;
     }
 }
 

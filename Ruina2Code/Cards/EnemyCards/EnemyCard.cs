@@ -52,4 +52,9 @@ public abstract class EnemyCard(int cost, CardType type, CardRarity rarity, Targ
         AssertMutable();
         DynamicVars.Vulnerable.BaseValue = vulnerable;
     }
+    public void SetCards(Decimal cards)
+    {
+        AssertMutable();
+        DynamicVars.Cards.BaseValue = cards;
+    }
 }

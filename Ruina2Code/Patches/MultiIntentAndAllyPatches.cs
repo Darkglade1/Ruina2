@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
@@ -35,11 +36,21 @@ public static class GenerateExtraIntentStateMachinesPatch
         if (__instance is AbstractCardMonster cardMonster)
         {
             cardMonster.MoveToCardMap = cardMonster.GenerateMoveToCardMap();
+            if (NCombatRoom.Instance != null)
+            {
+                NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(cardMonster.Creature);
+                creatureNode?.MoveChildSafely(creatureNode?.IntentContainer, 0);
+            }
         }
         
         if (__instance is AbstractAllyCardMonster allyCardMonster)
         {
             allyCardMonster.MoveToCardMap = allyCardMonster.GenerateMoveToCardMap();
+            if (NCombatRoom.Instance != null)
+            {
+                NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(allyCardMonster.Creature);
+                creatureNode?.MoveChildSafely(creatureNode?.IntentContainer, 0);
+            }
         }
     }
 }

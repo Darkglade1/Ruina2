@@ -377,5 +377,17 @@
 
   "RUINA2-BRAINWASH.description": "",
   "RUINA2-BRAINWASH.smartDescription": "The first single-target [gold]Attack[/gold] or [gold]Skill[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Brainwash[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
-  "RUINA2-BRAINWASH.title": "Brainwash"
+  "RUINA2-BRAINWASH.title": "Brainwash",
+
+  "RUINA2-GEON.description": "",
+  "RUINA2-GEON.smartDescription": "Deals [blue]{Amount}%[/blue] more damage with attacks.\nChanges every turn.",
+  "RUINA2-GEON.title": "Geon of Four Trigrams",
+
+  "RUINA2-GON.description": "",
+  "RUINA2-GON.smartDescription": "Receives [blue]{Amount}%[/blue] less damage from attacks.\nChanges every turn.",
+  "RUINA2-GON.title": "Gon of Four Trigrams",
+
+  "RUINA2-RI.description": "",
+  "RUINA2-RI.smartDescription": "An ally draws [blue]{Amount}[/blue] {Amount:plural:card|cards} next turn.\nChanges every turn.",
+  "RUINA2-RI.title": "Ri of Four Trigrams"
 }

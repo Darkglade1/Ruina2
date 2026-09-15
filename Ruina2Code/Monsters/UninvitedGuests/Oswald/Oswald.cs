@@ -13,13 +13,14 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
-public sealed class Oswald : AbstractMultiIntentMonster
+public sealed class Oswald : AbstractCardMonster
 {
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 770, 700);
     public override int MaxInitialHp => MinInitialHp;
@@ -143,6 +144,33 @@ public sealed class Oswald : AbstractMultiIntentMonster
         }
         return CombatState.PlayerCreatures[0];
     }
+    
+    public override Dictionary<string, CardModel> GenerateMoveToCardMap()
+    {
+        var card1 = CreateCardForIntent<Climax>();
+        card1.SetDamage(ClimaxDamage);
+        card1.SetRepeat(ClimaxTotalHits);
+        card1.DynamicVars["Increase"].BaseValue = ClimaxHitsIncrease;
+        var card2 = CreateCardForIntent<WeNeedYou>();
+        card2.SetDamage(BrainwashDamage);
+        card2.SetWeak(AllyDebuffAmt);
+        var card3 = CreateCardForIntent<Pow>();
+        card3.SetWeak(DebuffAmt);
+        card3.SetStrength(StrengthAmount);
+        var card4 = CreateCardForIntent<Fun>();
+        card4.SetDamage(FunDamage);
+        card4.SetRepeat(FunHits);
+        var card5 = CreateCardForIntent<Catch>();
+        card5.SetCards(StatusAmt);
+        return new Dictionary<string, CardModel>()
+        {
+            {CLIMAX, card1},
+            {BRAINWASH, card2},
+            {POW, card3},
+            {FUN, card4},
+            {CATCH, card5},
+        };
+    }
 
     private async Task Climax(IReadOnlyList<Creature> targets)
     {
@@ -167,6 +195,11 @@ public sealed class Oswald : AbstractMultiIntentMonster
         }
         await WaitAnimation();
         CurrentClimaxHitsIncrease += ClimaxHitsIncrease;
+        var card = MoveToCardMap[CLIMAX];
+        if (card is Climax climax)
+        {
+            climax.SetRepeat(ClimaxTotalHits);
+        }
     }
     
     private async Task Fun(IReadOnlyList<Creature> targets)
