@@ -31,7 +31,7 @@ public class Courage() : Ruina2Power
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (dealer != null && props.IsPoweredAttack() && target.Monster != null && target.Monster is RoadHome && target.IsAlive)
+        if (dealer != null && props.IsPoweredAttack() && target.Monster != null && target.Monster is RoadHome && target.IsAlive && cardSource != null)
         {
             DynamicVars["AttackedCount"].BaseValue++;
             if (DynamicVars["AttackedCount"].BaseValue >= Amount)

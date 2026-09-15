@@ -28,7 +28,7 @@ public class EasilyDistracted() : Ruina2Power
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (dealer != null && props.IsPoweredAttack() && target == Owner)
+        if (dealer != null && props.IsPoweredAttack() && target == Owner && cardSource != null)
         {
             DynamicVars["AttackedCount"].BaseValue++;
             if (DynamicVars["AttackedCount"].BaseValue >= Amount)
