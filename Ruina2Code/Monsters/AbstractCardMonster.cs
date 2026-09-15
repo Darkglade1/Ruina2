@@ -26,6 +26,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
         if (NCombatRoom.Instance != null)
         {
             NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
+            creatureNode?.MoveChildSafely(creatureNode?.IntentContainer, 0);
             Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
             if (specialNode != null)
             {
