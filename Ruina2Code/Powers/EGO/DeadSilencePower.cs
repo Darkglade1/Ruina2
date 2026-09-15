@@ -4,18 +4,13 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using Ruina2.Ruina2Code.Extensions;
 
 namespace Ruina2.Ruina2Code.Powers.EGO;
-
-#pragma warning disable STS001
 public class DeadSilencePower() : Ruina2Power
-#pragma warning restore STS001
 {
     public override PowerType Type =>
         PowerType.Buff;
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-
-    protected override bool IsVisibleInternal => false;
     
     public override string CustomPackedIconPath => "ticking_time.png".PowerImagePath();
     public override string CustomBigIconPath => "ticking_time.png".BigPowerImagePath();
