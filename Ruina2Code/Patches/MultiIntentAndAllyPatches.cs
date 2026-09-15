@@ -2,20 +2,23 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Intents;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Hooks;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
-using Ruina2.Ruina2Code.Monsters.Act2.mountain;
-using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Patches;
 
@@ -27,6 +30,16 @@ public static class GenerateExtraIntentStateMachinesPatch
         if (__instance is AbstractMultiIntentMonster monster)
         {
             monster.MultiIntentMoveStateMachines = monster.GenerateMultiIntentMoveStateMachine();
+        }
+
+        if (__instance is AbstractCardMonster cardMonster)
+        {
+            cardMonster.MoveToCardMap = cardMonster.GenerateMoveToCardMap();
+        }
+        
+        if (__instance is AbstractAllyCardMonster allyCardMonster)
+        {
+            allyCardMonster.MoveToCardMap = allyCardMonster.GenerateMoveToCardMap();
         }
     }
 }
@@ -82,6 +95,7 @@ public static class PatchRollMove
 {
     public static void Postfix(MonsterModel __instance, IEnumerable<Creature> targets)
     {
+        var targetList = targets.ToList();
         if (__instance is AbstractMultiIntentMonster monster)
         {
             if (monster.MultiIntentMoveStateMachines != null)
@@ -92,8 +106,32 @@ public static class PatchRollMove
                 for (int i = 0; i < monster.NumIntents; i++)
                 {
                     var stateMachine = monster.MultiIntentMoveStateMachines[i];
-                    monster.NextMoves.Add(stateMachine.RollMove(targets, monster.Creature, monster.RunRng.MonsterAi));
+                    monster.NextMoves.Add(stateMachine.RollMove(targetList, monster.Creature, monster.RunRng.MonsterAi));
                     monster.Targets.Add(monster.DetermineTargetForIntent(i));
+                }
+                if (monster is AbstractCardMonster cardMonster)
+                {
+                    cardMonster.CardIntents.Clear();
+                    for (int i = 0; i < monster.NextMoves.Count; i++)
+                    {
+                        var move = cardMonster.NextMoves[i];
+                        var card = cardMonster.MoveToCardMap[move.Id];
+                        card.CurrentTarget = cardMonster.Targets[i];
+                        cardMonster.CardIntents.Add(card);
+                    }
+                    cardMonster.GenerateCardIntentVisuals();
+                }
+                if (monster is AbstractAllyCardMonster allyCardMonster)
+                {
+                    allyCardMonster.CardIntents.Clear();
+                    for (int i = 0; i < monster.NextMoves.Count; i++)
+                    {
+                        var move = allyCardMonster.NextMoves[i];
+                        var card = allyCardMonster.MoveToCardMap[move.Id];
+                        card.CurrentTarget = allyCardMonster.Targets[i];
+                        allyCardMonster.CardIntents.Add(card);
+                    }
+                    allyCardMonster.GenerateCardIntentVisuals();
                 }
             }
         }

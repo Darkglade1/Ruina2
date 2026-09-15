@@ -68,6 +68,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="Ruina2Code\Cards\EnemyCards\Oswald\" />
         <Folder Include="Ruina2\images\card_portraits\big\"/>
         <Folder Include="Ruina2\images\powers\big\"/>
         <Folder Include="Ruina2\images\relics\big\"/>

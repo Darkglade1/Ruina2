@@ -215,5 +215,14 @@
   "RUINA2-PRESCRIPT_ASHES.title": "Prescript's Ashes",
 
   "RUINA2-DISTORTED.description": "",
-  "RUINA2-DISTORTED.title": "Distorted"
+  "RUINA2-DISTORTED.title": "Distorted",
+
+  "RUINA2-TRIGRAM.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-TRIGRAM.title": "Trigram",
+
+  "RUINA2-CONFRONTATION.description": "Deal {Damage:diff()} damage.\nALL allies gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-CONFRONTATION.title": "Confrontation",
+
+  "RUINA2-AUGURY_KICK.description": "Deal {Damage:diff()} damage.\nALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-AUGURY_KICK.title": "Augury Kick"
 }

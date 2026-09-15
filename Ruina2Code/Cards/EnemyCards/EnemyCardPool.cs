@@ -1,0 +1,28 @@
+using BaseLib.Abstracts;
+using Godot;
+using Ruina2.Ruina2Code.Extensions;
+
+namespace Ruina2.Ruina2Code.Cards.EnemyCards;
+
+public class EnemyCardPool : CustomCardPoolModel
+{
+    public override string Title => "EnemyCards";
+
+    public override string BigEnergyIconPath => "cards/big_energy.png".ImagePath();
+    public override string TextEnergyIconPath => "cards/text_energy.png".ImagePath();
+
+
+    /* These HSV values will determine the color of your card back.
+    They are applied as a shader onto an already colored image,
+    so it may take some experimentation to find a color you like.
+    Generally they should be values between 0 and 1. */
+    public override float H => 1.0f; //Hue; changes the color.
+    public override float S => 1.0f; //Saturation
+    public override float V => 1.0f; //Brightness
+
+    //Color of small card icons
+    public override Color DeckEntryCardColor => Color.Color8(69, 2, 30);
+    
+    public override bool IsShared => true;
+    public override bool IsColorless => true;
+}

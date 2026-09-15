@@ -65,6 +65,20 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             {
                 CombatState.RemoveCreature(Creature);
             }
+            if (this is AbstractCardMonster cardMonster)
+            {
+                if (i < cardMonster.NCardHolders.Count)
+                {
+                    cardMonster.NCardHolders[i]?.Hide();
+                }
+            }
+            if (this is AbstractAllyCardMonster allyCardMonster)
+            {
+                if (i < allyCardMonster.NCardHolders.Count)
+                {
+                    allyCardMonster.NCardHolders[i]?.Hide();
+                }
+            }
             await Cmd.CustomScaledWait(0.25f, 0.4f);
         }
     }
