@@ -347,6 +347,10 @@
   "RUINA2-HEAVEN_POWER.smartDescription": "Whenever you are attacked this turn, deal damage back equal to your remaining [gold]Block[/gold].",
   "RUINA2-HEAVEN_POWER.title": "Heaven",
 
+  "RUINA2-DEAD_SILENCE_POWER.description": "",
+  "RUINA2-DEAD_SILENCE_POWER.smartDescription": "Take [blue]{Amount}[/blue] extra {Amount:plural:turn|turns} after you end your turn.",
+  "RUINA2-DEAD_SILENCE_POWER.title": "Dead Silence",
+
   "RUINA2-PARADISE_LOST_POWER.description": "",
   "RUINA2-PARADISE_LOST_POWER.smartDescription": "Whenever you [gold]Exhaust[/gold] [blue]12[/blue] cards, deal [blue]{Amount}[/blue] damage to ALL enemies.\nAt the start of your turn, [gold]Exhaust[/gold] [blue]{ExhaustAmount:diff()}[/blue] {ExhaustAmount:plural:card|cards}.",
   "RUINA2-PARADISE_LOST_POWER.title": "Paradise Lost",
