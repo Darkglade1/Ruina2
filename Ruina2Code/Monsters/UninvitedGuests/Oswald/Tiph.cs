@@ -104,10 +104,6 @@ public sealed class Tiph : AbstractAllyCardMonster
         var card1 = CreateCardForIntent<Trigram>();
         card1.SetDamage(TrigramDamage);
         card1.SetRepeat(TrigramHits);
-        card1.DynamicVars.Damage.EnchantedValue = TrigramDamage + 2;
-        card1.DynamicVars.Damage.PreviewValue = TrigramDamage + 4;
-        var test = card1.DynamicVars.Damage.ToHighlightedString(false);
-        MainFile.Logger.Info("test string: "+test);
         var card2 = CreateCardForIntent<Confrontation>();
         card2.SetDamage(ConfrontationDamage);
         card2.SetBlock(BlockAmt);
