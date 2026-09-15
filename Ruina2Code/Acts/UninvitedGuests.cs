@@ -1,5 +1,7 @@
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
@@ -12,6 +14,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
     public override IEnumerable<EncounterModel> GenerateAllEncounters()
     {
         return [
+            ModelDb.Encounter<EileenEncounter>(),
             ModelDb.Encounter<OswaldEncounter>(),
             ModelDb.Encounter<ArgaliaBoss>()
         ];
@@ -36,7 +39,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
         _rooms.eventsVisited = 0;
         _rooms.eliteEncounters.Clear();
         _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
-        _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
+        _rooms.eliteEncounters.Add(ModelDb.Encounter<EileenEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
@@ -63,5 +66,30 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
             };
         }
         return roomTypes;
+    }
+    
+    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
+    {
+        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is UninvitedGuests)
+        {
+            if (room != null && room.RoomType == RoomType.Elite)
+            {
+                RelicReward? relicReward = null;
+                foreach (var reward in rewards)
+                {
+                    if (reward is RelicReward roomRelicReward)
+                    {
+                        relicReward = roomRelicReward;
+                        break;
+                    }
+                }
+                if (relicReward != null)
+                {
+                    rewards.Remove(relicReward);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

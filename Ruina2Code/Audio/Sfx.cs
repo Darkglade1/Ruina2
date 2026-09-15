@@ -244,4 +244,9 @@ public static class Sfx
     public static readonly ModSound HanaStrongStart = new("Hana_Strong_Start.ogg".SfxPath());
     public static readonly ModSound HanaStrongCharge = new("Hana_Strong_Charge.ogg".SfxPath());
     public static readonly ModSound HanaStrongFin = new("Hana_Strong_Fin.ogg".SfxPath());
+    
+    public static readonly ModSound GearStrongStart = new("Eilin_StrongStart.ogg".SfxPath());
+    public static readonly ModSound GearStrongAtk = new("Eilin_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound GearFar = new("Eilin_FarAtk.ogg".SfxPath());
+    public static readonly ModSound GearVert = new("Blue_Gear_Vert.ogg".SfxPath());
 }
