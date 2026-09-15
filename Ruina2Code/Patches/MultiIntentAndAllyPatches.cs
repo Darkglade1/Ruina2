@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using BaseLib.Utils;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
@@ -16,6 +17,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
@@ -126,7 +128,8 @@ public static class PatchRollMove
                     for (int i = 0; i < monster.NextMoves.Count; i++)
                     {
                         var move = cardMonster.NextMoves[i];
-                        var card = cardMonster.MoveToCardMap[move.Id];
+                        var card = cardMonster.MoveToCardMap[move.Id].CreateClone();
+                        EnemyCard.EnemyCardOwner.Set(card, cardMonster.Creature);
                         card.CurrentTarget = cardMonster.Targets[i];
                         cardMonster.CardIntents.Add(card);
                     }
@@ -138,7 +141,8 @@ public static class PatchRollMove
                     for (int i = 0; i < monster.NextMoves.Count; i++)
                     {
                         var move = allyCardMonster.NextMoves[i];
-                        var card = allyCardMonster.MoveToCardMap[move.Id];
+                        var card = allyCardMonster.MoveToCardMap[move.Id].CreateClone();
+                        EnemyCard.EnemyCardOwner.Set(card, allyCardMonster.Creature);
                         card.CurrentTarget = allyCardMonster.Targets[i];
                         allyCardMonster.CardIntents.Add(card);
                     }
@@ -333,6 +337,57 @@ public static class PatchUpdateVisualsMassAttack
         {
             __instance._animationFrames.Clear();
             __instance._animationFrames.Add(GD.Load<Texture2D>("intent_mass_attack.png".UIImagePath()));
+        }
+    }
+}
+
+[HarmonyPatch(typeof(NPlayerHand), nameof(NPlayerHand.OnCombatStateChanged))]
+public static class NPlayerHandPatch
+{
+    public static void Postfix(NPlayerHand __instance, CombatState state)
+    {
+        foreach (var enemy in state.Enemies)
+        {
+            if (enemy.IsAlive)
+            {
+                if (enemy.Monster is AbstractCardMonster cardMonster)
+                {
+                    foreach (var nCardHolder in cardMonster.NCardHolders)
+                    {
+                        if (nCardHolder != null && nCardHolder.CardNode != null)
+                        {
+                            nCardHolder.CardNode.UpdateVisuals(PileType.Hand, CardPreviewMode.Normal);
+                        }
+                    }
+                }
+                if (enemy.Monster is AbstractAllyCardMonster allyCardMonster)
+                {
+                    foreach (var nCardHolder in allyCardMonster.NCardHolders)
+                    {
+                        if (nCardHolder != null && nCardHolder.CardNode != null)
+                        {
+                            nCardHolder.CardNode.UpdateVisuals(PileType.Hand, CardPreviewMode.Normal);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(DamageVar), nameof(DamageVar.UpdateCardPreview))]
+public static class PatchDamageVar
+{
+    public static void Postfix(DamageVar __instance, CardModel card,
+        CardPreviewMode previewMode,
+        Creature? target,
+        bool runGlobalHooks)
+    {
+        var enemy = EnemyCard.EnemyCardOwner.Get(card);
+        if (enemy != null)
+        {
+            __instance.EnchantedValue = __instance.BaseValue;
+            __instance.PreviewValue = Hook.ModifyDamage(card.Owner.RunState, enemy.CombatState, card.CurrentTarget, enemy, __instance.BaseValue, __instance.Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
         }
     }
 }

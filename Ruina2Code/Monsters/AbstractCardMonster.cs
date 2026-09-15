@@ -55,21 +55,21 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
                         NCard? nCard = NCard.Create(card);
                         if (nCard != null)
                         {
-                            nCard.UpdateVisuals(PileType.None, CardPreviewMode.Normal);
+                            nCard.UpdateVisuals(PileType.Hand, CardPreviewMode.Normal);
                             nCardHolder = NGridCardHolder.Create(nCard);
                             if (nCardHolder != null)
                             {
                                 NCardHolders[i] = nCardHolder;
                                 specialNode.AddChildSafely(nCardHolder);
                                 nCardHolder.Position += positionOffsetSetToUse[i];
-                                nCardHolder.ReassignToCard(card, PileType.None, null, ModelVisibility.Visible);
+                                nCardHolder.ReassignToCard(card, PileType.Hand, null, ModelVisibility.Visible);
                                 nCardHolder.Show();
                             }
                         }
                     }
                     else
                     {
-                        nCardHolder.ReassignToCard(card, PileType.None, null, ModelVisibility.Visible);
+                        nCardHolder.ReassignToCard(card, PileType.Hand, null, ModelVisibility.Visible);
                         nCardHolder.Show();
                     }
                 }
