@@ -17,6 +17,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
+using Brainwash = Ruina2.Ruina2Code.Powers.UninvitedGuests.Brainwash;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 

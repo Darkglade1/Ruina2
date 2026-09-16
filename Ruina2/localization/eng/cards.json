@@ -239,5 +239,23 @@
   "RUINA2-POW.title": "Pow! Kablammo!",
 
   "RUINA2-WE_NEED_YOU.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
-  "RUINA2-WE_NEED_YOU.title": "We Need You, You Know"
+  "RUINA2-WE_NEED_YOU.title": "We Need You, You Know",
+
+  "RUINA2-ACCELERATE.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-ACCELERATE.title": "Thought Gear: Accelerate",
+
+  "RUINA2-PREACH.description": "ALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-PREACH.title": "Thought Gear: Preach",
+
+  "RUINA2-PROPAGATE.description": "Deal {Damage:diff()} damage.\nnApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-PROPAGATE.title": "Thought Gear: Propagate",
+
+  "RUINA2-BRAINWASH.description": "Deal {Damage:diff()} damage.",
+  "RUINA2-BRAINWASH.title": "Thought Gear: Brainwash",
+
+  "RUINA2-FLOODING_BULLETS.description": "Deal {Damage:diff()} damage to ALL other creatures {Repeat:diff()} times.",
+  "RUINA2-FLOODING_BULLETS.title": "Flooding Bullets",
+
+  "RUINA2-RELOAD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAn ally gains {Energy:energyIcons()} and draws {Cards:diff()} {Cards:plural:card|cards} next turn.",
+  "RUINA2-RELOAD.title": "Reload"
 }

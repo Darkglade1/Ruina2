@@ -59,10 +59,7 @@ public class Brainwash() : Ruina2Power
         {
             if (!hasTriggered)
             {
-                if (card.Type != CardType.Power && !card.Keywords.Contains(CardKeyword.Exhaust))
-                {
-                    return new CardLocation(card.Owner, PileType.Draw, CardPilePosition.Random);
-                }
+                return new CardLocation(card.Owner, PileType.Draw, CardPilePosition.Random);
             }
         }
         return cardLocation;

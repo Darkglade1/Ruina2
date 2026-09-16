@@ -157,5 +157,12 @@
   "RUINA2-OSWALD.talk": "Fancy some clown-to-clown communication?",
   "RUINA2-TIPH.name": "Tiphereth",
   "RUINA2-TIPH.response": "The only clown here is you.",
-  "RUINA2-TIPH.victory": "What a nuisance."
+  "RUINA2-TIPH.victory": "What a nuisance.",
+
+  "RUINA2-EILEEN.name": "Eileen",
+  "RUINA2-EILEEN.talk": "A gear is most beautiful when it spins with another",
+  "RUINA2-YESOD.name": "Yesod",
+  "RUINA2-YESOD.response": "People are more than just gears in a machine.",
+  "RUINA2-YESOD.victory": "Your assistance was most welcome.",
+  "RUINA2-GEARS_WORSHIPPER.name": "Gears Worshipper"
 }

@@ -2,23 +2,23 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Cards.EnemyCards.Eileen;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
+using Brainwash = Ruina2.Ruina2Code.Cards.EnemyCards.Eileen.Brainwash;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Eileen;
 
@@ -33,6 +33,8 @@ public sealed class Eileen : AbstractCardMonster
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
     private int BlockAmt => 22;
     private int DebuffAmt => 1;
+    public Creature? minion1;
+    public Creature? minion2;
 
     protected override string VisualsPath => "Eileen/eileen.tscn".MonsterImagePath();
 
@@ -44,8 +46,21 @@ public sealed class Eileen : AbstractCardMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        OtherSideTargetMonster = FindTarget<Tiph>();
-        await PowerCmd.Apply<StranglePower>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(100, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
+        OtherSideTargetMonster = FindTarget<Yesod>();
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            if (enemy.Monster is GearWorshipper)
+            {
+                if (minion1 == null)
+                {
+                    minion1 = enemy;
+                } else if (minion2 == null)
+                {
+                    minion2 = enemy;
+                }
+            }
+        }
+        await PowerCmd.Apply<Church>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(100, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature, null);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-EILEEN.talk"), Creature, VfxColor.Blue);
     }
 
@@ -115,28 +130,21 @@ public sealed class Eileen : AbstractCardMonster
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
-        var card1 = CreateCardForIntent<Climax>();
-        card1.SetDamage(ClimaxDamage);
-        card1.SetRepeat(ClimaxTotalHits);
-        card1.DynamicVars["Increase"].BaseValue = ClimaxHitsIncrease;
-        var card2 = CreateCardForIntent<WeNeedYou>();
-        card2.SetDamage(BrainwashDamage);
-        card2.SetWeak(AllyDebuffAmt);
-        var card3 = CreateCardForIntent<Pow>();
-        card3.SetWeak(DebuffAmt);
+        var card1 = CreateCardForIntent<Accelerate>();
+        card1.SetBlock(BlockAmt);
+        var card2 = CreateCardForIntent<Propagate>();
+        card2.SetDamage(PropagateDamage);
+        card2.SetVulnerable(DebuffAmt);
+        var card3 = CreateCardForIntent<Preach>();
         card3.SetStrength(StrengthAmount);
-        var card4 = CreateCardForIntent<Fun>();
-        card4.SetDamage(FunDamage);
-        card4.SetRepeat(FunHits);
-        var card5 = CreateCardForIntent<Catch>();
-        card5.SetCards(StatusAmt);
+        var card4 = CreateCardForIntent<Brainwash>();
+        card4.SetDamage(BrainwashDamage);
         return new Dictionary<string, CardModel>()
         {
-            {CLIMAX, card1},
-            {BRAINWASH, card2},
-            {POW, card3},
-            {FUN, card4},
-            {CATCH, card5},
+            {ACCELERATE, card1},
+            {PROPAGATE, card2},
+            {PREACH, card3},
+            {BRAINWASH, card4}
         };
     }
 

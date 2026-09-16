@@ -13,10 +13,10 @@ mouse_filter = 2
 position = Vector2(950, 738)
 
 [node name="minion1" type="Marker2D" parent="."]
-position = Vector2(1195, 738)
+position = Vector2(1295, 738)
 
 [node name="minion2" type="Marker2D" parent="."]
-position = Vector2(1395, 738)
+position = Vector2(1495, 738)
 
 [node name="boss" type="Marker2D" parent="."]
-position = Vector2(1632, 738)
+position = Vector2(1732, 738)
