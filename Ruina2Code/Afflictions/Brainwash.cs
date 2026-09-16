@@ -3,7 +3,6 @@ using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 namespace Ruina2.Ruina2Code.Afflictions;
@@ -11,7 +10,6 @@ namespace Ruina2.Ruina2Code.Afflictions;
 public class Brainwash : Ruina2Affliction
 {
     public override bool HasExtraCardText => true;
-    protected override string? CustomOverlayPath => "apostle.tscn".AfflictionImagePath();
     
     [CustomEnum] public static TargetType AnyRuinaAlly;
     
