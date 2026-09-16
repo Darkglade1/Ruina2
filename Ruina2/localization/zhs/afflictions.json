@@ -17,7 +17,10 @@
   "RUINA2-APOSTLE.title": "使徒",
   "RUINA2-APOSTLE.description": "在你的回合结束时，如果这张牌在你的[gold]手牌[/gold]中，它将被[gold]变化[/gold]为一张[gold]状态[/gold]牌。",
   "RUINA2-APOSTLE.extraCardText": "",
+  "RUINA2-NAIL.title": "钉子",
+  "RUINA2-NAIL.description": "本回合每当你打出一张牌，就受到[blue]{Amount}[/blue]点伤害。",
+  "RUINA2-NAIL.extraCardText": "[purple]受到{Amount}点伤害。[/purple]",
   "RUINA2-BLEED.title": "流血",
-  "RUINA2-BLEED.description": "本回合内，每当你以[gold]攻击[/gold]命中目标时，就会受到伤害。",
+  "RUINA2-BLEED.description": "本回合内，每当你以[gold]攻击[/gold]命中目标时，你就会受到[blue]{Amount}[/blue]点伤害。",
   "RUINA2-BLEED.extraCardText": ""
 }

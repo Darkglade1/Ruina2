@@ -143,8 +143,6 @@ public sealed class ScaredyCat : AbstractRuinaMonster
     {
         coward = true;
         await ScaredAnimation();
-        Creature.MaxHp = 1;
-        Creature.CurrentHp = 1;
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, -9999, Creature, null);
         await PowerCmd.Remove<Courage>(Creature);
         SetMoveImmediate(GetFleeState());

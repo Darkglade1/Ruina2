@@ -23,8 +23,12 @@
   "RUINA2-APOSTLE.description": "At the end of your turn, if this card is in your [gold]Hand[/gold], it is [gold]Transformed[/gold] into a [gold]Status[/gold].",
   "RUINA2-APOSTLE.extraCardText": "",
 
+  "RUINA2-NAIL.title": "Nail",
+  "RUINA2-NAIL.description": "Whenever you play a card this turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-NAIL.extraCardText": "[purple]Take {Amount} damage.[/purple]",
+
   "RUINA2-BLEED.title": "Bleed",
-  "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, take damage.",
+  "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, take [blue]{Amount}[/blue] damage.",
   "RUINA2-BLEED.extraCardText": "",
 
   "RUINA2-BRAINWASH.title": "Brainwash",
