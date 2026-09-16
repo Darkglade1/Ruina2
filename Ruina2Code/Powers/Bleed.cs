@@ -38,8 +38,16 @@ public class Bleed() : Ruina2Power
         {
             foreach (CardModel card in Owner.Player.PlayerCombatState.AllCards.Where(c => c.Type == CardType.Attack))
             {
-                await CardCmd.Afflict<Afflictions.Bleed>(card, 1M);
+                await CardCmd.Afflict<Afflictions.Bleed>(card, Amount);
             }
+        }
+    }
+    
+    public override async Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (Owner.Player == card.Owner && card.Affliction == null && card.Type == CardType.Attack)
+        {
+            await CardCmd.Afflict<Afflictions.Bleed>(card, Amount);
         }
     }
     

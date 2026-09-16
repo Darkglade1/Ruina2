@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Powers.Act3;
@@ -23,6 +24,37 @@ public class Nail() : Ruina2Power
             Flash();
             await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner, null, null);
         }
+    }
+    
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        if (Owner.Player != null && Owner.Player.PlayerCombatState != null)
+        {
+            foreach (CardModel card in Owner.Player.PlayerCombatState.AllCards)
+            {
+                await CardCmd.Afflict<Afflictions.Nail>(card, Amount);
+            }
+        }
+    }
+    
+    public override async Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (Owner.Player == card.Owner && card.Affliction == null)
+        {
+            await CardCmd.Afflict<Afflictions.Nail>(card, Amount);
+        }
+    }
+    
+    public override Task AfterRemoved(Creature oldOwner)
+    {
+        if (oldOwner.Player != null && oldOwner.Player.PlayerCombatState != null)
+        {
+            foreach (CardModel card in oldOwner.Player.PlayerCombatState.AllCards.Where(c => c.Affliction is Afflictions.Nail))
+            {
+                CardCmd.ClearAffliction(card);
+            }
+        }
+        return Task.CompletedTask;
     }
     
     public override async Task AfterSideTurnEnd(
