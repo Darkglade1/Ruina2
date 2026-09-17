@@ -249,4 +249,14 @@ public static class Sfx
     public static readonly ModSound GearStrongAtk = new("Eilin_StrongAtk.ogg".SfxPath());
     public static readonly ModSound GearFar = new("Eilin_FarAtk.ogg".SfxPath());
     public static readonly ModSound GearVert = new("Blue_Gear_Vert.ogg".SfxPath());
+    
+    public static readonly ModSound GretaEat = new("Greta_Eat.ogg".SfxPath());
+    
+    public static readonly ModSound PurpleStab2 = new("Purple_Stab_Stab2.ogg".SfxPath());
+    public static readonly ModSound PurpleStab1 = new("Purple_Stab_Stab1.ogg".SfxPath());
+    public static readonly ModSound PurpleGuard = new("Purple_Guard.ogg".SfxPath());
+    public static readonly ModSound PurpleChange = new("Purple_Change.ogg".SfxPath());
+    public static readonly ModSound PurpleBlunt = new("Purple_Hit_Vert.ogg".SfxPath());
+    public static readonly ModSound PurpleSlashHori = new("Purple_Slash_Hori.ogg".SfxPath());
+    public static readonly ModSound PurpleSlashVert = new("Purple_Slash_VertDown.ogg".SfxPath());
 }

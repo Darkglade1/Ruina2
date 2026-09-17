@@ -401,5 +401,13 @@
 
   "RUINA2-DARK_BARGAIN.description": "",
   "RUINA2-DARK_BARGAIN.smartDescription": "This creature's [gold]Mass Attack[/gold] targets ALL other characters (including you).\nThis creature's attacks deal [blue]{DamageBonus}%[/blue] more damage to enemies.\nWhenever {IsMultiplayer:a player|you} fully [gold]{IsMultiplayer:Blocks|Block}[/gold] a hit from this creature's [gold]Mass Attack[/gold], increase this bonus by [blue]{Increase}%[/blue].",
-  "RUINA2-DARK_BARGAIN.title": "Dark Bargain"
+  "RUINA2-DARK_BARGAIN.title": "Dark Bargain",
+
+  "RUINA2-FRESH_MEAT_POWER.description": "",
+  "RUINA2-FRESH_MEAT_POWER.smartDescription": "On death, the stolen card is returned to your [gold]Hand[/gold].",
+  "RUINA2-FRESH_MEAT_POWER.title": "Fresh Meat",
+
+  "RUINA2-SHARKSKIN.description": "",
+  "RUINA2-SHARKSKIN.smartDescription": "Every [blue]{Turns}[/blue] turns, this creature gains [blue]{ArtifactPower}[/blue] [gold]Artifact[/gold]. This creature receives [blue]{Amount}%[/blue] less damage from attacks while it has [gold]Artifact[/gold].",
+  "RUINA2-SHARKSKIN.title": "Sharkskin"
 }
