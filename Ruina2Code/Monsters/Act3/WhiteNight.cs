@@ -220,7 +220,7 @@ public sealed class WhiteNight : AbstractRuinaMonster
             }
         }
         ApostleUpgradeCount++;
-        await CardPileCmd.AddToCombatAndPreview<Apostle>(CombatState.PlayerCreatures, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Apostle>(CombatState.PlayerCreatures, PileType.Discard, StatusAmt, null);
         await WaitAnimation(1.0f);
     }
     

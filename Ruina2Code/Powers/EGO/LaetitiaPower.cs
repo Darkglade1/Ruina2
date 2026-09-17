@@ -17,7 +17,7 @@ public class LaetitiaPower() : Ruina2Power
     {
         if (card.Owner.Creature == Owner && (card.EnergyCost.GetResolved() == 0 || card.EnergyCost.GetResolved() == 1))
         {
-            if (CombatManager.Instance.History.CardPlaysStarted.Count(e => e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && (e.CardPlay.Card.EnergyCost.GetResolved() == 0 || e.CardPlay.Card.EnergyCost.GetResolved() == 1)) < Amount)
+            if (CombatManager.Instance.History.CardPlaysStarted.Count(e => e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState) && (e.CardPlay.Resources.EnergyValue == 0 || e.CardPlay.Resources.EnergyValue == 1)) < Amount)
             {
                 return playCount + 1;
             }
