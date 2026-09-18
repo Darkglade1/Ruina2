@@ -20,6 +20,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Cards.EnemyCards.Greta;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers;
@@ -278,29 +279,30 @@ public sealed class Greta : AbstractCardMonster
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
-        // var card1 = CreateCardForIntent<Climax>();
-        // card1.SetDamage(ClimaxDamage);
-        // card1.SetRepeat(ClimaxTotalHits);
-        // card1.DynamicVars["Increase"].BaseValue = ClimaxHitsIncrease;
-        // var card2 = CreateCardForIntent<WeNeedYou>();
-        // card2.SetDamage(BrainwashDamage);
-        // card2.SetWeak(AllyDebuffAmt);
-        // var card3 = CreateCardForIntent<Pow>();
-        // card3.SetWeak(DebuffAmt);
-        // card3.SetStrength(StrengthAmount);
-        // var card4 = CreateCardForIntent<Fun>();
-        // card4.SetDamage(FunDamage);
-        // card4.SetRepeat(FunHits);
-        // var card5 = CreateCardForIntent<Catch>();
-        // card5.SetCards(StatusAmt);
-        // return new Dictionary<string, CardModel>
-        // {
-        //     {CLIMAX, card1},
-        //     {BRAINWASH, card2},
-        //     {POW, card3},
-        //     {FUN, card4},
-        //     {CATCH, card5},
-        // };
+        var card1 = CreateCardForIntent<Mince>();
+        card1.SetDamage(MinceDamage);
+        card1.SetRepeat(MinceHits);
+        var card2 = CreateCardForIntent<BreakEgg>();
+        card2.SetDamage(BreakEggDamage);
+        card2.DynamicVars["Paralysis"].BaseValue = ParalysisAmt;
+        var card3 = CreateCardForIntent<Sack>();
+        var card4 = CreateCardForIntent<Season>();
+        card4.SetWeak(AllyDebuffAmt);
+        var card5 = CreateCardForIntent<Slap>();
+        card5.SetBlock(BlockAmt);
+        card5.DynamicVars["Bleed"].BaseValue = BleedAmt;
+        var card6 = CreateCardForIntent<Trial>();
+        card6.SetDamage(TrialDamage);
+        card6.SetStrength(StrengthAmount);
+        return new Dictionary<string, CardModel>
+        {
+            {MINCE, card1},
+            {BREAK_EGG, card2},
+            {SACK, card3},
+            {SEASON, card4},
+            {SLAP, card5},
+            {TRIAL, card6}
+        };
     }
 
     private async Task BreakEgg(IReadOnlyList<Creature> targets)
@@ -316,7 +318,7 @@ public sealed class Greta : AbstractCardMonster
     
     private async Task Mince(IReadOnlyList<Creature> targets)
     {
-        for (int i = 0; i < MinceDamage; i++)
+        for (int i = 0; i < MinceHits; i++)
         {
             if (i % 2 == 0)
             {
@@ -363,12 +365,17 @@ public sealed class Greta : AbstractCardMonster
     private async Task Trial(IReadOnlyList<Creature> targets)
     {
         await Special1Animation(targets);
+        var shouldGainStrength = targets.Count > 0 && targets[0].IsAlive;
         var attackCommand = await DamageCmd.Attack(TrialDamage)
-            .FromMonster(this)
+            .FromMonsterCreature(this)
+            .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await VampireHeal(attackCommand);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
-        await ResetIdle();
+        if (shouldGainStrength)
+        {
+            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
+        }
+        await ResetIdle(1.0f);
     }
     
     private async Task Sack(IReadOnlyList<Creature> targets)
@@ -409,15 +416,22 @@ public sealed class Greta : AbstractCardMonster
             Marker2D? specialNode = creatureNode.GetSpecialNode<Marker2D>("%CenterPos");
             if (specialNode != null)
             {
-              NCard? child = NCard.Create(card);
-              specialNode.AddChildSafely(child);
-              NCard? ncard = child;
-              ncard.Position = ncard.Position + child.Size * 0.5f;
-              child.UpdateVisuals(PileType.Deck, CardPreviewMode.Normal);
+              NCard? ncard = NCard.Create(card);
+              if (ncard != null)
+              {
+                  specialNode.AddChildSafely(ncard);
+                  ncard.Scale = new Vector2(0.6f, 0.6f);
+                  ncard.Position = ncard.Position + ncard.Size * 0.5f;
+                  ncard.UpdateVisuals(PileType.Deck, CardPreviewMode.Normal);
+              }
             }
           }
           FreshMeatPower freshMeatPower = (FreshMeatPower) ModelDb.Power<FreshMeatPower>().ToMutable();
           await freshMeatPower.Steal(card);
+          if (card.Affliction != null)
+          {
+              CardCmd.ClearAffliction(card);
+          }
           await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), freshMeatPower, meat, 1M, Creature, null);
         }
         await ResetIdle(1.0f);

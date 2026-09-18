@@ -409,5 +409,17 @@
 
   "RUINA2-SHARKSKIN.description": "",
   "RUINA2-SHARKSKIN.smartDescription": "Every [blue]{Turns}[/blue] turns, this creature gains [blue]{ArtifactPower}[/blue] [gold]Artifact[/gold]. This creature receives [blue]{Amount}%[/blue] less damage from attacks while it has [gold]Artifact[/gold].",
-  "RUINA2-SHARKSKIN.title": "Sharkskin"
+  "RUINA2-SHARKSKIN.title": "Sharkskin",
+
+  "RUINA2-SLASH_STANCE.description": "",
+  "RUINA2-SLASH_STANCE.smartDescription": "Deals [blue]{Amount}%[/blue] more damage with attacks.\n\nYou can click the buttons next to this creature's intent to change [gold]Stances[/gold].",
+  "RUINA2-SLASH_STANCE.title": "Slash Stance",
+
+  "RUINA2-PIERCE_STANCE.description": "",
+  "RUINA2-PIERCE_STANCE.smartDescription": "Every other attack while in this [gold]Stance[/gold] doubles the next debuff applied to the enemy.\n\nYou can click the buttons next to this creature's intent to change [gold]Stances[/gold].",
+  "RUINA2-PIERCE_STANCE.title": "Pierce Stance",
+
+  "RUINA2-GUARD_STANCE.description": "",
+  "RUINA2-GUARD_STANCE.smartDescription": "Negate all debuffs applied to this creature.\n\nYou can click the buttons next to this creature's intent to change [gold]Stances[/gold].",
+  "RUINA2-GUARD_STANCE.title": "Guard Stance"
 }

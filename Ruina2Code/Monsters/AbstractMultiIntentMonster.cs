@@ -124,7 +124,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         return [];
     }
     
-    public void SetMoveImmediateMultiIntentMonster(MoveState state, int intentNum)
+    public virtual void SetMoveImmediateMultiIntentMonster(MoveState state, int intentNum)
     {
         if (intentNum < NextMoves.Count)
         {

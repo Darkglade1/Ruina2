@@ -257,5 +257,41 @@
   "RUINA2-FLOODING_BULLETS.title": "Flooding Bullets",
 
   "RUINA2-RELOAD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAn ally gains {Energy:energyIcons()} and draws {Cards:diff()} {Cards:plural:card|cards} next turn.",
-  "RUINA2-RELOAD.title": "Reload"
+  "RUINA2-RELOAD.title": "Reload",
+
+  "RUINA2-BREAK_EGG.description": "Deal {Damage:diff()} damage.\nApply {Paralysis:diff()} [gold]Paralysis[/gold]",
+  "RUINA2-BREAK_EGG.title": "Break an Egg",
+
+  "RUINA2-MINCE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-MINCE.title": "Mince",
+
+  "RUINA2-SACK.description": "Turn the [gold]Rarest[/gold] card in your [gold]Deck[/gold] into [gold]Fresh Meat[/gold].",
+  "RUINA2-SACK.title": "Into the Sack You Go!",
+
+  "RUINA2-SEASON.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "RUINA2-SEASON.title": "Season the Meat",
+
+  "RUINA2-SLAP.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {Bleed:diff()} [gold]Bleed[/gold].",
+  "RUINA2-SLAP.title": "Slap and Fold",
+
+  "RUINA2-TRIAL.description": "Deal {Damage:diff()} damage.\nHeal HP equal to unblocked damage dealt.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-TRIAL.title": "Trial Smack",
+
+  "RUINA2-SNAKE_SLIT.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-SNAKE_SLIT.title": "Snake Slit",
+  
+  "RUINA2-VIOLET_BLADE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-VIOLET_BLADE.title": "Violet Blade",
+
+  "RUINA2-LACERATION.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-LACERATION.title": "Laceration",
+
+  "RUINA2-VENOMOUS_FANGS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-VENOMOUS_FANGS.title": "Venomous Fangs",
+
+  "RUINA2-BARRIER.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-BARRIER.title": "Serpentine Barrier",
+
+  "RUINA2-DUEL.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-DUEL.title": "Duel"
 }

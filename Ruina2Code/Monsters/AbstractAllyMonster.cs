@@ -32,7 +32,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         SetToSide(CombatSide.Player);
         FlipHorizontal();
-        SetUpAllyButton("res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
+        SetUpAllyButton("AllyBlockButton","res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
         CanApplyPowersToAllies = true;
         if (CombatState.Players.Count > 1)
         {
@@ -112,7 +112,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         return amount;
     }
     
-    protected void SetUpAllyButton(string scene, string path, int positionIndex)
+    protected NAllyButton? SetUpAllyButton(string buttonName, string scene, string path, int positionIndex)
     {
         NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
@@ -124,7 +124,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
                 var button = buttonScene.Instantiate<NAllyButton>();
                 if (button != null)
                 {
-                    button.Name = "AllyBlockButton";
+                    button.Name = buttonName;
                     TextureRect? textureNode = button.GetNodeOrNull<TextureRect>("%ButtonVisual");
                     if (textureNode != null)
                     {
@@ -133,9 +133,11 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
                     button.owner = this;
                     specialNode.AddChildSafely(button);
                     button.Position += new Vector2(-125f, 50f - (75f * positionIndex));
+                    return button;
                 }
             }
         }
+        return null;
     }
     
     protected void RemoveAllyBlockButton()
@@ -150,5 +152,15 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
                 specialNode.RemoveChildSafely(allyBlockButton);
             }
         }
+    }
+    
+    public async Task AllowApplyPowersToAllies()
+    {
+        CanApplyPowersToAllies = true;
+    }
+    
+    public async Task DisableApplyPowersToAllies()
+    {
+        CanApplyPowersToAllies = false;
     }
 }

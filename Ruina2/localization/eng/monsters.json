@@ -160,9 +160,16 @@
   "RUINA2-TIPH.victory": "What a nuisance.",
 
   "RUINA2-EILEEN.name": "Eileen",
-  "RUINA2-EILEEN.talk": "A gear is most beautiful when it spins with another",
+  "RUINA2-EILEEN.talk": "A gear is most beautiful when it spins with another.",
   "RUINA2-YESOD.name": "Yesod",
   "RUINA2-YESOD.response": "People are more than just gears in a machine.",
   "RUINA2-YESOD.victory": "Your assistance was most welcome.",
-  "RUINA2-GEARS_WORSHIPPER.name": "Gears Worshipper"
+  "RUINA2-GEARS_WORSHIPPER.name": "Gears Worshipper",
+
+  "RUINA2-GRETA.name": "Greta",
+  "RUINA2-GRETA.talk": "All the ingredients here are so filthy! It makes my stomach churn.",
+  "RUINA2-HOD.name": "Hod",
+  "RUINA2-HOD.response": "No one is untainted. But that doesn't mean we can't hope to become better.",
+  "RUINA2-HOD.victory": "Thank you kindly, stranger.",
+  "RUINA2-FRESH_MEAT.name": "Fresh Meat"
 }

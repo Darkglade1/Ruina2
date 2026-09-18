@@ -3,10 +3,12 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.UI;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using Ruina2.Ruina2Code.Cards.EnemyCards;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -74,6 +76,21 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
                 }
             }
         }
+    }
+    
+    public override void SetMoveImmediateMultiIntentMonster(MoveState state, int intentNum)
+    {
+        base.SetMoveImmediateMultiIntentMonster(state, intentNum);
+        CardIntents.Clear();
+        for (int i = 0; i < NextMoves.Count; i++)
+        {
+            var move = NextMoves[i];
+            var card = MoveToCardMap[move.Id].CreateClone();
+            EnemyCard.EnemyCardOwner.Set(card, Creature);
+            card.CurrentTarget = Targets[i];
+            CardIntents.Add(card);
+        }
+        GenerateCardIntentVisuals();
     }
 }
 
