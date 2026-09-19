@@ -259,4 +259,15 @@ public static class Sfx
     public static readonly ModSound PurpleBlunt = new("Purple_Hit_Vert.ogg".SfxPath());
     public static readonly ModSound PurpleSlashHori = new("Purple_Slash_Hori.ogg".SfxPath());
     public static readonly ModSound PurpleSlashVert = new("Purple_Slash_VertDown.ogg".SfxPath());
+    
+    public static readonly ModSound YanLock = new("Yan_Typing_Atk.ogg".SfxPath());
+    public static readonly ModSound YanVert = new("Yan_Lib_Vert.ogg".SfxPath());
+    public static readonly ModSound YanStab = new("Yan_Stab.ogg".SfxPath());
+    public static readonly ModSound YanBrand = new("Yan_Stigma_Atk.ogg".SfxPath());
+    
+    public static readonly ModSound BremenStrongFar = new("Bremen_StrongFar.ogg".SfxPath());
+    public static readonly ModSound BremenStrong = new("Bremen_Strong.ogg".SfxPath());
+    public static readonly ModSound BremenChicken = new("Bremen_Chicken.ogg".SfxPath());
+    public static readonly ModSound BremenDog = new("Bremen_Dog.ogg".SfxPath());
+    public static readonly ModSound BremenHorse = new("Bremen_Horse.ogg".SfxPath());
 }
