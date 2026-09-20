@@ -270,4 +270,28 @@ public static class Sfx
     public static readonly ModSound BremenChicken = new("Bremen_Chicken.ogg".SfxPath());
     public static readonly ModSound BremenDog = new("Bremen_Dog.ogg".SfxPath());
     public static readonly ModSound BremenHorse = new("Bremen_Horse.ogg".SfxPath());
+    
+    public static readonly ModSound PhilipTransform = new("Philip_FilterOn.ogg".SfxPath());
+    public static readonly ModSound PhilipVert = new("Philip_Vert.ogg".SfxPath());
+    public static readonly ModSound PhilipHori = new("Philip_Hori.ogg".SfxPath());
+    public static readonly ModSound PhilipStab = new("Philip_Stab.ogg".SfxPath());
+    public static readonly ModSound PhilipStrong = new("Philip_Strong.ogg".SfxPath());
+    public static readonly ModSound PhilipExplosion = new("Cry_FarExplosion.ogg".SfxPath());
+    public static readonly ModSound CryHori = new("Cry_Kid_Hori.ogg".SfxPath());
+    public static readonly ModSound CryStab = new("Cry_Kid_Stab.ogg".SfxPath());
+    
+    public static readonly ModSound XiaoVert = new("Xiao_Vert.ogg".SfxPath());
+    public static readonly ModSound XiaoHori = new("Xiao_Hori.ogg".SfxPath());
+    public static readonly ModSound XiaoStab = new("Xiao_Stab.ogg".SfxPath());
+    public static readonly ModSound XiaoStart = new("Xiao_LandHit_Charge.ogg".SfxPath());
+    public static readonly ModSound XiaoFin = new("Xiao_LandHit_Hit.ogg".SfxPath());
+    public static readonly ModSound XiaoRoar = new("Xiao_Roar.ogg".SfxPath());
+    public static readonly ModSound XiaoStrongFin = new("Xiao_Strong_Hori.ogg".SfxPath());
+    public static readonly ModSound XiaoStrongStart = new("Xiao_Strong_Upper.ogg".SfxPath());
+    
+    public static readonly ModSound FireVert = new("Riu_Vert.ogg".SfxPath());
+    public static readonly ModSound FireHori = new("Riu_Hori.ogg".SfxPath());
+    public static readonly ModSound FireStab = new("Riu_Stab.ogg".SfxPath());
+    public static readonly ModSound FireGuard = new("Riu_Guard.ogg".SfxPath());
+    public static readonly ModSound FireStrong = new("Riu_Strong.ogg".SfxPath());
 }

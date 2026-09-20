@@ -1,27 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck8sp6aaylk3w"]
+[gd_scene load_steps=3 format=3 uid="uid://bc45oves1c006"]
 
-[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Netzach/netzach.tres" id="1_j1ot4"]
+[ext_resource type="SpineSkeletonDataResource" path="res://Ruina2/images/monsters/Puppet/puppet.tres" id="1_j1ot4"]
 [ext_resource type="Script" uid="uid://d1eh0n6i2pr1r" path="res://Ruina2Code/Nodes/Ruina2NCreatureVisuals.cs" id="1_se58w"]
 
-[node name="Netzach" type="Node2D"]
+[node name="Puppet" type="Node2D"]
 script = ExtResource("1_se58w")
 
 [node name="Bounds" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -72.0
-offset_top = -253.0
-offset_right = 91.0
+offset_left = -159.0
+offset_top = -408.0
+offset_right = 109.0
 mouse_filter = 2
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(3, -95)
+position = Vector2(-13, -161)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, -284)
+position = Vector2(9, -432)
 
 [node name="Visuals" type="SpineSprite" parent="."]
 skeleton_data_res = ExtResource("1_j1ot4")

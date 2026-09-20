@@ -132,14 +132,17 @@ public sealed class Bremen : AbstractCardMonster
         var states = new List<MonsterState>();
         var state1 = GetNeighState(); 
         var state2 = GetTendonState();
+        var state3 = GetBawkState();
         
         var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 1);
 
         state1.FollowUpState = moveBranch;
         state2.FollowUpState = moveBranch;
+        state3.FollowUpState = moveBranch;
 
         states.Add(state1);
         states.Add(state2);
+        states.Add(state3);
         states.Add(moveBranch);
         
         return new MonsterMoveStateMachine(states, moveBranch);
@@ -149,7 +152,7 @@ public sealed class Bremen : AbstractCardMonster
     {
         var states = new List<MonsterState>();
         var state1 = GetChorusState();
-        var state2 = GetBawkState();
+        var state2 = GetRarfState();
         var state3 = GetNeighState(); 
         var state4 = GetTendonState();
         
@@ -204,6 +207,9 @@ public sealed class Bremen : AbstractCardMonster
             if (!LastMove(stateMachine, TENDON)) {
                 possibilities.Add(TENDON);
             }
+            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
+                possibilities.Add(BAWK);
+            }
             return possibilities[rng.NextInt(possibilities.Count)];
         }
         else
@@ -211,8 +217,8 @@ public sealed class Bremen : AbstractCardMonster
             List<string> possibilities = new List<string>();
             if (!attackingAlly)
             {
-                if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
-                    possibilities.Add(BAWK);
+                if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF)) {
+                    possibilities.Add(RARF);
                 }
             }
             if (!LastMove(stateMachine, NEIGH) && !LastMoveBefore(stateMachine, NEIGH)) {

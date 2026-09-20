@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dna4fdi8y4til"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://csvfwp0551843" path="res://Ruina2/images/monsters/Malkuth/malkuth.atlas.spatlas" id="1_8lu6h"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://eaaawns00eyc" path="res://Ruina2/images/monsters/Malkuth/malkuth.skel.spskel" id="2_t7d1u"]
+
+[resource]
+atlas_res = ExtResource("1_8lu6h")
+skeleton_file_res = ExtResource("2_t7d1u")
