@@ -256,7 +256,7 @@
   "RUINA2-FLOODING_BULLETS.description": "Deal {Damage:diff()} damage to ALL other creatures {Repeat:diff()} times.",
   "RUINA2-FLOODING_BULLETS.title": "Flooding Bullets",
 
-  "RUINA2-RELOAD.description": "Gain {Block:diff()} [gold]Block[/gold].\nAn ally gains {Energy:energyIcons()} and draws {Cards:diff()} {Cards:plural:card|cards} next turn.",
+  "RUINA2-RELOAD.description": "Gain {Block:diff()} [gold]Block[/gold].\nALL players gain {Energy:energyIcons()} and draw {Cards:diff()} {Cards:plural:card|cards} next turn.",
   "RUINA2-RELOAD.title": "Reload",
 
   "RUINA2-BREAK_EGG.description": "Deal {Damage:diff()} damage.\nApply {Paralysis:diff()} [gold]Paralysis[/gold]",
@@ -286,7 +286,7 @@
   "RUINA2-LACERATION.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "RUINA2-LACERATION.title": "Laceration",
 
-  "RUINA2-VENOMOUS_FANGS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-VENOMOUS_FANGS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].\n[purple]Double the next debuff applied to the enemy.[/purple]",
   "RUINA2-VENOMOUS_FANGS.title": "Venomous Fangs",
 
   "RUINA2-BARRIER.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].",
@@ -295,7 +295,7 @@
   "RUINA2-DUEL.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
   "RUINA2-DUEL.title": "Duel",
 
-  "RUINA2-WILL.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nPlayers draw {Cards:diff()} cards next turn.",
+  "RUINA2-WILL.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nALL players draw {Cards:diff()} cards next turn.",
   "RUINA2-WILL.title": "Will of the City",
 
   "RUINA2-BLIND_FAITH.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
@@ -320,5 +320,14 @@
   "RUINA2-RARF.title": "RARF RARF!",
 
   "RUINA2-CHORUS.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
-  "RUINA2-CHORUS.title": "Chorus"
+  "RUINA2-CHORUS.title": "Chorus",
+
+  "RUINA2-MELODY.description": "Play these cards in order:\n{Melody}",
+  "RUINA2-MELODY.title": "Melody",
+
+  "RUINA2-ATTACK_PRESCRIPT.description": "Deal {Damage:diff()} damage.",
+  "RUINA2-ATTACK_PRESCRIPT.title": "Attack Prescript",
+
+  "RUINA2-SKILL_PRESCRIPT.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-SKILL_PRESCRIPT.title": "Skill Prescript"
 }

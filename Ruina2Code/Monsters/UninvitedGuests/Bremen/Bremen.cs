@@ -20,6 +20,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards.Bremen;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers;
+using Melody = Ruina2.Ruina2Code.Powers.UninvitedGuests.Melody;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Bremen;
 
@@ -42,7 +43,7 @@ public sealed class Bremen : AbstractCardMonster
     private int BaseMelodyLength => 3;
     private int MelodyLengthIncrease => 1;
     private int IncreasedMelodyLength = 0;
-    private int MelodyLength => BaseMelodyLength + IncreasedMelodyLength;
+    public int MelodyLength => BaseMelodyLength + IncreasedMelodyLength;
     private int MelodyFragileAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
 
     private bool attackingAlly;
@@ -60,12 +61,12 @@ public sealed class Bremen : AbstractCardMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Netzach>();
-        // foreach (Creature target in CombatState.PlayerCreatures)
-        // {
-        //     Brainwash mutable = (Brainwash) ModelDb.Power<Brainwash>().ToMutable();
-        //     mutable.Target = target;
-        //     await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
-        // }
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            Melody mutable = (Melody) ModelDb.Power<Melody>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, MelodyFragileAmt, Creature, null);
+        }
         TalkCmd.Play(L10NMonsterLookup("RUINA2-BREMEN.talk"), Creature, VfxColor.Green);
     }
 
@@ -295,7 +296,7 @@ public sealed class Bremen : AbstractCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await ResetIdle();
+            await ResetIdle(1.0f);
         }
         IncreasedMelodyLength += MelodyLengthIncrease;
     }

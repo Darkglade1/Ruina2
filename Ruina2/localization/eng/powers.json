@@ -421,5 +421,13 @@
 
   "RUINA2-GUARD_STANCE.description": "",
   "RUINA2-GUARD_STANCE.smartDescription": "Negate all debuffs applied to this creature.\n\nYou can click the buttons next to this creature's intent to change [gold]Stances[/gold].",
-  "RUINA2-GUARD_STANCE.title": "Guard Stance"
+  "RUINA2-GUARD_STANCE.title": "Guard Stance",
+
+  "RUINA2-MELODY.description": "",
+  "RUINA2-MELODY.smartDescription": "Each turn, a random sequence is generated in the [gold]Melody[/gold] card. At the end of the round, if you didn't complete the [gold]Melody[/gold], you gain [blue]{Amount}[/blue] [gold]Fragile[/gold].",
+  "RUINA2-MELODY.title": "Melody",
+
+  "RUINA2-MESSENGER.description": "",
+  "RUINA2-MESSENGER.smartDescription": "At the end of the round, put a random [gold]Prescript[/gold] card into your [gold]Hand[/gold].",
+  "RUINA2-MESSENGER.title": "Messenger"
 }

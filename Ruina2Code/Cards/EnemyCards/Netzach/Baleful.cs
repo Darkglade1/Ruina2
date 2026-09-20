@@ -7,7 +7,7 @@ using Ruina2.Ruina2Code.Powers;
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Netzach;
 
 public class Baleful() : EnemyCard(3, CardType.Attack,
-    CardRarity.Event, TargetType.AnyEnemy)
+    CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Move), new PowerVar<Erosion>(0)];
 

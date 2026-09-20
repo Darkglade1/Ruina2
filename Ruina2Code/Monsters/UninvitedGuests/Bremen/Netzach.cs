@@ -16,6 +16,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards.Netzach;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Bremen;
 
@@ -43,7 +44,7 @@ public sealed class Netzach : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Bremen>();
-        //await PowerCmd.Apply<Geon>(new ThrowingPlayerChoiceContext(), Creature, GEON, Creature,  null);
+        await PowerCmd.Apply<Messenger>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
     }
 
     private MoveState GetBalefulState()

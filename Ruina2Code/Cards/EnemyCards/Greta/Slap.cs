@@ -7,7 +7,7 @@ using Ruina2.Ruina2Code.Powers;
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Greta;
 
 public class Slap() : EnemyCard(0, CardType.Skill,
-    CardRarity.Event, TargetType.AnyEnemy)
+    CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(0, ValueProp.Move), new PowerVar<Bleed>(0)];
 

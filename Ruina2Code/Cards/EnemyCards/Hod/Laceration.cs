@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Hod;
 
 public class Laceration() : EnemyCard(3, CardType.Attack,
-    CardRarity.Event, TargetType.AnyEnemy)
+    CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, ValueProp.Move), new PowerVar<VulnerablePower>(0)];
 

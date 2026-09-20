@@ -171,5 +171,11 @@
   "RUINA2-HOD.name": "Hod",
   "RUINA2-HOD.response": "No one is untainted. But that doesn't mean we can't hope to become better.",
   "RUINA2-HOD.victory": "Thank you kindly, stranger.",
-  "RUINA2-FRESH_MEAT.name": "Fresh Meat"
+  "RUINA2-FRESH_MEAT.name": "Fresh Meat",
+
+  "RUINA2-BREMEN.name": "Bremen",
+  "RUINA2-BREMEN.talk": "RARF! BAWK! NEIGHHH!",
+  "RUINA2-NETZACH.name": "Netzach",
+  "RUINA2-NETZACH.response": ". . . Shut up.",
+  "RUINA2-NETZACH.victory": "At least that's over now. Care for a drink?"
 }

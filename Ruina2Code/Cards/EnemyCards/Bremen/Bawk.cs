@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Bremen;
 
 public class Bawk() : EnemyCard(0, CardType.Skill,
-    CardRarity.Event, TargetType.AnyEnemy)
+    CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(0)];
 

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 
 public class Pow() : EnemyCard(0, CardType.Skill,
-    CardRarity.Event, TargetType.AnyEnemy)
+    CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(0), new PowerVar<StrengthPower>(0)];
 

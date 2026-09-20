@@ -122,10 +122,12 @@
   "RUINA2-PRICE_OF_SILENCE_NORMAL.loss": "{character}'s time ran out.",
   "RUINA2-APOSTLES_NORMAL.loss": "{character} was ripped to shreds by a group of [gold]{encounter}[/gold].",
   
-  "RUINA2-EILEEN_ENCOUNTER.title": "Eileen",
+  "RUINA2-EILEEN_ENCOUNTER.title": "The Church of Gears",
   "RUINA2-EILEEN_ENCOUNTER.loss": "{character} was turned into a gearwheel by [gold]{encounter}[/gold].",
-  "RUINA2-GRETA_ENCOUNTER.title": "Greta",
+  "RUINA2-GRETA_ENCOUNTER.title": "The Eighth Chef",
   "RUINA2-GRETA_ENCOUNTER.loss": "{character} was turned into an exotic dish by [gold]{encounter}[/gold].",
-  "RUINA2-OSWALD_ENCOUNTER.title": "Oswald",
-  "RUINA2-OSWALD_ENCOUNTER.loss": "{character} became part of [gold]{encounter}'s[/gold] circus show."
+  "RUINA2-BREMEN_ENCOUNTER.title": "The Musicians of Bremen",
+  "RUINA2-BREMEN_ENCOUNTER.loss": "{character}'s eardrums were ruptured by the cacophony of [gold]{encounter}[/gold].",
+  "RUINA2-OSWALD_ENCOUNTER.title": "The 8 o'Clock Circus",
+  "RUINA2-OSWALD_ENCOUNTER.loss": "{character} became part of [gold]{encounter}[/gold] show."
 }
