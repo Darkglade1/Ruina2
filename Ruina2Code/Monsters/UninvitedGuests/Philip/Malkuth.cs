@@ -1,24 +1,23 @@
-﻿using MegaCrit.Sts2.Core.Animation;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
-using Ruina2.Ruina2Code.Cards.EnemyCards.Netzach;
+using Ruina2.Ruina2Code.Cards.EnemyCards.Malkuth;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
-using Ruina2.Ruina2Code.Powers;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Philip;
@@ -36,25 +35,22 @@ public sealed class Malkuth : AbstractAllyCardMonster
     private int EmotionsHits => 2;
     private int StormDamage => 20;
     private int StormHits => 2;
-    private int InfernoDamage => 50;
+    private int InfernoDamage => 70;
     private int SelfBlockAmt => 14;
     private int AllyBlockAmt => 14;
-    private int StartingStrengthAmt => 2;
     private int AllyStrengthAmt => 2;
     private int StormVulnAmt => 2;
-    private int PowerVulnAmt => 1;
     private int CardDraw => 1;
-    public int fervidEmotions = 4;
-    public int emotionalEmotions = 4;
-    public static int firstEmotionThreshold = 2;
-    public static int secondEmotionThreshold = 4;
-    public static int EMOTION_TRIGGER_CAP = 4;
-
-    public static int EMOTION_THRESHOLD = 10;
-    public static int EXHAUST_EMOTION_GAIN = 2;
-    private int phase;
+    public int FervidStrengthAmt = 2;
+    public int EmotionalStrengthAmt = 1;
+    public static int FirstStrengthThreshold = 10;
+    public static int SecondStrengthThreshold = 20;
+    public static int ExhaustStrengthGain = 1;
+    private int phase = 1;
     private bool distorted;
     private bool manifestedEGO;
+    private bool usedRagingStorm;
+    private bool usedInferno;
     protected override string VisualsPath => "Malkuth/malkuth.tscn".MonsterImagePath();
 
     private const string COORDINATED_ASSAULT = "COORDINATED_ASSAULT";
@@ -68,8 +64,19 @@ public sealed class Malkuth : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Philip>();
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StartingStrengthAmt, Creature,  null);
-        //await PowerCmd.Apply<Messenger>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            Dragon mutable = (Dragon) ModelDb.Power<Dragon>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 3, Creature, null);
+        }
+        var emotion = await PowerCmd.Apply<Emotion>(new ThrowingPlayerChoiceContext(), Creature, CombatState.PlayerCreatures.Count, Creature,  null);
+        if (emotion != null)
+        {
+            emotion.DynamicVars["StrengthAmount"].BaseValue = ExhaustStrengthGain;
+            emotion.DynamicVars["FirstStrengthThreshold"].BaseValue = FirstStrengthThreshold;
+            emotion.DynamicVars["SecondStrengthThreshold"].BaseValue = SecondStrengthThreshold;
+        }
     }
 
     private MoveState GetCoordinatedAssaultState()
@@ -84,7 +91,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
     
     private MoveState GetFervidEmotionsState()
     {
-        return new MoveState(FERVID_EMOTIONS, FervidEmotions, new RuinaMultiAttackIntent(EmotionsDamage, EmotionsHits));
+        return new MoveState(FERVID_EMOTIONS, FervidEmotions, new RuinaMultiAttackIntent(EmotionsDamage, EmotionsHits), new RuinaBuffIntent());
     }
     
     private MoveState GetRagingStormState()
@@ -126,53 +133,30 @@ public sealed class Malkuth : AbstractAllyCardMonster
 
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (CanUseMassAttack(stateMachine))
+        if (distorted && !usedRagingStorm)
         {
-            if (manifestedEGO)
-            {
-                return INFERNO;
-            }
-
-            if (distorted)
-            {
-                return RAGING_STORM;
-            }
-        }
-        List<string> possibilities = new List<string>();
-        if (!distorted && !manifestedEGO)
+            return RAGING_STORM;
+        } else if (manifestedEGO && !usedInferno)
         {
-            if (!LastMove(stateMachine, COORDINATED_ASSAULT) && !LastMoveBefore(stateMachine, COORDINATED_ASSAULT)) {
-                possibilities.Add(COORDINATED_ASSAULT);
-            }
+            return INFERNO;
         }
-        if (!LastMove(stateMachine, EMOTIONAL_TURBULENCE)) {
-            possibilities.Add(EMOTIONAL_TURBULENCE);
-        }
-        if (!LastMove(stateMachine, FERVID_EMOTIONS)) {
-            possibilities.Add(FERVID_EMOTIONS);
-        }
-        return possibilities[rng.NextInt(possibilities.Count)];
-    }
-    
-    private bool CanUseMassAttack(MonsterMoveStateMachine stateMachine) {
-        bool minionPresent = false;
-        bool offCooldown = false;
-        if (distorted && !manifestedEGO && !LastMove(stateMachine, RAGING_STORM) && !LastMoveBefore(stateMachine, RAGING_STORM)) {
-            offCooldown = true;
-        }
-        if (manifestedEGO && !LastMove(stateMachine, INFERNO) && !LastMoveBefore(stateMachine, INFERNO)) {
-            offCooldown = true;
-        }
-
-        foreach (var enemy in CombatState.HittableEnemies)
+        else
         {
-            if (enemy.Monster is CryingChild)
+            List<string> possibilities = new List<string>();
+            if (!distorted && !manifestedEGO)
             {
-                minionPresent = true;
-                break;
+                if (!LastMove(stateMachine, COORDINATED_ASSAULT) && !LastMoveBefore(stateMachine, COORDINATED_ASSAULT)) {
+                    possibilities.Add(COORDINATED_ASSAULT);
+                }
             }
+            if (!LastMove(stateMachine, EMOTIONAL_TURBULENCE)) {
+                possibilities.Add(EMOTIONAL_TURBULENCE);
+            }
+            if (!LastMove(stateMachine, FERVID_EMOTIONS)) {
+                possibilities.Add(FERVID_EMOTIONS);
+            }
+            return possibilities[rng.NextInt(possibilities.Count)];
         }
-        return minionPresent && offCooldown;
     }
 
     public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
@@ -191,28 +175,39 @@ public sealed class Malkuth : AbstractAllyCardMonster
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
-        // var card1 = CreateCardForIntent<BlindFaith>();
-        // card1.SetDamage(BlindFaithDamage);
-        // card1.SetRepeat(BlindFaithHits);
-        // var card2 = CreateCardForIntent<Will>();
-        // card2.SetBlock(BlockAmt);
-        // card2.SetCards(CardDraw);
-        // var card3 = CreateCardForIntent<Baleful>();
-        // card3.SetDamage(BalefulDamage);
-        // card3.DynamicVars["Erosion"].BaseValue = ErosionAmt;
-        // return new Dictionary<string, CardModel>()
-        // {
-        //     {BLIND_FAITH, card1},
-        //     {WILL, card2},
-        //     {BALEFUL, card3},
-        // };
+        var card1 = CreateCardForIntent<FervidEmotions>();
+        card1.SetDamage(EmotionsDamage);
+        card1.SetRepeat(EmotionsHits);
+        card1.SetStrength(FervidStrengthAmt);
+        var card2 = CreateCardForIntent<CoordinatedAssault>();
+        card2.SetBlock(AllyBlockAmt);
+        card2.SetCards(CardDraw);
+        card2.SetStrength(AllyStrengthAmt);
+        var card3 = CreateCardForIntent<EmotionalTurbulence>();
+        card3.SetDamage(TurbulenceDamage);
+        card3.SetBlock(SelfBlockAmt);
+        card3.SetStrength(EmotionalStrengthAmt);
+        var card4 = CreateCardForIntent<RagingStorm>();
+        card4.SetDamage(StormDamage);
+        card4.SetRepeat(StormHits);
+        card4.SetVulnerable(StormVulnAmt);
+        var card5 = CreateCardForIntent<Inferno>();
+        card5.SetDamage(InfernoDamage);
+        return new Dictionary<string, CardModel>()
+        {
+            {FERVID_EMOTIONS, card1},
+            {COORDINATED_ASSAULT, card2},
+            {EMOTIONAL_TURBULENCE, card3},
+            {RAGING_STORM, card4},
+            {INFERNO, card5}
+        };
     }
 
     private void Talk()
     {
         if (!talked)
         {
-            TalkCmd.Play(L10NMonsterLookup("RUINA2-MALKUTH.response"), Creature, VfxColor.Green);
+            TalkCmd.Play(L10NMonsterLookup("RUINA2-MALKUTH.response"), Creature, VfxColor.Gold);
             talked = true;
         }
     }
@@ -239,6 +234,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, EmotionalStrengthAmt, Creature,  null); 
         await ResetIdle(0.5f, phase);
     }
     
@@ -261,7 +257,8 @@ public sealed class Malkuth : AbstractAllyCardMonster
                 .Execute(null);
             await WaitAnimation();
         }
-        await ResetIdle();
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, FervidStrengthAmt, Creature,  null); 
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task RagingStorm(IReadOnlyList<Creature> targets)
@@ -284,6 +281,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
                 await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), enemy, StormVulnAmt, Creature,  null); 
             }
         }
+        usedRagingStorm = true;
     }
     
     private async Task Inferno(IReadOnlyList<Creature> targets)
@@ -306,6 +304,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
         }
         await DamageCmd.Attack(InfernoDamage).FromMonsterCreature(this).TargetingCreatures(targets, CombatState).Execute(null);
         await ResetIdle(1.0f, phase);
+        usedInferno = true;
     }
     
     public override IReadOnlyList<Creature> AdditionalMassAttackTargets()
@@ -319,6 +318,35 @@ public sealed class Malkuth : AbstractAllyCardMonster
             }
         }
         return newList;
+    }
+    
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (participants.Contains(Creature))
+        {
+            int strAmt = Creature.GetPowerAmount<StrengthPower>();
+            if (strAmt >= FirstStrengthThreshold && !distorted)
+            {
+                distorted = true;
+                phase++;
+                await ResetIdle(0.0f, phase);
+            } else if (strAmt >= SecondStrengthThreshold && distorted && !manifestedEGO)
+            {
+                manifestedEGO = true;
+                phase++;
+                await ResetIdle(0.0f, phase);
+                Sfx.XiaoRoar.Play();
+                await WaitAnimation();
+                if (NCombatRoom.Instance != null)
+                {
+                    NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
+                    creatureNode?.MoveChildSafely(creatureNode?.Visuals, 0);
+                }
+            }
+        }
     }
     
     public async Task OnBossDeath()
@@ -338,11 +366,6 @@ public sealed class Malkuth : AbstractAllyCardMonster
     private async Task PierceAnimation(IReadOnlyList<Creature> targets)
     {
         await AnimationAction("Pierce" + phase, Sfx.XiaoStab, targets);
-    }
-    
-    private async Task BluntAnimation(IReadOnlyList<Creature> targets)
-    {
-        await AnimationAction("Blunt" + phase, Sfx.XiaoHori, targets);
     }
     
     private async Task RagingStormStartAnimation(IReadOnlyList<Creature> targets)

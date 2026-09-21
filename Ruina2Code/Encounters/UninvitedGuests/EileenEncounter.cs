@@ -30,6 +30,7 @@ public sealed class EileenEncounter : CustomEncounterModel
         {
             yield return ModelDb.Monster<Yesod>();
             yield return ModelDb.Monster<GearWorshipper>();
+            yield return ModelDb.Monster<GearWorshipper2>();
             yield return ModelDb.Monster<Eileen>();
         }
     }
@@ -40,7 +41,7 @@ public sealed class EileenEncounter : CustomEncounterModel
         {
             (ModelDb.Monster<Yesod>().ToMutable(), "ally"),
             (ModelDb.Monster<GearWorshipper>().ToMutable(), "minion1"),
-            (ModelDb.Monster<GearWorshipper>().ToMutable(), "minion2"),
+            (ModelDb.Monster<GearWorshipper2>().ToMutable(), "minion2"),
             (ModelDb.Monster<Eileen>().ToMutable(), "boss")
         };
     }

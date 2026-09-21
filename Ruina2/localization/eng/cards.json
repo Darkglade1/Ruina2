@@ -329,5 +329,35 @@
   "RUINA2-ATTACK_PRESCRIPT.title": "Attack Prescript",
 
   "RUINA2-SKILL_PRESCRIPT.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "RUINA2-SKILL_PRESCRIPT.title": "Skill Prescript"
+  "RUINA2-SKILL_PRESCRIPT.title": "Skill Prescript",
+
+  "RUINA2-STIGMATIZE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-STIGMATIZE.title": "Despairingly  Stigmatize",
+
+  "RUINA2-SORROW.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-SORROW.title": "Wound of Sorrow",
+  
+  "RUINA2-SEARING.description": "Deal {Damage:diff()} damage.\nShuffle {Cards:diff()} [gold]Burn[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-SEARING.title": "Searing Resolution",
+
+  "RUINA2-EVENTIDE.description": "Shuffle {Cards:diff()} [gold]Burn[/gold] into your [gold]Discard Pile[/gold].",
+  "RUINA2-EVENTIDE.title": "Waned Eventide",
+
+  "RUINA2-EMOTIONS.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-EMOTIONS.title": "Conflicting Emotions",
+
+  "RUINA2-FERVID_EMOTIONS.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-FERVID_EMOTIONS.title": "Fervid Emotions",
+
+  "RUINA2-EMOTIONAL_TURBULENCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-EMOTIONAL_TURBULENCE.title": "Emotional Turbulence",
+
+  "RUINA2-COORDINATED_ASSAULT.description": "ALL players gain {Block:diff()} [gold]Block[/gold], {StrengthPower:diff()} [gold]Strength[/gold], and draw {Cards:diff()} card next turn.",
+  "RUINA2-COORDINATED_ASSAULT.title": "Coordinated Assault",
+
+  "RUINA2-RAGING_STORM.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
+  "RUINA2-RAGING_STORM.title": "Raging Storm: Love",
+
+  "RUINA2-INFERNO.description": "Deal {Damage:diff()} damage to ALL enemies.",
+  "RUINA2-INFERNO.title": "Inferno"
 }

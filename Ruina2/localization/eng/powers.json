@@ -429,5 +429,21 @@
 
   "RUINA2-MESSENGER.description": "",
   "RUINA2-MESSENGER.smartDescription": "At the end of the round, put a random [gold]Prescript[/gold] card into your [gold]Hand[/gold].",
-  "RUINA2-MESSENGER.title": "Messenger"
+  "RUINA2-MESSENGER.title": "Messenger",
+
+  "RUINA2-DRAGON.description": "",
+  "RUINA2-DRAGON.smartDescription": "Whenever you play [blue]{Amount}[/blue] cards, [gold]Exhaust[/gold] up to [blue]{Exhaust}[/blue] {Exhaust:plural:card|cards}. If you [gold]Exhausted[/gold] a [gold]Status[/gold], draw [blue]{Cards}[/blue] {Cards:plural:card|cards}.",
+  "RUINA2-DRAGON.title": "Children of the Dragon",
+
+  "RUINA2-EMOTION.description": "",
+  "RUINA2-EMOTION.smartDescription": "Whenever {IsMultiplayer:players|you} [gold]Exhaust[/gold] {IsMultiplayer:[blue]{Amount}[/blue]|a} {Amount:plural:card|cards}, this creature gains [blue]{StrengthAmount}[/blue] [gold]Strength[/gold].\nAfter this creature reaches [blue]{FirstStrengthThreshold}[/blue] or [blue]{SecondStrengthThreshold}[/blue] [gold]Strength[/gold], uses a [gold]powerful[/gold] attack next turn.",
+  "RUINA2-EMOTION.title": "Rising Emotion",
+
+  "RUINA2-FLAME_SHIELD.description": "",
+  "RUINA2-FLAME_SHIELD.smartDescription": "Whenever you hit this creature with an [gold]Attack[/gold], shuffle [blue]{Amount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold].\nRemoved after [blue]{Turns}[/blue] turns.",
+  "RUINA2-FLAME_SHIELD.title": "Flame Shield",
+
+  "RUINA2-SWORD_OF_EMBERS.description": "",
+  "RUINA2-SWORD_OF_EMBERS.smartDescription": "Deals [blue]{Amount}%[/blue] more damage with attacks.",
+  "RUINA2-SWORD_OF_EMBERS.title": "Sword of Embers"
 }

@@ -15,10 +15,10 @@ using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Philip;
 
-public sealed class CryingChild : AbstractMultiIntentMonster
+public class CryingChild : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 112, 102);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 119, 108);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 156, 142);
+    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 163, 148);
     public override int NumIntents => 1;
 
     private int WingStrokeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
@@ -36,6 +36,7 @@ public sealed class CryingChild : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Malkuth>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        attackingAlly = Rng.NextBool();
     }
 
     private MoveState GetWingStrokeState()

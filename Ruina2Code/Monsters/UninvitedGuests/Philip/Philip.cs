@@ -16,12 +16,10 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
-using Ruina2.Ruina2Code.Cards.EnemyCards.Bremen;
+using Ruina2.Ruina2Code.Cards.EnemyCards.Philip;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Bremen;
-using Ruina2.Ruina2Code.Powers;
-using Melody = Ruina2.Ruina2Code.Powers.UninvitedGuests.Melody;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Philip;
 
@@ -38,11 +36,12 @@ public sealed class Philip : AbstractCardMonster
     private int SorrowHits => 3;
     private int EventideBurns => 3;
     private int SearingBurns => 1;
-    private int DamageBonus => 33;
+    private int DamageBonus => 34;
     private int StrengthAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int powerBurns => 1;
     private int BlockAmt => 10;
-
+    private int FirstChangeTurn = 3;
+    private int SecondChangeTurn = 6;
     private bool attackingAlly;
     private int phase = 1;
     private int numExtraIntents = 0;
@@ -64,7 +63,11 @@ public sealed class Philip : AbstractCardMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Malkuth>();
-        //await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, MelodyFragileAmt, Creature, null);
+        var flameShield = await PowerCmd.Apply<FlameShield>(new ThrowingPlayerChoiceContext(), Creature, powerBurns, Creature, null);
+        if (flameShield != null)
+        {
+            flameShield.DynamicVars["Turns"].BaseValue = SecondChangeTurn;
+        }
         TalkCmd.Play(L10NMonsterLookup("RUINA2-PHILIP.talk"), Creature, VfxColor.Gold);
     }
 
@@ -272,32 +275,28 @@ public sealed class Philip : AbstractCardMonster
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
-        // var card1 = CreateCardForIntent<Trio>();
-        // card1.SetDamage(TrioDamage);
-        // card1.SetRepeat(TrioHits);
-        // card1.DynamicVars["Increase"].BaseValue = MelodyLengthIncrease;
-        // var card2 = CreateCardForIntent<Neigh>();
-        // card2.SetDamage(NeighDamage);
-        // var card3 = CreateCardForIntent<Chorus>();
-        // card3.SetDamage(ChorusDamage);
-        // card3.SetStrength(StrengthAmount);
-        // var card4 = CreateCardForIntent<Tendon>();
-        // card4.SetDamage(TendonDamage);
-        // card4.SetRepeat(TendonHits);
-        // var card5 = CreateCardForIntent<Bawk>();
-        // card5.SetCards(StatusAmt);
-        // var card6 = CreateCardForIntent<Rarf>();
-        // card6.SetBlock(BlockAmt);
-        // card6.DynamicVars["Paralysis"].BaseValue = DebuffAmt;
-        // return new Dictionary<string, CardModel>()
-        // {
-        //     {TRIO, card1},
-        //     {NEIGH, card2},
-        //     {CHORUS, card3},
-        //     {TENDON, card4},
-        //     {BAWK, card5},
-        //     {RARF, card6}
-        // };
+        var card1 = CreateCardForIntent<Sorrow>();
+        card1.SetDamage(SorrowDamage);
+        card1.SetRepeat(SorrowHits);
+        var card2 = CreateCardForIntent<Searing>();
+        card2.SetDamage(SearingDamage);
+        card2.SetCards(SearingBurns);
+        var card3 = CreateCardForIntent<Emotions>();
+        card3.SetBlock(BlockAmt);
+        card3.SetStrength(StrengthAmt);
+        var card4 = CreateCardForIntent<Stigmatize>();
+        card4.SetDamage(StigmatizeDamage);
+        card4.SetRepeat(StigmatizeHits);
+        var card5 = CreateCardForIntent<Eventide>();
+        card5.SetCards(EventideBurns);
+        return new Dictionary<string, CardModel>()
+        {
+            {SORROW, card1},
+            {SEARING, card2},
+            {EMOTIONS, card3},
+            {STIGMATIZE, card4},
+            {EVENTIDE, card5}
+        };
     }
 
     private async Task Sorrow(IReadOnlyList<Creature> targets)
@@ -321,6 +320,7 @@ public sealed class Philip : AbstractCardMonster
                 .Execute(null);
             await ResetIdle(0.5f, phase);
         }
+        await WaitAnimation();
     }
     
     private async Task Stigmatize(IReadOnlyList<Creature> targets)
@@ -341,6 +341,7 @@ public sealed class Philip : AbstractCardMonster
                 .Execute(null);
             await ResetIdle(0.5f, phase);
         }
+        await WaitAnimation();
     }
     
     private async Task Searing(IReadOnlyList<Creature> targets)
@@ -350,14 +351,15 @@ public sealed class Philip : AbstractCardMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Draw, SearingBurns, null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(CombatState.PlayerCreatures, PileType.Draw, SearingBurns, null, CardPilePosition.Random);
         await ResetIdle(0.5f, phase);
+        await WaitAnimation();
     }
     
     private async Task Eventide(IReadOnlyList<Creature> targets)
     {
         await BuffAnimation();
-        await CardPileCmd.AddToCombatAndPreview<Burn>(targets, PileType.Discard, EventideBurns, null);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(CombatState.PlayerCreatures, PileType.Discard, EventideBurns, null);
         await ResetIdle(1.0f, phase);
     }
     
@@ -392,42 +394,21 @@ public sealed class Philip : AbstractCardMonster
         if (participants.Contains(Creature))
         {
             attackingAlly = Rng.NextBool();
-            if (CombatState.RoundNumber >= 3 && !gotBonusIntent)
+            if (CombatState.RoundNumber >= FirstChangeTurn && !gotBonusIntent)
             {
                 gotBonusIntent = true;
                 Sfx.PhilipTransform.Play(0.0f, 2.0f);
                 numExtraIntents++;
-                await Summon();
             }
-            if (CombatState.RoundNumber >= 6 && !gotBonusDamage)
+            if (CombatState.RoundNumber >= SecondChangeTurn && !gotBonusDamage)
             {
                 gotBonusDamage = true;
                 Sfx.PhilipTransform.Play(0.0f, 2.0f);
                 phase++;
                 await ResetIdle(0.0f, phase);
-                // get sword of embers power
-                await Summon();
+                await PowerCmd.Remove<FlameShield>(Creature);
+                await PowerCmd.Apply<SwordOfEmbers>(new ThrowingPlayerChoiceContext(), Creature, DamageBonus, Creature, null);
             }
-        }
-    }
-
-    private async Task Summon()
-    {
-        if (minion1 == null || minion1.IsDead)
-        {
-            minion1 = await CreatureCmd.Add<CryingChild>(CombatState, "minion1");
-        }
-        else
-        {
-            await CreatureCmd.Add<CryingChild>(CombatState, "minion3");
-        }
-        if (minion2 == null || minion2.IsDead)
-        {
-            minion2 = await CreatureCmd.Add<CryingChild>(CombatState, "minion2");
-        }
-        else
-        {
-            await CreatureCmd.Add<CryingChild>(CombatState, "minion4");
         }
     }
     

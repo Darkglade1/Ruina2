@@ -13,7 +13,7 @@ using Ruina2.Ruina2Code.Intents;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Eileen;
 
-public sealed class GearWorshipper : AbstractMultiIntentMonster
+public class GearWorshipper : AbstractMultiIntentMonster
 {
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 145, 132);
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 158, 144);

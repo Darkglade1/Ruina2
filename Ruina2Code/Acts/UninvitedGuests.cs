@@ -14,6 +14,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
     public override IEnumerable<EncounterModel> GenerateAllEncounters()
     {
         return [
+            ModelDb.Encounter<PhilipEncounter>(),
             ModelDb.Encounter<EileenEncounter>(),
             ModelDb.Encounter<GretaEncounter>(),
             ModelDb.Encounter<BremenEncounter>(),
@@ -40,7 +41,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
         _rooms.events.Add(ModelDb.Event<Ensemble>());
         _rooms.eventsVisited = 0;
         _rooms.eliteEncounters.Clear();
-        _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
+        _rooms.eliteEncounters.Add(ModelDb.Encounter<PhilipEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<EileenEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<GretaEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<BremenEncounter>());

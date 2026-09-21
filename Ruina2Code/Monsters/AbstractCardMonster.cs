@@ -63,7 +63,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
                             {
                                 NCardHolders[i] = nCardHolder;
                                 specialNode.AddChildSafely(nCardHolder);
-                                nCardHolder.Position += positionOffsetSetToUse[i];
+                                nCardHolder.Position = positionOffsetSetToUse[i];
                                 nCardHolder.ReassignToCard(card, PileType.Hand, null, ModelVisibility.Visible);
                                 nCardHolder.Show();
                             }
@@ -71,6 +71,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
                     }
                     else
                     {
+                        nCardHolder.Position = positionOffsetSetToUse[i];
                         nCardHolder.ReassignToCard(card, PileType.Hand, null, ModelVisibility.Visible);
                         nCardHolder.Show();
                     }
