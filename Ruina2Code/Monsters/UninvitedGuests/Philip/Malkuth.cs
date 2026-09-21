@@ -344,6 +344,11 @@ public sealed class Malkuth : AbstractAllyCardMonster
                 {
                     NCreature? creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
                     creatureNode?.MoveChildSafely(creatureNode?.Visuals, 0);
+                    Marker2D? specialNode = creatureNode?.GetSpecialNode<Marker2D>("%IntentPos");
+                    if (specialNode != null)
+                    {
+                        specialNode.Position += new Vector2(0.0f, -50.0f);
+                    }
                 }
             }
         }

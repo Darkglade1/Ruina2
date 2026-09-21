@@ -341,7 +341,6 @@ public sealed class Philip : AbstractCardMonster
                 .Execute(null);
             await ResetIdle(0.5f, phase);
         }
-        await WaitAnimation();
     }
     
     private async Task Searing(IReadOnlyList<Creature> targets)
@@ -353,7 +352,6 @@ public sealed class Philip : AbstractCardMonster
             .Execute(null);
         await CardPileCmd.AddToCombatAndPreview<Burn>(CombatState.PlayerCreatures, PileType.Draw, SearingBurns, null, CardPilePosition.Random);
         await ResetIdle(0.5f, phase);
-        await WaitAnimation();
     }
     
     private async Task Eventide(IReadOnlyList<Creature> targets)
