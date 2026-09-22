@@ -186,5 +186,13 @@
   "RUINA2-MALKUTH.response": "What a sad way to live.",
   "RUINA2-MALKUTH.victory": "I hope he can finally rest now.",
   "RUINA2-CRYING_CHILD.name": "Crying Child",
-  "RUINA2-CRYING_CHILD2.name": "Crying Child"
+  "RUINA2-CRYING_CHILD2.name": "Crying Child",
+
+  "RUINA2-PUPPETEER.name": "Jae-heon",
+  "RUINA2-PUPPETEER.talk": "We are all bound by the strings of others.",
+  "RUINA2-CHESED.name": "Chesed",
+  "RUINA2-CHESED.response": "That's a rather cynical way of looking at things..",
+  "RUINA2-CHESED.victory": "Thanks for the help, stranger.",
+  "RUINA2-CHESED.disposal": "Time for a finishing blow.",
+  "RUINA2-PUPPET.name": "Puppet"
 }

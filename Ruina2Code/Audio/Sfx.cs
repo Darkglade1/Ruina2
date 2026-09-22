@@ -294,4 +294,13 @@ public static class Sfx
     public static readonly ModSound FireStab = new("Riu_Stab.ogg".SfxPath());
     public static readonly ModSound FireGuard = new("Riu_Guard.ogg".SfxPath());
     public static readonly ModSound FireStrong = new("Riu_Strong.ogg".SfxPath());
+    
+    public static readonly ModSound DisposalUp = new("Nicolrai_Special_SwordUp.ogg".SfxPath());
+    public static readonly ModSound DisposalDown = new("Nicolrai_Special_SwordDown.ogg".SfxPath());
+    public static readonly ModSound DisposalFinish = new("Nicolrai_Special_Cut.ogg".SfxPath());
+    public static readonly ModSound DisposalBlood = new("Nicolrai_Special_Blood.ogg".SfxPath());
+    
+    public static readonly ModSound PuppetStart = new("Puppet_StrongStart.ogg".SfxPath());
+    public static readonly ModSound PuppetStrongAtk = new("Puppet_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound PuppetBreak = new("Puppet_Break.ogg".SfxPath());
 }

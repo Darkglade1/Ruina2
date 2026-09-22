@@ -445,5 +445,21 @@
 
   "RUINA2-SWORD_OF_EMBERS.description": "",
   "RUINA2-SWORD_OF_EMBERS.smartDescription": "Deals [blue]{Amount}%[/blue] more damage with attacks.",
-  "RUINA2-SWORD_OF_EMBERS.title": "Sword of Embers"
+  "RUINA2-SWORD_OF_EMBERS.title": "Sword of Embers",
+
+  "RUINA2-PUPPET_STRINGS.description": "",
+  "RUINA2-PUPPET_STRINGS.smartDescription": "When this creature dies, it revives next turn at full HP and gains [blue]{Amount}[/blue] [gold]Plating[/gold].",
+  "RUINA2-PUPPET_STRINGS.title": "Puppet Strings",
+
+  "RUINA2-MASTERMIND.description": "",
+  "RUINA2-MASTERMIND.smartDescription": "This creature receives [blue]{Amount}%[/blue] less damage from attacks unless it is [gold]Marked[/gold].",
+  "RUINA2-MASTERMIND.title": "Mastermind",
+
+  "RUINA2-MARK.description": "Receives more damage from attacks for [blue]1[/blue] turn.",
+  "RUINA2-MARK.smartDescription": "Receives [blue]{Increase}%[/blue] more damage from attacks for [blue]{Amount}[/blue] {Amount:plural:turn|turns}.",
+  "RUINA2-MARK.title": "Mark",
+
+  "RUINA2-FINISHING_TOUCH.description": "",
+  "RUINA2-FINISHING_TOUCH.smartDescription": "After this creature attacks, it applies [blue]1[/blue] [gold]Mark[/gold] to the target.",
+  "RUINA2-FINISHING_TOUCH.title": "Finishing Touch"
 }

@@ -24,7 +24,7 @@ public class CryingChild : AbstractMultiIntentMonster
     private int WingStrokeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int MurmurDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
     private int WeakAmt => 1;
-    private bool attackingAlly;
+    protected bool attackingAlly;
 
     protected override string VisualsPath => "CryingChild/crying_child.tscn".MonsterImagePath();
 
@@ -36,7 +36,7 @@ public class CryingChild : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Malkuth>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
-        attackingAlly = Rng.NextBool();
+        attackingAlly = false;
     }
 
     private MoveState GetWingStrokeState()

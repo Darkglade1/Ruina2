@@ -359,5 +359,32 @@
   "RUINA2-RAGING_STORM.title": "Raging Storm: Love",
 
   "RUINA2-INFERNO.description": "Deal {Damage:diff()} damage to ALL enemies.",
-  "RUINA2-INFERNO.title": "Inferno"
+  "RUINA2-INFERNO.title": "Inferno",
+
+  "RUINA2-PULLING_STRINGS.description": "Deal {Damage:diff()} damage to ALL enemies.",
+  "RUINA2-PULLING_STRINGS.title": "Pulling the Strings Taut",
+
+  "RUINA2-TUGGING_STRINGS.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-TUGGING_STRINGS.title": "Tugging Strings",
+
+  "RUINA2-ASSAILING_PULLS.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-ASSAILING_PULLS.title": "Assailing Pulls",
+
+  "RUINA2-THIN_STRINGS.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Frail[/gold].",
+  "RUINA2-THIN_STRINGS.title": "Thin Strings",
+
+  "RUINA2-PUPPETRY.description": "ALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-PUPPETRY.title": "Puppetry",
+
+  "RUINA2-CONCENTRATE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-CONCENTRATE.title": "Concentrate",
+
+  "RUINA2-ENERGY_SHIELD.description": "ALL allies gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-ENERGY_SHIELD.title": "Energy Shield",
+
+  "RUINA2-BATTLEFIELD_COMMAND.description": "Deal {Damage:diff()} damage.\nALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-BATTLEFIELD_COMMAND.title": "Battlefield Command",
+
+  "RUINA2-DISPOSAL.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nDeals double damage if the enemy is [gold]Marked[/gold].\nDeals double damage if the enemy is at or below 25% HP.",
+  "RUINA2-DISPOSAL.title": "Disposal"
 }
