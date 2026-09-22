@@ -78,7 +78,7 @@ public sealed class Chesed : AbstractAllyCardMonster
     
     private MoveState GetDisposalState()
     {
-        return new MoveState(DISPOSAL, Disposal, new RuinaMultiAttackIntent(ConcentrateDamage, ConcentrateHits), new RuinaDefendIntent());
+        return new MoveState(DISPOSAL, Disposal, new RuinaMultiAttackIntent(DisposalDamage, DisposalHits));
     }
 
     private MonsterMoveStateMachine GenerateIntent1StateMachine()
@@ -107,6 +107,14 @@ public sealed class Chesed : AbstractAllyCardMonster
 
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
+        if (OtherSideTargetMonster != null && OtherSideTargetMonster.CurrentHp <= (int)(OtherSideTargetMonster.MaxHp * DisposalHPThreshold)) {
+            if (OtherSideTargetMonster.Monster is Puppeteer puppeteer && (puppeteer.puppet == null || (puppeteer.puppet.IsDead && puppeteer.puppet.Monster is AbstractMultiIntentMonster multiIntentPuppet && multiIntentPuppet.NextMoves[0].Id == Puppet.REVIVING))) {
+                if (OtherSideTargetMonster.HasPower<Mark>()) {
+                    TalkCmd.Play(L10NMonsterLookup("RUINA2-CHESED.disposal"), Creature, VfxColor.Blue);
+                    return DISPOSAL;
+                }
+            }
+        }
         if (stateMachine.StateLog.Count >= 3)
         {
             stateMachine.StateLog.Clear();
@@ -243,7 +251,6 @@ public sealed class Chesed : AbstractAllyCardMonster
             if (i % 2 == 0)
             {
                 await DisposalFinishAnimation(targets);
-                await WaitAnimation();
             } 
             else
             {
@@ -255,32 +262,32 @@ public sealed class Chesed : AbstractAllyCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await WaitAnimation(1.0f);
         }
         await ApplyPowerAndSkipNextDurationTickIfNotPresent<Mark>(targets, 1);
         await ResetIdle();
     }
     
-    public override async Task AfterSideTurnEnd(
-        PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (participants.Contains(Creature))
-        {
-            if (OtherSideTargetMonster != null && OtherSideTargetMonster.CurrentHp <= (int)(OtherSideTargetMonster.MaxHp * DisposalHPThreshold)) {
-                if (OtherSideTargetMonster.Monster is Puppeteer puppeteer && (puppeteer.puppet == null || (puppeteer.puppet.IsDead && puppeteer.puppet.Monster is AbstractMultiIntentMonster multiIntentPuppet && multiIntentPuppet.NextMoves[0].Id == Puppet.REVIVING))) {
-                    if (OtherSideTargetMonster.HasPower<Mark>()) {
-                        TalkCmd.Play(L10NMonsterLookup("RUINA2-CHESED.disposal"), Creature, VfxColor.Blue);
-                        if (DisposalState != null)
-                        {
-                            SetMoveImmediateMultiIntentMonster(DisposalState, 0);
-                        }
-                    }
-                }
-            }
-        }
-    }
+    // public override async Task AfterSideTurnEnd(
+    //     PlayerChoiceContext choiceContext,
+    //     CombatSide side,
+    //     IEnumerable<Creature> participants)
+    // {
+    //     if (participants.Contains(Creature))
+    //     {
+    //         if (OtherSideTargetMonster != null && OtherSideTargetMonster.CurrentHp <= (int)(OtherSideTargetMonster.MaxHp * DisposalHPThreshold)) {
+    //             if (OtherSideTargetMonster.Monster is Puppeteer puppeteer && (puppeteer.puppet == null || (puppeteer.puppet.IsDead && puppeteer.puppet.Monster is AbstractMultiIntentMonster multiIntentPuppet && multiIntentPuppet.NextMoves[0].Id == Puppet.REVIVING))) {
+    //                 if (OtherSideTargetMonster.HasPower<Mark>()) {
+    //                     TalkCmd.Play(L10NMonsterLookup("RUINA2-CHESED.disposal"), Creature, VfxColor.Blue);
+    //                     if (DisposalState != null)
+    //                     {
+    //                         SetMoveImmediateMultiIntentMonster(DisposalState, 0);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     
     public override Decimal ModifyDamageMultiplicative(
         Creature? target,

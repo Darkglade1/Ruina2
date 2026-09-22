@@ -448,7 +448,7 @@
   "RUINA2-SWORD_OF_EMBERS.title": "Sword of Embers",
 
   "RUINA2-PUPPET_STRINGS.description": "",
-  "RUINA2-PUPPET_STRINGS.smartDescription": "When this creature dies, it revives next turn at full HP and gains [blue]{Amount}[/blue] [gold]Plating[/gold].",
+  "RUINA2-PUPPET_STRINGS.smartDescription": "When this creature dies, it revives next turn at full HP.",
   "RUINA2-PUPPET_STRINGS.title": "Puppet Strings",
 
   "RUINA2-MASTERMIND.description": "",

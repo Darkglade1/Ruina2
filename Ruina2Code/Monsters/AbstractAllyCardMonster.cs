@@ -92,5 +92,19 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
         }
         GenerateCardIntentVisuals();
     }
+
+    public void UpdateCardIntentVisuals()
+    {
+        CardIntents.Clear();
+        for (int i = 0; i < NextMoves.Count; i++)
+        {
+            var move = NextMoves[i];
+            var card = MoveToCardMap[move.Id].CreateClone();
+            EnemyCard.EnemyCardOwner.Set(card, Creature);
+            card.CurrentTarget = Targets[i];
+            CardIntents.Add(card);
+        }
+        GenerateCardIntentVisuals();
+    }
 }
 

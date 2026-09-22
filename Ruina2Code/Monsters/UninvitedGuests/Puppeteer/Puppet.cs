@@ -1,6 +1,5 @@
 ﻿using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -20,17 +19,16 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Puppeteer;
 
 public class Puppet : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 99, 90);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 108, 98);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 121, 110);
+    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 130, 118);
     public override int NumIntents => 1;
 
     private int ForcefulGestureDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int RepressedFleshDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int RepressedFleshHits => 2;
     private int BlockAmt => 12;
-    private int PlatingAmt => 10;
     public bool attackingAlly;
-
+    private bool canRevive;
     protected override string VisualsPath => "Puppet/puppet.tscn".MonsterImagePath();
 
     private const string FORCEFUL_GESTURE = "FORCEFUL_GESTURE";
@@ -57,10 +55,8 @@ public class Puppet : AbstractMultiIntentMonster
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Chesed>();
         puppeteer = FindTarget<Puppeteer>();
-        await CreatureCmd.GainBlock(Creature, PlatingAmt, ValueProp.Move, null); 
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
-        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
-        await PowerCmd.Apply<PuppetStrings>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(PlatingAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature,  null);
+        await PowerCmd.Apply<PuppetStrings>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
         attackingAlly = Rng.NextBool();
     }
 
@@ -110,9 +106,12 @@ public class Puppet : AbstractMultiIntentMonster
     
      private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        if (Creature.IsDead)
+        if (canRevive)
         {
             return REVIVE;
+        } else if (Creature.IsDead)
+        {
+            return REVIVING;
         }
         else
         {
@@ -176,13 +175,14 @@ public class Puppet : AbstractMultiIntentMonster
     
     private async Task Reviving(IReadOnlyList<Creature> targets)
     {
+        canRevive = true;
     }
     
     private async Task Revive(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.Heal(Creature, Creature.MaxHp);
-        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
         IsReviving = false;
+        canRevive = false;
     }
     
     public async Task TriggerDeadState()
@@ -202,6 +202,7 @@ public class Puppet : AbstractMultiIntentMonster
         if (OtherSideTargetMonster != null && OtherSideTargetMonster.Monster is Chesed chesed && puppeteer != null)
         {
             chesed.Targets = [puppeteer];
+            chesed.UpdateCardIntentVisuals();
         }
     }
 
