@@ -311,4 +311,25 @@ public static class Sfx
     public static readonly ModSound PlutoContract = new("Pluto_Contract.ogg".SfxPath());
     public static readonly ModSound PlutoStrong = new("Pluto_StrongAtk.ogg".SfxPath());
     public static readonly ModSound PlutoStrongStart = new("Pluto_StrongStart.ogg".SfxPath());
+    
+    public static readonly ModSound RolandAxe = new("Roland_Axe.ogg".SfxPath());
+    public static readonly ModSound RolandDualSword = new("Roland_DuelSword.ogg".SfxPath());
+    public static readonly ModSound RolandDualSwordStrong = new("Roland_DuelSword_Strong.ogg".SfxPath());
+    public static readonly ModSound RolandDuralandalDown = new("Roland_Duralandal_Down.ogg".SfxPath());
+    public static readonly ModSound RolandDuralandalStrong = new("Roland_Duralandal_Strong.ogg".SfxPath());
+    public static readonly ModSound RolandDuralandalUp = new("Roland_Duralandal_Up.ogg".SfxPath());
+    public static readonly ModSound RolandGreatSword = new("Roland_GreatSword.ogg".SfxPath());
+    public static readonly ModSound RolandLongSwordAtk = new("Roland_LongSword_Atk.ogg".SfxPath());
+    public static readonly ModSound RolandLongSwordFin = new("Roland_LongSword_Fin.ogg".SfxPath());
+    public static readonly ModSound RolandLongSwordStart = new("Roland_LongSword_Start.ogg".SfxPath());
+    public static readonly ModSound RolandMace = new("Roland_Mace.ogg".SfxPath());
+    public static readonly ModSound RolandRevolver = new("Roland_Revolver.ogg".SfxPath());
+    public static readonly ModSound RolandShortSword = new("Roland_ShortSword.ogg".SfxPath());
+    public static readonly ModSound RolandShotgun = new("Roland_Shotgun.ogg".SfxPath());
+    
+    public static readonly ModSound ArgaliaStrongAtk2 = new("Blue_Argalria_Strong_Atk2.ogg".SfxPath());
+    public static readonly ModSound ArgaliaAtk = new("Blue_Argalria_Atk.ogg".SfxPath());
+    public static readonly ModSound ArgaliaFarAtk1 = new("Blue_Argalria_Far_Atk1.ogg".SfxPath());
+    public static readonly ModSound ArgaliaFarAtk2 = new("Blue_Argalria_Far_Atk2.ogg".SfxPath());
+    public static readonly ModSound ArgaliaStrongAtk1 = new("Blue_Argalria_Strong_Atk1.ogg".SfxPath());
 }
