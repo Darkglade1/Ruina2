@@ -133,5 +133,7 @@
   "RUINA2-OSWALD_ENCOUNTER.title": "The 8 o'Clock Circus",
   "RUINA2-OSWALD_ENCOUNTER.loss": "{character} became part of [gold]{encounter}[/gold] show.",
   "RUINA2-PUPPETEER_ENCOUNTER.title": "The Puppeteer",
-  "RUINA2-PUPPETEER_ENCOUNTER.loss": "{character} was turned into a puppet by [gold]{encounter}[/gold]."
+  "RUINA2-PUPPETEER_ENCOUNTER.loss": "{character} was turned into a puppet by [gold]{encounter}[/gold].",
+  "RUINA2-PLUTO_ENCOUNTER.title": "Yesterday's Promise",
+  "RUINA2-PLUTO_ENCOUNTER.loss": "{character} signed away their soul to [gold]{encounter}[/gold]."
 }

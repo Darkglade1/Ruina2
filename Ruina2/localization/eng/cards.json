@@ -386,5 +386,35 @@
   "RUINA2-BATTLEFIELD_COMMAND.title": "Battlefield Command",
 
   "RUINA2-DISPOSAL.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nDeals double damage if the enemy is [gold]Marked[/gold].\nDeals double damage if the enemy is at or below 25% HP.",
-  "RUINA2-DISPOSAL.title": "Disposal"
+  "RUINA2-DISPOSAL.title": "Disposal",
+
+  "RUINA2-CONTRACT.description": "Present a list of [gold]Contracts[/gold].",
+  "RUINA2-CONTRACT.title": "Contract",
+
+  "RUINA2-MAGIC_MISSILE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-MAGIC_MISSILE.title": "Magic Missile",
+
+  "RUINA2-MAGIC_ONSLAUGHT.description": "Deal {Damage:diff()} damage.\nIncrease this card's damage by {Increase:diff()} this combat.",
+  "RUINA2-MAGIC_ONSLAUGHT.title": "Magic Onslaught",
+
+  "RUINA2-MAGIC_SAFEGUARD.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-MAGIC_SAFEGUARD.title": "Magical Safeguard",
+
+  "RUINA2-BINDING_TERMS.description": "Shuffle {Cards:diff()} [gold]Voids[/gold] into your [gold]Discard Pile[/gold].",
+  "RUINA2-BINDING_TERMS.title": "Binding Terms",
+
+  "RUINA2-CONTRACT_LIGHT.description": "At the start of your turn, gain {Energy:energyIcons()}.\nYou cannot draw cards during your turn.",
+  "RUINA2-CONTRACT_LIGHT.title": "Contract of Light",
+
+  "RUINA2-CONTRACT_MIGHT.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nYou can only play {Cards:diff()} cards per turn.",
+  "RUINA2-CONTRACT_MIGHT.title": "Contract of Might",
+
+  "RUINA2-CONTRACT_LIBERTY.description": "At the start of your turn, draw {Cards:diff()} {Cards:plural:card|cards} and lose {Energy:energyIcons()}.",
+  "RUINA2-CONTRACT_LIBERTY.title": "Contract of Liberty",
+
+  "RUINA2-SILENCE.description": "Deal {Damage:diff()} damage.\nIncrease this card's damage by {Increase:diff()} this combat.",
+  "RUINA2-SILENCE.title": "Silence",
+
+  "RUINA2-TIME.description": "ALL players end their turns and take an extra turn after this one.",
+  "RUINA2-TIME.title": "Time"
 }

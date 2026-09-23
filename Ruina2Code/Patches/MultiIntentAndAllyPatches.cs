@@ -22,6 +22,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Patches;
 
@@ -98,8 +99,25 @@ public static class PatchTakeTurn
                     return;
                 }
             }
+            if (__instance.HasPower<PriceOfTime>())
+            {
+                return;
+            }
             await monster.PerformMultiIntentMove();
         }
+    }
+}
+
+[HarmonyPatch(typeof(Creature), nameof(Creature.PrepareForNextTurn))]
+public static class PatchPrepareForNextTurn
+{
+    public static bool Prefix(Creature __instance, IEnumerable<Creature> targets, bool rollNewMove = true)
+    {
+        if (__instance.HasPower<PriceOfTime>())
+        {
+            return false;
+        }
+        return true;
     }
 }
 

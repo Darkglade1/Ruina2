@@ -380,7 +380,7 @@
   "RUINA2-PRESCRIPTS_GRACE_POWER.title": "Prescript's Grace - Power",
 
   "RUINA2-BRAINWASH.description": "",
-  "RUINA2-BRAINWASH.smartDescription": "The first single-target [gold]Attack[/gold] or [gold]Skill[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Brainwash[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
+  "RUINA2-BRAINWASH.smartDescription": "The first single-enemy-target [gold]Attack[/gold] or [gold]Skill[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Brainwash[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
   "RUINA2-BRAINWASH.title": "Brainwash",
 
   "RUINA2-GEON.description": "",
@@ -461,5 +461,21 @@
 
   "RUINA2-FINISHING_TOUCH.description": "",
   "RUINA2-FINISHING_TOUCH.smartDescription": "After this creature attacks, it applies [blue]1[/blue] [gold]Mark[/gold] to the target.",
-  "RUINA2-FINISHING_TOUCH.title": "Finishing Touch"
+  "RUINA2-FINISHING_TOUCH.title": "Finishing Touch",
+
+  "RUINA2-CONTRACT_LIGHT_POWER.description": "",
+  "RUINA2-CONTRACT_LIGHT_POWER.smartDescription": "At the start of your turn, gain {Amount:energyIcons()}.\nYou cannot draw cards during your turn.",
+  "RUINA2-CONTRACT_LIGHT_POWER.title": "Contract of Light",
+
+  "RUINA2-CONTRACT_LIBERTY_POWER.description": "",
+  "RUINA2-CONTRACT_LIBERTY_POWER.smartDescription": "At the start of your turn, draw [blue]{Amount}[/blue] {Amount:plural:card|cards} and lose {Energy:energyIcons()}.",
+  "RUINA2-CONTRACT_LIBERTY_POWER.title": "Contract of Liberty",
+
+  "RUINA2-CONTRACT_MIGHT_POWER.description": "",
+  "RUINA2-CONTRACT_MIGHT_POWER.smartDescription": "You can only play [blue]{Amount}[/blue] {Amount:plural:card|cards} per turn.",
+  "RUINA2-CONTRACT_MIGHT_POWER.title": "Contract of Might",
+
+  "RUINA2-PRICE_OF_TIME.description": "",
+  "RUINA2-PRICE_OF_TIME.smartDescription": "Whenever {IsMultiplayer:players|you} play [blue]{Amount}[/blue] cards, this creature takes a turn.\nThis creature's normal turn is skipped.",
+  "RUINA2-PRICE_OF_TIME.title": "Price of Time"
 }

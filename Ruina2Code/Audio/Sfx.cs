@@ -303,4 +303,12 @@ public static class Sfx
     public static readonly ModSound PuppetStart = new("Puppet_StrongStart.ogg".SfxPath());
     public static readonly ModSound PuppetStrongAtk = new("Puppet_StrongAtk.ogg".SfxPath());
     public static readonly ModSound PuppetBreak = new("Puppet_Break.ogg".SfxPath());
+    
+    public static readonly ModSound PlutoVert = new("Pluto_Vert.ogg".SfxPath());
+    public static readonly ModSound PlutoHori = new("Pluto_Hori.ogg".SfxPath());
+    public static readonly ModSound PlutoStab = new("Pluto_Stab.ogg".SfxPath());
+    public static readonly ModSound PlutoGuard = new("Pluto_Guard.ogg".SfxPath());
+    public static readonly ModSound PlutoContract = new("Pluto_Contract.ogg".SfxPath());
+    public static readonly ModSound PlutoStrong = new("Pluto_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound PlutoStrongStart = new("Pluto_StrongStart.ogg".SfxPath());
 }

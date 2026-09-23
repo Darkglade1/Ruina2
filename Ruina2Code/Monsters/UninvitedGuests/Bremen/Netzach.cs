@@ -54,7 +54,7 @@ public sealed class Netzach : AbstractAllyCardMonster
 
     private MoveState GetWillState()
     {
-        return new MoveState(WILL, Will, new DefendIntent(), new RuinaBuffIntent());
+        return new MoveState(WILL, Will, new RuinaDefendIntent(), new RuinaBuffIntent());
     }
     
     private MoveState GetBlindFaithState()

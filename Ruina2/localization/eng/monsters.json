@@ -191,8 +191,14 @@
   "RUINA2-PUPPETEER.name": "Jae-heon",
   "RUINA2-PUPPETEER.talk": "We are all bound by the strings of others.",
   "RUINA2-CHESED.name": "Chesed",
-  "RUINA2-CHESED.response": "That's a rather cynical way of looking at things..",
+  "RUINA2-CHESED.response": "That's a rather cynical way of looking at things.",
   "RUINA2-CHESED.victory": "Thanks for the help, stranger.",
   "RUINA2-CHESED.disposal": "Time for a finishing blow.",
-  "RUINA2-PUPPET.name": "Puppet"
+  "RUINA2-PUPPET.name": "Puppet",
+
+  "RUINA2-PLUTO.name": "Pluto",
+  "RUINA2-PLUTO.talk": "Empty words and hollow faith are meaningless.",
+  "RUINA2-HOKMA.name": "Hokma",
+  "RUINA2-HOKMA.response": "A faith is only as strong as the one who carries it.",
+  "RUINA2-HOKMA.victory": "I had faith that we would prevail."
 }
