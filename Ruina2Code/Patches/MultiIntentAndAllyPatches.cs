@@ -405,7 +405,14 @@ public static class PatchDamageVar
         if (enemy != null)
         {
             __instance.EnchantedValue = __instance.BaseValue;
-            __instance.PreviewValue = Hook.ModifyDamage(card.Owner.RunState, enemy.CombatState, card.CurrentTarget, enemy, __instance.BaseValue, __instance.Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
+            if (card is EnemyCard enemyCard && enemyCard.DamageCalc != null)
+            {
+                __instance.PreviewValue = Hook.ModifyDamage(card.Owner.RunState, enemy.CombatState, card.CurrentTarget, enemy, enemyCard.DamageCalc(), __instance.Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
+            }
+            else
+            {
+                __instance.PreviewValue = Hook.ModifyDamage(card.Owner.RunState, enemy.CombatState, card.CurrentTarget, enemy, __instance.BaseValue, __instance.Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
+            }
         }
     }
 }

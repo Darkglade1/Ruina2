@@ -21,7 +21,6 @@ public class Resonance() : Ruina2Power
         DynamicVars["CardsPlayed"].BaseValue++;
         if (DynamicVars["CardsPlayed"].BaseValue >= Amount)
         {
-            Flash();
             DynamicVars["CardsPlayed"].BaseValue = 0;
             if (Owner.Monster is Argalia argalia)
             {

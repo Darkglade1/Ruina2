@@ -430,7 +430,7 @@
   "RUINA2-SCYTHE.description": "Deal {Damage:diff()} damage.\nIf this card is on the middle intent, deals triple damage.",
   "RUINA2-SCYTHE.title": "Resonant Scythe",
 
-  "RUINA2-DANZA.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.",
+  "RUINA2-DANZA.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nThis creature's intents will not shift this turn.",
   "RUINA2-DANZA.title": "Tempestuous Danza",
 
   "RUINA2-ALLAS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",

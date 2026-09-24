@@ -165,6 +165,9 @@ public sealed class Argalia : AbstractCardMonster
         {
             PopulateMovePool();
         }
+        
+        var nextMove = movePool[rng.NextInt(movePool.Count)];
+        movePool.Remove(nextMove);
 
         if (intentNum == 0 && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive &&
             OtherSideTargetMonster.Monster is Roland roland && roland.NextMoves.Count > 0 &&
@@ -172,9 +175,7 @@ public sealed class Argalia : AbstractCardMonster
         {
             return DANZA;
         }
-
-        var nextMove = movePool[rng.NextInt(movePool.Count)];
-        movePool.Remove(nextMove);
+        
         return nextMove;
     }
 
@@ -186,10 +187,6 @@ public sealed class Argalia : AbstractCardMonster
     public override Creature DetermineTargetForIntent(int intentNum)
     {
         if (intentNum == 0)
-        {
-            return CombatState.PlayerCreatures[0];
-        }
-        if (NextMoves.Count > intentNum && NextMoves[intentNum].Id == DANZA)
         {
             return CombatState.PlayerCreatures[0];
         }
@@ -217,6 +214,7 @@ public sealed class Argalia : AbstractCardMonster
         card4.SetRepeat(DanzaHits);
         var card5 = CreateCardForIntent<Scythe>();
         card5.SetDamage(ScytheDamage);
+        card5.DamageCalc = (Func<decimal>) (() => ScytheDamageCalc);
         return new Dictionary<string, CardModel>()
         {
             {ALLEGRO, card1},
@@ -278,7 +276,7 @@ public sealed class Argalia : AbstractCardMonster
     private async Task Scythe(IReadOnlyList<Creature> targets)
     {
         await SpecialAttackAnimation(targets);
-        await DamageCmd.Attack(ScytheDamage)
+        await DamageCmd.Attack(ScytheDamageCalc)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
@@ -326,6 +324,10 @@ public sealed class Argalia : AbstractCardMonster
 
     public async Task ShiftIntents()
     {
+        if (NextMoves.Count > 0 && NextMoves[0].Id == DANZA)
+        {
+            return;
+        }
         List<MoveState> tempList = new List<MoveState>();
         foreach (var moveState in NextMoves)
         {

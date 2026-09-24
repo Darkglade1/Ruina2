@@ -11,6 +11,7 @@ public abstract class EnemyCard(int cost, CardType type, CardRarity rarity, Targ
     EGOCard(cost, type, rarity, target)
 {
     public static readonly SpireField<CardModel, Creature> EnemyCardOwner = new(() => null);
+    public Func<Decimal>? DamageCalc { get; set; }
     public override bool CanBeGeneratedInCombat => false;
     public void SetDamage(Decimal damage)
     {
