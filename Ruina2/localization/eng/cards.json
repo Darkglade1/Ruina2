@@ -416,5 +416,50 @@
   "RUINA2-SILENCE.title": "Silence",
 
   "RUINA2-TIME.description": "ALL players end their turns and take an extra turn after this one.",
-  "RUINA2-TIME.title": "Time"
+  "RUINA2-TIME.title": "Time",
+
+  "RUINA2-ALLEGRO.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nApply {Vibration:diff()} [gold]Vibration[/gold].",
+  "RUINA2-ALLEGRO.title": "Allegro",
+
+  "RUINA2-LARGO.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-LARGO.title": "Largo",
+
+  "RUINA2-TRAILS.description": "Deal {Damage:diff()} damage.\nEnemy loses {StrengthPower:diff()} [gold]Strength[/gold].\nIf this card is on the leftmost intent, enemy also loses {StrengthPower:diff()} [gold]Dexterity[/gold].",
+  "RUINA2-TRAILS.title": "Trails of Blue",
+
+  "RUINA2-SCYTHE.description": "Deal {Damage:diff()} damage.\nIf this card is on the middle intent, deals triple damage.",
+  "RUINA2-SCYTHE.title": "Resonant Scythe",
+
+  "RUINA2-DANZA.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.",
+  "RUINA2-DANZA.title": "Tempestuous Danza",
+
+  "RUINA2-ALLAS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-ALLAS.title": "Allas Workshop",
+
+  "RUINA2-ATELIER.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-ATELIER.title": "Atelier Logic",
+
+  "RUINA2-CRYSTAL.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-CRYSTAL.title": "Crystal Atelier",
+
+  "RUINA2-DURANDAL.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-DURANDAL.title": "Durandal",
+
+  "RUINA2-FURIOSO.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-FURIOSO.title": "Furioso",
+
+  "RUINA2-MOOK.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-MOOK.title": "Mook Workshop",
+
+  "RUINA2-OLD_BOYS.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-OLD_BOYS.title": "Old Boy's Workshop",
+
+  "RUINA2-RANGA.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nApply {BleedEnemy:diff()} [gold]Bleed[/gold].",
+  "RUINA2-RANGA.title": "Ranga Workshop",
+
+  "RUINA2-WHEELS.description": "Deal {Damage:diff()} damage.\nEnemy loses {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-WHEELS.title": "Wheels Industry",
+
+  "RUINA2-ZELKOVA.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-ZELKOVA.title": "Zelkova Workshop"
 }

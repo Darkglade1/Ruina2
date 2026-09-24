@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Afflictions;
+using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 using Ruina2.Ruina2Code.Powers;
 
@@ -31,7 +32,10 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     { 
         await base.AfterAddedToRoom();
         SetToSide(CombatSide.Player);
-        FlipHorizontal();
+        if (!(this is Roland))
+        {
+            FlipHorizontal();
+        }
         SetUpAllyButton("AllyBlockButton","res://Ruina2/images/ui/ally_block_button.tscn", "res://Ruina2/images/ui/BlockIcon.png", 0);
         CanApplyPowersToAllies = true;
         if (CombatState.Players.Count > 1)

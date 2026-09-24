@@ -477,5 +477,21 @@
 
   "RUINA2-PRICE_OF_TIME.description": "",
   "RUINA2-PRICE_OF_TIME.smartDescription": "Whenever {IsMultiplayer:players|you} play [blue]{Amount}[/blue] cards, this creature takes a turn.\nThis creature's normal turn is skipped.",
-  "RUINA2-PRICE_OF_TIME.title": "Price of Time"
+  "RUINA2-PRICE_OF_TIME.title": "Price of Time",
+
+  "RUINA2-RESONANCE.description": "",
+  "RUINA2-RESONANCE.smartDescription": "Whenever {IsMultiplayer:players|you} play {IsMultiplayer:[blue]{Amount}[/blue] cards|a card}, shift this creature's intents to the right by [blue]1[/blue]. (The first intent targets you. The other intents target your [green]ally[/green].)",
+  "RUINA2-RESONANCE.title": "Resonance",
+
+  "RUINA2-BLUE_REVERB.description": "",
+  "RUINA2-BLUE_REVERB.smartDescription": "At the end of the round, gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-BLUE_REVERB.title": "The Blue Reverberation",
+
+  "RUINA2-BLACK_SILENCE.description": "",
+  "RUINA2-BLACK_SILENCE.smartDescription": "At the end of the round, gains [blue]{Amount}[/blue] [gold]Strength[/gold].\nUses a [gold]powerful[/gold] attack after [blue]9[/blue] turns.",
+  "RUINA2-BLACK_SILENCE.title": "The Black Silence",
+
+  "RUINA2-VIBRATION.description": "At the end of this creature's turn, take damage.",
+  "RUINA2-VIBRATION.smartDescription": "At the end of this creature's turn, it takes [blue]{Amount}[/blue] damage.",
+  "RUINA2-VIBRATION.title": "Vibration"
 }

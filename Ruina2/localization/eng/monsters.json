@@ -200,5 +200,11 @@
   "RUINA2-PLUTO.talk": "Empty words and hollow faith are meaningless.",
   "RUINA2-HOKMA.name": "Hokma",
   "RUINA2-HOKMA.response": "A faith is only as strong as the one who carries it.",
-  "RUINA2-HOKMA.victory": "I had faith that we would prevail."
+  "RUINA2-HOKMA.victory": "I had faith that we would prevail.",
+
+  "RUINA2-ARGALIA.name": "Argalia",
+  "RUINA2-ARGALIA.talk": "You won't talk to me, Roland? What a shame.",
+  "RUINA2-ROLAND.name": "Roland",
+  "RUINA2-ROLAND.response": ". . .",
+  "RUINA2-ROLAND.victory": "Rot in hell."
 }

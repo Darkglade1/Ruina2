@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Monsters.Act3.BigBird;
@@ -199,6 +200,56 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
     protected async Task WaitAnimation(float waitTime)
     {
         await Cmd.Wait(waitTime);
+    }
+    
+    protected async Task WaitAnimation(IReadOnlyList<Creature>? targets)
+    {
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
+        {
+            await Cmd.Wait(0.5f);
+        }
+    }
+    
+    protected async Task WaitAnimation(float waitTime, IReadOnlyList<Creature>? targets)
+    {
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
+        {
+            await Cmd.Wait(waitTime);
+        }
+    }
+    
+    protected async Task MoveAnimation(float newX, IReadOnlyList<Creature>? targets)
+    {
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
+        {
+            NCreature? creatureNode = NCombatRoom.Instance!.GetCreatureNode(Creature);
+            if (creatureNode != null)
+            {
+                creatureNode.GlobalPosition = new Vector2(newX, creatureNode.GlobalPosition.Y);
+            }
+        }
+    }
+    
+    protected async Task FlipAnimation(bool flipHorizontal, IReadOnlyList<Creature>? targets)
+    {
+        if (targets == null || targets.Count == 0 || targets[0].IsPlayer || targets[0].IsAlive)
+        {
+            if (NCombatRoom.Instance != null)
+            {
+                var creatureNode = NCombatRoom.Instance.GetCreatureNode(Creature);
+                if (creatureNode != null)
+                {
+                    if (flipHorizontal)
+                    {
+                        creatureNode.Body.Scale = new Vector2(-1f, 1f);
+                    }
+                    else
+                    {
+                        creatureNode.Body.Scale = new Vector2(1f, 1f);
+                    }
+                }
+            }
+        }
     }
     
     protected virtual async Task ResetIdle()
