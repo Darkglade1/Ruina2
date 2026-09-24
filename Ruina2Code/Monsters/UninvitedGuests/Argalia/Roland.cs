@@ -558,12 +558,12 @@ public sealed class Roland : AbstractAllyCardMonster
     
     private async Task Mace1Animation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("Mace1", Sfx.BluntVert, targets);
+        await AnimationAction("Mace1", Sfx.RolandMace, targets);
     }
     
     private async Task Mace2Animation(IReadOnlyList<Creature> targets)
     {
-        await AnimationAction("Mace2", Sfx.BluntVert, targets);
+        await AnimationAction("Mace2", Sfx.RolandMace, targets);
     }
     
     private async Task WheelsAnimation(IReadOnlyList<Creature> targets)

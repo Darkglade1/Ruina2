@@ -332,4 +332,18 @@ public static class Sfx
     public static readonly ModSound ArgaliaFarAtk1 = new("Blue_Argalria_Far_Atk1.ogg".SfxPath());
     public static readonly ModSound ArgaliaFarAtk2 = new("Blue_Argalria_Far_Atk2.ogg".SfxPath());
     public static readonly ModSound ArgaliaStrongAtk1 = new("Blue_Argalria_Strong_Atk1.ogg".SfxPath());
+    
+    public static readonly ModSound RedMistChange = new("Kali_Change.ogg".SfxPath());
+    public static readonly ModSound RedMistHori2 = new("Kali_EGO_Hori.ogg".SfxPath());
+    public static readonly ModSound RedMistStab2 = new("Kali_EGO_Stab.ogg".SfxPath());
+    public static readonly ModSound RedMistVert2 = new("Kali_EGO_Vert.ogg".SfxPath());
+    public static readonly ModSound RedMistHori1 = new("Kali_Normal_Hori.ogg".SfxPath());
+    public static readonly ModSound RedMistStab1 = new("Kali_Normal_Stab.ogg".SfxPath());
+    public static readonly ModSound RedMistVert1 = new("Kali_Normal_Vert.ogg".SfxPath());
+    public static readonly ModSound RedMistVertFin = new("Kali_Special_Vert_Fin.ogg".SfxPath());
+    public static readonly ModSound RedMistVertHit = new("Kali_Special_Vert_Hit.ogg".SfxPath());
+    public static readonly ModSound RedMistVertCut = new("Kali_Special_Cut.ogg".SfxPath());
+    public static readonly ModSound RedMistHoriEye = new("Kali_Special_Hori_Eyeon.ogg".SfxPath());
+    public static readonly ModSound RedMistHoriFin = new("Kali_Special_Hori_Fin.ogg".SfxPath());
+    public static readonly ModSound RedMistHoriStart = new("Kali_Special_Hori_Start.ogg".SfxPath());
 }
