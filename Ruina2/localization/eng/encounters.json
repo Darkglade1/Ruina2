@@ -132,6 +132,8 @@
   "RUINA2-BREMEN_ENCOUNTER.loss": "{character}'s eardrums were ruptured by the cacophony of [gold]{encounter}[/gold].",
   "RUINA2-OSWALD_ENCOUNTER.title": "The 8 o'Clock Circus",
   "RUINA2-OSWALD_ENCOUNTER.loss": "{character} became part of [gold]{encounter}[/gold] show.",
+  "RUINA2-TANYA_ENCOUNTER.title": "L’heure du Loup",
+  "RUINA2-TANYA_ENCOUNTER.loss": "{character} was torn to pieces by the [gold]{encounter}[/gold].",
   "RUINA2-PUPPETEER_ENCOUNTER.title": "The Puppeteer",
   "RUINA2-PUPPETEER_ENCOUNTER.loss": "{character} was turned into a puppet by [gold]{encounter}[/gold].",
   "RUINA2-PLUTO_ENCOUNTER.title": "Yesterday's Promise",

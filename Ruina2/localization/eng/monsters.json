@@ -206,5 +206,11 @@
   "RUINA2-ARGALIA.talk": "You won't talk to me, Roland? What a shame.",
   "RUINA2-ROLAND.name": "Roland",
   "RUINA2-ROLAND.response": ". . .",
-  "RUINA2-ROLAND.victory": "Rot in hell."
+  "RUINA2-ROLAND.victory": "Rot in hell.",
+
+  "RUINA2-TANYA.name": "Tanya",
+  "RUINA2-TANYA.talk": "It's the right of the strong to rule over the weak.",
+  "RUINA2-GEBURA.name": "Gebura",
+  "RUINA2-GEBURA.response": "What a load of rubbish.",
+  "RUINA2-GEBURA.victory": "Look where all that strength got you."
 }

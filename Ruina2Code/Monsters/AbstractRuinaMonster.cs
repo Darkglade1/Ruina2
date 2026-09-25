@@ -72,6 +72,25 @@ public abstract class AbstractRuinaMonster : CustomMonsterModel
         return false;
     }
     
+    protected bool LastMoveBeforeIgnoringMove(MonsterMoveStateMachine stateMachine, string move, string moveToIgnore) {
+        if (stateMachine.StateLog.Count == 0) {
+            return false;
+        }
+        List<MonsterState> filteredStateLog = new List<MonsterState>();
+        foreach (var monsterState in stateMachine.StateLog) {
+            if (monsterState.Id != moveToIgnore) {
+                filteredStateLog.Add(monsterState);
+            }
+        }
+        if (filteredStateLog.Count == 0) {
+            return false;
+        } else if (filteredStateLog.Count < 2) {
+            return false;
+        } else {
+            return filteredStateLog.ElementAt(filteredStateLog.Count - 2).Id == move;
+        }
+    }
+    
     protected bool ThreeTurnCooldownHasPassedForMove(MonsterMoveStateMachine stateMachine, string moveId) {
         return stateMachine.StateLog.Count >= 3 && !LastMove(stateMachine, moveId) && !LastMoveBefore(stateMachine, moveId) && !LastMoveBeforeBefore(stateMachine, moveId);
     }

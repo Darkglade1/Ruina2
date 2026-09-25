@@ -493,5 +493,9 @@
 
   "RUINA2-VIBRATION.description": "At the end of this creature's turn, take damage.",
   "RUINA2-VIBRATION.smartDescription": "At the end of this creature's turn, it takes [blue]{Amount}[/blue] damage.",
-  "RUINA2-VIBRATION.title": "Vibration"
+  "RUINA2-VIBRATION.title": "Vibration",
+
+  "RUINA2-RED_MIST.description": "",
+  "RUINA2-RED_MIST.smartDescription": "Whenever this creature deals unblocked attack damage, gains [blue]{Amount}[/blue] [gold]Strength[/gold] at end of round.\nThis creature doubles its [gold]Strength[/gold] after [blue]{Turns}[/blue] turns.",
+  "RUINA2-RED_MIST.title": "The Red Mist"
 }

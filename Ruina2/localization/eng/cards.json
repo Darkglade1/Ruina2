@@ -461,5 +461,38 @@
   "RUINA2-WHEELS.title": "Wheels Industry",
 
   "RUINA2-ZELKOVA.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
-  "RUINA2-ZELKOVA.title": "Zelkova Workshop"
+  "RUINA2-ZELKOVA.title": "Zelkova Workshop",
+
+  "RUINA2-UPSTANDING_SLASH.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nWhenever this card deals unblocked damage, apply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-UPSTANDING_SLASH.title": "Upstanding Slash",
+
+  "RUINA2-LEVEL_SLASH.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nWhenever this card deals unblocked damage, gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-LEVEL_SLASH.title": "Level Slash",
+
+  "RUINA2-SPEAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nDeals double damage to enemies without [gold]Block[/gold].",
+  "RUINA2-SPEAR.title": "Spear",
+
+  "RUINA2-GREATER_SPLIT_VERTICAL.description": "Deal {Damage:diff()} damage.\nEnemy loses [gold]Strength[/gold] this turn equal to unblocked damage dealt.",
+  "RUINA2-GREATER_SPLIT_VERTICAL.title": "Greater Split: Vertical",
+
+  "RUINA2-GREATER_SPLIT_HORIZONTAL.description": "Deal {Damage:diff()} damage.\nEnemy loses [gold]Strength[/gold] this turn equal to unblocked damage dealt.",
+  "RUINA2-GREATER_SPLIT_HORIZONTAL.title": "Greater Split: Horizontal",
+
+  "RUINA2-OVERSPEED.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-OVERSPEED.title": "Overspeed",
+
+  "RUINA2-KICKS_AND_STOMPS.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-KICKS_AND_STOMPS.title": "Kicks and Stomps",
+
+  "RUINA2-FISTICUFFS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-FISTICUFFS.title": "Fisticuffs",
+
+  "RUINA2-LUPINE_ASSAULT.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-LUPINE_ASSAULT.title": "Lupine Assault",
+
+  "RUINA2-INTIMIDATE.description": "Gain {PlatingPower:diff()} [gold]Plating[/gold].",
+  "RUINA2-INTIMIDATE.title": "Intimidate",
+
+  "RUINA2-BEATDOWN.description": "Deal {Damage:diff()} damage to ALL enemies.",
+  "RUINA2-BEATDOWN.title": "Beatdown"
 }
