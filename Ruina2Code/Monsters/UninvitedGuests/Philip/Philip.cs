@@ -320,7 +320,6 @@ public sealed class Philip : AbstractCardMonster
                 .Execute(null);
             await ResetIdle(0.5f, phase);
         }
-        await WaitAnimation();
     }
     
     private async Task Stigmatize(IReadOnlyList<Creature> targets)

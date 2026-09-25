@@ -237,10 +237,9 @@ public sealed class Chesed : AbstractAllyCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await ResetIdle();
         }
         await ApplyPowerAndSkipNextDurationTickIfNotPresent<Mark>(targets, 1);
-        await ResetIdle();
     }
     
     private async Task Disposal(IReadOnlyList<Creature> targets)

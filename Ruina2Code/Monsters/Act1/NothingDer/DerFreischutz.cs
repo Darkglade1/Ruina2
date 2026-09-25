@@ -186,7 +186,7 @@ public sealed class DerFreischutz : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ResetIdle(1.0f);
+        await ResetIdle();
     }
     
     private async Task MagicBullet(IReadOnlyList<Creature> targets)
@@ -196,7 +196,7 @@ public sealed class DerFreischutz : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ResetIdle(1.0f);
+        await ResetIdle();
     }
 
     private async Task SilentScope(IReadOnlyList<Creature> targets)

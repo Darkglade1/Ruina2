@@ -80,7 +80,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
                     allyCardMonster.NCardHolders[i]?.Hide();
                 }
             }
-            await Cmd.CustomScaledWait(0.25f, 0.4f);
+            await Cmd.CustomScaledWait(0.5f, 0.6f);
         }
     }
 

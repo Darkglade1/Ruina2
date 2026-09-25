@@ -113,17 +113,6 @@ public class CryingChild : AbstractMultiIntentMonster
             .Execute(null);
         await ResetIdle();
     }
-    
-    public override async Task AfterSideTurnEnd(
-        PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (participants.Contains(Creature))
-        {
-            attackingAlly = Rng.NextBool();
-        }
-    }
 
     private async Task SlashAnimation(IReadOnlyList<Creature> targets)
     {

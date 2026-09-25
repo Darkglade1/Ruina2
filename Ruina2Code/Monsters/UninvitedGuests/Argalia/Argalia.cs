@@ -252,10 +252,9 @@ public sealed class Argalia : AbstractCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await ResetIdle();
         }
         await PowerCmd.Apply<Vibration>(new ThrowingPlayerChoiceContext(), targets, VibrationAmt, Creature,  null);
-        await ResetIdle();
     }
     
     private async Task Trails(IReadOnlyList<Creature> targets)

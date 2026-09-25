@@ -255,10 +255,9 @@ public sealed class Malkuth : AbstractAllyCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await ResetIdle(0.5f, phase);
         }
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, FervidStrengthAmt, Creature,  null); 
-        await ResetIdle(0.5f, phase);
     }
     
     private async Task RagingStorm(IReadOnlyList<Creature> targets)

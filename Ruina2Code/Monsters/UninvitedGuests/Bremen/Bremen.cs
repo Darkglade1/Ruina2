@@ -340,7 +340,7 @@ public sealed class Bremen : AbstractCardMonster
     private async Task Bawk(IReadOnlyList<Creature> targets)
     {
         await DebuffAnimation(targets);
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, StatusAmt, null);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(CombatState.PlayerCreatures, PileType.Discard, StatusAmt, null);
         await ResetIdle(1.0f);
     }
     

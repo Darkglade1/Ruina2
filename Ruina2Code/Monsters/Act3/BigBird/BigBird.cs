@@ -303,7 +303,7 @@ public sealed class BigBird : AbstractMultiIntentMonster
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
         }
-        await ResetIdle(1.0f);
+        await ResetIdle();
     }
     
     private async Task DazzleAlly(IReadOnlyList<Creature> targets)
@@ -344,7 +344,7 @@ public sealed class BigBird : AbstractMultiIntentMonster
             .Execute(null);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature, null);
-        await ResetIdle(1.0f);
+        await ResetIdle();
     }
     
     private async Task Illuminate2(IReadOnlyList<Creature> targets)
@@ -355,7 +355,7 @@ public sealed class BigBird : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
-        await ResetIdle(1.0f);
+        await ResetIdle();
     }
     
     public override async Task AfterDeath(

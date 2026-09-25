@@ -328,7 +328,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await VampireHeal(attackCommand);
-        await ResetIdle(1.0f, phase);
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task Bite(IReadOnlyList<Creature> targets)
@@ -339,7 +339,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, WeakAmt, Creature,  null);
-        await ResetIdle(0.75f, phase);
+        await ResetIdle(0.5f, phase);
     }
     
     private async Task Ram(IReadOnlyList<Creature> targets)
@@ -349,7 +349,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ResetIdle(0.75f, phase);
+        await ResetIdle(0.5f, phase);
     }
 
     private async Task Screech(IReadOnlyList<Creature> targets)

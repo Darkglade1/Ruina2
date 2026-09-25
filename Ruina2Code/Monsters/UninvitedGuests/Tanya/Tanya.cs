@@ -262,10 +262,9 @@ public sealed class Tanya : AbstractCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await ResetIdle();
         }
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
-        await ResetIdle();
     }
     
     private async Task Overspeed(IReadOnlyList<Creature> targets)

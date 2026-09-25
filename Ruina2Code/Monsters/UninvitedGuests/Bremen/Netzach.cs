@@ -186,9 +186,8 @@ public sealed class Netzach : AbstractAllyCardMonster
                 .FromMonsterCreature(this)
                 .TargetingCreatures(targets, CombatState)
                 .Execute(null);
-            await WaitAnimation();
+            await ResetIdle();
         }
-        await ResetIdle();
     }
     
     public async Task OnBossDeath()
