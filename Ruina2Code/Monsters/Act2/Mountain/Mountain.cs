@@ -290,14 +290,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
     {
         if (intentNum == 0)
         {
-            if (phase == STAGE1 && OtherSideTargetMonster != null)
-            {
-                return OtherSideTargetMonster;
-            }
-            else
-            {
-                return CombatState.PlayerCreatures[0];
-            }
+            return CombatState.PlayerCreatures[0];
         }
         if (intentNum == 1)
         {
@@ -387,10 +380,10 @@ public sealed class Mountain : AbstractMultiIntentMonster
     {
         if (side == CombatSide.Enemy)
         {
-            if (Creature.CurrentHp >= Creature.MaxHp && phase < STAGE3)
-            {
-                await Grow();
-            }
+            // if (Creature.CurrentHp >= Creature.MaxHp && phase < STAGE3)
+            // {
+            //     await Grow();
+            // }
 
             if (OtherSideTargetMonster == null || OtherSideTargetMonster.IsDead)
             {
@@ -417,32 +410,32 @@ public sealed class Mountain : AbstractMultiIntentMonster
         }
     }
     
-    public async Task Grow()
-    {
-        AssertMutable();
-        if (phase < STAGE3)
-        {
-            phase++;
-        }
-        int maxHP = 0;
-        switch (phase)
-        {
-            case 1:
-                maxHP = Stage1HP;
-                break;
-            case 2:
-                maxHP = Stage2HP;
-                break;
-            case 3:
-                maxHP = Stage3HP;
-                break;
-        }
-        Decimal scaledHp = Creature.ScaleHpForMultiplayer(maxHP, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
-        await CreatureCmd.SetMaxHp(Creature, scaledHp);
-        await ResetIdle(0.0f, phase);
-        Sfx.GROW.Play(0, 0.7f);
-        CanLose = false;
-    }
+    // public async Task Grow()
+    // {
+    //     AssertMutable();
+    //     if (phase < STAGE3)
+    //     {
+    //         phase++;
+    //     }
+    //     int maxHP = 0;
+    //     switch (phase)
+    //     {
+    //         case 1:
+    //             maxHP = Stage1HP;
+    //             break;
+    //         case 2:
+    //             maxHP = Stage2HP;
+    //             break;
+    //         case 3:
+    //             maxHP = Stage3HP;
+    //             break;
+    //     }
+    //     Decimal scaledHp = Creature.ScaleHpForMultiplayer(maxHP, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex);
+    //     await CreatureCmd.SetMaxHp(Creature, scaledHp);
+    //     await ResetIdle(0.0f, phase);
+    //     Sfx.GROW.Play(0, 0.7f);
+    //     CanLose = false;
+    // }
     
     public async Task Shrink()
     {

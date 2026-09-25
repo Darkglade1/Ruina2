@@ -6,7 +6,7 @@
   "RUINA2-PARALYSIS.smartDescription": "你本回合打出的下一张攻击牌造成的伤害减少[blue]{DamageReduction:diff()}%[/blue]。",
   "RUINA2-PARALYSIS.title": "麻痹",
   "RUINA2-ABSORPTION.description": "",
-  "RUINA2-ABSORPTION.smartDescription": "死亡时[gold]缩小[/gold]至更低的[gold]阶段[/gold]。生命值满时[gold]成长[/gold]至更高的[gold]阶段[/gold]。",
+  "RUINA2-ABSORPTION.smartDescription": "死亡时[gold]缩小[/gold]至更低的[gold]阶段[/gold]。",
   "RUINA2-ABSORPTION.title": "吸收",
   "RUINA2-BODIES.description": "",
   "RUINA2-BODIES.smartDescription": "如果[gold]溶解的死尸[/gold]已经死亡，则在本轮结束时生成一个新的。",
