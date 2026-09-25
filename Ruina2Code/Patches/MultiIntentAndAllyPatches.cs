@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -100,7 +101,7 @@ public static class PatchTakeTurn
                     vermilion.HadBlockAtTurnStart = false;
                 }
             }
-            if (monster.ShouldClearBlockAtStartOfOwnTurn)
+            if (monster.ShouldClearBlockAtStartOfOwnTurn && !__instance.HasPower<BarricadePower>() && !__instance.HasPower<BlurPower>())
             {
                 __instance.Block = 0;   
             }

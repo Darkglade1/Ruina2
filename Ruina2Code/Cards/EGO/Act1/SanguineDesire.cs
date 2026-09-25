@@ -25,7 +25,7 @@ public class SanguineDesire() : EGOCard(2,
         int totalDamage = 0;
         foreach (var result in attackCommand.Results.SelectMany(r => r))
         {
-            totalDamage += result.UnblockedDamage + result.OverkillDamage;
+            totalDamage += result.TotalDamage + result.OverkillDamage;
         }
         if (totalDamage > 0 && play.Target != null)
         {

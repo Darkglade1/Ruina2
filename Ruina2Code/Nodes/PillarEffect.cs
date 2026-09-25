@@ -20,7 +20,7 @@ public partial class PillarEffect : VfxEffect
         
         effect._startingX = start.X;
         effect._startingY = start.Y;
-        effect.targetX = targetX + 150.0f;
+        effect.targetX = targetX + 250.0f;
 
         effect.Setup();
         return effect;

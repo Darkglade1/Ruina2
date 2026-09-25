@@ -1,5 +1,4 @@
-﻿using Godot;
-using MegaCrit.Sts2.Core.Animation;
+﻿using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -10,18 +9,13 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
-using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
-using Ruina2.Ruina2Code.Cards.EnemyCards.Puppeteer;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Tanya;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Puppeteer;
-using Ruina2.Ruina2Code.Nodes;
-using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Tanya;
 
@@ -60,7 +54,6 @@ public sealed class Tanya : AbstractCardMonster
         await CreatureCmd.GainBlock(Creature, PlatingAmt, ValueProp.Move, null);
         await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature, null);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-TANYA.talk"), Creature, VfxColor.Red);
-        ShouldClearBlockAtStartOfOwnTurn = false;
     }
 
     private MoveState GetOverspeedState()

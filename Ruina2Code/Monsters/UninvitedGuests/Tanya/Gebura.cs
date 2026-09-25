@@ -17,11 +17,9 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Gebura;
-using Ruina2.Ruina2Code.Cards.EnemyCards.Netzach;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Nodes;
-using Ruina2.Ruina2Code.Powers;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Tanya;
