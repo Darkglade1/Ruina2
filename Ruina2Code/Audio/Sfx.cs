@@ -346,4 +346,13 @@ public static class Sfx
     public static readonly ModSound RedMistHoriEye = new("Kali_Special_Hori_Eyeon.ogg".SfxPath());
     public static readonly ModSound RedMistHoriFin = new("Kali_Special_Hori_Fin.ogg".SfxPath());
     public static readonly ModSound RedMistHoriStart = new("Kali_Special_Hori_Start.ogg".SfxPath());
+    
+    public static readonly ModSound BinahStoneReady = new("Binah_Stone_Ready.ogg".SfxPath());
+    public static readonly ModSound BinahStoneFire = new("Binah_Stone_Fire.ogg".SfxPath());
+    public static readonly ModSound BinahChain = new("Binah_Chain.ogg".SfxPath());
+    public static readonly ModSound BinahFairy = new("Binah_Fairy.ogg".SfxPath());
+    
+    public static readonly ModSound ElenaStrongUp = new("Elena_StrongUp.ogg".SfxPath());
+    public static readonly ModSound ElenaStrongAtk = new("Elena_StrongAtk.ogg".SfxPath());
+    public static readonly ModSound ElenaStrongStart = new("Elena_StrongStart.ogg".SfxPath());
 }

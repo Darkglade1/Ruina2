@@ -1,0 +1,1 @@
+{"atlas_data":"elena.png\nsize:1306,335\nfilter:Linear,Linear\npma:true\nBlock\nbounds:2,2,353,331\nBlunt\nbounds:669,11,322,234\nrotate:90\nIdle\nbounds:1151,32,153,301\nSlash\nbounds:905,75,244,258\nSpecial 2\nbounds:357,5,328,310\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Elena/elena.atlas","specular_texture_prefix":"s"}

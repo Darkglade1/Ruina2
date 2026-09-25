@@ -494,5 +494,44 @@
   "RUINA2-INTIMIDATE.title": "Intimidate",
 
   "RUINA2-BEATDOWN.description": "Deal {Damage:diff()} damage to ALL enemies.",
-  "RUINA2-BEATDOWN.title": "Beatdown"
+  "RUINA2-BEATDOWN.title": "Beatdown",
+
+  "RUINA2-SANGUINE_NAILS.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-SANGUINE_NAILS.title": "Sanguine Nails",
+
+  "RUINA2-SIPHON.description": "Deal {Damage:diff()} damage.\nApply {FrailPower:diff()} [gold]Frail[/gold].",
+  "RUINA2-SIPHON.title": "Siphon",
+
+  "RUINA2-BLOODSPREADING.description": "Deal {Damage:diff()} damage.",
+  "RUINA2-BLOODSPREADING.title": "Bloodspreading",
+
+  "RUINA2-INJECT.description": "Apply {Bleed:diff()} [gold]Bleed[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-INJECT.title": "Inject",
+
+  "RUINA2-CIRCULATION.description": "An ally gains {PlatingPower:diff()} [gold]Plating[/gold] and {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-CIRCULATION.title": "Circulation",
+
+  "RUINA2-HEATED_WEAPON.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nShuffle {Cards:diff()} [gold]Burn[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-HEATED_WEAPON.title": "Heated Weapon",
+
+  "RUINA2-RAMPAGEOUS_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "RUINA2-RAMPAGEOUS_STRIKE.title": "Rampageous Strike",
+
+  "RUINA2-SHOCKWAVE.description": "Deal {Damage:diff()} damage.\nIf this creature has [gold]Block[/gold] remaining, an ally gains {IntangiblePower:diff()} [gold]Intangible[/gold].",
+  "RUINA2-SHOCKWAVE.title": "Shockwave",
+
+  "RUINA2-OBSTRUCT.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "RUINA2-OBSTRUCT.title": "Obstruct",
+
+  "RUINA2-HEAT_UP.description": "Gain {Block:diff()} [gold]Block[/gold] and {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-HEAT_UP.title": "Heat Up",
+
+  "RUINA2-PILLAR.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
+  "RUINA2-PILLAR.title": "Degraded Pillar",
+
+  "RUINA2-FAIRY.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-FAIRY.title": "Degraded Fairy",
+
+  "RUINA2-CHAINS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "RUINA2-CHAINS.title": "Degraded Chains"
 }

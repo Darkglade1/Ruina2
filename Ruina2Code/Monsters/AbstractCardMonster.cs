@@ -98,6 +98,14 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
     public void UpdateCardIntentVisuals()
     {
         CardIntents.Clear();
+        for (int i = 0; i < NCardHolders.Count; i++)
+        {
+            var cardHolder = NCardHolders[i];
+            if (cardHolder != null)
+            {
+                cardHolder.Hide();
+            }
+        }
         for (int i = 0; i < NextMoves.Count; i++)
         {
             var move = NextMoves[i];

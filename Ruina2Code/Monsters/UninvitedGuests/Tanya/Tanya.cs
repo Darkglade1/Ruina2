@@ -60,6 +60,7 @@ public sealed class Tanya : AbstractCardMonster
         await CreatureCmd.GainBlock(Creature, PlatingAmt, ValueProp.Move, null);
         await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature, null);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-TANYA.talk"), Creature, VfxColor.Red);
+        ShouldClearBlockAtStartOfOwnTurn = false;
     }
 
     private MoveState GetOverspeedState()

@@ -1,0 +1,1 @@
+{"atlas_data":"vermilion.png\nsize:628,1130\nfilter:Linear,Linear\npma:true\nBlock\nbounds:299,8,278,367\nBlunt\nbounds:2,2,625,295\nrotate:90\nIdle\nbounds:299,377,250,327\nrotate:90\nSlash\nbounds:2,629,547,499\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Vermilion/vermilion.atlas","specular_texture_prefix":"s"}

@@ -22,6 +22,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Elena;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Patches;
@@ -88,6 +89,17 @@ public static class PatchTakeTurn
     {
         if (__instance.Monster is AbstractMultiIntentMonster monster && (__instance.IsAlive || monster.IsReviving))
         {
+            if (__instance.Monster is Vermilion vermilion)
+            {
+                if (__instance.Block > 0)
+                {
+                    vermilion.HadBlockAtTurnStart = true;  
+                }
+                else
+                {
+                    vermilion.HadBlockAtTurnStart = false;
+                }
+            }
             if (monster.ShouldClearBlockAtStartOfOwnTurn)
             {
                 __instance.Block = 0;   
@@ -215,16 +227,19 @@ public static class PatchUpdateVisuals
         {
             if (__instance._intent is RuinaAttackIntent || __instance._intent is RuinaDebuffIntent)
             {
-                __instance.Modulate = Color.Color8(0, 255, 0);
+                __instance._intentSprite.Modulate = Color.Color8(0, 255, 0);
+                __instance._valueLabel.Modulate = Color.Color8(0, 255, 0);
             }
             else
             {
-                __instance.Modulate = Color.Color8(255, 255, 255);
+                __instance._intentSprite.Modulate = Color.Color8(255, 255, 255);
+                __instance._valueLabel.Modulate = Color.Color8(255, 255, 255);
             }
         }
         else
         {
-            __instance.Modulate = Color.Color8(255, 255, 255);
+            __instance._intentSprite.Modulate = Color.Color8(255, 255, 255);
+            __instance._valueLabel.Modulate = Color.Color8(255, 255, 255);
         }
     }
 }

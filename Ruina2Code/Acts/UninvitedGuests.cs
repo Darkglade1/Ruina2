@@ -21,6 +21,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
             ModelDb.Encounter<OswaldEncounter>(),
             ModelDb.Encounter<TanyaEncounter>(),
             ModelDb.Encounter<PuppeteerEncounter>(),
+            ModelDb.Encounter<ElenaEncounter>(),
             ModelDb.Encounter<PlutoEncounter>(),
             ModelDb.Encounter<ArgaliaBoss>()
         ];
@@ -51,7 +52,7 @@ public class UninvitedGuests() : AbstractRuinaAct(4)
         _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<TanyaEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<PuppeteerEncounter>());
-        _rooms.eliteEncounters.Add(ModelDb.Encounter<OswaldEncounter>());
+        _rooms.eliteEncounters.Add(ModelDb.Encounter<ElenaEncounter>());
         _rooms.eliteEncounters.Add(ModelDb.Encounter<PlutoEncounter>());
         _rooms.eliteEncountersVisited = 0;
         _rooms.normalEncounters.Clear();

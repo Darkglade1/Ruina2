@@ -220,23 +220,6 @@ public sealed class RoadHome : AbstractMultiIntentMonster
         await PowerCmd.Remove<EasilyDistracted>(Creature);
     }
 
-    public void CancelIntent()
-    {
-        if (NextMoves.Count > 0)
-        {
-            NextMoves.RemoveAt(NextMoves.Count - 1);
-        }
-
-        if (Targets.Count > 0)
-        {
-            Targets.RemoveAt(Targets.Count - 1);
-        }
-        NCreature? creatureNode = Creature.GetCreatureNode();
-        if (creatureNode == null || !CombatState.IsLiveCombat())
-            return;
-        TaskHelper.RunSafely(creatureNode.RefreshIntents());
-    }
-
     private async Task SpecialAnimation(IReadOnlyList<Creature> targets)
     {
         await AnimationAction("Special", Sfx.MakeRoad, targets);

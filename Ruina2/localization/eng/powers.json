@@ -497,5 +497,13 @@
 
   "RUINA2-RED_MIST.description": "",
   "RUINA2-RED_MIST.smartDescription": "Whenever this creature deals unblocked attack damage, gains [blue]{Amount}[/blue] [gold]Strength[/gold] at end of round.\nThis creature doubles its [gold]Strength[/gold] after [blue]{Turns}[/blue] turns.",
-  "RUINA2-RED_MIST.title": "The Red Mist"
+  "RUINA2-RED_MIST.title": "The Red Mist",
+
+  "RUINA2-BLOOD_RED.description": "",
+  "RUINA2-BLOOD_RED.smartDescription": "Whenever this creature deals unblocked attack damage, it heals that much HP.",
+  "RUINA2-BLOOD_RED.title": "Blood Red Night",
+
+  "RUINA2-ARBITERS_JUDGEMENT.description": "",
+  "RUINA2-ARBITERS_JUDGEMENT.smartDescription": "After attacking, this creature cancels the enemy's [blue]2nd[/blue] intent.\nThis creature targets the last enemy {IsMultiplayer:players|you} targeted with a card this combat.",
+  "RUINA2-ARBITERS_JUDGEMENT.title": "Arbiter's Judgement"
 }

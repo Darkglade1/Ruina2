@@ -1,0 +1,1 @@
+{"atlas_data":"binah.png\nsize:827,602\nfilter:Linear,Linear\npma:true\nBlunt\nbounds:2,2,400,252\nIdle\nbounds:404,73,151,244\nrotate:90\nSlash\nbounds:2,256,517,344\nSpecial 3\nbounds:521,226,374,304\nrotate:90\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Binah/binah.atlas","specular_texture_prefix":"s"}

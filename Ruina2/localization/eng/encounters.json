@@ -136,6 +136,8 @@
   "RUINA2-TANYA_ENCOUNTER.loss": "{character} was torn to pieces by the [gold]{encounter}[/gold].",
   "RUINA2-PUPPETEER_ENCOUNTER.title": "The Puppeteer",
   "RUINA2-PUPPETEER_ENCOUNTER.loss": "{character} was turned into a puppet by [gold]{encounter}[/gold].",
+  "RUINA2-ELENA_ENCOUNTER.title": "The Blood-Red Night",
+  "RUINA2-ELENA_ENCOUNTER.loss": "{character} was drained of blood by [gold]{encounter}[/gold].",
   "RUINA2-PLUTO_ENCOUNTER.title": "Yesterday's Promise",
   "RUINA2-PLUTO_ENCOUNTER.loss": "{character} signed away their soul to [gold]{encounter}[/gold].",
   "RUINA2-ARGALIA_BOSS.title": "The Blue Reverberation",

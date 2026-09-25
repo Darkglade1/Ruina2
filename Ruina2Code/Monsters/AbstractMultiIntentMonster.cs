@@ -146,5 +146,26 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         EnemyCard.EnemyCardOwner.Set(card, Creature);
         return card;
     }
+    
+    public void CancelIntent()
+    {
+        if (NextMoves.Count > 0)
+        {
+            NextMoves.RemoveAt(NextMoves.Count - 1);
+        }
+
+        if (Targets.Count > 0)
+        {
+            Targets.RemoveAt(Targets.Count - 1);
+        }
+        NCreature? creatureNode = Creature.GetCreatureNode();
+        if (creatureNode == null || !CombatState.IsLiveCombat())
+            return;
+        TaskHelper.RunSafely(creatureNode.RefreshIntents());
+        if (this is AbstractCardMonster cardMonster)
+        {
+            cardMonster.UpdateCardIntentVisuals();
+        }
+    }
 }
 
