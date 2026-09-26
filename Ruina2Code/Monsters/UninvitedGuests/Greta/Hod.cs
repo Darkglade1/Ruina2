@@ -323,7 +323,7 @@ public sealed class Hod : AbstractAllyCardMonster
     {
         Talk();
         await BlockAnimation(targets);
-        await CreatureCmd.GainBlock(Creature, BarrierBlockAmt, ValueProp.Move, null);
+        await AllyBlock(BarrierBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
             await CreatureCmd.GainBlock(player, BarrierBlockAmt, ValueProp.Move, null);
@@ -335,7 +335,7 @@ public sealed class Hod : AbstractAllyCardMonster
     {
         Talk();
         await BlockAnimation(targets);
-        await CreatureCmd.GainBlock(Creature, DuelBlockAmt, ValueProp.Move, null);
+        await AllyBlock(DuelBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
             await CreatureCmd.GainBlock(player, DuelBlockAmt, ValueProp.Move, null);

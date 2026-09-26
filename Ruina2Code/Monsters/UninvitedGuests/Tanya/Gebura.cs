@@ -20,6 +20,7 @@ using Ruina2.Ruina2Code.Cards.EnemyCards.Gebura;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Nodes;
+using Ruina2.Ruina2Code.Patches;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Tanya;
@@ -350,6 +351,7 @@ public sealed class Gebura : AbstractAllyCardMonster
                 {
                     phase = 2;
                     Sfx.RedMistChange.Play();
+                    MusicPatches.RuinaActMusicPatches.RedMistManifestEGO();
                     await ResetIdle(0.0f, phase);
                     var strAmt = Creature.GetPowerAmount<StrengthPower>();
                     if (strAmt > 0)

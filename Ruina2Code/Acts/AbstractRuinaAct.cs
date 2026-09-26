@@ -1,8 +1,6 @@
 using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Context;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Encounters.Act2;
@@ -112,6 +110,10 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         {
             path = "Story2.ogg";
         }
+        if (encounter is ArgaliaBoss)
+        {
+            path = "EnsembleArgalia.ogg";
+        }
         return path.MusicPath().SimplifyPath();
     }
     
@@ -131,6 +133,18 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         if (encounter is MountainElite || encounter is BlueStarElite)
         {
             path = "Warning3.ogg";
+        }
+        if (encounter is PhilipEncounter || encounter is EileenEncounter || encounter is GretaEncounter)
+        {
+            path = "Ensemble1.ogg";
+        }
+        if (encounter is BremenEncounter || encounter is OswaldEncounter || encounter is TanyaEncounter)
+        {
+            path = "Ensemble2.ogg";
+        }
+        if (encounter is PuppeteerEncounter || encounter is ElenaEncounter || encounter is PlutoEncounter)
+        {
+            path = "Ensemble3.ogg";
         }
         return path.MusicPath().SimplifyPath();
     }
@@ -169,6 +183,9 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
                 break;
             case RuinaFloor.Keter:
                 path = "Keter1.ogg";
+                break;
+            case RuinaFloor.Guests:
+                path = "EnsembleLobby.ogg";
                 break;
             default:
                 path = "Gebura2.ogg";

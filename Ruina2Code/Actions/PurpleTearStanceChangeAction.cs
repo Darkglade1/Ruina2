@@ -41,7 +41,8 @@ public sealed class PurpleTearStanceChangeAction : GameAction
   {
     return new NetPurpleTearStanceChangeAction
     {
-      modelId = ModelId
+      modelId = ModelId,
+      stance = Stance,
     };
   }
 

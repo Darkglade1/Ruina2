@@ -156,7 +156,7 @@ public sealed class Binah : AbstractAllyCardMonster
     {
         Talk();
         await SpecialAnimation(targets);
-        await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);
+        await AllyBlock(BlockAmt);
         await WaitAnimation(0.25f);
         await PillarAnimation();
         await DamageCmd.Attack(PillarDamage)

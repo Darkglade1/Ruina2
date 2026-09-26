@@ -145,7 +145,7 @@ public sealed class Yesod : AbstractAllyCardMonster
     {
         Talk();
         await SpecialAnimation();
-        await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);
+        await AllyBlock(BlockAmt);
         await PowerCmd.Apply<EnergyNextTurnPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Energy, Creature,  null);
         await PowerCmd.Apply<DrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Draw, Creature,  null);
         await ResetIdle(1.0f);

@@ -115,6 +115,13 @@ public class MusicPatches
             _isPlayingRuinaMusic = true;
             _currentTrackType = TrackType.Boss;
         }
+        
+        public static void RedMistManifestEGO()
+        {
+            RuinaAudio.FadeIn("RedMistBgm.ogg".MusicPath(), 1f);
+            _isPlayingRuinaMusic = true;
+            _currentTrackType = TrackType.Elite;
+        }
 
         private static bool IsBossRoom()
         {

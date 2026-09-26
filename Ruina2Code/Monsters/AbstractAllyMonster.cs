@@ -167,4 +167,9 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         CanApplyPowersToAllies = false;
     }
+
+    public async Task AllyBlock(decimal amount)
+    {
+        await CreatureCmd.GainBlock(Creature, Creature.ScaleHpForMultiplayer(amount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), ValueProp.Move, null);
+    }
 }

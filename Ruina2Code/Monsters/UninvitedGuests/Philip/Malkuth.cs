@@ -229,7 +229,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
     {
         Talk();
         await SlashAnimation(targets);
-        await CreatureCmd.GainBlock(Creature, SelfBlockAmt, ValueProp.Move, null);
+        await AllyBlock(SelfBlockAmt);
         await DamageCmd.Attack(EmotionsDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)

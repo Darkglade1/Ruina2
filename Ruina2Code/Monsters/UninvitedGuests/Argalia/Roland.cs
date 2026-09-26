@@ -270,7 +270,7 @@ public sealed class Roland : AbstractAllyCardMonster
     private async Task Crystal(IReadOnlyList<Creature> targets)
     {
         Talk();
-        await CreatureCmd.GainBlock(Creature, CrystalBlock, ValueProp.Move, null);
+        await AllyBlock(CrystalBlock);
         for (int i = 0; i < CrystalHits; i++)
         {
             await SlashAnimation(targets);
@@ -367,7 +367,7 @@ public sealed class Roland : AbstractAllyCardMonster
     {
         Talk();
         await HammerAnimation(targets);
-        await CreatureCmd.GainBlock(Creature, OldBoyBlock, ValueProp.Move, null);
+        await AllyBlock(OldBoyBlock);
         await DamageCmd.Attack(OldBoyDamage)
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)

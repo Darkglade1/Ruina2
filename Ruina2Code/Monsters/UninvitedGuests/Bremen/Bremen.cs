@@ -217,7 +217,7 @@ public sealed class Bremen : AbstractCardMonster
             List<string> possibilities = new List<string>();
             if (!attackingAlly)
             {
-                if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF)) {
+                if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF) && NextMoves[0].Id != RARF) {
                     possibilities.Add(RARF);
                 }
             }

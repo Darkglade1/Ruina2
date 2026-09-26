@@ -204,7 +204,7 @@ public sealed class Chesed : AbstractAllyCardMonster
     {
         Talk();
         await BlockAnimation();
-        await CreatureCmd.GainBlock(Creature, AllyBlockAmt, ValueProp.Move, null);
+        await AllyBlock(AllyBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
             await CreatureCmd.GainBlock(player, AllyBlockAmt, ValueProp.Move, null);
@@ -222,7 +222,7 @@ public sealed class Chesed : AbstractAllyCardMonster
     private async Task Concentrate(IReadOnlyList<Creature> targets)
     {
         Talk();
-        await CreatureCmd.GainBlock(Creature, SelfBlockAmt, ValueProp.Move, null);
+        await AllyBlock(SelfBlockAmt);
         for (int i = 0; i < ConcentrateHits; i++)
         {
             if (i % 2 == 0)

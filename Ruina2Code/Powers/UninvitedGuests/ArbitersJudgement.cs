@@ -21,12 +21,15 @@ public class ArbitersJudgement() : Ruina2Power
         {
             if (cardPlay.Target.Monster is Elena || cardPlay.Target.Monster is Vermilion)
             {
-                binah.OtherSideTargetMonster = cardPlay.Target;
-                binah.Targets[0] = cardPlay.Target;
-                NCreature? creatureNode = binah.Creature.GetCreatureNode();
-                if (creatureNode == null || !CombatState.IsLiveCombat())
-                    return;
-                TaskHelper.RunSafely(creatureNode.RefreshIntents());
+                if (binah.Targets[0] != cardPlay.Target)
+                {
+                    binah.OtherSideTargetMonster = cardPlay.Target;
+                    binah.Targets[0] = cardPlay.Target;
+                    NCreature? creatureNode = binah.Creature.GetCreatureNode();
+                    if (creatureNode == null || !CombatState.IsLiveCombat())
+                        return;
+                    TaskHelper.RunSafely(creatureNode.RefreshIntents());
+                }
             }
         }
     }

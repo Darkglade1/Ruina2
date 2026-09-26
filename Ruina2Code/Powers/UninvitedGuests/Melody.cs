@@ -28,6 +28,7 @@ public class Melody() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     private List<CardType> sequence = new List<CardType>();
     private List<CardType> currentProgress = new List<CardType>();
