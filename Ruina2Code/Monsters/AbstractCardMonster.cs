@@ -52,7 +52,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
                 {
                     var card = CardIntents[i];
                     NGridCardHolder? nCardHolder = NCardHolders[i];
-                    if (nCardHolder == null)
+                    if (nCardHolder == null || !GodotObject.IsInstanceValid(nCardHolder))
                     {
                         NCard? nCard = NCard.Create(card);
                         if (nCard != null)
