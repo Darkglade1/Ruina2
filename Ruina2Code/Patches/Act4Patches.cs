@@ -4,9 +4,11 @@ using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Encounters;
 using MegaCrit.Sts2.Core.Models.Singleton;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 
@@ -93,6 +95,54 @@ public static class ActNextEncounterPatch
                     __result = encounter;
                 }
             }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(RewardsSet), nameof(RewardsSet.GenerateRewardsFor))]
+public static class RewardsSetPatch
+{
+    public static void Postfix(RewardsSet __instance, Player player, AbstractRoom room, ref List<Reward> __result)
+    {
+        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is UninvitedGuests)
+        {
+            var relicRewards = new List<Reward>();
+            foreach (var reward in __result)
+            {
+                if (reward is RelicReward)
+                {
+                    relicRewards.Add(reward);
+                }
+            }
+            foreach (var relicReward in relicRewards)
+            {
+                __result.Remove(relicReward);
+            }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(RoomSet), "FromSave")]
+internal static class RoomSetSaveCompatibilityPatch
+{
+    [HarmonyPrefix]
+    private static void RestoreOmittedEmptyCollections(SerializableRoomSet save)
+    {
+        bool num = save.EventIds == null || save.NormalEncounterIds == null || save.EliteEncounterIds == null;
+        SerializableRoomSet serializableRoomSet = save;
+        if (serializableRoomSet.EventIds == null)
+        {
+            List<ModelId> list = (serializableRoomSet.EventIds = new List<ModelId>());
+        }
+        serializableRoomSet = save;
+        if (serializableRoomSet.NormalEncounterIds == null)
+        {
+            List<ModelId> list = (serializableRoomSet.NormalEncounterIds = new List<ModelId>());
+        }
+        serializableRoomSet = save;
+        if (serializableRoomSet.EliteEncounterIds == null)
+        {
+            List<ModelId> list = (serializableRoomSet.EliteEncounterIds = new List<ModelId>());
         }
     }
 }
