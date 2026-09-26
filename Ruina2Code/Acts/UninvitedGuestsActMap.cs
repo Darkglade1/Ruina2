@@ -1,7 +1,6 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
-using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Acts;
 
