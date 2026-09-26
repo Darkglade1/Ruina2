@@ -46,7 +46,7 @@ public class Church() : Ruina2Power
                 if (eileen.minion2 == null || eileen.minion2.IsDead)
                 {
                     Flash();
-                    eileen.minion2 = await CreatureCmd.Add<GearWorshipper>(CombatState, "minion2");
+                    eileen.minion2 = await CreatureCmd.Add<GearWorshipper2>(CombatState, "minion2");
                 }
             }
         }

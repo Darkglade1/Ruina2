@@ -57,7 +57,7 @@ public class Brainwash() : Ruina2Power
         if (Target == card.Owner.Creature && (card.TargetType == TargetType.AnyEnemy || card.TargetType == Afflictions.Brainwash.AnyRuinaAlly) &&
             (card.Type == CardType.Attack || card.Type == CardType.Skill))
         {
-            if (!hasTriggered)
+            if (!hasTriggered && !card.Keywords.Contains(CardKeyword.Exhaust))
             {
                 return new CardLocation(card.Owner, PileType.Draw, CardPilePosition.Random);
             }

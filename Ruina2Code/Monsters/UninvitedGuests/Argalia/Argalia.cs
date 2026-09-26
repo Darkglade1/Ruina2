@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
@@ -149,7 +150,7 @@ public sealed class Argalia : AbstractCardMonster
         return new MonsterMoveStateMachine(states, moveBranch);
     }
 
-    private void PopulateMovePool()
+    private void PopulateMovePool(Rng rng)
     {
         movePool.Add(LARGO);
         movePool.Add(LARGO);
@@ -157,13 +158,14 @@ public sealed class Argalia : AbstractCardMonster
         movePool.Add(ALLEGRO);
         movePool.Add(TRAILS);
         movePool.Add(SCYTHE);
+        movePool.StableShuffle(rng);
     }
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
         if (movePool.Count == 0)
         {
-            PopulateMovePool();
+            PopulateMovePool(rng);
         }
         
         var nextMove = movePool[rng.NextInt(movePool.Count)];

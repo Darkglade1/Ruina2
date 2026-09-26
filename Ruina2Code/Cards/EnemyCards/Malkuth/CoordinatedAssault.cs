@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Malkuth;
 
-public class CoordinatedAssault() : EnemyCard(3, CardType.Attack,
+public class CoordinatedAssault() : EnemyCard(3, CardType.Skill,
     CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(0), new BlockVar(0, ValueProp.Move),  new PowerVar<StrengthPower>(0)];

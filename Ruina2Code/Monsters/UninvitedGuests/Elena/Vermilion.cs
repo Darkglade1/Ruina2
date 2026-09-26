@@ -288,9 +288,10 @@ public sealed class Vermilion : AbstractCardMonster
     {
         if (creature == Creature && OtherSideTargetMonster?.Monster is Binah binah)
         {
-            if (binah.Creature.IsAlive)
+            if (binah.Creature.IsAlive && elena != null)
             {
                 binah.OtherSideTargetMonster = elena;
+                binah.Targets[0] = elena;
                 NCreature? creatureNode = binah.Creature.GetCreatureNode();
                 if (creatureNode == null || !CombatState.IsLiveCombat())
                     return;

@@ -286,9 +286,10 @@ public sealed class Elena : AbstractCardMonster
     {
         if (creature == Creature && OtherSideTargetMonster?.Monster is Binah binah)
         {
-            if (binah.Creature.IsAlive)
+            if (binah.Creature.IsAlive && vermilion != null)
             {
                 binah.OtherSideTargetMonster = vermilion;
+                binah.Targets[0] = vermilion;
                 NCreature? creatureNode = binah.Creature.GetCreatureNode();
                 if (creatureNode == null || !CombatState.IsLiveCombat())
                     return;
