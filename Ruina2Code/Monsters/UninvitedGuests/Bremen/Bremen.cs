@@ -207,7 +207,7 @@ public sealed class Bremen : AbstractCardMonster
             if (!LastMove(stateMachine, TENDON)) {
                 possibilities.Add(TENDON);
             }
-            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
+            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK) && NextMoves[0].Id != BAWK) {
                 possibilities.Add(BAWK);
             }
             return possibilities[rng.NextInt(possibilities.Count)];

@@ -30,9 +30,9 @@ public class Melody() : Ruina2Power
         PowerStackType.Counter;
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    private List<CardType> sequence = new List<CardType>();
-    private List<CardType> currentProgress = new List<CardType>();
-    private bool completedSequence;
+    private Dictionary<Creature, List<CardType>> sequences = new();
+    private Dictionary<Creature, List<CardType>> currentProgresses = new();
+    private Dictionary<Creature, bool> completedSequences = new();
     private Bremen? bremen;
     private CardModel? melodyCard;
     private NGridCardHolder? nCardHolder;
@@ -68,36 +68,45 @@ public class Melody() : Ruina2Power
                 }
             }
         }
+
+        if (Target != null)
+        {
+            sequences[Target] = new List<CardType>();
+            currentProgresses[Target] = new List<CardType>();
+        }
         GenerateSequence();
         return Task.CompletedTask;
     }
 
     private void GenerateSequence()
     {
-        completedSequence = false;
-        sequence.Clear();
-        currentProgress.Clear();
-        if (bremen != null)
+        if (Target != null && Target.Player != null)
         {
-            int melodyLength = bremen.MelodyLength;
-            for (int i = 0; i < melodyLength; i++)
+            completedSequences[Target] = false;
+            sequences[Target].Clear();
+            currentProgresses[Target].Clear();
+            if (bremen != null)
             {
-                if (bremen.Rng.NextBool())
+                int melodyLength = bremen.MelodyLength;
+                for (int i = 0; i < melodyLength; i++)
                 {
-                    sequence.Add(CardType.Attack);
+                    if (Target.Player.RunState.Rng.Niche.NextBool())
+                    {
+                        sequences[Target].Add(CardType.Attack);
+                    }
+                    else
+                    {
+                        sequences[Target].Add(CardType.Skill);
+                    }
                 }
-                else
-                {
-                    sequence.Add(CardType.Skill);
-                }
+                UpdateMelodyText();
             }
-            UpdateMelodyText();
         }
     }
 
     private void UpdateMelodyText()
     {
-        if (melodyCard == null)
+        if (melodyCard == null || Target == null)
         {
             return;
         }
@@ -108,8 +117,8 @@ public class Melody() : Ruina2Power
         var coloredAttackString = FormatGreen(attackLocString.GetRawText());
         var coloredSkillString = FormatGreen(skillLocString.GetRawText());
         var result = "";
-        for (int i = 0; i < currentProgress.Count; i++) {
-            CardType type = currentProgress.ElementAt(i);
+        for (int i = 0; i < currentProgresses[Target].Count; i++) {
+            CardType type = currentProgresses[Target].ElementAt(i);
             if (type == CardType.Attack) {
                 result += coloredAttackString;
             } else if (type == CardType.Skill) {
@@ -117,9 +126,9 @@ public class Melody() : Ruina2Power
             }
             result += " ";
         }
-        if (currentProgress.Count < sequence.Count) {
-            for (int i = currentProgress.Count; i < sequence.Count; i++) {
-                CardType type = sequence.ElementAt(i);
+        if (currentProgresses[Target].Count < sequences[Target].Count) {
+            for (int i = currentProgresses[Target].Count; i < sequences[Target].Count; i++) {
+                CardType type = sequences[Target].ElementAt(i);
                 if (type == CardType.Attack) {
                     result += attackString;
                 } else if (type == CardType.Skill) {
@@ -128,7 +137,7 @@ public class Melody() : Ruina2Power
                 result += " ";
             }
         }
-        if (completedSequence) {
+        if (completedSequences[Target]) {
             var completedString = new LocString("gameplay_ui", "MELODY.COMPLETE");
             result += completedString.GetRawText();
         }
@@ -159,21 +168,21 @@ public class Melody() : Ruina2Power
     {
         if (cardPlay.Card.Owner.Creature == Target)
         {
-            if (!completedSequence) {
-                currentProgress.Add(cardPlay.Card.Type);
+            if (!completedSequences[Target]) {
+                currentProgresses[Target].Add(cardPlay.Card.Type);
                 bool correct = true;
-                for (int i = 0; i < currentProgress.Count; i++) {
-                    CardType sequenceType = sequence.ElementAt(i);
-                    CardType progressType = currentProgress.ElementAt(i);
+                for (int i = 0; i < currentProgresses[Target].Count; i++) {
+                    CardType sequenceType = sequences[Target].ElementAt(i);
+                    CardType progressType = currentProgresses[Target].ElementAt(i);
                     if (sequenceType != progressType) {
-                        currentProgress.Clear();
+                        currentProgresses[Target].Clear();
                         correct = false;
                         break;
                     }
                 }
-                if (correct && currentProgress.Count == sequence.Count) {
+                if (correct && currentProgresses[Target].Count == sequences[Target].Count) {
                     Flash();
-                    completedSequence = true;
+                    completedSequences[Target] = true;
                 }
                 UpdateMelodyText();
             }
@@ -188,7 +197,7 @@ public class Melody() : Ruina2Power
         if (side == CombatSide.Enemy)
         {
             Flash();
-            if (!completedSequence && Target != null)
+            if (Target != null && !completedSequences[Target])
             {
                 await PowerCmd.Apply<Fragile>(new ThrowingPlayerChoiceContext(), Target, Amount, Owner,  null);
             }
