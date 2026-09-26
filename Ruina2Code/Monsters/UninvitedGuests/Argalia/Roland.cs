@@ -500,7 +500,7 @@ public sealed class Roland : AbstractAllyCardMonster
     {
         SetToSide(CombatSide.Enemy);
         await ResetIdle(0.5f);
-        TalkCmd.Play(L10NMonsterLookup("RUINA2-NETZACH.victory"), Creature, VfxColor.Gold);
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-ROLAND.victory"), Creature, VfxColor.Black);
         await WaitAnimation(2.0f);
         await CreatureCmd.Kill(Creature);
     }
