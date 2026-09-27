@@ -21,7 +21,7 @@ public class ArbitersJudgement() : Ruina2Power
         {
             if (cardPlay.Target.Monster is Elena || cardPlay.Target.Monster is Vermilion)
             {
-                if (binah.Targets[0] != cardPlay.Target)
+                if (binah.Targets[0] != cardPlay.Target && cardPlay.Target.IsAlive)
                 {
                     binah.OtherSideTargetMonster = cardPlay.Target;
                     binah.Targets[0] = cardPlay.Target;

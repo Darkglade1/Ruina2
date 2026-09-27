@@ -151,6 +151,11 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     {
         if (NextMoves.Count > 0)
         {
+            if (MultiIntentMoveStateMachines != null && MultiIntentMoveStateMachines.Count > 0)
+            {
+                // Manually set this stupid bool to true so the monster doesn't try to keep using the same move
+                MultiIntentMoveStateMachines[MultiIntentMoveStateMachines.Count - 1]._performedFirstMove = true;
+            }
             NextMoves.RemoveAt(NextMoves.Count - 1);
         }
 
