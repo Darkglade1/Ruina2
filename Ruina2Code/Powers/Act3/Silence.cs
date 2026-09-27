@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using Ruina2.Ruina2Code.Monsters.Act3.SilentGirl;
 
 namespace Ruina2.Ruina2Code.Powers.Act3;
@@ -52,7 +53,7 @@ public class Silence() : Ruina2Power
     {
         if (power.Owner == Owner)
         {
-            if (power.Type == PowerType.Debuff)
+            if (power.Type == PowerType.Debuff && !(power is TemporaryStrengthPower))
             {
                 return true;
             }
