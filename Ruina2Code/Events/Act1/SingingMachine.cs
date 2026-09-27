@@ -42,7 +42,7 @@ public class SingingMachine() : Ruina2Event()
     public async Task OfferCard()
     {
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, 1);
-        Func<CardModel, bool> filter = card => card.Rarity != CardRarity.Basic;
+        Func<CardModel, bool> filter = card => card.Rarity != CardRarity.Basic && card.Rarity != CardRarity.Quest;
         offeredCard = (await CardSelectCmd.FromDeckForRemoval(Owner!, prefs, filter)).FirstOrDefault();
         if (offeredCard != null)
         {
