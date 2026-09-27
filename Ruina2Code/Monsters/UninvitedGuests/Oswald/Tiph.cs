@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -12,12 +11,10 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
-using Ruina2.Ruina2Code.Cards.EnemyCards;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Tiph;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
-using Brainwash = Ruina2.Ruina2Code.Afflictions.Brainwash;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
@@ -48,7 +45,7 @@ public sealed class Tiph : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Oswald>();
-        await PowerCmd.Apply<Geon>(new ThrowingPlayerChoiceContext(), Creature, GEON, Creature,  null);
+        await PowerCmd.Apply<HanaForAll>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
     }
 
     private MoveState GetAuguryKickState()
@@ -186,31 +183,6 @@ public sealed class Tiph : AbstractAllyCardMonster
         TalkCmd.Play(L10NMonsterLookup("RUINA2-TIPH.victory"), Creature, VfxColor.Gold);
         await WaitAnimation(2.0f);
         await CreatureCmd.Kill(Creature);
-    }
-    
-    private bool SwitchedOffAllyProtection = false;
-    public bool IsTargetableByPlayersMutable = true;
-    
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
-    {
-        if (!(cardPlay.Card.Affliction is Brainwash) && IsTargetableByPlayers)
-        {
-            IsTargetableByPlayers = false;
-            SwitchedOffAllyProtection = true;
-            IsTargetableByPlayersMutable = false;
-        }
-        return Task.CompletedTask;
-    }
-    
-    public override Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (SwitchedOffAllyProtection)
-        {
-            IsTargetableByPlayers = true;
-            SwitchedOffAllyProtection = false;
-            IsTargetableByPlayersMutable = true;
-        }
-        return Task.CompletedTask;
     }
 
     private async Task BluntAnimation(IReadOnlyList<Creature> targets)

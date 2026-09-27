@@ -1,11 +1,10 @@
-﻿using BaseLib.Patches.Features;
+﻿using System.Reflection;
+using System.Reflection.Emit;
+using BaseLib.Patches.Features;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Models.Cards;
 using Ruina2.Ruina2Code.Afflictions;
-using Ruina2.Ruina2Code.Monsters;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 namespace Ruina2.Ruina2Code.Patches;
 
@@ -15,105 +14,44 @@ internal static class ModelDbTargetTypeInitPatch
     [HarmonyPostfix]
     private static void RegisterTargetTypes()
     {
-        CustomTargetType.RegisterSingleTargetType(Brainwash.AnyRuinaAlly,
-            (target) => target.Monster != null && target.Monster is AbstractAllyMonster && target is { IsAlive: true, IsPet: false });
+        CustomTargetType.RegisterSingleTargetType(Brainwash.Self,
+            (target, player) => target == player.Creature);
     }
 }
 
-[HarmonyPatch(typeof(NMouseCardPlay), nameof(NMouseCardPlay.SingleCreatureTargeting))]
-public static class NMouseCardPlayPatch
-{
-    public static void Prefix(NMouseCardPlay __instance, TargetMode targetMode, TargetType targetType)
+    [HarmonyPatch]
+    public static class MonsterNullSafeAttackPatch
     {
-        if (__instance.Player.Creature.CombatState != null)
+        [HarmonyTargetMethod]
+        public static MethodBase TargetMethod()
         {
-            if (__instance.Holder.CardModel != null && __instance.Holder.CardModel.Affliction is Brainwash)
-            {
-                foreach (var enemy in __instance.Player.Creature.CombatState.Enemies)
-                {
-                    if (enemy.Monster is Tiph tiph)
-                    {
-                        if (tiph.IsTargetableByPlayersMutable)
-                        {
-                            tiph.IsTargetableByPlayers = true;
-                        }
-                    }
-                }
-            }
-            if (__instance.Holder.CardModel != null && !(__instance.Holder.CardModel.Affliction is Brainwash))
-            {
-                foreach (var enemy in __instance.Player.Creature.CombatState.Enemies)
-                {
-                    if (enemy.Monster is Tiph tiph)
-                    {
-                        if (tiph.IsTargetableByPlayersMutable)
-                        {
-                            tiph.IsTargetableByPlayers = false;
-                        }
-                    }
-                }
-            }
+            MethodInfo method = AccessTools.Method(typeof(GoForTheEyes), "OnPlay");
+            return AccessTools.AsyncMoveNext(method) ?? (MethodBase)method;
         }
-    }
-}
+        
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            MethodInfo original = AccessTools.PropertyGetter(typeof(MonsterModel), nameof(MonsterModel.IntendsToAttack));
+            MethodInfo replacement = AccessTools.Method(typeof(MonsterNullSafeAttackPatch), nameof(SafeIntendsToAttack));
 
-[HarmonyPatch(typeof(NControllerCardPlay), nameof(NControllerCardPlay.SingleCreatureTargeting))]
-public static class NControllerCardPlayPatch
-{
-    public static void Prefix(NControllerCardPlay __instance, TargetType targetType)
-    {
-        if (__instance.Player.Creature.CombatState != null)
-        {
-            if (__instance.Holder.CardModel != null && __instance.Holder.CardModel.Affliction is Brainwash)
+            bool patched = false;
+            foreach (CodeInstruction instruction in instructions)
             {
-                foreach (var enemy in __instance.Player.Creature.CombatState.Enemies)
+                if (instruction.Calls(original))
                 {
-                    if (enemy.Monster is Tiph tiph)
-                    {
-                        if (tiph.IsTargetableByPlayersMutable)
-                        {
-                            tiph.IsTargetableByPlayers = true;
-                        }
-                    }
+                    yield return new CodeInstruction(OpCodes.Call, replacement).MoveLabelsFrom(instruction).MoveBlocksFrom(instruction);
+                    patched = true;
                 }
-            }
-            if (__instance.Holder.CardModel != null && !(__instance.Holder.CardModel.Affliction is Brainwash))
-            {
-                foreach (var enemy in __instance.Player.Creature.CombatState.Enemies)
+                else
                 {
-                    if (enemy.Monster is Tiph tiph)
-                    {
-                        if (tiph.IsTargetableByPlayersMutable)
-                        {
-                            tiph.IsTargetableByPlayers = false;
-                        }
-                    }
+                    yield return instruction;
                 }
             }
         }
-    }
-}
-
-[HarmonyPatch(typeof(NCardPlay), nameof(NCardPlay.CancelPlayCard))]
-public static class NCardPlayCancelPlayCardPatch
-{
-    public static void Postfix(NCardPlay __instance)
-    {
-        if (__instance.Player.Creature.CombatState != null)
+        
+        public static bool SafeIntendsToAttack(MonsterModel? monster)
         {
-            if (__instance.Holder.CardModel != null && __instance.Holder.CardModel.Affliction is Brainwash)
-            {
-                foreach (var enemy in __instance.Player.Creature.CombatState.Enemies)
-                {
-                    if (enemy.Monster is Tiph tiph)
-                    {
-                        if (tiph.IsTargetableByPlayersMutable)
-                        {
-                            tiph.IsTargetableByPlayers = false;
-                        }
-                    }
-                }
-            }
+            return monster != null && monster.IntendsToAttack;
         }
     }
-}

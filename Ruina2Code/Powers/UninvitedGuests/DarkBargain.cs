@@ -45,9 +45,9 @@ public class DarkBargain() : Ruina2Power
         Creature target,
         CardModel? cardSource)
     {
-        if (dealer == Owner && target.Player != null && props.IsPoweredAttack())
+        if (dealer == Owner && (target.Player != null || target.PetOwner != null) && props.IsPoweredAttack())
         {
-            if (result.WasFullyBlocked && result.Receiver.IsPlayer)
+            if (result.WasFullyBlocked || (result.Receiver.IsPet && result.OverkillDamage == 0))
             {
                 Flash();
                 damageBonusToGain += DynamicVars["Increase"].BaseValue;

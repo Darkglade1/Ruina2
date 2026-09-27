@@ -392,8 +392,12 @@
   "RUINA2-GON.title": "Gon of Four Trigrams",
 
   "RUINA2-RI.description": "",
-  "RUINA2-RI.smartDescription": "An ally draws [blue]{Amount}[/blue] {Amount:plural:card|cards} next turn.\nChanges every turn.",
+  "RUINA2-RI.smartDescription": "ALL players draw [blue]{Amount}[/blue] {Amount:plural:card|cards} next turn.\nChanges every turn.",
   "RUINA2-RI.title": "Ri of Four Trigrams",
+
+  "RUINA2-HANA_FOR_ALL.description": "",
+  "RUINA2-HANA_FOR_ALL.smartDescription": "Unblocked attack damage you deal to yourself is redirected to this creature.",
+  "RUINA2-HANA_FOR_ALL.title": "Hana for All",
 
   "RUINA2-CHURCH.description": "",
   "RUINA2-CHURCH.smartDescription": "Whenever a minion dies, this creature loses [blue]{Amount}[/blue] HP.\nDead minions are replaced at the end of the round.",

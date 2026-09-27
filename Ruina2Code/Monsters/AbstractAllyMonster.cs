@@ -108,6 +108,10 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         if (target == Creature && dealer != null && dealer.IsPlayer)
         {
+            if (cardSource != null && cardSource.Affliction is Brainwash)
+            {
+                return amount;
+            }
             if (IsAlly && !IsTargetableByPlayers)
             {
                 return 0;

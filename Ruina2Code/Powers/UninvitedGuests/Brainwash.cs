@@ -23,7 +23,7 @@ public class Brainwash() : Ruina2Power
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Target == cardPlay.Card.Owner.Creature && (cardPlay.Card.TargetType == TargetType.AnyEnemy || cardPlay.Card.TargetType == Afflictions.Brainwash.AnyRuinaAlly) && (cardPlay.Card.Type == CardType.Attack || cardPlay.Card.Type == CardType.Skill))
+        if (Target == cardPlay.Card.Owner.Creature && (cardPlay.Card.TargetType == TargetType.AnyEnemy || cardPlay.Card.TargetType == Afflictions.Brainwash.Self) && (cardPlay.Card.Type == CardType.Attack || cardPlay.Card.Type == CardType.Skill))
         {
             if (!hasTriggered && cardPlay.IsFirstInSeries)
             {
@@ -54,7 +54,7 @@ public class Brainwash() : Ruina2Power
         ResourceInfo resources,
         CardLocation cardLocation)
     {
-        if (Target == card.Owner.Creature && (card.TargetType == TargetType.AnyEnemy || card.TargetType == Afflictions.Brainwash.AnyRuinaAlly) &&
+        if (Target == card.Owner.Creature && (card.TargetType == TargetType.AnyEnemy || card.TargetType == Afflictions.Brainwash.Self) &&
             (card.Type == CardType.Attack || card.Type == CardType.Skill))
         {
             if (!hasTriggered && !card.Keywords.Contains(CardKeyword.Exhaust))

@@ -1,9 +1,7 @@
 using System.Reflection;
 using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 namespace Ruina2.Ruina2Code.Afflictions;
 
@@ -11,7 +9,7 @@ public class Brainwash : Ruina2Affliction
 {
     public override bool HasExtraCardText => true;
     
-    [CustomEnum] public static TargetType AnyRuinaAlly;
+    [CustomEnum] public static TargetType Self;
     
     public override void AfterApplied()
     {
@@ -19,7 +17,7 @@ public class Brainwash : Ruina2Affliction
             BindingFlags.Instance | BindingFlags.NonPublic);
         if (backingField != null)
         {
-            backingField.SetValue(Card, AnyRuinaAlly); 
+            backingField.SetValue(Card, Self); 
         }
     }
 
@@ -31,26 +29,6 @@ public class Brainwash : Ruina2Affliction
         {
             backingField.SetValue(Card, TargetType.AnyEnemy); 
         }
-    }
-
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
-    {
-        if (cardPlay.Card == Card && cardPlay.Card.Affliction is Brainwash && cardPlay.Target != null && cardPlay.Target.Monster is Tiph tiph)
-        {
-            tiph.IsTargetableByPlayers = true;
-            tiph.IsTargetableByPlayersMutable = false;
-        }
-        return Task.CompletedTask;
-    }
-    
-    public override Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card == Card && cardPlay.Card.Affliction is Brainwash && cardPlay.Target != null && cardPlay.Target.Monster is Tiph tiph)
-        {
-            tiph.IsTargetableByPlayers = false;
-            tiph.IsTargetableByPlayersMutable = true;
-        }
-        return Task.CompletedTask;
     }
     
     public override bool TryModifyEnergyCostInCombatLate(
