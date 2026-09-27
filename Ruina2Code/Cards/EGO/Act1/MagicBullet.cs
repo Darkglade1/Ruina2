@@ -22,7 +22,11 @@ public class MagicBullet() : EGOCard(1,
     {
         if (play.Target != null)
         {
-            await PowerCmd.Apply<MagicBulletPower>(choiceContext, play.Target, DynamicVars["MagicBulletPower"].IntValue, Owner.Creature, this);
+            var power = await PowerCmd.Apply<MagicBulletPower>(choiceContext, play.Target, 1, Owner.Creature, this);
+            if (power != null)
+            {
+                power.DynamicVars["Increase"].BaseValue = DynamicVars["MagicBulletPower"].IntValue;
+            }
             if (IsUpgraded)
             {
                 await PowerCmd.Apply<MagicBulletTempStr>(choiceContext, Owner.Creature, DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);

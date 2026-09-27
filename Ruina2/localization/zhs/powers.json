@@ -234,7 +234,7 @@
   "RUINA2-FOURTH_MATCH_FLAME_POWER.smartDescription": "在你的回合开始时，对所有敌人造成[blue]{Amount}[/blue]点伤害，并将一张带有[gold]虚无[/gold]的[gold]灼伤[/gold]牌加入你的[gold]手牌[/gold]。",
   "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "终末之光",
   "RUINA2-MAGIC_BULLET_POWER.description": "",
-  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "本回合从攻击中受到的伤害增加[blue]{Amount}%[/blue]。",
+  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "在[blue]{Amount}[/blue]回合内，从攻击中受到的伤害增加[blue]{Increase}%[/blue]。",
   "RUINA2-MAGIC_BULLET_POWER.title": "魔弹",
   "RUINA2-GRINDER_POWER.description": "",
   "RUINA2-GRINDER_POWER.smartDescription": "每回合首次造成[blue]{DamageThreshold:diff()}[/blue]点攻击伤害后，下一回合获得{Amount:energyIcons()}。",

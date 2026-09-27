@@ -11,7 +11,7 @@ public class BlackSwan() : EGOCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Erosion>(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Erosion>(5)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<Erosion>()];
 

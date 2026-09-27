@@ -312,7 +312,7 @@
   "RUINA2-FOURTH_MATCH_FLAME_POWER.title": "Fourth Match Flame",
 
   "RUINA2-MAGIC_BULLET_POWER.description": "",
-  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "Receives [blue]{Amount}%[/blue] more damage from attacks this turn.",
+  "RUINA2-MAGIC_BULLET_POWER.smartDescription": "Receives [blue]{Increase}%[/blue] more damage from attacks for [blue]{Amount}[/blue] {Amount:plural:turn|turns}.",
   "RUINA2-MAGIC_BULLET_POWER.title": "Magic Bullet",
 
   "RUINA2-GRINDER_POWER.description": "",
