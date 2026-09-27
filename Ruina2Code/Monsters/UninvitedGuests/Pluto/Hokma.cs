@@ -24,7 +24,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Pluto;
 
 public sealed class Hokma : AbstractAllyCardMonster
 {
-    public override int MinInitialHp => 160;
+    public override int MinInitialHp => 140;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "HokmaIcon.png".UIImagePath();
@@ -143,6 +143,11 @@ public sealed class Hokma : AbstractAllyCardMonster
             .Execute(null);
         await ResetIdle();
         CurrentDamageIncrease += SilenceDamageIncrease;
+        var card = MoveToCardMap[SILENCE];
+        if (card is Silence silence)
+        {
+            silence.SetDamage(SilenceTotalDamage);
+        }
     }
     
     private async Task Time(IReadOnlyList<Creature> targets)

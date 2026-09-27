@@ -36,11 +36,11 @@ public class FlameShield() : Ruina2Power
             if (dealer.Player != null)
             {
                 Flash();
-                await CardPileCmd.AddToCombatAndPreview<Burn>(dealer, PileType.Draw, Amount, null, CardPilePosition.Random);
+                await CardPileCmd.AddToCombatAndPreview<Burn>(dealer, PileType.Hand, Amount, null);
             } else if (dealer.PetOwner != null)
             {
                 Flash();
-                await CardPileCmd.AddToCombatAndPreview<Burn>(dealer.PetOwner.Creature, PileType.Draw, Amount, null, CardPilePosition.Random);
+                await CardPileCmd.AddToCombatAndPreview<Burn>(dealer.PetOwner.Creature, PileType.Hand, Amount, null);
             }
         }
     }

@@ -440,7 +440,7 @@
   "RUINA2-EMOTION.title": "Rising Emotion",
 
   "RUINA2-FLAME_SHIELD.description": "",
-  "RUINA2-FLAME_SHIELD.smartDescription": "Whenever you hit this creature with an [gold]Attack[/gold], shuffle [blue]{Amount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold].\nRemoved after [blue]{Turns}[/blue] turns.",
+  "RUINA2-FLAME_SHIELD.smartDescription": "Whenever you hit this creature with an [gold]Attack[/gold], add [blue]{Amount}[/blue] [gold]Burn[/gold] to your [gold]Hand[/gold].\nRemoved after [blue]{Turns}[/blue] turns.",
   "RUINA2-FLAME_SHIELD.title": "Flame Shield",
 
   "RUINA2-SWORD_OF_EMBERS.description": "",

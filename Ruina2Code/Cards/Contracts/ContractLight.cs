@@ -14,7 +14,7 @@ namespace Ruina2.Ruina2Code.Cards.Contracts;
 public class ContractLight() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Pluto.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         EnergyHoverTip

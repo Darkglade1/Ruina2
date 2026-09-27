@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Pluto;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
-using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
 
 namespace Ruina2.Ruina2Code.Cards.Contracts;
 
@@ -15,7 +14,7 @@ namespace Ruina2.Ruina2Code.Cards.Contracts;
 public class ContractLiberty() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Pluto.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(1)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         EnergyHoverTip

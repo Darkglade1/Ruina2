@@ -15,7 +15,7 @@ namespace Ruina2.Ruina2Code.Cards.Contracts;
 public class ContractMight() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Pluto.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(4), new CardsVar(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(3), new CardsVar(6)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromPower<StrengthPower>()

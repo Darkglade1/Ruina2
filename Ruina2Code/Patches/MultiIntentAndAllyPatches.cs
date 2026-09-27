@@ -128,6 +128,11 @@ public static class PatchPrepareForNextTurn
     {
         if (__instance.HasPower<PriceOfTime>())
         {
+            NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(__instance);
+            if (creatureNode != null)
+            {
+                TaskHelper.RunSafely(creatureNode.RefreshIntents());
+            }
             return false;
         }
         return true;
