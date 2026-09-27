@@ -60,7 +60,7 @@
   "RUINA2-POINTLESS_HATE.smartDescription": "在每回合结束时获得[blue]{Amount}[/blue]点[gold]格挡[/gold]。",
   "RUINA2-POINTLESS_HATE.title": "无谓的憎恶",
   "RUINA2-SENSELESS_WRATH.description": "",
-  "RUINA2-SENSELESS_WRATH.smartDescription": "抵消施加在这个生物身上的其他所有[gold]负面效果[/gold]。",
+  "RUINA2-SENSELESS_WRATH.smartDescription": "每当一个[gold]负面效果[/gold]成功施加在这个生物身上时，它就获得[blue]{Amount}[/blue]层[gold]人工制品[/gold]。",
   "RUINA2-SENSELESS_WRATH.title": "无理智的愤怒",
   "RUINA2-EASILY_DISTRACTED.description": "",
   "RUINA2-EASILY_DISTRACTED.smartDescription": "每当这个生物被[gold]攻击[/gold]命中{IsMultiplayer:，本回合达[blue]{Amount}[/blue]次时|}，它就会取消一个意图。",

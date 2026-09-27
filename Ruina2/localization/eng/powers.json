@@ -80,7 +80,7 @@
   "RUINA2-POINTLESS_HATE.title": "Pointless Hate",
 
   "RUINA2-SENSELESS_WRATH.description": "",
-  "RUINA2-SENSELESS_WRATH.smartDescription": "Negates every other [gold]debuff[/gold] applied to this creature.",
+  "RUINA2-SENSELESS_WRATH.smartDescription": "Whenever a [gold]debuff[/gold] is successfully applied to this creature, it gains [blue]{Amount}[/blue] [gold]Artifact[/gold].",
   "RUINA2-SENSELESS_WRATH.title": "Senseless Wrath",
 
   "RUINA2-EASILY_DISTRACTED.description": "",
