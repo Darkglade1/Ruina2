@@ -19,11 +19,11 @@ public class HanaForAll() : Ruina2Power
 
     public override Creature ModifyUnblockedDamageTarget(
         Creature target,
-        Decimal _,
+        Decimal amount,
         ValueProp props,
-        Creature? __)
+        Creature? dealer)
     {
-        if (Owner.IsAlive && target.IsPlayer && props.IsPoweredAttack() && CombatState?.CurrentSide == CombatSide.Player)
+        if (Owner.IsAlive && target.IsPlayer && props.IsPoweredAttack() && dealer != null && dealer.IsPlayer)
         {
             return Owner;
         }
