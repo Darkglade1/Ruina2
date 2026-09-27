@@ -13,7 +13,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.Greed;
 
 public sealed class BrilliantBliss : AbstractRuinaMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 33, 30);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 44, 40);
     public override int MaxInitialHp => MinInitialHp;
 
     protected override string VisualsPath => "Bliss/bliss.tscn".MonsterImagePath();

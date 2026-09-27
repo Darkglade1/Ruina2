@@ -88,6 +88,9 @@ public sealed class SnowQueen : AbstractRuinaMonster
         if ((CombatState.RoundNumber == 1 || ThreeTurnCooldownHasPassedForMove(stateMachine, BLIZZARD)) && stateMachine.StateLog.FindAll(m => m.Id == BLIZZARD).Count < MaxBlizzards)
         {
             return BLIZZARD;
+        } else if (LastMove(stateMachine, BLIZZARD))
+        {
+            return ICE_SPLINTERS;
         }
         else
         {

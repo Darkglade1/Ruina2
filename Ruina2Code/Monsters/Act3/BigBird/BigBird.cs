@@ -26,7 +26,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act3.BigBird;
 
 public sealed class BigBird : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 440, 400);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 500, 450);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 3;
 

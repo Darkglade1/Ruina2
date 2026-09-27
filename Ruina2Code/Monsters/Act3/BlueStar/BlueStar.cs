@@ -126,16 +126,16 @@ public sealed class BlueStar : AbstractRuinaMonster
         {
             return WORSHIPPERS;
         }
-        if (LastMoveIgnoringMove(stateMachine, RISING_STAR, WORSHIPPERS))
+        if (LastMoveIgnoringMove(stateMachine, SOUND_OF_STAR, WORSHIPPERS))
         {
-            return STARRY_SKY;
+            return RISING_STAR;
         } else if (LastMoveIgnoringMove(stateMachine, STARRY_SKY, WORSHIPPERS))
         {
             return SOUND_OF_STAR;
         }
         else
         {
-            return RISING_STAR;
+            return STARRY_SKY;
         }
     }
     
