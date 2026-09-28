@@ -22,5 +22,8 @@
   "RUINA2-NAIL.extraCardText": "[purple]受到{Amount}点伤害。[/purple]",
   "RUINA2-BLEED.title": "流血",
   "RUINA2-BLEED.description": "本回合内，每当你以[gold]攻击[/gold]命中目标时，你就会受到[blue]{Amount}[/blue]点伤害。",
-  "RUINA2-BLEED.extraCardText": ""
+  "RUINA2-BLEED.extraCardText": "",
+  "RUINA2-BRAINWASH.title": "洗脑",
+  "RUINA2-BRAINWASH.description": "这张牌耗能为[blue]0[/blue]，但只能以[gold]你自己[/gold]为目标。",
+  "RUINA2-BRAINWASH.extraCardText": "[purple]只能以自己为目标。[/purple]"
 }

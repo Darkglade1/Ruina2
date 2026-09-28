@@ -1,5 +1,8 @@
 {
   "RUINA2-ASIYAH.title": "Asiyah",
+  "RUINA2-ASIYAH.choiceDescription": "接受邀请",
   "RUINA2-BRIAH.title": "Briah",
-  "RUINA2-ATZILUTH.title": "Atziluth"
+  "RUINA2-ATZILUTH.title": "Atziluth",
+  "RUINA2-UNINVITED_GUESTS.title": "不速之客",
+  "RUINA2-UNINVITED_GUESTS.choiceDescription": "迎接不速之客。"
 }

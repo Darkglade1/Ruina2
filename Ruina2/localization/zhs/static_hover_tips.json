@@ -1,5 +1,11 @@
 {
   "RUINA2-ALLY_BLOCK_BUTTON.title": "转移格挡",
   "RUINA2-ALLY_BLOCK_BUTTON.description": "[gold]左键点击：[/gold]将至多[blue]\\{0\\}[/blue]点[gold]格挡[/gold]从你处转移给这名[green]盟友[/green]。",
-  "RUINA2-PERFORMER_TYPE.description": "{Type} | 演奏者"
+  "RUINA2-PERFORMER_TYPE.description": "{Type} | 演奏者",
+  "RUINA2-SLASH_STANCE_BUTTON.title": "斩击姿态",
+  "RUINA2-SLASH_STANCE_BUTTON.description": "[gold]左键点击：[/gold]将这名[green]盟友[/green]切换为[gold]斩击姿态[/gold]，专注于进攻。",
+  "RUINA2-PIERCE_STANCE_BUTTON.title": "穿刺姿态",
+  "RUINA2-PIERCE_STANCE_BUTTON.description": "[gold]左键点击：[/gold]将这名[green]盟友[/green]切换为[gold]穿刺姿态[/gold]，专注于施加负面效果。",
+  "RUINA2-GUARD_STANCE_BUTTON.title": "防守姿态",
+  "RUINA2-GUARD_STANCE_BUTTON.description": "[gold]左键点击：[/gold]将这名[green]盟友[/green]切换为[gold]防守姿态[/gold]，专注于[gold]格挡[/gold]和抵抗负面效果。"
 }
