@@ -71,7 +71,10 @@ public abstract class RuinaAttackIntent : AttackIntent
                     break;
                 }
             }
-            return monster.Targets[intentIndex];
+            if (intentIndex < monster.Targets.Count)
+            {
+                return monster.Targets[intentIndex];
+            }
         }
         return null;
     }
