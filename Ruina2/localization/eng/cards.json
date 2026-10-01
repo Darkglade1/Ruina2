@@ -247,7 +247,7 @@
   "RUINA2-PREACH.description": "ALL allies gain {StrengthPower:diff()} [gold]Strength[/gold].",
   "RUINA2-PREACH.title": "Thought Gear: Preach",
 
-  "RUINA2-PROPAGATE.description": "Deal {Damage:diff()} damage.\nnApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "RUINA2-PROPAGATE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "RUINA2-PROPAGATE.title": "Thought Gear: Propagate",
 
   "RUINA2-BRAINWASH.description": "Deal {Damage:diff()} damage.",

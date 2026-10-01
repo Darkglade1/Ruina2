@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace Ruina2.Ruina2Code.Cards.EnemyCards.Bremen;
 
-[Pool(typeof(CurseCardPool))]
-public class Melody() : Ruina2Card(-1, CardType.Curse,
-    CardRarity.Curse, TargetType.AnyEnemy)
+[Pool(typeof(StatusCardPool))]
+public class Melody() : Ruina2Card(-1, CardType.Status,
+    CardRarity.Status, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Melody")];
     
