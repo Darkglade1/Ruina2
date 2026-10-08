@@ -172,5 +172,13 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             cardMonster.UpdateCardIntentVisuals();
         }
     }
+    
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        OtherSideTargetMonster = null;
+        NextMoves = new();
+        Targets = new();
+    }
 }
 

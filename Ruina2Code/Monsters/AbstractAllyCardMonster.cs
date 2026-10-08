@@ -106,5 +106,12 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
         }
         GenerateCardIntentVisuals();
     }
+    
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        CardIntents = new();
+        NCardHolders = new([null, null, null]);
+    }
 }
 

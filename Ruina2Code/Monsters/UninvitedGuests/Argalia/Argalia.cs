@@ -150,7 +150,7 @@ public sealed class Argalia : AbstractCardMonster
         return new MonsterMoveStateMachine(states, moveBranch);
     }
 
-    private void PopulateMovePool(Rng rng)
+    private void PopulateMovePool()
     {
         movePool.Add(LARGO);
         movePool.Add(LARGO);
@@ -158,14 +158,19 @@ public sealed class Argalia : AbstractCardMonster
         movePool.Add(ALLEGRO);
         movePool.Add(TRAILS);
         movePool.Add(SCYTHE);
-        movePool.StableShuffle(rng);
+    }
+    
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        movePool = new List<string>();
     }
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
         if (movePool.Count == 0)
         {
-            PopulateMovePool(rng);
+            PopulateMovePool();
         }
         
         var nextMove = movePool[rng.NextInt(movePool.Count)];

@@ -171,15 +171,21 @@ public sealed class Roland : AbstractAllyCardMonster
 
     private void PopulateMovePool()
     {
-        movePool.Add(CRYSTAL);
-        movePool.Add(WHEELS);
-        movePool.Add(DURANDAL);
-        movePool.Add(ALLAS);
-        movePool.Add(GUN);
-        movePool.Add(MOOK);
-        movePool.Add(OLD_BOY);
-        movePool.Add(RANGA);
-        movePool.Add(MACE);
+         movePool.Add(CRYSTAL);
+         movePool.Add(WHEELS);
+         movePool.Add(DURANDAL);
+         movePool.Add(ALLAS);
+         movePool.Add(GUN);
+         movePool.Add(MOOK);
+         movePool.Add(OLD_BOY);
+         movePool.Add(RANGA);
+         movePool.Add(MACE);
+    }
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        movePool = new List<string>();
     }
 
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
@@ -189,8 +195,9 @@ public sealed class Roland : AbstractAllyCardMonster
             PopulateMovePool();
             return FURIOSO;
         }
-        var nextMove = movePool[rng.NextInt(movePool.Count)];
-        movePool.Remove(nextMove);
+        int num = rng.NextInt(movePool.Count);
+        var nextMove = movePool[num];
+        movePool.RemoveAt(num);
         return nextMove;
     }
 
