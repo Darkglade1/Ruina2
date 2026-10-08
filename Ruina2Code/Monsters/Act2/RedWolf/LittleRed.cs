@@ -118,7 +118,7 @@ public sealed class LittleRed : AbstractAllyMonster
         }
         else
         {
-            if (LastMove(stateMachine, CATCH_BREATH) || (LastMove(stateMachine, HOLLOW_POINT_SHELL) && LocalContext.GetMe(CombatState)?.PlayerCombatState?.TurnNumber == 2))
+            if (LastMove(stateMachine, CATCH_BREATH) || (LastMove(stateMachine, HOLLOW_POINT_SHELL) && CombatState.RoundNumber == 2))
             {
                 return BEAST_HUNT;
             } else if (LastMove(stateMachine, HOLLOW_POINT_SHELL))

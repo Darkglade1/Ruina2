@@ -50,13 +50,12 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
             combatState.RunState.CurrentActIndex) - 100);
     }
     
-    public override Task BeforeSideTurnStart(
+    public override Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,
-        IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+        IEnumerable<Creature> participants)
     {
-        if (side == CombatSide.Player && IsAlly)
+        if (side == CombatSide.Enemy && IsAlly)
         {
             Creature.Block = 0;
             CanApplyPowersToAllies = false;
