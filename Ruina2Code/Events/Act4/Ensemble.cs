@@ -13,6 +13,7 @@ namespace Ruina2.Ruina2Code.Events.Act4;
 public class Ensemble() : Ruina2Event()
 {
     private int heal;
+    public override bool IsShared => true;
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
         var healPercent = AscensionHelper.GetValueIfAscension(AscensionLevel.WearyTraveler, 80, 100);

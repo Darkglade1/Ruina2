@@ -97,6 +97,7 @@ public static class ActNextEncounterPatch
                 var encounter = UninvitedGuestsActMap.MapPointSpecificEncounter.Get(mapPoint);
                 if (encounter != null)
                 {
+                    MainFile.Logger.Info("Setting room's encounter to specific encounter: " + encounter.Id);
                     __result = encounter;
                 }
             }
