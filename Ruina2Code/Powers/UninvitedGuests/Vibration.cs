@@ -20,9 +20,22 @@ public class Vibration() : Ruina2Power
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (!participants.Contains(Owner))
-            return;
-        await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner);
-        VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_attack_blunt");
+        if (participants.Contains(Owner) && side == CombatSide.Player)
+        {
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner);
+            VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_attack_blunt");
+        }
+    }
+    
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (participants.Contains(Owner) && side == CombatSide.Enemy)
+        {
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner);
+            VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_attack_blunt");
+        }
     }
 }

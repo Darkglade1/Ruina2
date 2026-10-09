@@ -50,7 +50,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
             combatState.RunState.CurrentActIndex) - 100);
     }
     
-    public override Task AfterSideTurnEnd(
+    public override Task AfterSideTurnEndLate(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)
