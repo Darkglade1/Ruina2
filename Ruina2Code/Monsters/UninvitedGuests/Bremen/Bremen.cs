@@ -37,7 +37,7 @@ public sealed class Bremen : AbstractCardMonster
     private int TrioHits => 3;
     private int NeighDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int StatusAmt => 3;
+    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int DebuffAmt => 2;
     private int BlockAmt => 22;
     private int BaseMelodyLength => 3;
@@ -187,13 +187,10 @@ public sealed class Bremen : AbstractCardMonster
                 if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF)) {
                     possibilities.Add(RARF);
                 }
-                if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
-                    possibilities.Add(BAWK);
-                }
-                if (!LastMove(stateMachine, NEIGH) && !LastMoveBefore(stateMachine, NEIGH)) {
+                if (!LastMove(stateMachine, NEIGH)) {
                     possibilities.Add(NEIGH);
                 }
-                if (!LastMove(stateMachine, TENDON) && !LastMoveBefore(stateMachine, TENDON)) {
+                if (!LastMove(stateMachine, TENDON)) {
                     possibilities.Add(TENDON);
                 }
                 return possibilities[rng.NextInt(possibilities.Count)];
@@ -207,7 +204,7 @@ public sealed class Bremen : AbstractCardMonster
             if (!LastMove(stateMachine, TENDON)) {
                 possibilities.Add(TENDON);
             }
-            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK) && NextMoves[0].Id != BAWK) {
+            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
                 possibilities.Add(BAWK);
             }
             return possibilities[rng.NextInt(possibilities.Count)];
@@ -215,16 +212,10 @@ public sealed class Bremen : AbstractCardMonster
         else
         {
             List<string> possibilities = new List<string>();
-            if (!attackingAlly)
-            {
-                if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF) && NextMoves[0].Id != RARF) {
-                    possibilities.Add(RARF);
-                }
-            }
-            if (!LastMove(stateMachine, NEIGH) && !LastMoveBefore(stateMachine, NEIGH)) {
+            if (!LastMove(stateMachine, NEIGH)) {
                 possibilities.Add(NEIGH);
             }
-            if (!LastMove(stateMachine, TENDON) && !LastMoveBefore(stateMachine, TENDON)) {
+            if (!LastMove(stateMachine, TENDON)) {
                 possibilities.Add(TENDON);
             }
             if (!LastMove(stateMachine, CHORUS) && !LastMoveBefore(stateMachine, CHORUS)) {

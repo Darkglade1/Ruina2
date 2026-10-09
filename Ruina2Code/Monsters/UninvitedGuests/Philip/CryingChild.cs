@@ -21,8 +21,8 @@ public class CryingChild : AbstractMultiIntentMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 163, 148);
     public override int NumIntents => 1;
 
-    private int WingStrokeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
-    private int MurmurDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
+    private int WingStrokeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
+    private int MurmurDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int WeakAmt => 1;
     protected bool attackingAlly;
 

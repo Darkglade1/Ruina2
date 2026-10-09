@@ -15,7 +15,6 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 using Ruina2.Ruina2Code.Extensions;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Bremen;
 
 namespace Ruina2.Ruina2Code.Patches;
 

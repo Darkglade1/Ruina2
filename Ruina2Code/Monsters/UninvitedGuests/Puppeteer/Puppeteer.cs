@@ -34,7 +34,7 @@ public sealed class Puppeteer : AbstractCardMonster
     private int TuggingStringsHits => 2;
     private int AssailingPullsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
-    private int DebuffAmt => 1;
+    private int DebuffAmt => 2;
     private int VulnerableAmt => 1;
     private int BlockAmt => 20;
     private int DamageReduction => 50;

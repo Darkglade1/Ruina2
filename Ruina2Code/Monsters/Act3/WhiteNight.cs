@@ -38,11 +38,11 @@ public sealed class WhiteNight : AbstractRuinaMonster
     private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
     private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 16, 8);
     private int RitualGain => 2;
-    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
+    private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
     private int HealAmt => 25;
     private int BlockAmt => 30;
     private int AdventCards => 12;
-    private int StatusAmt => 3;
+    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int NumAfflictions => 11;
 
     protected override string VisualsPath => "WhiteNight/white_night.tscn".MonsterImagePath();

@@ -25,14 +25,14 @@ public sealed class Tanya : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int OverspeedDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
+    private int OverspeedDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 40, 36);
     private int OverspeedHits => 2;
-    private int KicksDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14);
+    private int KicksDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int KicksHits => 2;
-    private int LupineDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
-    private int FisticuffsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 26);
-    private int BeatdownDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 31, 28);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int LupineDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 29, 27);
+    private int FisticuffsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 32, 29);
+    private int BeatdownDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 34, 31);
+    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int DebuffAmt => 2;
     private int PlatingAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 30, 25);
     private int BlockAmt => 18;

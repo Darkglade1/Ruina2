@@ -27,15 +27,15 @@ public sealed class Oswald : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int ClimaxDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int ClimaxDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
     private int ClimaxHitsIncrease = 1;
     private int CurrentClimaxHitsIncrease = 0;
     public int ClimaxTotalHits => 4 + CurrentClimaxHitsIncrease;
-    private int FunDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
+    private int FunDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int FunHits => 2;
-    private int BrainwashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 19, 17);
+    private int BrainwashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int StatusAmt => 2;
+    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int DebuffAmt => 2;
     private int AllyDebuffAmt => 1;
 

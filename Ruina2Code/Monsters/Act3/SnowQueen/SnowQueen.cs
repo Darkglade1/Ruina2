@@ -21,13 +21,13 @@ public sealed class SnowQueen : AbstractRuinaMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 290, 260);
     public override int MaxInitialHp => MinInitialHp;
     
-    private int FrigidDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
-    private int IceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 32, 29);
+    private int FrigidDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 29, 26);
+    private int IceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 34, 31);
     private int StrAmt => 5;
     private int FrozenAmt => 1;
     
     private int PlatingAmt => 7;
-    private int DebuffAmt => 2;
+    private int DebuffAmt => 3;
     private int BlockAmt => 16;
 
     private int MaxBlizzards = 2;
