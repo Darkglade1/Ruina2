@@ -43,11 +43,6 @@ public sealed class Home : AbstractAllyMonster
         return CombatState.PlayerCreatures[0];
     }
     
-    public async Task OnRoadDeath()
-    {
-        await CreatureCmd.Kill(Creature);
-    }
-    
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
@@ -61,6 +56,10 @@ public sealed class Home : AbstractAllyMonster
                 await road.HomeDeath();
             }
         }
+    }
+    
+    public override async Task OnBossDeath()
+    {
     }
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)

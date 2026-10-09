@@ -12,7 +12,6 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
-using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Binah;
 using Ruina2.Ruina2Code.Extensions;
@@ -211,16 +210,17 @@ public sealed class Binah : AbstractAllyCardMonster
         }
     }
     
-    public async Task OnBossDeath()
+    public override async Task OnBossDeath()
     {
         if ((elena == null || elena.IsDead) && (vermilion == null || vermilion.IsDead))
         {
-            SetToSide(CombatSide.Enemy);
-            await ResetIdle(0.5f);
-            TalkCmd.Play(L10NMonsterLookup("RUINA2-BINAH.victory"), Creature, VfxColor.Black);
-            await WaitAnimation(2.0f);
-            await CreatureCmd.Kill(Creature);
+            await base.OnBossDeath();
         }
+    }
+    
+    protected override void BattleEndTalk()
+    {
+        TalkCmd.Play(L10NMonsterLookup("RUINA2-BINAH.victory"), Creature, VfxColor.Black);
     }
     
     private async Task PillarAnimation()

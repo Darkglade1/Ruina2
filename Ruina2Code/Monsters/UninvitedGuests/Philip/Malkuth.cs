@@ -353,13 +353,9 @@ public sealed class Malkuth : AbstractAllyCardMonster
         }
     }
     
-    public async Task OnBossDeath()
+    protected override void BattleEndTalk()
     {
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-MALKUTH.victory"), Creature, VfxColor.Gold);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
 
     private async Task SlashAnimation(IReadOnlyList<Creature> targets)

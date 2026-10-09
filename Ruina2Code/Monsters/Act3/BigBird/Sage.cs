@@ -90,13 +90,9 @@ public class Sage : AbstractAllyMonster
         await ResetIdle();
     }
     
-    public virtual async Task OnBigBirdDeath()
+    protected override void BattleEndTalk()
     {
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-SAGE.birdDeath1"), Creature, VfxColor.Black);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
 
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)

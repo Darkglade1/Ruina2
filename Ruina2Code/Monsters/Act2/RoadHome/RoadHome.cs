@@ -194,13 +194,6 @@ public sealed class RoadHome : AbstractMultiIntentMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
-        if (creature == Creature && OtherSideTargetMonster?.Monster is Home home)
-        {
-            if (home.Creature.IsAlive)
-            {
-                await home.OnRoadDeath();
-            }
-        }
         if (creature == Creature && Cat?.Monster is ScaredyCat cat)
         {
             if (cat.Creature.IsAlive)

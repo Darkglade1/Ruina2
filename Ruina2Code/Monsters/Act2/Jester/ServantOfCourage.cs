@@ -125,13 +125,9 @@ public sealed class ServantOfCourage : AbstractAllyMonster
         await ResetIdle();
     }
     
-    public async Task OnJesterDeath()
+    protected override void BattleEndTalk()
     {
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-COURAGE.victory"), Creature, VfxColor.Green);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
     
     public override Task AfterDeath(

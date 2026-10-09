@@ -386,11 +386,11 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
         {
             if (girl1 != null && girl1.IsAlive && girl1.Monster is QueenOfLove queen)
             {
-                await queen.OnJesterDeath();
+                await queen.OnBossDeath();
             }
             if (girl2 != null && girl2.IsAlive && girl2.Monster is ServantOfCourage servant)
             {
-                await servant.OnJesterDeath();
+                await servant.OnBossDeath();
             }
         }
     }

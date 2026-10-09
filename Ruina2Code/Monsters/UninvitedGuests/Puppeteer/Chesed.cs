@@ -298,13 +298,9 @@ public sealed class Chesed : AbstractAllyCardMonster
         return 1M;
     }
     
-    public async Task OnBossDeath()
+    protected override void BattleEndTalk()
     {
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-CHESED.victory"), Creature, VfxColor.Blue);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
 
     private async Task SlashAnimation(IReadOnlyList<Creature> targets)

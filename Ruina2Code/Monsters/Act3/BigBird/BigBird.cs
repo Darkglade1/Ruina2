@@ -368,11 +368,11 @@ public sealed class BigBird : AbstractMultiIntentMonster
         {
             if (sage1 != null && sage1.IsAlive && sage1.Monster is Sage sage)
             {
-                await sage.OnBigBirdDeath();
+                await sage.OnBossDeath();
             }
             if (sage2 != null && sage2.IsAlive && sage2.Monster is Sage sageTwo)
             {
-                await sageTwo.OnBigBirdDeath();
+                await sageTwo.OnBossDeath();
             }
         }
     }

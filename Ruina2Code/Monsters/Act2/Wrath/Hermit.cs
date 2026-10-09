@@ -248,7 +248,7 @@ public sealed class Hermit : AbstractMultiIntentMonster
         {
             if (wrath.Creature.IsAlive)
             {
-                await wrath.OnHermitDeath();
+                await wrath.OnBossDeath();
             }
         }
     }

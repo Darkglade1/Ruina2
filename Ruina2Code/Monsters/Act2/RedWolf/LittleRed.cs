@@ -175,7 +175,7 @@ public sealed class LittleRed : AbstractAllyMonster
                 .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
             if (targetKilled && attackingWolf)
             {
-                await OnKillWolf();
+                await OnBossDeath();
             }
             await ResetIdle();
         }
@@ -196,7 +196,7 @@ public sealed class LittleRed : AbstractAllyMonster
             .Any((Func<DamageResult, bool>)(r => r.WasTargetKilled));
         if (targetKilled && attackingWolf)
         {
-            await OnKillWolf();
+            await OnBossDeath();
         }
         await ApplyPowerAndSkipNextDurationTickIfNotPresent<VulnerablePower>(targets, DebuffAmt);
         await ResetIdle();
@@ -223,14 +223,15 @@ public sealed class LittleRed : AbstractAllyMonster
         }
     }
 
-    private async Task OnKillWolf()
+    public override async Task OnBossDeath()
     {
         killedWolf = true;
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
+        await base.OnBossDeath();
+    }
+    
+    protected override void BattleEndTalk()
+    {
         TalkCmd.Play(L10NMonsterLookup("RUINA2-LITTLE_RED.killWolf"), Creature, VfxColor.Red);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
 
     public async Task Enrage()

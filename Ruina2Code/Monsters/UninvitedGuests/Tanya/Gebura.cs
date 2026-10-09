@@ -328,13 +328,15 @@ public sealed class Gebura : AbstractAllyCardMonster
         await ResetIdle(1.0f, phase);
     }
     
-    public async Task OnBossDeath()
+    public override async Task OnBossDeath()
     {
-        SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
+        await ResetIdle(0.0f, phase);
+        await base.OnBossDeath();
+    }
+    
+    protected override void BattleEndTalk()
+    {
         TalkCmd.Play(L10NMonsterLookup("RUINA2-GEBURA.victory"), Creature, VfxColor.Red);
-        await WaitAnimation(2.0f);
-        await CreatureCmd.Kill(Creature);
     }
     
     public override async Task AfterSideTurnEndLate(
