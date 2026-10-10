@@ -1,5 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Hooks;
@@ -179,6 +180,19 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
         OtherSideTargetMonster = null;
         NextMoves = new();
         Targets = new();
+    }
+
+    protected Creature GetPlayerTarget()
+    {
+        var player = LocalContext.GetMe(CombatState);
+        if (player != null)
+        {
+            return player.Creature;
+        }
+        else
+        {
+            return CombatState.PlayerCreatures[0];
+        }
     }
 }
 

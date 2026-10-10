@@ -112,7 +112,7 @@ public sealed class ServantOfWrath : AbstractAllyMonster
     {
         if (enraged)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }  
         if (OtherSideTargetMonster != null)
         {
@@ -125,7 +125,7 @@ public sealed class ServantOfWrath : AbstractAllyMonster
                 return OtherSideTargetMonster;
             }
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task Rage(IReadOnlyList<Creature> targets)

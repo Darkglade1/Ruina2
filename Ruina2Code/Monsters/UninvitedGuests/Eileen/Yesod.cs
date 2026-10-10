@@ -86,7 +86,7 @@ public sealed class Yesod : AbstractAllyCardMonster
 
     public override Creature DetermineTargetForIntent(int intentNum)
     {
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()

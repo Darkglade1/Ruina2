@@ -48,6 +48,6 @@ public sealed class FreshMeat : AbstractMultiIntentMonster
 
     public override Creature DetermineTargetForIntent(int intentNum)
     {
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 }

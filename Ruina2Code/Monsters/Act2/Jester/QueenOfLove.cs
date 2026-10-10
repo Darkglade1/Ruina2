@@ -99,7 +99,7 @@ public sealed class QueenOfLove : AbstractAllyMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task LoveAndJustice(IReadOnlyList<Creature> targets)

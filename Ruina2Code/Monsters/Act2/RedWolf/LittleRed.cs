@@ -144,7 +144,7 @@ public sealed class LittleRed : AbstractAllyMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task CatchBreath(IReadOnlyList<Creature> targets)

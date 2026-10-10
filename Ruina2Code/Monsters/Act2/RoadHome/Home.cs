@@ -40,7 +40,7 @@ public sealed class Home : AbstractAllyMonster
 
     public override Creature DetermineTargetForIntent(int intentNum)
     {
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override async Task AfterDeath(

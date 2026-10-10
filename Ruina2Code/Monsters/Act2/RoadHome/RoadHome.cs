@@ -143,7 +143,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
     {
         if (OtherSideTargetMonster != null && OtherSideTargetMonster.IsDead)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         else if (OtherSideTargetMonster != null)
         {
@@ -151,7 +151,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
         }
         else
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
     }
 

@@ -158,7 +158,7 @@ public sealed class Gebura : AbstractAllyCardMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()

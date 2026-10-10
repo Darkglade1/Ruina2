@@ -150,7 +150,7 @@ public sealed class Chesed : AbstractAllyCardMonster
                 return OtherSideTargetMonster;
             }
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()

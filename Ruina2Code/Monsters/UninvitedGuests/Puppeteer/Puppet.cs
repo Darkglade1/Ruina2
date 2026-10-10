@@ -137,7 +137,7 @@ public class Puppet : AbstractMultiIntentMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task ForcefulGesture(IReadOnlyList<Creature> targets)

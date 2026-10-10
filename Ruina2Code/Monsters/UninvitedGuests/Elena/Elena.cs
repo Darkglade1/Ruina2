@@ -171,20 +171,20 @@ public sealed class Elena : AbstractCardMonster
     {
         if (intentNum == 0)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         if (intentNum == 1 && NextMoves.Count >= 2)
         {
             if (NextMoves[intentNum].Id == BLOODSPREADING || NextMoves[intentNum].Id == INJECT)
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
         }
         if (intentNum == 1 && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override Dictionary<string, CardModel> GenerateMoveToCardMap()

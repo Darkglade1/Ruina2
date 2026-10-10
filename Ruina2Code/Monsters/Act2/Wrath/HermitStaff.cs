@@ -63,7 +63,7 @@ public sealed class HermitStaff : AbstractMultiIntentMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task Attack(IReadOnlyList<Creature> targets)

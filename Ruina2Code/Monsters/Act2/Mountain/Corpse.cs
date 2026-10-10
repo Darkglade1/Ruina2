@@ -49,7 +49,7 @@ public sealed class Corpse : AbstractMultiIntentMonster
 
     public override Creature DetermineTargetForIntent(int intentNum)
     {
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
     
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)

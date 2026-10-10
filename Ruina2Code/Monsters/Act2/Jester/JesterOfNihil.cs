@@ -226,7 +226,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
         {
             if (NextMoves[0].Id == WILL_OF_NIHIL)
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
             if (numIntentThatCanRampage == 2 && rampageCooldown <= 0)
             {
@@ -235,7 +235,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
                     return girl2;
                 }
             }
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
 
         if (intentNum == 1)
@@ -252,7 +252,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
             {
                 return girl1;
             }
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         if (intentNum == 2)
         {
@@ -260,9 +260,9 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
             {
                 return girl2;
             }
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task WillOfNihil(IReadOnlyList<Creature> targets)

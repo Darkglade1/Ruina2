@@ -97,7 +97,7 @@ public sealed class ServantOfCourage : AbstractAllyMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task Help(IReadOnlyList<Creature> targets)

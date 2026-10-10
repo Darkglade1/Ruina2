@@ -242,33 +242,33 @@ public sealed class BigBird : AbstractMultiIntentMonster
     {
         if (intentNum == 0)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
 
         if (intentNum == 1)
         {
             if (NextMoves[intentNum].Id == DAZZLE_PLAYER2)
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
             if (sage1 != null && sage1.IsAlive)
             {
                 return sage1;
             }
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         if (intentNum == 2)
         {
             if (NextMoves[intentNum].Id == DAZZLE_PLAYER2)
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
             if (sage2 != null && sage2.IsAlive)
             {
                 return sage2;
             }
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task Salvation(IReadOnlyList<Creature> targets)

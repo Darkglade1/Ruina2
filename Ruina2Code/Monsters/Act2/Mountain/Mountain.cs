@@ -290,20 +290,20 @@ public sealed class Mountain : AbstractMultiIntentMonster
     {
         if (intentNum == 0)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         if (intentNum == 1)
         {
             if (phase == STAGE3)
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             } else if (phase == STAGE2 && NextMoves[intentNum].Id == DEVOUR && OtherSideTargetMonster != null)
             {
                 return OtherSideTargetMonster;
             }
             else
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
         }
         if (intentNum == 2)
@@ -314,10 +314,10 @@ public sealed class Mountain : AbstractMultiIntentMonster
             }
             else
             {
-                return CombatState.PlayerCreatures[0];
+                return GetPlayerTarget();
             }
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task Devour(IReadOnlyList<Creature> targets)

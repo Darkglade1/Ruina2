@@ -90,7 +90,7 @@ public class CryingChild : AbstractMultiIntentMonster
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task WingStroke(IReadOnlyList<Creature> targets)
