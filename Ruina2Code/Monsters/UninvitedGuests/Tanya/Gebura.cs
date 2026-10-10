@@ -344,7 +344,9 @@ public sealed class Gebura : AbstractAllyCardMonster
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (participants.Contains(Creature))
+        var enumerable = participants.ToList();
+        await base.AfterSideTurnEndLate(choiceContext, side, enumerable);
+        if (enumerable.Contains(Creature))
         {
             if (!ManifestedEgo)
             {
