@@ -26,6 +26,21 @@ public sealed class RunawayBird : AbstractRuinaMonster
 
     private const string SWEEP = "SWEEP";
     private const string SHRIEK = "SHRIEK";
+    
+    private int attackCounter;
+    
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        for (int i = 0; i < CombatState.HittableEnemies.Count; i++)
+        {
+            if (Creature == CombatState.HittableEnemies[i])
+            {
+                attackCounter = i;
+                break;
+            }
+        }
+    }
 
     private MoveState GetSweepState()
     {
@@ -57,14 +72,16 @@ public sealed class RunawayBird : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        List<string> possibilities = new List<string>();
-        if (!LastTwoMoves(stateMachine, SWEEP)) {
-            possibilities.Add(SWEEP);
+        if (attackCounter % 2 == 0 && CombatState.RoundNumber == 1)
+        {
+            return SWEEP;
         }
-        if (!LastMove(stateMachine, SHRIEK)) {
-            possibilities.Add(SHRIEK);
+
+        if (LastMove(stateMachine, SHRIEK))
+        {
+            return SWEEP;
         }
-        return possibilities[rng.NextInt(possibilities.Count)];
+        return SHRIEK;
     }
     
     private async Task Sweep(IReadOnlyList<Creature> targets)

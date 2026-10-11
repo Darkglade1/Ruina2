@@ -26,6 +26,21 @@ public sealed class EyeballChick : AbstractRuinaMonster
 
     private const string STARE = "STARE";
     private const string PIERCE = "PIERCE";
+    
+    private int attackCounter;
+    
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        for (int i = 0; i < CombatState.HittableEnemies.Count; i++)
+        {
+            if (Creature == CombatState.HittableEnemies[i])
+            {
+                attackCounter = i;
+                break;
+            }
+        }
+    }
 
     private MoveState GetStareState()
     {
@@ -57,14 +72,16 @@ public sealed class EyeballChick : AbstractRuinaMonster
     
     private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
     {
-        List<string> possibilities = new List<string>();
-        if (!LastMove(stateMachine, STARE)) {
-            possibilities.Add(STARE);
+        if (attackCounter % 2 == 0 && CombatState.RoundNumber == 1)
+        {
+            return PIERCE;
         }
-        if (!LastTwoMoves(stateMachine, PIERCE)) {
-            possibilities.Add(PIERCE);
+
+        if (LastMove(stateMachine, STARE))
+        {
+            return PIERCE;
         }
-        return possibilities[rng.NextInt(possibilities.Count)];
+        return STARE;
     }
     
     private async Task Stare(IReadOnlyList<Creature> targets)
