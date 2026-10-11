@@ -124,6 +124,11 @@ public static class RewardsSetPatch
                 __result.Remove(relicReward);
             }
         }
+
+        if (player.RunState.CurrentActIndex == 2 && room.RoomType == RoomType.Boss)
+        {
+            __result.Clear();   
+        }
     }
 }
 
