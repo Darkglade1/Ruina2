@@ -208,3 +208,55 @@ public static class NNormalMapPointIconPatch
         }
     }
 }
+
+[HarmonyPatch(typeof(RunManager), "GenerateRooms")]
+internal static class RoomGenerationPatch
+{
+	private static void Postfix(RunManager __instance)
+	{
+		if (RunManager.Instance.State != null)
+		{
+			var finalAct = RunManager.Instance.State.Acts.OfType<UninvitedGuests>().FirstOrDefault();
+			if (finalAct != null)
+			{
+				RestoreVanillaFinalActDoubleBoss(RunManager.Instance.State, finalAct);
+			}
+		}
+	}
+
+	private static void RestoreVanillaFinalActDoubleBoss(RunState runState, ActModel finalAct)
+	{
+		if (runState.AscensionLevel < 10)
+		{
+			return;
+		}
+		int num = runState.Acts.FindIndex((ActModel act) => act == finalAct);
+		if (num <= 0)
+		{
+			return;
+		}
+		ActModel precedingAct = runState.Acts[num - 1];
+		if (!precedingAct.HasSecondBoss)
+		{
+			List<EncounterModel> list = precedingAct.AllBossEncounters.Where((EncounterModel encounter) => encounter.Id != precedingAct.BossEncounter.Id).OrderBy<EncounterModel, string>((EncounterModel encounter) => encounter.Id.Entry, StringComparer.Ordinal).ToList();
+			if (list.Count == 0)
+			{
+				return;
+			}
+			EncounterModel encounterModel = runState.Rng.UpFront.NextItem(list);
+			precedingAct.SetSecondBossEncounter(encounterModel);
+		}
+	}
+
+	private static int FindIndex<T>(this IReadOnlyList<T> items, Func<T, bool> predicate)
+	{
+		for (int i = 0; i < items.Count; i++)
+		{
+			if (predicate(items[i]))
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+}

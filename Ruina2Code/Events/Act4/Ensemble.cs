@@ -1,10 +1,18 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Events;
+using MegaCrit.Sts2.Core.Multiplayer.Game;
+using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
+using MegaCrit.Sts2.Core.Nodes.Screens.Map;
+using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Relics;
 
@@ -20,7 +28,7 @@ public class Ensemble() : Ruina2Event()
         heal = (int)((Owner!.Creature.MaxHp - Owner!.Creature.CurrentHp) * (healPercent / 100f));
         var option = Option(MakeAStand, HoverTipFactory.FromRelic<BookOfSomeone>());
         option.Description.Add("ActualHeal", heal);
-        return [option];
+        return [option, Option(Leave)];
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ 
@@ -32,6 +40,14 @@ public class Ensemble() : Ruina2Event()
         await CreatureCmd.Heal(Owner!.Creature, heal);
         await RelicCmd.Obtain(ModelDb.Relic<BookOfSomeone>().ToMutable(), Owner!);
         SetEventFinished(PageDescription("MAKE_A_STAND"));
+    }
+    
+    public async Task Leave()
+    {
+        if (LocalContext.IsMe(Owner))
+        {
+            await RunManager.Instance.WinRun();   
+        }
     }
     
     protected override bool IsAllowedForAct(ActModel act)

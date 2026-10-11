@@ -233,5 +233,7 @@
   "RUINA2-ENSEMBLE.pages.INITIAL.description": "“哦哦哦哦哦！再敲几下，门就会开的！”\n\n“这地方的入口坚固得很，我们费了好大劲才勉强挤了进来。”\n\n“毕竟这是一场耐力的考验嘛！敲了几下门就放弃可没什么用！”\n\n“好了朋友们，你们要是再吵闹一点，恐怕会把这里的住户吓跑的。我们最好表现出足够的尊重，免得他们躲到书架后面去，不是吗？”",
   "RUINA2-ENSEMBLE.pages.INITIAL.options.MAKE_A_STAND.title": "表明立场",
   "RUINA2-ENSEMBLE.pages.INITIAL.options.MAKE_A_STAND.description": "恢复[green]{ActualHeal}[/green]点生命。获得[gold]{Relic}[/gold]。",
+  "RUINA2-ENSEMBLE.pages.INITIAL.options.LEAVE.title": "离开",
+  "RUINA2-ENSEMBLE.pages.INITIAL.options.LEAVE.description": "宣告胜利并结束本局游戏。",
   "RUINA2-ENSEMBLE.pages.MAKE_A_STAND.description": "你不知道究竟是什么驱使你这样做，甘愿为了这样一处地方冒上自己的[gold]性命[/gold]危险。但你能感觉到，这里存在着一道[gold]光[/gold]，一线希望之光，而那些恶徒正企图将其[purple]玷污[/purple]。\n\n而你，绝不会坐视不理。"
 }
