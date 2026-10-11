@@ -77,7 +77,7 @@ public sealed class RunawayBird : AbstractRuinaMonster
             return SWEEP;
         }
 
-        if (LastMove(stateMachine, SHRIEK))
+        if (LastMove(stateMachine, SHRIEK) || LastMoveBefore(stateMachine, SHRIEK))
         {
             return SWEEP;
         }

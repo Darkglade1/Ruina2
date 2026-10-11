@@ -77,7 +77,7 @@ public sealed class EyeballChick : AbstractRuinaMonster
             return PIERCE;
         }
 
-        if (LastMove(stateMachine, STARE))
+        if (LastMove(stateMachine, STARE) || LastMoveBefore(stateMachine, STARE))
         {
             return PIERCE;
         }
