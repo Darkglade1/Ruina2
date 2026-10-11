@@ -21,7 +21,7 @@ public class SmallBeak() : Ruina2Power
     
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1), new("CardsAffected", 0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("CostIncrease", 1), new("CardsAffected", 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Punished>();
     
     public override Task BeforeHandDraw(
