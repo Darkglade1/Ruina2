@@ -28,6 +28,6 @@ public class OurGalaxy() : EGOCard(1,
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }
