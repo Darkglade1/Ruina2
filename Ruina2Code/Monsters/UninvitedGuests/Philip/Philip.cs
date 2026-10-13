@@ -172,79 +172,120 @@ public sealed class Philip : AbstractCardMonster
             List<string> possibilities = new List<string>();
             if (!gotBonusDamage && !gotBonusIntent)
             {
-                if (!LastMove(stateMachine, EVENTIDE)) {
-                    possibilities.Add(EVENTIDE);
+                if (LastMove(stateMachine, EVENTIDE))
+                {
+                    return STIGMATIZE;
+                } else if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SEARING;
                 }
-            }
-
-            if (!gotBonusDamage)
+                else
+                {
+                    return EVENTIDE;
+                }
+            } else if (gotBonusIntent)
             {
-                if (!LastMove(stateMachine, SEARING)) {
-                    possibilities.Add(SEARING);
+                if (stateMachine.StateLog.Count >= 3)
+                {
+                    stateMachine.StateLog.Clear();
                 }
-            }
-            if (!LastMove(stateMachine, STIGMATIZE)) {
-                possibilities.Add(STIGMATIZE);
-            }
 
-            if (gotBonusIntent)
-            {
-                if (!LastMove(stateMachine, SORROW)) {
-                    possibilities.Add(SORROW);
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SORROW;
+                } else if (LastMove(stateMachine, SORROW))
+                {
+                    return SEARING;
+                }
+                else
+                {
+                    return STIGMATIZE;
                 }
             }
-            return possibilities[rng.NextInt(possibilities.Count)];
+            else
+            {
+                if (LastMove(stateMachine, SORROW))
+                {
+                    return STIGMATIZE;
+                }
+                else
+                {
+                    return SORROW;
+                }
+            }
         } else if (intentNum == 1)
         {
-            List<string> possibilities = new List<string>();
-            if (!gotBonusDamage)
+            if (!gotBonusDamage && !gotBonusIntent)
             {
-                if (!LastMove(stateMachine, SEARING)) {
-                    possibilities.Add(SEARING);
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SEARING;
+                } else if (LastMove(stateMachine, SEARING))
+                {
+                    return EMOTIONS;
+                }
+                else
+                {
+                    return STIGMATIZE;
+                }
+            } else if (gotBonusIntent)
+            {
+                if (stateMachine.StateLog.Count >= 3)
+                {
+                    stateMachine.StateLog.Clear();
+                }
+
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SEARING;
+                } else if (LastMove(stateMachine, SORROW))
+                {
+                    return STIGMATIZE;
+                }
+                else
+                {
+                    return SORROW;
                 }
             }
-            if (!LastMove(stateMachine, STIGMATIZE)) {
-                possibilities.Add(STIGMATIZE);
-            }
-            if (gotBonusIntent)
+            else
             {
-                if (!LastMove(stateMachine, SORROW)) {
-                    possibilities.Add(SORROW);
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SORROW;
+                }
+                else
+                {
+                    return STIGMATIZE;
                 }
             }
-            if (!gotBonusIntent && !gotBonusDamage)
-            {
-                if (!LastMove(stateMachine, EMOTIONS)) {
-                    possibilities.Add(EMOTIONS);
-                }
-            }
-            return possibilities[rng.NextInt(possibilities.Count)];
         }
         else
         {
-            List<string> possibilities = new List<string>();
             if (!gotBonusDamage)
             {
-                if (!LastMove(stateMachine, SEARING)) {
-                    possibilities.Add(SEARING);
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SEARING;
+                } else if (LastMove(stateMachine, SEARING))
+                {
+                    return EMOTIONS;
+                }
+                else
+                {
+                    return STIGMATIZE;
                 }
             }
-            if (!LastMove(stateMachine, STIGMATIZE)) {
-                possibilities.Add(STIGMATIZE);
-            }
-            if (gotBonusIntent)
+            else
             {
-                if (!LastMove(stateMachine, SORROW)) {
-                    possibilities.Add(SORROW);
+                if (LastMove(stateMachine, STIGMATIZE))
+                {
+                    return SEARING;
+                }
+                else
+                {
+                    return STIGMATIZE;
                 }
             }
-            if (gotBonusIntent && !gotBonusDamage)
-            {
-                if (!LastMove(stateMachine, EMOTIONS)) {
-                    possibilities.Add(EMOTIONS);
-                }
-            }
-            return possibilities[rng.NextInt(possibilities.Count)];
         }
     }
 
@@ -387,7 +428,7 @@ public sealed class Philip : AbstractCardMonster
     {
         if (participants.Contains(Creature))
         {
-            attackingAlly = Rng.NextBool();
+            attackingAlly = !attackingAlly;
             if (CombatState.RoundNumber >= FirstChangeTurn && !gotBonusIntent)
             {
                 gotBonusIntent = true;

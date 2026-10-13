@@ -325,7 +325,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ApplyPowerAndSkipNextDurationTick<WeakPower>(targets, DebuffAmt);
+        await ApplyPowerAndSkipNextDurationTickIfNotPresent<WeakPower>(targets, DebuffAmt);
         await ResetIdle();
     }
 

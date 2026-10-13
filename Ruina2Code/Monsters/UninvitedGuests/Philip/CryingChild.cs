@@ -100,7 +100,7 @@ public class CryingChild : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await ApplyPowerAndSkipNextDurationTick<WeakPower>(targets, WeakAmt);
+        await ApplyPowerAndSkipNextDurationTickIfNotPresent<WeakPower>(targets, WeakAmt);
         await ResetIdle();
     }
     
