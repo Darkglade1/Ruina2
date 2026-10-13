@@ -57,7 +57,7 @@ public class Puppet : AbstractMultiIntentMonster
         puppeteer = FindTarget<Puppeteer>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
         await PowerCmd.Apply<PuppetStrings>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
-        attackingAlly = Rng.NextBool();
+        attackingAlly = true;
     }
 
     private MoveState GetForcefulGestureState()

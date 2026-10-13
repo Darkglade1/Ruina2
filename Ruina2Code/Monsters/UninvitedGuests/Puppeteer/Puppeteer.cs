@@ -137,60 +137,28 @@ public sealed class Puppeteer : AbstractCardMonster
             } else if (LastMove(stateMachine, ASSAILING_PULLS))
             {
                 return TUGGING_STRINGS;
+            } else if (LastMove(stateMachine, TUGGING_STRINGS))
+            {
+                return THIN_STRINGS;
             }
             else
             {
-                List<string> possibilities = new List<string>();
-                if (!LastMove(stateMachine, TUGGING_STRINGS)) {
-                    possibilities.Add(TUGGING_STRINGS);
-                }
-                if (!LastMove(stateMachine, ASSAILING_PULLS) && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive && !AboutToMassAttack(stateMachine)) {
-                    possibilities.Add(ASSAILING_PULLS);
-                }
-                if (!LastMove(stateMachine, THIN_STRINGS)) {
-                    possibilities.Add(THIN_STRINGS);
-                }
-                if (possibilities.Count == 0)
-                {
-                    possibilities.Add(TUGGING_STRINGS);
-                }
-                return possibilities[rng.NextInt(possibilities.Count)];
+                return ASSAILING_PULLS;
             }
         } else
         {
-            if (LastMove(stateMachine, ASSAILING_PULLS))
+            if (LastMove(stateMachine, TUGGING_STRINGS) && LastMoveBefore(stateMachine, ASSAILING_PULLS))
             {
-                return TUGGING_STRINGS;
+                return PUPPETRY;
+            } else if (LastMove(stateMachine, TUGGING_STRINGS))
+            {
+                return ASSAILING_PULLS;
             }
             else
             {
-                List<string> possibilities = new List<string>();
-                if (!LastMove(stateMachine, TUGGING_STRINGS)) {
-                    possibilities.Add(TUGGING_STRINGS);
-                }
-                if (!LastMove(stateMachine, ASSAILING_PULLS) && NextMoves[0].Id != ASSAILING_PULLS && !AboutToMassAttack(stateMachine)) {
-                    possibilities.Add(ASSAILING_PULLS);
-                }
-                if (!LastMove(stateMachine, PUPPETRY)) {
-                    possibilities.Add(PUPPETRY);
-                }
-                if (possibilities.Count == 0)
-                {
-                    possibilities.Add(TUGGING_STRINGS);
-                }
-                return possibilities[rng.NextInt(possibilities.Count)];
+                return TUGGING_STRINGS;
             }
         }
-    }
-    
-    private bool AboutToMassAttack(MonsterMoveStateMachine stateMachine) {
-        if (stateMachine.StateLog.Count == 2) {
-            return true;
-        }
-        if (LastMoveBeforeBefore(stateMachine, PULLING_STRINGS_TAUT)) {
-            return true;
-        }
-        return false;
     }
 
     public override List<MonsterMoveStateMachine> GenerateMultiIntentMoveStateMachine()
