@@ -41,7 +41,7 @@ public sealed class Greta : AbstractCardMonster
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
     private int ParalysisAmt => 2;
     private int BleedAmt => 4;
-    private int AllyDebuffAmt => 3;
+    private int AllyDebuffAmt => 2;
     private int BlockAmt => 20;
     private int DamageReduction => 50;
     private int PowerTurns => 3;
@@ -218,10 +218,10 @@ public sealed class Greta : AbstractCardMonster
                 stateMachine.StateLog.Clear();
             }
             List<string> possibilities = new List<string>();
-            if (!LastMove(stateMachine, BREAK_EGG) && !LastMoveBefore(stateMachine, BREAK_EGG)) {
+            if (!LastMove(stateMachine, BREAK_EGG)) {
                 possibilities.Add(BREAK_EGG);
             }
-            if (!LastMove(stateMachine, MINCE) && !LastMoveBefore(stateMachine, MINCE)) {
+            if (!LastMove(stateMachine, MINCE)) {
                 possibilities.Add(MINCE);
             }
             if (!LastMove(stateMachine, SLAP) && !LastMoveBefore(stateMachine, SLAP)) {
@@ -238,9 +238,6 @@ public sealed class Greta : AbstractCardMonster
             }
             if (!LastMove(stateMachine, SEASON) && !LastMoveBefore(stateMachine, SEASON)) {
                 possibilities.Add(SEASON);
-            }
-            if (!LastMove(stateMachine, SLAP) && !LastMoveBefore(stateMachine, SLAP)) {
-                possibilities.Add(SLAP);
             }
             return possibilities[rng.NextInt(possibilities.Count)];
         }

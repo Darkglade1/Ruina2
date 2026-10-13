@@ -306,7 +306,7 @@
   "RUINA2-DARK_BARGAIN.smartDescription": "这个生物的[gold]群体攻击[/gold]会以所有其他角色（包括你）为目标。\n这个生物的攻击对敌人造成的伤害增加[blue]{DamageBonus}%[/blue]。\n每当{IsMultiplayer:一名玩家|你}完全[gold]格挡[/gold]这个生物[gold]群体攻击[/gold]的一次命中时，此加成增加[blue]{Increase}%[/blue]。",
   "RUINA2-DARK_BARGAIN.title": "黑暗交易",
   "RUINA2-FRESH_MEAT_POWER.description": "",
-  "RUINA2-FRESH_MEAT_POWER.smartDescription": "死亡时，被偷取的牌将归还到你的[gold]手牌[/gold]中。",
+  "RUINA2-FRESH_MEAT_POWER.smartDescription": "死亡时，被偷取的牌将归还到你的[gold]抽牌堆[/gold]中。",
   "RUINA2-FRESH_MEAT_POWER.title": "鲜肉",
   "RUINA2-SHARKSKIN.description": "",
   "RUINA2-SHARKSKIN.smartDescription": "每[blue]{Turns}[/blue]回合，这个生物获得[blue]{ArtifactPower}[/blue]层[gold]人工制品[/gold]。这个生物在拥有[gold]人工制品[/gold]期间，从攻击中受到的伤害减少[blue]{Amount}%[/blue]。",

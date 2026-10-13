@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Ruina2.Ruina2Code.Relics;
 
 namespace Ruina2.Ruina2Code.Powers.UninvitedGuests;
@@ -60,7 +62,12 @@ public class FreshMeatPower : Ruina2Power
             {
                 allCards.Add(StolenCard);
             }
-            await CardPileCmd.Add(StolenCard, PileType.Hand);
+            var result = await CardPileCmd.Add(StolenCard, PileType.Draw, CardPilePosition.Random);
+            if (LocalContext.IsMe(Target))
+            {
+                CardCmd.PreviewCardPileAdd(result, style: CardPreviewStyle.HorizontalLayout);
+                await Cmd.Wait(1f);
+            }
         }
     }
 

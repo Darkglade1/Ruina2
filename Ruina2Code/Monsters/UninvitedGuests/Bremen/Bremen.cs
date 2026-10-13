@@ -68,6 +68,7 @@ public sealed class Bremen : AbstractCardMonster
             await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, MelodyFragileAmt, Creature, null);
         }
         TalkCmd.Play(L10NMonsterLookup("RUINA2-BREMEN.talk"), Creature, VfxColor.Green);
+        attackingAlly = true;
     }
 
     private MoveState GetChorusState()
@@ -198,30 +199,35 @@ public sealed class Bremen : AbstractCardMonster
         } else if (intentNum == 1)
         {
             List<string> possibilities = new List<string>();
+            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
+                possibilities.Add(BAWK);
+            }
             if (!LastMove(stateMachine, NEIGH)) {
                 possibilities.Add(NEIGH);
             }
             if (!LastMove(stateMachine, TENDON)) {
                 possibilities.Add(TENDON);
-            }
-            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
-                possibilities.Add(BAWK);
             }
             return possibilities[rng.NextInt(possibilities.Count)];
         }
         else
         {
-            List<string> possibilities = new List<string>();
-            if (!LastMove(stateMachine, NEIGH)) {
-                possibilities.Add(NEIGH);
+            if (stateMachine.StateLog.Count >= 2 && !LastMove(stateMachine, CHORUS) &&
+                !LastMoveBefore(stateMachine, CHORUS))
+            {
+                return CHORUS;
             }
-            if (!LastMove(stateMachine, TENDON)) {
-                possibilities.Add(TENDON);
+            else
+            {
+                List<string> possibilities = new List<string>();
+                if (!LastMove(stateMachine, NEIGH)) {
+                    possibilities.Add(NEIGH);
+                }
+                if (!LastMove(stateMachine, TENDON)) {
+                    possibilities.Add(TENDON);
+                }
+                return possibilities[rng.NextInt(possibilities.Count)];
             }
-            if (!LastMove(stateMachine, CHORUS) && !LastMoveBefore(stateMachine, CHORUS)) {
-                possibilities.Add(CHORUS);
-            }
-            return possibilities[rng.NextInt(possibilities.Count)];
         }
     }
 
