@@ -188,13 +188,25 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         await CreatureCmd.GainBlock(Creature, Creature.ScaleHpForMultiplayer(amount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), ValueProp.Move, null);
     }
     
-    public virtual async Task OnBossDeath()
+    public virtual async Task OnBossDeath(int phase)
     {
         SetToSide(CombatSide.Enemy);
-        await ResetIdle(0.5f);
+        if (phase > -1)
+        {
+            await ResetIdle(0.5f, phase);
+        }
+        else
+        {
+            await ResetIdle(0.5f);
+        }
         BattleEndTalk();
         await WaitAnimation(2.0f);
         SetToSide(CombatSide.Player);
+    }
+    
+    public virtual async Task OnBossDeath()
+    {
+        await OnBossDeath(-1);
     }
 
     protected virtual void BattleEndTalk()

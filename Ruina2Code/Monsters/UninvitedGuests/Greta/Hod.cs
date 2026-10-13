@@ -349,6 +349,11 @@ public sealed class Hod : AbstractAllyCardMonster
         await ResetIdle(0.5f, currentStance);
     }
     
+    public override async Task OnBossDeath()
+    {
+        await base.OnBossDeath(currentStance);
+    }
+    
     protected override void BattleEndTalk()
     {
         TalkCmd.Play(L10NMonsterLookup("RUINA2-HOD.victory"), Creature, VfxColor.Gold);

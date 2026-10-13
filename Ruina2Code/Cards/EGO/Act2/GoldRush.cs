@@ -59,6 +59,6 @@ public class GoldRush() : EGOCard(3,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["StrengthPower"].UpgradeValueBy(2);
+        DynamicVars["StrengthPower"].UpgradeValueBy(1);
     }
 }

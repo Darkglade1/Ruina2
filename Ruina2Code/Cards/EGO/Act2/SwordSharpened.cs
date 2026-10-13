@@ -31,7 +31,10 @@ public class SwordSharpened() : EGOCard(0,
             int swordAmount = play.Target.GetPowerAmount<SwordSharpenedPower>();
             if (swordAmount >= DynamicVars["PlayThreshold"].IntValue - 1 && !play.IsAutoPlay && play.IsFirstInSeries)
             {
-                await CreatureCmd.Stun(play.Target);
+                if (play.Target.Monster != null)
+                {
+                    await CreatureCmd.Stun(play.Target);   
+                }
                 await PowerCmd.Remove<SwordSharpenedPower>(play.Target);
             }
             else

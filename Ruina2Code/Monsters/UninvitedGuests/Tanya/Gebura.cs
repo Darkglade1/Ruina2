@@ -330,8 +330,7 @@ public sealed class Gebura : AbstractAllyCardMonster
     
     public override async Task OnBossDeath()
     {
-        await ResetIdle(0.0f, phase);
-        await base.OnBossDeath();
+        await base.OnBossDeath(phase);
     }
     
     protected override void BattleEndTalk()
