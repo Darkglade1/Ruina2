@@ -47,6 +47,7 @@ public sealed class Bremen : AbstractCardMonster
     private int MelodyFragileAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
 
     private bool attackingAlly;
+    private bool useMultiHit;
 
     protected override string VisualsPath => "Bremen/bremen.tscn".MonsterImagePath();
 
@@ -69,6 +70,7 @@ public sealed class Bremen : AbstractCardMonster
         }
         TalkCmd.Play(L10NMonsterLookup("RUINA2-BREMEN.talk"), Creature, VfxColor.Green);
         attackingAlly = true;
+        useMultiHit = false;
     }
 
     private MoveState GetChorusState()
@@ -177,56 +179,52 @@ public sealed class Bremen : AbstractCardMonster
     {
         if (intentNum == 0)
         {
-            if (stateMachine.StateLog.Count >= 2 && !LastMove(stateMachine, TRIO) &&
-                !LastMoveBefore(stateMachine, TRIO))
+            if (LastMove(stateMachine, RARF))
             {
                 return TRIO;
+            } else if (LastMove(stateMachine, NEIGH) || LastMove(stateMachine, TENDON))
+            {
+                return RARF;
             }
             else
             {
-                List<string> possibilities = new List<string>();
-                if (!LastMove(stateMachine, RARF) && !LastMoveBefore(stateMachine, RARF)) {
-                    possibilities.Add(RARF);
+                if (useMultiHit)
+                {
+                    useMultiHit = false;
+                    return TENDON;
                 }
-                if (!LastMove(stateMachine, NEIGH)) {
-                    possibilities.Add(NEIGH);
+                else
+                {
+                    useMultiHit = true;
+                    return NEIGH;
                 }
-                if (!LastMove(stateMachine, TENDON)) {
-                    possibilities.Add(TENDON);
-                }
-                return possibilities[rng.NextInt(possibilities.Count)];
             }
         } else if (intentNum == 1)
         {
-            List<string> possibilities = new List<string>();
-            if (!LastMove(stateMachine, BAWK) && !LastMoveBefore(stateMachine, BAWK)) {
-                possibilities.Add(BAWK);
+            if (LastMove(stateMachine, BAWK))
+            {
+                return TENDON;
+            } else if (LastMove(stateMachine, TENDON))
+            {
+                return NEIGH;
             }
-            if (!LastMove(stateMachine, NEIGH)) {
-                possibilities.Add(NEIGH);
+            else
+            {
+                return BAWK;
             }
-            if (!LastMove(stateMachine, TENDON)) {
-                possibilities.Add(TENDON);
-            }
-            return possibilities[rng.NextInt(possibilities.Count)];
         }
         else
         {
-            if (stateMachine.StateLog.Count >= 2 && !LastMove(stateMachine, CHORUS) &&
-                !LastMoveBefore(stateMachine, CHORUS))
+            if (LastMove(stateMachine, TENDON))
+            {
+                return NEIGH;
+            } else if (LastMove(stateMachine, NEIGH))
             {
                 return CHORUS;
             }
             else
             {
-                List<string> possibilities = new List<string>();
-                if (!LastMove(stateMachine, NEIGH)) {
-                    possibilities.Add(NEIGH);
-                }
-                if (!LastMove(stateMachine, TENDON)) {
-                    possibilities.Add(TENDON);
-                }
-                return possibilities[rng.NextInt(possibilities.Count)];
+                return TENDON;
             }
         }
     }
