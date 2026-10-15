@@ -29,6 +29,8 @@ public sealed class OswaldEncounter : CustomEncounterModel
         get
         {
             yield return ModelDb.Monster<Tiph>();
+            yield return ModelDb.Monster<Knife>();
+            yield return ModelDb.Monster<Mermaid>();
             yield return ModelDb.Monster<Oswald>();
         }
     }
@@ -38,6 +40,8 @@ public sealed class OswaldEncounter : CustomEncounterModel
         return new List<(MonsterModel, string?)>
         {
             (ModelDb.Monster<Tiph>().ToMutable(), "ally"),
+            (ModelDb.Monster<Knife>().ToMutable(), "knife"),
+            (ModelDb.Monster<Mermaid>().ToMutable(), "mermaid"),
             (ModelDb.Monster<Oswald>().ToMutable(), "boss")
         };
     }

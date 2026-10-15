@@ -238,6 +238,7 @@ public static class Sfx
     public static readonly ModSound OswaldStab = new("Oswald_Stab.ogg".SfxPath());
     public static readonly ModSound OswaldFinish = new("Oswald_Strong_Up.ogg".SfxPath());
     public static readonly ModSound OswaldLaugh = new("Oswald_Standby.ogg".SfxPath());
+    public static readonly ModSound MermaidFar = new("Oswald_Mermaid_Far.ogg".SfxPath());
     
     public static readonly ModSound HanaBlunt = new("Hana_Blow.ogg".SfxPath());
     public static readonly ModSound HanaStab = new("Hana_Stab.ogg".SfxPath());

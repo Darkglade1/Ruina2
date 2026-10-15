@@ -12,5 +12,11 @@ mouse_filter = 2
 [node name="ally" type="Marker2D" parent="."]
 position = Vector2(950, 738)
 
+[node name="knife" type="Marker2D" parent="."]
+position = Vector2(1295, 738)
+
+[node name="mermaid" type="Marker2D" parent="."]
+position = Vector2(1545, 738)
+
 [node name="boss" type="Marker2D" parent="."]
-position = Vector2(1632, 738)
+position = Vector2(1832, 738)
