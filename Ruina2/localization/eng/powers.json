@@ -379,10 +379,6 @@
   "RUINA2-PRESCRIPTS_GRACE_POWER.smartDescription": "Your next {Amount:plural:[gold]Power[/gold] is|[blue]{}[/blue] [gold]Powers[/gold] are} played an extra time this turn.",
   "RUINA2-PRESCRIPTS_GRACE_POWER.title": "Prescript's Grace - Power",
 
-  "RUINA2-BRAINWASH.description": "",
-  "RUINA2-BRAINWASH.smartDescription": "The first single-enemy-target [gold]Attack[/gold] or [gold]Skill[/gold] you play each turn is [gold]Afflicted[/gold] with [purple]Brainwash[/purple] and shuffled back into your [gold]Draw Pile[/gold].",
-  "RUINA2-BRAINWASH.title": "Brainwash",
-
   "RUINA2-GEON.description": "",
   "RUINA2-GEON.smartDescription": "Deals [blue]{Amount}%[/blue] more damage with attacks.\nChanges every turn.",
   "RUINA2-GEON.title": "Geon of Four Trigrams",
@@ -394,10 +390,6 @@
   "RUINA2-RI.description": "",
   "RUINA2-RI.smartDescription": "ALL players draw [blue]{Amount}[/blue] {Amount:plural:card|cards} next turn.\nChanges every turn.",
   "RUINA2-RI.title": "Ri of Four Trigrams",
-
-  "RUINA2-HANA_FOR_ALL.description": "",
-  "RUINA2-HANA_FOR_ALL.smartDescription": "Unblocked attack damage you deal to yourself is redirected to this creature.",
-  "RUINA2-HANA_FOR_ALL.title": "Hana for All",
 
   "RUINA2-CHURCH.description": "",
   "RUINA2-CHURCH.smartDescription": "Whenever a minion dies, this creature loses [blue]{Amount}[/blue] HP.\nDead minions are replaced at the end of the round.",
@@ -509,5 +501,17 @@
 
   "RUINA2-ARBITERS_JUDGEMENT.description": "",
   "RUINA2-ARBITERS_JUDGEMENT.smartDescription": "After attacking, this creature cancels the enemy's [blue]2nd[/blue] intent.\nThis creature targets the last enemy {IsMultiplayer:players|you} targeted with a card this combat.",
-  "RUINA2-ARBITERS_JUDGEMENT.title": "Arbiter's Judgement"
+  "RUINA2-ARBITERS_JUDGEMENT.title": "Arbiter's Judgement",
+
+  "RUINA2-CAPTIVE_AUDIENCE.description": "",
+  "RUINA2-CAPTIVE_AUDIENCE.smartDescription": "Your single-enemy-target cards can only target the enemy with [gold]Spotlight[/gold].",
+  "RUINA2-CAPTIVE_AUDIENCE.title": "Captive Audience",
+
+  "RUINA2-SPOTLIGHT.description": "On death or at the end of the round, transfers to the next enemy.",
+  "RUINA2-SPOTLIGHT.smartDescription": "On death or at the end of the round, transfers to the next enemy.",
+  "RUINA2-SPOTLIGHT.title": "Spotlight",
+
+  "RUINA2-GAM.description": "",
+  "RUINA2-GAM.smartDescription": "ALL players gain {Amount:energyIcons()} next turn.\nChanges every turn.",
+  "RUINA2-GAM.title": "Gam of Four Trigrams"
 }

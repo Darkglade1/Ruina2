@@ -32,11 +32,16 @@ public class Mermaid : AbstractMultiIntentMonster
     private const string HORRENDOUS_PITCH = "HORRENDOUS_PITCH";
     private const string RESONATING_TERROR = "RESONATING_TERROR";
     private const string FISH_SLAP = "FISH_SLAP";
+    
+    public Creature? knife;
+    public Creature? oswald;
 
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Tiph>();
+        knife = FindHittableTarget<Knife>();
+        oswald = FindHittableTarget<Oswald>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
     }
 

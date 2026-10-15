@@ -163,7 +163,7 @@ public sealed class Netzach : AbstractAllyCardMonster
         await AllyBlock(BlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, BlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, BlockAmt, ValueProp.Unpowered, null);
         }
         await PowerCmd.Apply<DrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, CardDraw, Creature,  null); 
         await ResetIdle(1.0f);

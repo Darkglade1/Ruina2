@@ -326,7 +326,7 @@ public sealed class Hod : AbstractAllyCardMonster
         await AllyBlock(BarrierBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, BarrierBlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, BarrierBlockAmt, ValueProp.Unpowered, null);
         }
         await ResetIdle(1.0f, currentStance);
     }
@@ -338,7 +338,7 @@ public sealed class Hod : AbstractAllyCardMonster
         await AllyBlock(DuelBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, DuelBlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, DuelBlockAmt, ValueProp.Unpowered, null);
         }
         await WaitAnimation();
         await BluntAnimation(targets);

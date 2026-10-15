@@ -119,7 +119,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         if (target == Creature && dealer != null && dealer.IsPlayer)
         {
-            if (cardSource != null && cardSource.Affliction is Brainwash)
+            if (cardSource != null && cardSource.Affliction is Captivated)
             {
                 return amount;
             }
@@ -185,7 +185,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
 
     public async Task AllyBlock(decimal amount)
     {
-        await CreatureCmd.GainBlock(Creature, Creature.ScaleHpForMultiplayer(amount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), ValueProp.Move, null);
+        await CreatureCmd.GainBlock(Creature, Creature.ScaleHpForMultiplayer(amount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), ValueProp.Unpowered, null);
     }
     
     public virtual async Task OnBossDeath(int phase)

@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Random;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
+using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
@@ -31,12 +32,17 @@ public class Knife : AbstractMultiIntentMonster
     private const string KNIFE_TOSS = "KNIFE_TOSS";
 
     private bool attackingAlly;
+    public Creature? mermaid;
+    public Creature? oswald;
 
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Tiph>();
+        mermaid = FindHittableTarget<Mermaid>();
+        oswald = FindHittableTarget<Oswald>();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        await PowerCmd.Apply<Spotlight>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
         attackingAlly = true;
     }
 

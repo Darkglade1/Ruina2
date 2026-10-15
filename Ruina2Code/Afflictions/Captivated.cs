@@ -5,11 +5,11 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace Ruina2.Ruina2Code.Afflictions;
 
-public class Brainwash : Ruina2Affliction
+public class Captivated : Ruina2Affliction
 {
     public override bool HasExtraCardText => true;
     
-    [CustomEnum] public static TargetType Self;
+    [CustomEnum] public static TargetType SpotlightOnly;
     
     public override void AfterApplied()
     {
@@ -17,7 +17,7 @@ public class Brainwash : Ruina2Affliction
             BindingFlags.Instance | BindingFlags.NonPublic);
         if (backingField != null)
         {
-            backingField.SetValue(Card, Self); 
+            backingField.SetValue(Card, SpotlightOnly); 
         }
     }
 
@@ -29,20 +29,6 @@ public class Brainwash : Ruina2Affliction
         {
             backingField.SetValue(Card, TargetType.AnyEnemy); 
         }
-    }
-    
-    public override bool TryModifyEnergyCostInCombatLate(
-        CardModel card,
-        Decimal originalCost,
-        out Decimal modifiedCost)
-    {
-        if (card == Card)
-        {
-            modifiedCost = 0M;
-            return true; 
-        }
-        modifiedCost = originalCost;
-        return false;
     }
 }
 

@@ -1,6 +1,5 @@
 ﻿using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -35,6 +34,7 @@ public sealed class Tiph : AbstractAllyCardMonster
     public static int GEON = 50;
     public static int GON = 50;
     public static int RI = 1;
+    public static int GAM = 1;
     protected override string VisualsPath => "Tiph/tiph.tscn".MonsterImagePath();
 
     private const string AUGURY_KICK = "AUGURY_KICK";
@@ -45,7 +45,7 @@ public sealed class Tiph : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Oswald>();
-        await PowerCmd.Apply<HanaForAll>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
+        await PowerCmd.Apply<Geon>(new ThrowingPlayerChoiceContext(), Creature, GEON, Creature,  null);
     }
 
     private MoveState GetAuguryKickState()
@@ -148,7 +148,7 @@ public sealed class Tiph : AbstractAllyCardMonster
         await AllyBlock(BlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, BlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, BlockAmt, ValueProp.Unpowered, null);
         }
         await ResetIdle();
     }

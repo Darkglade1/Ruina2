@@ -17,26 +17,24 @@ using Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
-using Brainwash = Ruina2.Ruina2Code.Powers.UninvitedGuests.Brainwash;
 
 namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 public sealed class Oswald : AbstractCardMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 770, 700);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 660, 600);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int ClimaxDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int ClimaxDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int ClimaxHitsIncrease = 1;
     private int CurrentClimaxHitsIncrease = 0;
     public int ClimaxTotalHits => 4 + CurrentClimaxHitsIncrease;
-    private int FunDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
+    private int FunDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
     private int FunHits => 2;
-    private int BrainwashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
+    private int BrainwashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int DebuffAmt => 2;
     private int AllyDebuffAmt => 1;
 
     protected override string VisualsPath => "Oswald/oswald.tscn".MonsterImagePath();
@@ -46,14 +44,19 @@ public sealed class Oswald : AbstractCardMonster
     private const string CATCH  = "CATCH";
     private const string POW = "POW";
     private const string BRAINWASH = "BRAINWASH";
+    
+    public Creature? knife;
+    public Creature? mermaid;
 
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Tiph>();
+        knife = FindHittableTarget<Knife>();
+        mermaid = FindHittableTarget<Mermaid>();
         foreach (Creature target in CombatState.PlayerCreatures)
         {
-            Brainwash mutable = (Brainwash) ModelDb.Power<Brainwash>().ToMutable();
+            CaptiveAudience mutable = (CaptiveAudience) ModelDb.Power<CaptiveAudience>().ToMutable();
             mutable.Target = target;
             await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
         }
@@ -156,7 +159,6 @@ public sealed class Oswald : AbstractCardMonster
         card2.SetDamage(BrainwashDamage);
         card2.SetWeak(AllyDebuffAmt);
         var card3 = CreateCardForIntent<Pow>();
-        card3.SetWeak(DebuffAmt);
         card3.SetStrength(StrengthAmount);
         var card4 = CreateCardForIntent<Fun>();
         card4.SetDamage(FunDamage);
@@ -226,15 +228,20 @@ public sealed class Oswald : AbstractCardMonster
     private async Task Catch(IReadOnlyList<Creature> targets)
     {
         await BuffAnimation();
-        await CardPileCmd.AddToCombatAndPreview<Wound>(targets, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Wound>(targets, PileType.Discard, StatusAmt, null);
         await ResetIdle(1.0f);
     }
     
     private async Task Pow(IReadOnlyList<Creature> targets)
     {
         await BuffAnimation();
-        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DebuffAmt, Creature,  null);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature,  null);
+        foreach (var creature in CombatState.HittableEnemies)
+        {
+            if (!(creature.Monster is AbstractAllyMonster))
+            {
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, StrengthAmount, Creature,  null);
+            }
+        }
         await ResetIdle(1.0f);
     }
     

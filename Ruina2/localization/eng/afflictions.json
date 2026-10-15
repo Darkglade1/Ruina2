@@ -31,7 +31,7 @@
   "RUINA2-BLEED.description": "Whenever you hit with an [gold]Attack[/gold] this turn, take [blue]{Amount}[/blue] damage.",
   "RUINA2-BLEED.extraCardText": "",
 
-  "RUINA2-BRAINWASH.title": "Brainwash",
-  "RUINA2-BRAINWASH.description": "This card costs [blue]0[/blue] but can only target [gold]yourself[/gold].",
-  "RUINA2-BRAINWASH.extraCardText": "[purple]Can only target yourself.[/purple]"
+  "RUINA2-CAPTIVATED.title": "Captivated",
+  "RUINA2-CAPTIVATED.description": "This card can only target the enemy with [gold]Spotlight[/gold].",
+  "RUINA2-CAPTIVATED.extraCardText": "[purple]Can only target the enemy with Spotlight.[/purple]"
 }

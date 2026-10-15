@@ -158,8 +158,6 @@
   "RUINA2-TIPH.name": "Tiphereth",
   "RUINA2-TIPH.response": "The only clown here is you.",
   "RUINA2-TIPH.victory": "What a nuisance.",
-  "RUINA2-KNIFE.name": "Mr. Knife",
-  "RUINA2-MERMAID.name": "Mrs. Mermaid",
 
   "RUINA2-EILEEN.name": "Eileen",
   "RUINA2-EILEEN.talk": "A gear is most beautiful when it spins with another.",
@@ -221,5 +219,8 @@
   "RUINA2-VERMILION.name": "Vermilion Cross",
   "RUINA2-BINAH.name": "Binah",
   "RUINA2-BINAH.response": "No feast would be served to the likes of you.",
-  "RUINA2-BINAH.victory": "That was quite bothersome."
+  "RUINA2-BINAH.victory": "That was quite bothersome.",
+
+  "RUINA2-KNIFE.name": "Mr. Knife",
+  "RUINA2-MERMAID.name": "Mrs. Mermaid"
 }

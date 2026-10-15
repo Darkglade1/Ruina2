@@ -8,7 +8,7 @@ namespace Ruina2.Ruina2Code.Cards.EnemyCards.Oswald;
 public class Pow() : EnemyCard(0, CardType.Skill,
     CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(0), new PowerVar<StrengthPower>(0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(0)];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

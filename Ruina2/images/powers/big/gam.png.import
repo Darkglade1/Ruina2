@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iavl6gb7j3me"
-path="res://.godot/imported/brainwash.png-71be07466d613c26dabeb8f5a4bbab05.ctex"
+uid="uid://cmx6lhbkkrg7l"
+path="res://.godot/imported/gam.png-e4cc0ba629b34a2ca321614e882db07c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruina2/images/powers/brainwash.png"
-dest_files=["res://.godot/imported/brainwash.png-71be07466d613c26dabeb8f5a4bbab05.ctex"]
+source_file="res://Ruina2/images/powers/big/gam.png"
+dest_files=["res://.godot/imported/gam.png-e4cc0ba629b34a2ca321614e882db07c.ctex"]
 
 [params]
 

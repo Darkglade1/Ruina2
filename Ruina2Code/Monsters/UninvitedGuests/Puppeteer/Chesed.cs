@@ -207,7 +207,7 @@ public sealed class Chesed : AbstractAllyCardMonster
         await AllyBlock(AllyBlockAmt);
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, AllyBlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, AllyBlockAmt, ValueProp.Unpowered, null);
         }
         await WaitAnimation();
         await PierceAnimation(targets);

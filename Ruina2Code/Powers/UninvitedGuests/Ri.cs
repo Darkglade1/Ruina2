@@ -26,7 +26,7 @@ public class Ri() : Ruina2Power
             Flash();
             await PowerCmd.Apply<DrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, Amount, Owner,  null);
             await PowerCmd.Remove(this);
-            await PowerCmd.Apply<Gon>(new ThrowingPlayerChoiceContext(), Owner, Tiph.GON, Owner,  null);
+            await PowerCmd.Apply<Gam>(new ThrowingPlayerChoiceContext(), Owner, Tiph.GAM, Owner,  null);
         }
     }
 }

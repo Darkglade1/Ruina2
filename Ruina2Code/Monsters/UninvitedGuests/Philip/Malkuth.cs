@@ -218,7 +218,7 @@ public sealed class Malkuth : AbstractAllyCardMonster
         await BlockAnimation();
         foreach (var player in CombatState.PlayerCreatures)
         {
-            await CreatureCmd.GainBlock(player, AllyBlockAmt, ValueProp.Move, null);
+            await CreatureCmd.GainBlock(player, AllyBlockAmt, ValueProp.Unpowered, null);
         }
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, AllyStrengthAmt, Creature,  null); 
         await PowerCmd.Apply<DrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, CardDraw, Creature,  null); 
