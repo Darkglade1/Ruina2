@@ -27,15 +27,15 @@ public sealed class Pluto : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int MissileDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
+    private int MissileDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
     private int MissileHits => 3;
-    private int OnslaughtDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 36, 33);
-    private int OnslaughtDamageIncrease => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
+    private int OnslaughtDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 38, 35);
+    private int OnslaughtDamageIncrease => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int CurrentDamageIncrease = 0;
     public decimal OnslaughtTotalDamage => OnslaughtDamage + CurrentDamageIncrease;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
-    private int BlockAmt => 30;
+    private int BlockAmt => 50;
 
     protected override string VisualsPath => "Pluto/pluto.tscn".MonsterImagePath();
 

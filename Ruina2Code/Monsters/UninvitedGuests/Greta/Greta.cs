@@ -34,15 +34,15 @@ public sealed class Greta : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 3;
 
-    private int BreakEggDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 23, 21);
-    private int MinceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
+    private int BreakEggDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
+    private int MinceDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
     private int MinceHits => 2;
     private int TrialDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
     private int ParalysisAmt => 2;
     private int BleedAmt => 4;
     private int AllyDebuffAmt => 2;
-    private int BlockAmt => 20;
+    private int BlockAmt => 25;
     private int DamageReduction => 50;
     private int PowerTurns => 3;
     private int Artifact => 2;

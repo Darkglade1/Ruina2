@@ -23,7 +23,7 @@ public class YourBook() : Ruina2Event()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HpLossVar(12),
+        new HpLossVar(14),
         new StringVar("Card", ModelDb.Card<Metamorphosis>().Title)
     ];
     

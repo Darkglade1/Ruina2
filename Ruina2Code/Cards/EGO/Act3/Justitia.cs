@@ -19,7 +19,7 @@ public class Justitia() : EGOCard(1,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, ValueProp.Move), 
-        new("HPThreshold", 30),
+        new("HPThreshold", 25),
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
         new CalculatedVar("CalculatedHP").WithMultiplier((card, target) => target != null ? target.MaxHp * card.GetDynamicVar("HPThreshold").BaseValue / 100M : 0)];

@@ -39,7 +39,7 @@ public sealed class Bremen : AbstractCardMonster
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int DebuffAmt => 2;
-    private int BlockAmt => 22;
+    private int BlockAmt => 40;
     private int BaseMelodyLength => 3;
     private int MelodyLengthIncrease => 1;
     private int IncreasedMelodyLength = 0;

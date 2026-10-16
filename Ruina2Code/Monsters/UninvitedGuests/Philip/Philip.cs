@@ -39,7 +39,7 @@ public sealed class Philip : AbstractCardMonster
     private int DamageBonus => 34;
     private int StrengthAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int powerBurns => 1;
-    private int BlockAmt => 10;
+    private int BlockAmt => 20;
     private int FirstChangeTurn = 3;
     private int SecondChangeTurn = 6;
     private bool attackingAlly;

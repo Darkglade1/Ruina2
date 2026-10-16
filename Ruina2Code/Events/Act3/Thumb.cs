@@ -24,7 +24,7 @@ public class Thumb() : Ruina2Event()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ("NumCards", 20),
+        new ("NumCards", 15),
         new CardsVar(1),
         new StringVar("Enchantment", ModelDb.Enchantment<Vanishing>().Title.GetFormattedText()),
     ];

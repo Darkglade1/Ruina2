@@ -40,7 +40,7 @@ public class SocialSciences() : Ruina2Event()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HealVar(20),
+        new HealVar(24),
         new ("MaxHPCommon", 8),
         new ("MaxHPUncommon", 12),
         new ("MaxHPRare", 16)

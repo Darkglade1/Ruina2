@@ -13,8 +13,8 @@ namespace Ruina2.Ruina2Code.Events.Act2;
 public class NothingThere() : Ruina2Event()
 {
     private int goldReward;
-    private int MIN_GOLD_REWARD = 80;
-    private int MAX_GOLD_REWARD = 120;
+    private int MIN_GOLD_REWARD = 70;
+    private int MAX_GOLD_REWARD = 110;
     
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {

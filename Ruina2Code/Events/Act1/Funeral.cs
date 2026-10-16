@@ -21,7 +21,7 @@ public class Funeral() : Ruina2Event()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new("TransformCards", 2),
-        new ("BlackCost", 10),
+        new ("BlackCost", 12),
         new("RemoveCards", 1),
         new("WhiteCost", 3),
     ];
