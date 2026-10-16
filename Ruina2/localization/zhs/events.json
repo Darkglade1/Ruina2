@@ -143,7 +143,7 @@
   "RUINA2-YOUR_BOOK.pages.INITIAL.options.OVERCOME.title": "克服它",
   "RUINA2-YOUR_BOOK.pages.INITIAL.options.OVERCOME.description": "随机获得一张[gold]已升级的EGO[/gold]卡牌。失去[red]{HpLoss}[/red]点生命。",
   "RUINA2-YOUR_BOOK.pages.INITIAL.options.SUCCUMB.title": "屈服于它",
-  "RUINA2-YOUR_BOOK.pages.INITIAL.options.SUCCUMB.description": "获得[gold]{Card}[/gold]。",
+  "RUINA2-YOUR_BOOK.pages.INITIAL.options.SUCCUMB.description": "恢复[green]{Heal}[/green]点生命。获得[gold]{Card}[/gold]。",
   "RUINA2-YOUR_BOOK.pages.OVERCOME.description": "在[purple]绝望[/purple]的深渊中，你紧紧抓住那一丝[green]微光[/green]般的[gold]希望[/gold]。你坚信，终有一天，你会挣脱这生死循环。\n\n你感到自己的意志变得坚定，并逐渐[gold]显现[/gold]，你感觉自己因这段经历而变得更加强大。",
   "RUINA2-YOUR_BOOK.pages.SUCCUMB.description": "你的[purple]绝望[/purple]涌上喉咙，那沉重的分量[red]扼住[/red]了你的呼吸。你感到一股寒冷的[blue]寒意[/blue]遍布全身，一种[purple]空虚[/purple]的东西渗透进你的存在，重塑着你自身。\n\n没有希望。没有逃脱。\n\n毕竟，再没有比[purple]死亡[/purple]更自然的结局了。",
   "RUINA2-INDEX.title": "索引",

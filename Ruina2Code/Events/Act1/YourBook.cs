@@ -24,6 +24,7 @@ public class YourBook() : Ruina2Event()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new HpLossVar(14),
+        new HealVar(10),
         new StringVar("Card", ModelDb.Card<Metamorphosis>().Title)
     ];
     
@@ -40,6 +41,7 @@ public class YourBook() : Ruina2Event()
 
     public async Task Succumb()
     {
+        await CreatureCmd.Heal(Owner!.Creature, DynamicVars.Heal.IntValue);
         var card = Owner!.RunState.CreateCard(ModelDb.Card<Metamorphosis>(), Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         SetEventFinished(PageDescription("SUCCUMB"));
