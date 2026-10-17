@@ -37,8 +37,16 @@ public class Overexertion() : Ruina2Relic
             if (Owner.PlayerCombatState.TurnNumber == 2)
             {
                 Flash();
-                await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Weak.IntValue, Owner.Creature, null);
-                await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Weak.IntValue, Owner.Creature, null);
+                var weakPower = await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Weak.IntValue, Owner.Creature, null);
+                if (weakPower != null)
+                {
+                    weakPower.SkipNextDurationTick = false;
+                }
+                var frailPower = await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Weak.IntValue, Owner.Creature, null);
+                if (frailPower != null)
+                {
+                    frailPower.SkipNextDurationTick = false;
+                }
             }
         }
     }
