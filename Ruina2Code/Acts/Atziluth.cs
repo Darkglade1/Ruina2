@@ -44,7 +44,7 @@ public class Atziluth() : AbstractRuinaAct(3)
                 ModelDb.Event<Philosophy>(),
                 ModelDb.Event<Thumb>(),
                 ModelDb.Event<CryingChildren>(),
-                ModelDb.Event<TinkerTime>(),
+                ModelDb.Event<KCorp>(),
                 ModelDb.Event<BattlewornDummy>(),
                 ModelDb.Event<RoundTeaParty>(),
                 ModelDb.Event<Trial>(),

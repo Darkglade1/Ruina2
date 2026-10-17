@@ -262,6 +262,15 @@
   "RUINA2-ENSEMBLE.pages.INITIAL.options.LEAVE.title": "Leave",
   "RUINA2-ENSEMBLE.pages.INITIAL.options.LEAVE.description": "Claim victory and end the run.",
   "RUINA2-ENSEMBLE.pages.MAKE_A_STAND.description": "You don't know what compelled you to do so, to risk your very [gold]life[/gold] for a place such as this. But you could tell there was a [gold]Light[/gold] here, a ray of hope that these villains sought to [purple]defile[/purple].\n\nAnd you would not stand for it.",
+
+  "RUINA2-K_CORP.title": "K Corp",
+  "RUINA2-K_CORP.pages.INITIAL.description": "The line outside [gold]K Corp's[/gold] immigration checkpoint is long and winding, stretching into the distance. Armed guards patrol the area, ensuring that no one is able to sneak past into the safety of the [green]Nest[/green]. The line moves at a crawl, and you wonder if you'll have to camp here [purple]overnight[/purple] to have a chance of making it in.\n\n\"We can't take this anymore! Let us in!\"\n\nYou hear shouting up ahead where a group of angry and impatient people have started rioting. You rush behind cover as the [red]fighting[/red] intensifies, but not before some stray debris nicks you in the side and draws [red]blood[/red].\n\nYou flinch as one of the guards [red]crashes[/red] to the ground besides you, causing a green object to roll away from the unconscious body. Eyeing it, you recognize it as one of K Corp's famous [green]healing[/green] ampules.",
+  "RUINA2-K_CORP.pages.INITIAL.options.USE.title": "Use it immediately",
+  "RUINA2-K_CORP.pages.INITIAL.options.USE.description": "Heal [green]{Heal}[/green] HP.",
+  "RUINA2-K_CORP.pages.INITIAL.options.SAVE.title": "Save it for later",
+  "RUINA2-K_CORP.pages.INITIAL.options.SAVE.description": "Obtain [gold]{Card}[/gold].",
+  "RUINA2-K_CORP.pages.USE.description": "You snatch it up and sigh in relief as the ampule wipes away your [red]injury[/red]. Hopefully you can make it out of this mess without sustaining further wounds.",
+  "RUINA2-K_CORP.pages.SAVE.description": "You snatch it up and pocket the ampule for later. There was always a chance you would sustain a worse [red]injury[/red] further down the line, and it would be a [green]lifesaver[/green] in that case.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

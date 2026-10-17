@@ -535,6 +535,6 @@
   "RUINA2-CHAINS.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
   "RUINA2-CHAINS.title": "Degraded Chains",
 
-  "RUINA2-K_CORP_AMPULE.description": "[gold]Evolve[/gold] {Cards:diff()}.\nHeal to full HP.",
+  "RUINA2-K_CORP_AMPULE.description": "[gold]Evolve[/gold] {Cards:diff()}: Heal to full HP.",
   "RUINA2-K_CORP_AMPULE.title": "K Corp Ampule"
 }
