@@ -31,7 +31,7 @@ public class WintersInception() : Ruina2Power
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (target == Owner && props.IsPoweredAttack() && dealer != null && dealer == Target && dealer.Player != null && cardSource != null)
+        if (target == Owner && props.IsPoweredAttack() && dealer != null && (dealer == Target || dealer.PetOwner?.Creature == Target) && cardSource != null)
         {
             if (!hasTriggered || cardSource.Affliction is LaurelWreath)
             {
@@ -44,7 +44,7 @@ public class WintersInception() : Ruina2Power
     
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        if (command.Attacker == Target && command.CardPlay != null && command.CardPlay.Card.Type == CardType.Attack)
+        if ((command.Attacker == Target || command.Attacker?.PetOwner?.Creature == Target) && command.CardPlay != null && command.CardPlay.Card.Type == CardType.Attack)
         {
             if (!(command.CardPlay.Card.Affliction is LaurelWreath) && !hasTriggered)
             {

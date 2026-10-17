@@ -22,7 +22,18 @@ public class SurprisePresent() : Ruina2Power
     {
         if (creature == Owner)
         {
-            await CreatureCmd.Add<WitchFriend>(CombatState, "minion" + Amount);
+            bool laetitiaAlive = false;
+            foreach (var enemy in CombatState.HittableEnemies)
+            {
+                if (enemy.Monster is Laetitia && enemy.IsAlive)
+                {
+                    laetitiaAlive = true;
+                }
+            }
+            if (laetitiaAlive)
+            {
+                await CreatureCmd.Add<WitchFriend>(CombatState, "minion" + Amount);
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ public sealed class WitchFriend : AbstractRuinaMonster
     protected override string VisualsPath => "WeeWitch/wee_witch.tscn".MonsterImagePath();
 
     private const string GLITCH = "GLITCH";
-    private const string NONE = "NONE";
+    private const string SPAWNED_MOVE = "SPAWNED_MOVE";
     
     public override async Task AfterAddedToRoom()
     {
@@ -38,36 +38,24 @@ public sealed class WitchFriend : AbstractRuinaMonster
         return new MoveState(GLITCH, Glitch, new SingleAttackIntent(GlitchDamage));
     }
 
-    private MoveState GetNoneState()
+    private MoveState GetSpawnedMoveState()
     {
-        return new MoveState(NONE, _ => Task.CompletedTask);
+        return new MoveState(SPAWNED_MOVE, _ => Task.CompletedTask, new StunIntent());
     }
     
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         var states = new List<MonsterState>();
         var state1 = GetGlitchState();
-        var state2 = GetNoneState();
-        
-        var moveBranch = new ConditionalBranchState("MOVE_BRANCH", SelectNextMove, 0);
+        var state2 = GetSpawnedMoveState();
 
-        state1.FollowUpState = moveBranch;
-        state2.FollowUpState = moveBranch;
+        state1.FollowUpState = state1;
+        state2.FollowUpState = state1;
 
         states.Add(state1);
         states.Add(state2);
-        states.Add(moveBranch);
         
-        return new MonsterMoveStateMachine(states, moveBranch);
-    }
-    
-    private string SelectNextMove(Creature owner, Rng rng, MonsterMoveStateMachine stateMachine, int intentNum)
-    {
-        if (stateMachine.StateLog.Count == 0 && !CombatManager.Instance.IsEnemyTurnStarted)
-        {
-            return NONE;
-        }
-        return GLITCH;
+        return new MonsterMoveStateMachine(states, state2);
     }
     
     private async Task Glitch(IReadOnlyList<Creature> targets)

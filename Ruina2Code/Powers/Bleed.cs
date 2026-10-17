@@ -25,7 +25,7 @@ public class Bleed() : Ruina2Power
         Creature target,
         CardModel? cardSource)
     {
-        if (dealer == Owner && props.IsPoweredAttack() && cardSource != null && cardSource.Type == CardType.Attack)
+        if ((dealer == Owner || dealer?.PetOwner?.Creature == Owner) && props.IsPoweredAttack() && cardSource != null && cardSource.Type == CardType.Attack)
         {
             Flash();
             await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner, null, null);

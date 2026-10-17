@@ -49,7 +49,7 @@ public class Paralysis() : Ruina2Power
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (dealer == Owner && props.IsPoweredAttack()) {
+        if ((dealer == Owner || dealer?.PetOwner?.Creature == Owner) && props.IsPoweredAttack() && cardSource != null) {
             return (BASE_REDUCTION - (STACK_REDUCTION * (Amount - 1)));
         }
         return 1M;
@@ -68,7 +68,7 @@ public class Paralysis() : Ruina2Power
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (side == CombatSide.Player)
+        if (participants.Contains(Owner))
         {
             await PowerCmd.Remove<Paralysis>(Owner);
         }
