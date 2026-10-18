@@ -6,12 +6,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Events;
-using MegaCrit.Sts2.Core.Multiplayer.Game;
-using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
-using MegaCrit.Sts2.Core.Nodes.Screens.Map;
-using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Relics;
@@ -26,19 +20,35 @@ public class Ensemble() : Ruina2Event()
     {
         var healPercent = AscensionHelper.GetValueIfAscension(AscensionLevel.WearyTraveler, 80, 100);
         heal = (int)((Owner!.Creature.MaxHp - Owner!.Creature.CurrentHp) * (healPercent / 100f));
+        
         var option = Option(MakeAStand, HoverTipFactory.FromRelic<BookOfSomeone>());
         option.Description.Add("ActualHeal", heal);
-        return [option, Option(Leave)];
+        
+        var hoverTips = HoverTipFactory.FromRelic<BookOfSomeone>();
+        hoverTips = hoverTips.Concat(HoverTipFactory.FromRelic<BlueScarf>());
+        var optionShort = Option(MakeAStandShort, hoverTips);
+        optionShort.Description.Add("ActualHeal", heal);
+        
+        return [option, optionShort, Option(Leave)];
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ 
-        new StringVar("Relic", ModelDb.Relic<BookOfSomeone>().Title.GetFormattedText())
+        new StringVar("Relic", ModelDb.Relic<BookOfSomeone>().Title.GetFormattedText()),
+        new StringVar("Scarf", ModelDb.Relic<BlueScarf>().Title.GetFormattedText())
     ];
     
     public async Task MakeAStand()
     {
         await CreatureCmd.Heal(Owner!.Creature, heal);
         await RelicCmd.Obtain(ModelDb.Relic<BookOfSomeone>().ToMutable(), Owner!);
+        SetEventFinished(PageDescription("MAKE_A_STAND"));
+    }
+    
+    public async Task MakeAStandShort()
+    {
+        await CreatureCmd.Heal(Owner!.Creature, heal);
+        await RelicCmd.Obtain(ModelDb.Relic<BookOfSomeone>().ToMutable(), Owner!);
+        await RelicCmd.Obtain(ModelDb.Relic<BlueScarf>().ToMutable(), Owner!);
         SetEventFinished(PageDescription("MAKE_A_STAND"));
     }
     

@@ -24,27 +24,18 @@ public sealed class UninvitedGuestsActMap : ActMap
 			CanBeModified = false
 		};
 		MapPoint mapPoint = Create(3, 1, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint, ModelDb.Encounter<PhilipEncounter>());
 		MapPoint mapPoint1 = Create(3, 2, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint1, ModelDb.Encounter<EileenEncounter>());
 		MapPoint mapPoint2 = Create(3, 3, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint2, ModelDb.Encounter<GretaEncounter>());
 		MapPoint mapPoint3 = Create(3, 4, MapPointType.Treasure);
 		MapPoint mapPoint4 = Create(3, 5, MapPointType.RestSite);
 		MapPoint mapPoint5 = Create(3, 6, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint5, ModelDb.Encounter<BremenEncounter>());
 		MapPoint mapPoint6 = Create(3, 7, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint6, ModelDb.Encounter<OswaldEncounter>());
 		MapPoint mapPoint7 = Create(3, 8, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint7, ModelDb.Encounter<TanyaEncounter>());
 		MapPoint mapPoint8 = Create(3, 9, MapPointType.Treasure);
 		MapPoint mapPoint9 = Create(3, 10, MapPointType.RestSite);
 		MapPoint mapPoint10 = Create(3, 11, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint10, ModelDb.Encounter<PuppeteerEncounter>());
 		MapPoint mapPoint11 = Create(3, 12, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint11, ModelDb.Encounter<ElenaEncounter>());
 		MapPoint mapPoint12 = Create(3, 13, MapPointType.Elite);
-		//MapPointSpecificEncounter.Set(mapPoint12, ModelDb.Encounter<PlutoEncounter>());
 		MapPoint mapPoint13 = Create(3, 14, MapPointType.Treasure);
 		MapPoint mapPoint14 = Create(3, 15, MapPointType.Shop);
 		MapPoint mapPoint15 = Create(3, 16, MapPointType.RestSite);

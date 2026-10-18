@@ -47,5 +47,9 @@
 
   "RUINA2-BOOK_OF_SOMEONE.description": "At the end of combat, heal [blue]{Heal}%[/blue] of your HP.",
   "RUINA2-BOOK_OF_SOMEONE.flavor": "Some must fight so that all may be free.",
-  "RUINA2-BOOK_OF_SOMEONE.title": "Book of Someone"
+  "RUINA2-BOOK_OF_SOMEONE.title": "Book of Someone",
+
+  "RUINA2-BLUE_SCARF.description": "Changes [gold]Uninvited Guests[/gold] to a shorter version.",
+  "RUINA2-BLUE_SCARF.flavor": "A scarf that brings to mind a pleasant warmth. It seems to draw those around it into itself.",
+  "RUINA2-BLUE_SCARF.title": "Blue Scarf"
 }
