@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
@@ -12,8 +11,6 @@ namespace Ruina2.Ruina2Code.Cards.Evolve;
 public abstract class EvolveCard(int cost) :
     Ruina2Card(cost, CardType.Quest, CardRarity.Quest, TargetType.Self)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(RuinaKeywords.Evolve)];
-    
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     
     public override int MaxUpgradeLevel => 0;

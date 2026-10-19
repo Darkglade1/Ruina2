@@ -273,6 +273,18 @@
   "RUINA2-K_CORP.pages.INITIAL.options.SAVE.description": "Obtain [gold]{Card}[/gold].",
   "RUINA2-K_CORP.pages.USE.description": "You snatch it up and sigh in relief as the ampule wipes away your [red]injury[/red]. Hopefully you can make it out of this mess without sustaining further wounds.",
   "RUINA2-K_CORP.pages.SAVE.description": "You snatch it up and pocket the ampule for later. There was always a chance you would sustain a worse [red]injury[/red] further down the line, and it would be a [green]lifesaver[/green] in that case.",
+
+  "RUINA2-NEST_SCHOOL.title": "Nest Schooling",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.description": "\"Keep this lesson in mind if you wish to work for a [gold]Wing[/gold] like your parents!\" The teacher narrowed his eyes at the class full of students. \"Don't forget that there plenty of people out there desperate to become a [gold]Feather[/gold] of a [gold]Wing[/gold].\" A pause. \"That's all for today.\"\n\nYou sigh in relief as you begin packing your things into your backpack, finally free from the endless droning of this particular teacher. Your friend had told you about a new [gold]Canned Experience[/gold] they had gotten their hands on, and you were [green]eager[/green] to try it out - \n\n\"Ah, I almost forgot. Here's your homework for today!\" Every student groans as the teacher, at the last minute, assigns some - ",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.CHALLENGING_HOMEWORK.title": "Challenging Homework",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.CHALLENGING_HOMEWORK.description": "Obtain [gold]{Card1}[/gold].",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.DIFFICULT_HOMEWORK.title": "Difficult Homework",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.DIFFICULT_HOMEWORK.description": "Obtain [gold]{Card2}[/gold].",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.EASY_HOMEWORK.title": "Easy Homework",
+  "RUINA2-NEST_SCHOOL.pages.INITIAL.options.EASY_HOMEWORK.description": "Obtain a card reward.",
+  "RUINA2-NEST_SCHOOL.pages.CHALLENGING_HOMEWORK.description": "You [purple]grimace[/purple]. This assignment would take the whole week to complete, leaving you precious little time for recreation. How annoying.",
+  "RUINA2-NEST_SCHOOL.pages.DIFFICULT_HOMEWORK.description": "You [red]frown[/red]. This assignment would take a few days to accomplish. Maybe it could be shortened if you worked with your friends on the assignment . . .",
+  "RUINA2-NEST_SCHOOL.pages.EASY_HOMEWORK.description": "You sigh in [green]relief[/green]. This assignment should be easy enough quickly wrap up tonight, leaving you plenty of time to hang out with your friends and consume [gold]Canned Experiences[/gold].",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

@@ -54,7 +54,7 @@ public class Asiyah() : AbstractRuinaAct(1)
                 ModelDb.Event<Art>(),
                 ModelDb.Event<YourBook>(),
                 ModelDb.Event<SingingMachine>(),
-                //ModelDb.Event<Wellspring>(),
+                ModelDb.Event<NestSchool>(),
                 //ModelDb.Event<WhisperingHollow>(),
                 //ModelDb.Event<WoodCarvings>()
             ];
