@@ -11,7 +11,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
-using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
@@ -30,7 +29,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
     public override int NumIntents => 3;
 
     private int GoDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-    private int HomingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 33, 30);
+    private int HomingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 35, 32);
     private int StatusAmt => 2;
 
     protected override string VisualsPath => "RoadHome/road.tscn".MonsterImagePath();
@@ -184,7 +183,7 @@ public sealed class RoadHome : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, StatusAmt, null);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
         await ResetIdle();
     }
     

@@ -1,8 +1,10 @@
 ﻿using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Powers;
@@ -12,7 +14,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.mountain;
 
 public sealed class Corpse : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => 40;
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 44, 40);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "CorpseIcon.png".UIImagePath();

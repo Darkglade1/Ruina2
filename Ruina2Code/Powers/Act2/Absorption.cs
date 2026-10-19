@@ -1,6 +1,8 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using Ruina2.Ruina2Code.Monsters.Act2.mountain;
 
 namespace Ruina2.Ruina2Code.Powers.Act2;
@@ -49,6 +51,18 @@ public class Absorption() : Ruina2Power
         if (Owner.Monster is Mountain mountain && mountain.CanLose)
         {
             return true;
+        }
+        return false;
+    }
+    
+    public override bool ShouldPowerBeRemovedOnDeath(PowerModel power)
+    {
+        if (power.Owner == Owner)
+        {
+            if (power.Type == PowerType.Debuff && !(power is TemporaryStrengthPower))
+            {
+                return true;
+            }
         }
         return false;
     }
