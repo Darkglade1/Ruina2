@@ -394,7 +394,7 @@ public sealed class Mountain : AbstractMultiIntentMonster
     private async Task Screech(IReadOnlyList<Creature> targets)
     {
         await ScreechAnimation();
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Draw, ScreechStatus,null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(targets, PileType.Discard, ScreechStatus,null);
         await ResetIdle(1.0f, phase);
     }
     
