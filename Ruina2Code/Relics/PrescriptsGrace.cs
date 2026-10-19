@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using Ruina2.Ruina2Code.Powers;
 
@@ -14,10 +15,12 @@ public class PrescriptsGrace() : Ruina2Relic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Event;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new ("Turns", 5)];
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Owner)
+        if (player == Owner && Owner.PlayerCombatState?.TurnNumber <= DynamicVars["Turns"].BaseValue)
         {
             Flash();
             List<CardType> types = new List<CardType>()

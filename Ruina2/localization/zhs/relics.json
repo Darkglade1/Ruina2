@@ -13,7 +13,7 @@
   "RUINA2-FALSE_PRESENT.description": "拾取时，失去[blue]{HpLoss}[/blue]点最大生命。你每场战斗中抽到的前[blue]{Cards}[/blue]张牌在被打出前耗能为[blue]0[/blue]。",
   "RUINA2-FALSE_PRESENT.flavor": "可怜的奥兹玛。她不知道，说谎的成年人从不会无缘无故地接近别人。",
   "RUINA2-FALSE_PRESENT.title": "虚假的礼物",
-  "RUINA2-PRESCRIPTS_GRACE.description": "在每回合开始时，从[gold]攻击[/gold]、[gold]技能[/gold]、[gold]能力[/gold]中随机选择一种牌型。你每回合打出的第一张该类型的牌将被打出两次。",
+  "RUINA2-PRESCRIPTS_GRACE.description": "在你的前[blue]{Turns}[/blue]个回合开始时，随机选择[gold]攻击[/gold]、[gold]技能[/gold]或[gold]能力[/gold]。你在该回合打出的第一张所选类型的牌会被打出两次。",
   "RUINA2-PRESCRIPTS_GRACE.flavor": "现在一切都说得通了。那些看似毫无意义的努力，最终都汇聚成了一个明确而唯一的意义。",
   "RUINA2-PRESCRIPTS_GRACE.title": "指令的恩惠",
   "RUINA2-MALICE.description": "在你的回合开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害。如果你的生命值等于或低于[blue]{HPThreshold}%[/blue]，则改为对所有敌人造成[blue]{IncreasedDamage}[/blue]点伤害。",
