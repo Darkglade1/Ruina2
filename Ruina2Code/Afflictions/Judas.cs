@@ -9,16 +9,6 @@ public class Judas : Ruina2Affliction
 {
     public override bool HasExtraCardText => true;
     
-    public override void AfterApplied()
-    {
-        Card.BaseReplayCount+= Amount;
-    }
-
-    public override void BeforeRemoved()
-    {
-        Card.BaseReplayCount-= Amount;
-    }
-    
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card == Card && cardPlay.Card.Affliction is Judas)
