@@ -285,6 +285,17 @@
   "RUINA2-NEST_SCHOOL.pages.CHALLENGING_HOMEWORK.description": "You [purple]grimace[/purple]. This assignment would take the whole week to complete, leaving you precious little time for recreation. How annoying.",
   "RUINA2-NEST_SCHOOL.pages.DIFFICULT_HOMEWORK.description": "You [red]frown[/red]. This assignment would take a few days to accomplish. Maybe it could be shortened if you worked with your friends on the assignment . . .",
   "RUINA2-NEST_SCHOOL.pages.EASY_HOMEWORK.description": "You sigh in [green]relief[/green]. This assignment should be easy enough quickly wrap up tonight, leaving you plenty of time to hang out with your friends and consume [gold]Canned Experiences[/gold].",
+
+  "RUINA2-BIZARRE_MACHINE.title": "Bizarre Machine",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.description": "You find yourself in front of some kind of strange [gold]machine[/gold]. As you approach it, the machine whirs to life and its screen [gold]flashes[/gold], displaying [gold]bright[/gold] symbols and playing a [jitter]jaunty[/jitter] tune.\n\n\"PULL THE LEVER AND SEE IF YOU WIN!\"\n\nSomething inside you compelled you to listen to the robotic voice, to step forward and pull the lever - some kind of [red]primal[/red] instinct that refused to be suppressed. As the [gold]flashing[/gold] symbols roll to a stop one-by-one, something rolls out from the machine's hatch in front of you. It was - ",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.JUNK1.title": "Some kind of junk",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.JUNK1.description": "Obtain [gold]{Card}[/gold].",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.JUNK2.title": "Some kind of junk",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.JUNK2.description": "Obtain [gold]{Card}[/gold].",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.POTION.title": "A mysterious bottle",
+  "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.POTION.description": "Procure a random [gold]Potion[/gold].",
+  "RUINA2-BIZARRE_MACHINE.pages.JUNK.description": "Some kind of junk. You pick it up and examine it, and you see the faintest traces of something [gold]shining[/gold] beneath the surface. Perhaps it would shows its true value in the near future.",
+  "RUINA2-BIZARRE_MACHINE.pages.POTION.description": "A mysterious bottle. You're not sure what the substance inside does, but you can tell that it will be useful later.",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

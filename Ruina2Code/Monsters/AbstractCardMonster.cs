@@ -19,6 +19,8 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
     public List<NGridCardHolder?> NCardHolders = new([null, null, null]);
     public static float CardIntentY = -115f;
     
+    public override bool CanChangeScale => false;
+    
     public virtual Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
         return new Dictionary<string, CardModel>();

@@ -542,5 +542,20 @@
   "RUINA2-DIFFICULT_HOMEWORK.title": "Difficult Homework",
 
   "RUINA2-CHALLENGING_HOMEWORK.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and obtain a [gold]Rare[/gold] card reward at the end of combat.",
-  "RUINA2-CHALLENGING_HOMEWORK.title": "Challenging Homework"
+  "RUINA2-CHALLENGING_HOMEWORK.title": "Challenging Homework",
+
+  "RUINA2-BLEMISHED_STEEL.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and obtain a random [gold]Rare Relic[/gold] at the end of combat.",
+  "RUINA2-BLEMISHED_STEEL.title": "Blemished Steel",
+
+  "RUINA2-SCRAP_IRON.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and obtain a random [gold]Common Relic[/gold] at the end of combat.",
+  "RUINA2-SCRAP_IRON.title": "Scrap Iron",
+
+  "RUINA2-SHOVEL.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and obtain a random [gold]Relic[/gold] at the end of combat.",
+  "RUINA2-SHOVEL.title": "Shovel",
+
+  "RUINA2-TARNISHED_GOLD.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and gain {Gold:diff()} [gold]Gold[/gold].",
+  "RUINA2-TARNISHED_GOLD.title": "Tarnished Gold",
+
+  "RUINA2-RUSTY_CHEST.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and gain {Gold:diff()} [gold]Gold[/gold].",
+  "RUINA2-RUSTY_CHEST.title": "Rusty Chest"
 }

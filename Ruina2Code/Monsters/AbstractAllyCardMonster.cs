@@ -18,6 +18,8 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
     public Dictionary<string, CardModel> MoveToCardMap = new();
     public List<NGridCardHolder?> NCardHolders = new([null, null, null]);
     
+    public override bool CanChangeScale => false;
+    
     public virtual Dictionary<string, CardModel> GenerateMoveToCardMap()
     {
         return new Dictionary<string, CardModel>();
