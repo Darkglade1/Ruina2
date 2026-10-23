@@ -26,11 +26,11 @@ public sealed class Elena : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
     public override string TargetTexturePath => "ElenaIcon.png".UIImagePath();
-    private int SanguineDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int SanguineDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 9, 8);
     private int SanguineHits => 2;
-    private int SiphonDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
-    private int BloodspreadingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 42, 38);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int SiphonDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 11);
+    private int BloodspreadingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 40, 36);
+    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int InjectStrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
     private int BleedAmt => 10;
     private int FrailAmt => 2;

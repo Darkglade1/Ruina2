@@ -28,10 +28,10 @@ public sealed class Vermilion : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
     public override string TargetTexturePath => "VermilionIcon.png".UIImagePath();
-    private int RampageDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 55, 50);
-    private int HeatedDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 7);
+    private int RampageDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45);
+    private int HeatedDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int HeatedHits => 2;
-    private int ShockwavehDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
+    private int ShockwavehDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 8, 5);
     private int StatusAmt => 1;
     private int ObstructBlockAmt => 50;

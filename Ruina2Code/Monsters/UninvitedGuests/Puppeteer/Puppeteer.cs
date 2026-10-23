@@ -29,11 +29,11 @@ public sealed class Puppeteer : AbstractCardMonster
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 
-    private int PullingStringsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 42, 38);
-    private int TuggingStringsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
+    private int PullingStringsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 44, 40);
+    private int TuggingStringsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 14, 13);
     private int TuggingStringsHits => 2;
-    private int AssailingPullsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
-    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
+    private int AssailingPullsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
+    private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int DebuffAmt => 2;
     private int VulnerableAmt => 1;
     private int BlockAmt => 30;
