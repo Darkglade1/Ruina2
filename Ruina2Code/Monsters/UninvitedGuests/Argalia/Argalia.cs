@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,6 +16,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
+using Ruina2.Ruina2Code.Cards;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Argalia;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Intents;
@@ -38,8 +40,8 @@ public sealed class Argalia : AbstractCardMonster
     private int DanzaHits => 5;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int StrengthLossAmt => 3;
-    private int VibrationAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
     private int BlockAmt => 45;
+    private int StatusAmt => 1;
 
     public decimal ScytheDamageCalc
     {
@@ -209,7 +211,7 @@ public sealed class Argalia : AbstractCardMonster
         var card1 = CreateCardForIntent<Allegro>();
         card1.SetDamage(AllegroDamage);
         card1.SetRepeat(AllegroHits);
-        card1.DynamicVars["Vibration"].BaseValue = VibrationAmt;
+        card1.SetCards(StatusAmt);
         var card2 = CreateCardForIntent<Trails>();
         card2.SetDamage(TrailsDamage);
         card2.SetStrength(StrengthLossAmt);
@@ -261,7 +263,7 @@ public sealed class Argalia : AbstractCardMonster
                 .Execute(null);
             await ResetIdle();
         }
-        await PowerCmd.Apply<Vibration>(new ThrowingPlayerChoiceContext(), targets, VibrationAmt, Creature,  null);
+        await CardPileCmd.AddToCombatAndPreview<ControlledVibration>(CombatState.PlayerCreatures, PileType.Draw, StatusAmt, null, CardPilePosition.Random);
     }
     
     private async Task Trails(IReadOnlyList<Creature> targets)

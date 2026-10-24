@@ -29,14 +29,14 @@ public sealed class Hod : AbstractAllyCardMonster
     public override string TargetTexturePath => "HodIcon.png".UIImagePath();
     private bool talked = false;
 
-    private int SnakeSlitDamage => 7;
+    private int SnakeSlitDamage => 8;
     private int SnakeSlitHits => 2;
-    private int ViolateBladeDamage => 8;
+    private int ViolateBladeDamage => 9;
     private int VioletBladeHits => 3;
     private int LacerationDamage => 12;
     private int FangsDamage => 14;
     private int DuelDamage => 17;
-    private int StrengthAmt => 3;
+    private int StrengthAmt => 4;
     private int BarrierBlockAmt => 18;
     private int DuelBlockAmt => 10;
     private int WeakAmt => 2;

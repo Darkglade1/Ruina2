@@ -418,7 +418,7 @@
   "RUINA2-TIME.description": "ALL players end their turns and take an extra turn after this one.",
   "RUINA2-TIME.title": "Time",
 
-  "RUINA2-ALLEGRO.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nApply {Vibration:diff()} [gold]Vibration[/gold].",
+  "RUINA2-ALLEGRO.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nShuffle {Cards:diff()} [gold]Controlled Vibration[/gold] into your [gold]Draw Pile[/gold].",
   "RUINA2-ALLEGRO.title": "Allegro",
 
   "RUINA2-LARGO.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.",
@@ -557,5 +557,8 @@
   "RUINA2-TARNISHED_GOLD.title": "Tarnished Gold",
 
   "RUINA2-RUSTY_CHEST.description": "After being played {Cards:diff()} more {Cards:plural:time|times}, remove this card from your [gold]Deck[/gold] and gain {Gold:diff()} [gold]Gold[/gold].",
-  "RUINA2-RUSTY_CHEST.title": "Rusty Chest"
+  "RUINA2-RUSTY_CHEST.title": "Rusty Chest",
+
+  "RUINA2-CONTROLLED_VIBRATION.description": "Gain {Vibration:diff()} [gold]Vibration[/gold].",
+  "RUINA2-CONTROLLED_VIBRATION.title": "Controlled Vibration"
 }

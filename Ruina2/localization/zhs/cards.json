@@ -279,7 +279,7 @@
   "RUINA2-SILENCE.title": "静默",
   "RUINA2-TIME.description": "所有玩家结束回合，并在此后获得一个额外回合。",
   "RUINA2-TIME.title": "时间",
-  "RUINA2-ALLEGRO.description": "造成{Damage:diff()}点伤害，共{Repeat:diff()}次。\n给予{Vibration:diff()}层[gold]震颤[/gold]。",
+  "RUINA2-ALLEGRO.description": "造成{Damage:diff()}点伤害，共{Repeat:diff()}次。\n将{Cards:diff()}张[gold]受控震动[/gold]洗入你的[gold]抽牌堆[/gold]。",
   "RUINA2-ALLEGRO.title": "不谐和音",
   "RUINA2-LARGO.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。",
   "RUINA2-LARGO.title": "崩坏序曲",
