@@ -27,7 +27,7 @@ internal static class Act4MultiplayerScalingPatch
         {
             return true;
         }
-        __result = 1.4M;
+        __result = 1.3M;
         return false;
     }
 
