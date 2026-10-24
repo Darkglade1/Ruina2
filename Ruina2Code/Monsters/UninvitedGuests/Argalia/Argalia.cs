@@ -83,7 +83,7 @@ public sealed class Argalia : AbstractCardMonster
     
     private MoveState GetAllegroState()
     {
-        return new MoveState(ALLEGRO, Allegro, new RuinaMultiAttackIntent(AllegroDamage, AllegroHits), new RuinaDebuffIntent());
+        return new MoveState(ALLEGRO, Allegro, new RuinaMultiAttackIntent(AllegroDamage, AllegroHits), new StatusIntent(StatusAmt));
     }
     
     private MoveState GetTrailsState()

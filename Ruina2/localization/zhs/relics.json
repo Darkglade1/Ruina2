@@ -36,5 +36,8 @@
   "RUINA2-FOUR_TRIGRAMS.title": "四象",
   "RUINA2-BOOK_OF_SOMEONE.description": "在战斗结束时，恢复你[blue]{Heal}%[/blue]的生命值。",
   "RUINA2-BOOK_OF_SOMEONE.flavor": "总要有人挺身而战，才能换来所有人的自由。",
-  "RUINA2-BOOK_OF_SOMEONE.title": "无名之书"
+  "RUINA2-BOOK_OF_SOMEONE.title": "无名之书",
+  "RUINA2-BLUE_SCARF.description": "将[gold]不速之客[/gold]改为较短的版本。",
+  "RUINA2-BLUE_SCARF.flavor": "一条令人联想到宜人温暖的围巾。它似乎会将周围的人都吸引到自己身边。",
+  "RUINA2-BLUE_SCARF.title": "蓝围巾"
 }
