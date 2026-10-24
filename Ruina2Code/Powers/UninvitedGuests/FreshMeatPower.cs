@@ -62,7 +62,7 @@ public class FreshMeatPower : Ruina2Power
             {
                 allCards.Add(StolenCard);
             }
-            var result = await CardPileCmd.Add(StolenCard, PileType.Draw, CardPilePosition.Random);
+            var result = await CardPileCmd.Add(StolenCard, PileType.Draw, CardPilePosition.Top);
             if (LocalContext.IsMe(Target))
             {
                 CardCmd.PreviewCardPileAdd(result, style: CardPreviewStyle.HorizontalLayout);
