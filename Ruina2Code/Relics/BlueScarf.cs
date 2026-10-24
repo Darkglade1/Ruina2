@@ -17,7 +17,10 @@ public class BlueScarf() : Ruina2Relic
     
     public override async Task AfterObtained()
     {
-        await RunManager.Instance.GenerateMap();
+        if (RunManager.Instance.State != null && Owner == RunManager.Instance.State.Players[0])
+        {
+            await RunManager.Instance.GenerateMap();
+        }
     }
 
     public override ActMap ModifyGeneratedMap(IRunState runState, ActMap map, int actIndex)
