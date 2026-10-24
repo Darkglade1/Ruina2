@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
+using Ruina2.Ruina2Code.Events.Act4;
 using Ruina2.Ruina2Code.Relics;
 
 namespace Ruina2.Ruina2Code.Singleton;
@@ -93,5 +94,14 @@ public class AfterMapGenerateSingleton() : CustomSingletonModel(HookType.Run)
             };
         }
         return roomTypes;
+    }
+    
+    public override EventModel ModifyNextEvent(EventModel currentEvent)
+    {
+        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is UninvitedGuests)
+        {
+            ModelDb.Event<Ensemble>();
+        }
+        return currentEvent;
     }
 }
