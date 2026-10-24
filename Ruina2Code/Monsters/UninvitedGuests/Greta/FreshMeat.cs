@@ -12,7 +12,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Greta;
 
 public sealed class FreshMeat : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 110, 100);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 90, 80);
     public override int MaxInitialHp => MinInitialHp;
     public override string TargetTexturePath => "MeatIcon.png".UIImagePath();
 
