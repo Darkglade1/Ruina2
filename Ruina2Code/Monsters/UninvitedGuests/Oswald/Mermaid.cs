@@ -24,8 +24,8 @@ public class Mermaid : AbstractMultiIntentMonster
 
     private int SlapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
     private int DebuffAmt => 2;
-    private int DazedAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int SlimedAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
+    private int DazedAmt => 2;
+    private int SlimedAmt => 1;
 
     protected override string VisualsPath => "Mermaid/mermaid.tscn".MonsterImagePath();
 

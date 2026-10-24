@@ -24,7 +24,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Pluto;
 
 public sealed class Hokma : AbstractAllyCardMonster
 {
-    public override int MinInitialHp => 140;
+    public override int MinInitialHp => 160;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "HokmaIcon.png".UIImagePath();

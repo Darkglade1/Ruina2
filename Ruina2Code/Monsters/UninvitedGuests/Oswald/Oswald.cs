@@ -34,7 +34,7 @@ public sealed class Oswald : AbstractCardMonster
     private int FunHits => 2;
     private int BrainwashDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int StatusAmt => 2;
     private int AllyDebuffAmt => 1;
 
     protected override string VisualsPath => "Oswald/oswald.tscn".MonsterImagePath();
