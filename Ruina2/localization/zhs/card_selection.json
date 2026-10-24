@@ -1,4 +1,5 @@
 {
   "RUINA2-TO_FREEZE": "选择{Amount:plural:一张牌|[blue]{}[/blue]张牌}进行[gold]冻结[/gold]。",
-  "RUINA2-TO_DUPE": "选择{Amount:plural:一张牌|[blue]{}[/blue]张牌}进行[gold]复制[/gold]。"
+  "RUINA2-TO_DUPE": "选择{Amount:plural:一张牌|[blue]{}[/blue]张牌}进行[gold]复制[/gold]。",
+  "RUINA2-UP_TO_EXHAUST": "选择至多[blue]{Amount}[/blue]张牌[gold]消耗[/gold]。"
 }
