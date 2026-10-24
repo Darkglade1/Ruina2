@@ -4,7 +4,7 @@
   "RUINA2-LAUREL_WREATH.extraCardText": "",
 
   "RUINA2-JUDAS.title": "Judas",
-  "RUINA2-JUDAS.description": "This card gains [gold]Replay[/gold] but causes you to lose HP when played.",
+  "RUINA2-JUDAS.description": "This card gains [gold]Replay[/gold] [blue]1[/blue] but causes you to lose [blue]1[/blue] HP when played.",
   "RUINA2-JUDAS.extraCardText": "[purple]Lose 1 HP.[/purple]",
 
   "RUINA2-FROZEN.title": "Frozen",

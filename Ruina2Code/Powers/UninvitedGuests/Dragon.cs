@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
@@ -29,7 +30,8 @@ public class Dragon() : Ruina2Power
             if (DynamicVars["CardCounter"].BaseValue >= Amount)
             {
                 Flash();
-                CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 0, DynamicVars["Exhaust"].IntValue);
+                var locstring = new LocString("card_selection", "RUINA2-UP_TO_EXHAUST");
+                CardSelectorPrefs prefs = new CardSelectorPrefs(locstring, 0, DynamicVars["Exhaust"].IntValue);
                 foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, Target.Player, prefs, null, this))
                 {
                     await CardCmd.Exhaust(choiceContext, card);

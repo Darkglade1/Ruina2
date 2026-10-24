@@ -23,7 +23,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Greta;
 
 public sealed class Hod : AbstractAllyCardMonster
 {
-    public override int MinInitialHp => 130;
+    public override int MinInitialHp => 150;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "HodIcon.png".UIImagePath();

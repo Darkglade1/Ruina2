@@ -3,7 +3,7 @@
   "RUINA2-LAUREL_WREATH.description": "这张牌对[gold]爱温娜[/gold]造成全额伤害。",
   "RUINA2-LAUREL_WREATH.extraCardText": "",
   "RUINA2-JUDAS.title": "犹大",
-  "RUINA2-JUDAS.description": "这张牌获得[gold]重放[/gold]，但打出时会使你损失生命。",
+  "RUINA2-JUDAS.description": "这张牌获得[blue]1[/blue]次[gold]重放[/gold]，但打出时会使你失去[blue]1[/blue]点生命。",
   "RUINA2-JUDAS.extraCardText": "[purple]损失1点生命。[/purple]",
   "RUINA2-FROZEN.title": "冻结",
   "RUINA2-FROZEN.description": "这张牌[gold]无法打出[/gold]。",

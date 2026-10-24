@@ -19,7 +19,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 public sealed class Tiph : AbstractAllyCardMonster
 {
-    public override int MinInitialHp => 150;
+    public override int MinInitialHp => 170;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "TiphIcon.png".UIImagePath();
