@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -17,6 +18,9 @@ public class BlackSilence() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+
+    public override int DisplayAmount => Math.Min(CombatManager.Instance.History.CardPlaysStarted.Count(e =>
+        e.Actor == Target && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)), 3);
 
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
@@ -43,5 +47,35 @@ public class BlackSilence() : Ruina2Power
                 await allyMonster.DisableApplyPowersToAllies();
             }
         }
+    }
+    
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner.Creature == Target)
+        {
+            if (DisplayAmount == 2)
+            {
+                StartPulsing();
+            }
+            else
+            {
+                StopPulsing();
+            }
+            if (DisplayAmount <= 3)
+            {
+                InvokeDisplayAmountChanged();
+            }
+        }
+        return Task.CompletedTask;
+    }
+    
+    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player.Creature == Target)
+        {
+            StopPulsing();
+            InvokeDisplayAmountChanged();
+        }
+        return Task.CompletedTask;
     }
 }

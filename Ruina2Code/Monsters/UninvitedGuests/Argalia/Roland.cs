@@ -178,11 +178,11 @@ public sealed class Roland : AbstractAllyCardMonster
     {
          movePool.Add(DURANDAL);
          movePool.Add(MACE);
-         movePool.Add(CRYSTAL);
+         movePool.Add(OLD_BOY);
          movePool.Add(RANGA);
          movePool.Add(WHEELS);
          movePool.Add(ALLAS);
-         movePool.Add(OLD_BOY);
+         movePool.Add(CRYSTAL);
          movePool.Add(MOOK);
          movePool.Add(GUN);
     }
