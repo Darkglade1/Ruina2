@@ -4,6 +4,7 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using Ruina2.Ruina2Code.Data;
+using Ruina2.Ruina2Code.Patches;
 
 namespace Ruina2.Ruina2Code;
 
@@ -26,6 +27,7 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
         
         harmony.PatchAll(assembly);
+        MintyCompatPatch.Init(harmony); 
         ModConfigRegistry.Register(ModId, new Config());
         
         ModManager.OnMetricsUpload += Ruina2Metrics.OnMetricsUpload;
