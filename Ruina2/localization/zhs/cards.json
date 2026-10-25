@@ -287,7 +287,7 @@
   "RUINA2-TRAILS.title": "苍蓝轨迹",
   "RUINA2-SCYTHE.description": "造成{Damage:diff()}点伤害。\n如果这张牌是中间的意图，则造成三倍伤害。",
   "RUINA2-SCYTHE.title": "破空律斩",
-  "RUINA2-DANZA.description": "对所有敌人造成{Damage:diff()}点伤害，共{Repeat:diff()}次。\n这个生物本回合的意图不会发生变化。",
+  "RUINA2-DANZA.description": "对所有敌人造成{Damage:diff()}点伤害，共{Repeat:diff()}次。",
   "RUINA2-DANZA.title": "最终旋律",
   "RUINA2-ALLAS.description": "造成{Damage:diff()}点伤害。\n给予{WeakPower:diff()}层[gold]虚弱[/gold]。",
   "RUINA2-ALLAS.title": "阿拉斯工坊",

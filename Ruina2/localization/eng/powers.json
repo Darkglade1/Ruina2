@@ -479,14 +479,6 @@
   "RUINA2-RESONANCE.smartDescription": "Whenever {IsMultiplayer:players|you} play {IsMultiplayer:[blue]{Amount}[/blue] cards|a card}, shift this creature's intents to the right by [blue]1[/blue]. (The first intent targets you. The other intents target your [green]ally[/green].)",
   "RUINA2-RESONANCE.title": "Resonance",
 
-  "RUINA2-BLUE_REVERB.description": "",
-  "RUINA2-BLUE_REVERB.smartDescription": "At the end of the round, gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
-  "RUINA2-BLUE_REVERB.title": "The Blue Reverberation",
-
-  "RUINA2-BLACK_SILENCE.description": "",
-  "RUINA2-BLACK_SILENCE.smartDescription": "At the end of the round, gains [blue]{Amount}[/blue] [gold]Strength[/gold].\nUses a [gold]powerful[/gold] attack after [blue]9[/blue] turns.",
-  "RUINA2-BLACK_SILENCE.title": "The Black Silence",
-
   "RUINA2-VIBRATION.description": "At the end of this creature's turn, take damage.",
   "RUINA2-VIBRATION.smartDescription": "At the end of this creature's turn, it takes [blue]{Amount}[/blue] damage.",
   "RUINA2-VIBRATION.title": "Vibration",
@@ -513,5 +505,13 @@
 
   "RUINA2-GAM.description": "",
   "RUINA2-GAM.smartDescription": "ALL players gain {Amount:energyIcons()} next turn.\nChanges every turn.",
-  "RUINA2-GAM.title": "Gam of Four Trigrams"
+  "RUINA2-GAM.title": "Gam of Four Trigrams",
+
+  "RUINA2-BLUE_REVERB.description": "",
+  "RUINA2-BLUE_REVERB.smartDescription": "Every other card you play from your [gold]Hand[/gold] each turn deals [blue]0[/blue] damage and gains [blue]0[/blue] [gold]Block[/gold].",
+  "RUINA2-BLUE_REVERB.title": "The Blue Reverberation",
+
+  "RUINA2-BLACK_SILENCE.description": "",
+  "RUINA2-BLACK_SILENCE.smartDescription": "The [blue]3rd[/blue] card you play each turn is played twice if it's an [gold]Attack[/gold] or [gold]Skill[/gold]. If it's an [gold]Attack[/gold], this creature gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-BLACK_SILENCE.title": "The Black Silence"
 }

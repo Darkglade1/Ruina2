@@ -73,7 +73,12 @@ public sealed class Roland : AbstractAllyCardMonster
     { 
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Argalia>();
-        await PowerCmd.Apply<BlackSilence>(new ThrowingPlayerChoiceContext(), Creature, PowerStrength, Creature,  null);
+        foreach (Creature target in CombatState.PlayerCreatures)
+        {
+            BlackSilence mutable = (BlackSilence) ModelDb.Power<BlackSilence>().ToMutable();
+            mutable.Target = target;
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, PowerStrength, Creature, null);
+        }
         PopulateMovePool();
     }
 
@@ -171,15 +176,15 @@ public sealed class Roland : AbstractAllyCardMonster
 
     private void PopulateMovePool()
     {
-         movePool.Add(CRYSTAL);
-         movePool.Add(WHEELS);
          movePool.Add(DURANDAL);
-         movePool.Add(ALLAS);
-         movePool.Add(GUN);
-         movePool.Add(MOOK);
-         movePool.Add(OLD_BOY);
-         movePool.Add(RANGA);
          movePool.Add(MACE);
+         movePool.Add(CRYSTAL);
+         movePool.Add(RANGA);
+         movePool.Add(WHEELS);
+         movePool.Add(ALLAS);
+         movePool.Add(OLD_BOY);
+         movePool.Add(MOOK);
+         movePool.Add(GUN);
     }
 
     protected override void AfterCloned()
@@ -195,9 +200,8 @@ public sealed class Roland : AbstractAllyCardMonster
             PopulateMovePool();
             return FURIOSO;
         }
-        int num = rng.NextInt(movePool.Count);
-        var nextMove = movePool[num];
-        movePool.RemoveAt(num);
+        var nextMove = movePool[0];
+        movePool.RemoveAt(0);
         return nextMove;
     }
 
