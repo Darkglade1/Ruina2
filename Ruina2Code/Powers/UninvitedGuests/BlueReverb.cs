@@ -1,4 +1,4 @@
-﻿﻿using MegaCrit.Sts2.Core.Combat;
+﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -30,6 +30,10 @@ public class BlueReverb() : Ruina2Power
     {
         if (cardSource != null && cardSource.Owner.Creature == Target && (cardPlay == null || !cardPlay.IsAutoPlay))
         {
+            if (cardPlay == null && !PileType.Hand.GetPile(cardSource.Owner).Cards.Contains(cardSource))
+            {
+                return 1M;
+            }
             if (props.IsPoweredAttack() && EnemyCard.EnemyCardOwner.Get(cardSource) == null)
             {
                 if (CombatManager.Instance.History.CardPlaysFinished.Count(e =>
@@ -51,6 +55,10 @@ public class BlueReverb() : Ruina2Power
     {
         if (cardSource != null && cardSource.Owner.Creature == Target && (cardPlay == null || !cardPlay.IsAutoPlay))
         {
+            if (cardPlay == null && !PileType.Hand.GetPile(cardSource.Owner).Cards.Contains(cardSource))
+            {
+                return 1M;
+            }
             if (props.IsPoweredCardOrMonsterMoveBlock() && EnemyCard.EnemyCardOwner.Get(cardSource) == null)
             {
                 if (CombatManager.Instance.History.CardPlaysFinished.Count(e =>
