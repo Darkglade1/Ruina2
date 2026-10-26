@@ -185,9 +185,12 @@ public sealed class WhiteNight : AbstractRuinaMonster
                     {
                         if (card.Type == CardType.Attack || card.Type == CardType.Skill || card.Type == CardType.Power)
                         {
-                            await CardCmd.Afflict<Afflictions.Apostle>(card, 1);
-                            CardCmd.Preview(card);
-                            numAfflictionsLeft--;
+                            if (!card.Keywords.Contains(CardKeyword.Unplayable))
+                            {
+                                await CardCmd.Afflict<Afflictions.Apostle>(card, 1);
+                                CardCmd.Preview(card);
+                                numAfflictionsLeft--;
+                            }
                         }
                     }
                 }
