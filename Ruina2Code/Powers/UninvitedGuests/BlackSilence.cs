@@ -1,13 +1,13 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using Ruina2.Ruina2Code.Monsters;
+using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Cards.EnemyCards;
 
 namespace Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
@@ -18,35 +18,68 @@ public class BlackSilence() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
-    public override int DisplayAmount => Math.Min(CombatManager.Instance.History.CardPlaysStarted.Count(e =>
-        e.Actor == Target && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)), 3);
+    public override int DisplayAmount => Math.Min(CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+        e.Actor == Target && e.HappenedThisTurn(CombatState)), 3);
 
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
+    public override Decimal ModifyDamageMultiplicative(
+        Creature? target,
+        Decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
-        if (card.Owner.Creature == Target)
+        if (cardSource != null && cardSource.Owner.Creature == Target)
         {
-            if (CombatManager.Instance.History.CardPlaysStarted.Count(e =>
-                    e.Actor == Target && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)) == 2 && (card.Type == CardType.Attack || card.Type == CardType.Skill))
+            if (props.IsPoweredAttack() && EnemyCard.EnemyCardOwner.Get(cardSource) == null)
             {
-                return playCount + 1;
+                if (CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+                        e.Actor == Target && e.HappenedThisTurn(CombatState)) == 2)
+                {
+                    return 2M;
+                }
             }
         }
-        return playCount;
+        return 1M;
     }
 
-    public override async Task AfterModifyingCardPlayCount(CardModel card)
+    public override Decimal ModifyBlockMultiplicative(
+        Creature target,
+        Decimal block,
+        ValueProp props,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
-        Flash();
-        if (card.Type == CardType.Attack)
+        if (cardSource != null && cardSource.Owner.Creature == Target)
         {
-            if (Owner.Monster is AbstractAllyMonster allyMonster)
+            if (props.IsPoweredCardOrMonsterMoveBlock() && EnemyCard.EnemyCardOwner.Get(cardSource) == null)
             {
-                await allyMonster.AllowApplyPowersToAllies();
-                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner,  null);
-                await allyMonster.DisableApplyPowersToAllies();
+                if (CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+                        e.Actor == Target && e.HappenedThisTurn(CombatState)) == 2)
+                {
+                    return 2M;
+                }
             }
         }
+        return 1M;
+    }
+    
+    public override bool TryModifyEnergyCostInCombat(
+        CardModel card,
+        Decimal originalCost,
+        out Decimal modifiedCost)
+    {
+        if (card.Owner.Creature == Target && CombatManager.Instance.History.CardPlaysFinished.Count(e =>
+                e.Actor == Target && e.HappenedThisTurn(CombatState)) == 2)
+        {
+            modifiedCost = originalCost - DynamicVars.Energy.IntValue;
+            return true;
+        }
+        modifiedCost = originalCost;
+        return false;
     }
     
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

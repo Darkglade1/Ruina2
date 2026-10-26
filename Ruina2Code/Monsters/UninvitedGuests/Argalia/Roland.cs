@@ -1,6 +1,5 @@
 ﻿using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,7 +10,6 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Random;
-using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Cards.EnemyCards.Roland;
 using Ruina2.Ruina2Code.Extensions;
@@ -23,7 +21,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
 
 public sealed class Roland : AbstractAllyCardMonster
 {
-    public override int MinInitialHp => 500;
+    public override int MinInitialHp => 450;
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "RolandIcon.png".UIImagePath();
@@ -52,7 +50,6 @@ public sealed class Roland : AbstractAllyCardMonster
     private int MaceHits => 2;
     private int FuriosoDamage => 25;
     private int FuriosoHits => 16;
-    private int PowerStrength => 2;
 
     private List<String> movePool = new List<string>();
   
@@ -77,7 +74,7 @@ public sealed class Roland : AbstractAllyCardMonster
         {
             BlackSilence mutable = (BlackSilence) ModelDb.Power<BlackSilence>().ToMutable();
             mutable.Target = target;
-            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, PowerStrength, Creature, null);
+            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
         }
         PopulateMovePool();
     }

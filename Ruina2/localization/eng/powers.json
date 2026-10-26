@@ -508,10 +508,10 @@
   "RUINA2-GAM.title": "Gam of Four Trigrams",
 
   "RUINA2-BLUE_REVERB.description": "",
-  "RUINA2-BLUE_REVERB.smartDescription": "Every other card you play from your [gold]Hand[/gold] each turn deals [blue]0[/blue] damage and gains [blue]0[/blue] [gold]Block[/gold].",
+  "RUINA2-BLUE_REVERB.smartDescription": "At the end of the round, applies [blue]{Amount}[/blue] [gold]Vibration[/gold] to ALL enemies.",
   "RUINA2-BLUE_REVERB.title": "The Blue Reverberation",
 
   "RUINA2-BLACK_SILENCE.description": "",
-  "RUINA2-BLACK_SILENCE.smartDescription": "The [blue]3rd[/blue] card you play each turn is played twice if it's an [gold]Attack[/gold] or [gold]Skill[/gold]. If it's an [gold]Attack[/gold], this creature gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-BLACK_SILENCE.smartDescription": "The [blue]3rd[/blue] card you play each turn costs {Energy:energyIcons()} less, gains double [gold]Block[/gold], and deals double damage.",
   "RUINA2-BLACK_SILENCE.title": "The Black Silence"
 }

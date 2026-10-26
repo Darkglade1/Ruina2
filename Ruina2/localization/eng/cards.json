@@ -559,6 +559,6 @@
   "RUINA2-TRAILS.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
   "RUINA2-TRAILS.title": "Trails of Blue",
 
-  "RUINA2-SCYTHE.description": "Deal {Damage:diff()} damage.\nApply {Vibration:diff()} [gold]Vibration[/gold].",
+  "RUINA2-SCYTHE.description": "Deal {Damage:diff()} damage.",
   "RUINA2-SCYTHE.title": "Resonant Scythe"
 }

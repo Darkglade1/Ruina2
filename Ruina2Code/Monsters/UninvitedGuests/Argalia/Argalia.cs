@@ -55,12 +55,7 @@ public sealed class Argalia : AbstractCardMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<Roland>();
-        foreach (Creature target in CombatState.PlayerCreatures)
-        {
-            BlueReverb mutable = (BlueReverb) ModelDb.Power<BlueReverb>().ToMutable();
-            mutable.Target = target;
-            await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), mutable, Creature, 1, Creature, null);
-        }
+        await PowerCmd.Apply<BlueReverb>(new ThrowingPlayerChoiceContext(), Creature, VibrationAmount, Creature,  null);
         TalkCmd.Play(L10NMonsterLookup("RUINA2-ARGALIA.talk"), Creature, VfxColor.Blue);
     }
 
@@ -81,7 +76,7 @@ public sealed class Argalia : AbstractCardMonster
     
     private MoveState GetScytheState()
     {
-        return new MoveState(SCYTHE, Scythe, new RuinaSingleAttackIntent(ScytheDamage), new RuinaDebuffIntent());
+        return new MoveState(SCYTHE, Scythe, new RuinaSingleAttackIntent(ScytheDamage));
     }
     
     private MoveState GetDanzaState()
@@ -255,7 +250,6 @@ public sealed class Argalia : AbstractCardMonster
         card4.SetRepeat(DanzaHits);
         var card5 = CreateCardForIntent<Scythe>();
         card5.SetDamage(ScytheDamage);
-        card5.DynamicVars["Vibration"].BaseValue = VibrationAmount;
         return new Dictionary<string, CardModel>()
         {
             {ALLEGRO, card1},
@@ -316,7 +310,6 @@ public sealed class Argalia : AbstractCardMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
-        await PowerCmd.Apply<Vibration>(new ThrowingPlayerChoiceContext(), targets, VibrationAmount, Creature,  null);
         await ResetIdle(1.0f);
     }
     
