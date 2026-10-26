@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -71,14 +72,20 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
             {
                 if (i < cardMonster.NCardHolders.Count)
                 {
-                    cardMonster.NCardHolders[i]?.Hide();
+                    if (cardMonster.NCardHolders[i] != null && GodotObject.IsInstanceValid(cardMonster.NCardHolders[i]))
+                    {
+                        cardMonster.NCardHolders[i]?.Hide();
+                    }
                 }
             }
             if (this is AbstractAllyCardMonster allyCardMonster)
             {
                 if (i < allyCardMonster.NCardHolders.Count)
                 {
-                    allyCardMonster.NCardHolders[i]?.Hide();
+                    if (allyCardMonster.NCardHolders[i] != null && GodotObject.IsInstanceValid(allyCardMonster.NCardHolders[i]))
+                    {
+                        allyCardMonster.NCardHolders[i]?.Hide();
+                    }
                 }
             }
             await Cmd.CustomScaledWait(0.5f, 0.6f);

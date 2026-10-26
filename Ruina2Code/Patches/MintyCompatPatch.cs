@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
+using Ruina2.Ruina2Code.Powers.Act1;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Patches;
@@ -121,6 +122,18 @@ public static class MintyCompatPatch
             if (vibration != null)
             {
                 damageAdded += vibration.Amount;
+            }
+            
+            var ferventAdoration = creature.GetPower<FerventAdoration>();
+            if (ferventAdoration != null)
+            {
+                damageAdded += ferventAdoration.Amount;
+            }
+            
+            var pleasure = creature.GetPower<Pleasure>();
+            if (pleasure != null)
+            {
+                damageAdded += pleasure.Amount;
             }
         }
         return original - damageToRemove + damageAdded;
