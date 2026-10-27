@@ -13,12 +13,29 @@ namespace Ruina2.Ruina2Code.Monsters;
 public partial class NAllyBlockButton : NAllyButton
 {
     public static int BLOCK_TRANSFER = 5;
-    protected override void OnClick()
+    protected override void OnButtonGuiInput(BaseButton button, InputEvent @event)
     {
-        var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-        if (localPlayer != null)
+        if (@event is InputEventMouseButton mb
+            && mb.Pressed)
         {
-            RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new AllyBlockButtonAction(localPlayer, owner.Creature.ModelId));
+            if (mb.ButtonIndex == MouseButton.Left)
+            {
+                var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
+                if (localPlayer != null)
+                {
+                    RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new AllyBlockButtonAction(localPlayer, owner.Creature.ModelId, 1));
+                }
+                button.AcceptEvent();
+            }
+            if (mb.ButtonIndex == MouseButton.Right)
+            {
+                var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
+                if (localPlayer != null)
+                {
+                    RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new AllyBlockButtonAction(localPlayer, owner.Creature.ModelId, 2));
+                }
+                button.AcceptEvent();
+            }
         }
     }
 
@@ -28,7 +45,7 @@ public partial class NAllyBlockButton : NAllyButton
             new LocString("static_hover_tips", "RUINA2-ALLY_BLOCK_BUTTON.title"),
             new LocString("static_hover_tips", "RUINA2-ALLY_BLOCK_BUTTON.description"),
             PreloadManager.Cache.GetTexture2D(ImageHelper.GetImagePath("atlases/intent_atlas.sprites/intent_defend.tres")));
-        hoverTip.Description = String.Format(hoverTip.Description, BLOCK_TRANSFER);
+        hoverTip.Description = String.Format(hoverTip.Description, BLOCK_TRANSFER, BLOCK_TRANSFER);
         return hoverTip;
     }
 }

@@ -18,6 +18,7 @@ public class BlackSilence() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 

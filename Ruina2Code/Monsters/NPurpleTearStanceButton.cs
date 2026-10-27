@@ -12,12 +12,17 @@ namespace Ruina2.Ruina2Code.Monsters;
 public partial class NPurpleTearStanceButton : NAllyButton
 {
 	public int Stance;
-	protected override void OnClick()
+	protected override void OnButtonGuiInput(BaseButton button, InputEvent @event)
 	{
-		var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
-		if (localPlayer != null)
+		if (@event is InputEventMouseButton mb
+		    && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
 		{
-			RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new PurpleTearStanceChangeAction(localPlayer, owner.Creature.ModelId, Stance));
+			var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
+			if (localPlayer != null)
+			{
+				RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(new PurpleTearStanceChangeAction(localPlayer, owner.Creature.ModelId, Stance));
+			}
+			button.AcceptEvent();
 		}
 	}
 

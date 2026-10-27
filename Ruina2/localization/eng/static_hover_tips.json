@@ -1,6 +1,7 @@
 {
   "RUINA2-ALLY_BLOCK_BUTTON.title": "Transfer Block",
-  "RUINA2-ALLY_BLOCK_BUTTON.description": "[gold]Left-Click:[/gold] transfer up to [blue]\\{0\\}[/blue] [gold]Block[/gold] from you to this [green]ally[/green].",
+  "RUINA2-ALLY_BLOCK_BUTTON.description": "[gold]Left-Click:[/gold] transfer up to [blue]\\{0\\}[/blue] [gold]Block[/gold] from you to this [green]ally[/green].\n[gold]Right-Click:[/gold] transfer the next [blue]\\{1\\}[/blue] [gold]Block[/gold] you gain this turn to this [green]ally[/green].",
+  
   "RUINA2-PERFORMER_TYPE.description": "{Type} | Performer",
 
   "RUINA2-SLASH_STANCE_BUTTON.title": "Slash Stance",

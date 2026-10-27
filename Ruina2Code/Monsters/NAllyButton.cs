@@ -29,7 +29,8 @@ public abstract partial class NAllyButton : BaseButton
         MouseFilter = MouseFilterEnum.Pass;
         Connect(Control.SignalName.MouseEntered, Callable.From(OnHovered));
         Connect(Control.SignalName.MouseExited, Callable.From(OnUnhovered));
-        Connect(BaseButton.SignalName.Pressed, Callable.From(OnClick));
+        
+        GuiInput += (InputEvent @event) => OnButtonGuiInput(this, @event);
     }
 
     public override void _Process(double delta)
@@ -51,7 +52,7 @@ public abstract partial class NAllyButton : BaseButton
         }
     }
 
-    protected abstract void OnClick();
+    protected abstract void OnButtonGuiInput(BaseButton button, InputEvent @event);
     
     protected abstract IHoverTip? GetHoverTip();
 

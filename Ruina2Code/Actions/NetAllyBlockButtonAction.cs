@@ -10,20 +10,23 @@ namespace Ruina2.Ruina2Code.Actions;
 public struct NetAllyBlockButtonAction : INetAction
 {
   public ModelId modelId;
+  public int num;
 
   public GameAction ToGameAction(Player player)
   {
-    return new AllyBlockButtonAction(player, modelId);
+    return new AllyBlockButtonAction(player, modelId, num);
   }
 
   public void Serialize(PacketWriter writer)
   {
     writer.WriteModelEntry(modelId);
+    writer.WriteInt(num);
   }
 
   public void Deserialize(PacketReader reader)
   {
     modelId = reader.ReadModelIdAssumingType<MonsterModel>();
+    num = reader.ReadInt();
   }
 
   public override string ToString()

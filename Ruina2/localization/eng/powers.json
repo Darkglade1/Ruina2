@@ -513,5 +513,9 @@
 
   "RUINA2-BLACK_SILENCE.description": "",
   "RUINA2-BLACK_SILENCE.smartDescription": "The [blue]3rd[/blue] card you play each turn costs {Energy:energyIcons()} less, gains double [gold]Block[/gold], and deals double damage.",
-  "RUINA2-BLACK_SILENCE.title": "The Black Silence"
+  "RUINA2-BLACK_SILENCE.title": "The Black Silence",
+
+  "RUINA2-TRANSFER_BLOCK_ALLY.description": "",
+  "RUINA2-TRANSFER_BLOCK_ALLY.smartDescription": "Transfer the next [blue]{Amount}[/blue] [gold]Block[/gold] you gain this turn to [gold]{AllyName.StringValue}[/gold].",
+  "RUINA2-TRANSFER_BLOCK_ALLY.title": "Transfer Block to Ally"
 }
