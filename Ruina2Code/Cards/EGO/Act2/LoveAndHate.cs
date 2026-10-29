@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -28,16 +29,7 @@ public class LoveAndHate() : EGOCard(0,
         int num = ResolveEnergyXValue();
         if (CombatState != null && num > 0)
         {
-            decimal multipler = 1.0M;
-            if (num >= DynamicVars["firstThreshold"].IntValue)
-            {
-                multipler *= 1.0M + (DynamicVars["firstThresholdBonus"].IntValue / 100M);
-            }
-            if (num >= DynamicVars["secondThreshold"].IntValue && IsUpgraded)
-            {
-                multipler *= 1.0M + (DynamicVars["secondThresholdBonus"].IntValue / 100M);
-            }
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue * num * multipler).FromCard(this, play).TargetingAllOpponents(CombatState)
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState)
                 .WithAttackerAnim("Cast", 0.5f).BeforeDamage(async delegate
                 {
                     List<Creature> enemies = CombatState.Enemies.Where(e => e.IsAlive).ToList();
@@ -58,6 +50,35 @@ public class LoveAndHate() : EGOCard(0,
                     }
                 }).Execute(choiceContext);
         }
+    }
+    
+    public override Decimal ModifyDamageMultiplicative(
+        Creature? target,
+        Decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
+    {
+        decimal multiplier = 1M;
+        if (dealer == Owner.Creature && cardSource != null && cardSource == this && props.IsPoweredAttack())
+        {
+            int num = ResolveEnergyXValue();
+            if (num >= DynamicVars["firstThreshold"].IntValue)
+            {
+                multiplier *= 1.0M + (DynamicVars["firstThresholdBonus"].IntValue / 100M);
+            }
+            if (num >= DynamicVars["secondThreshold"].IntValue && IsUpgraded)
+            {
+                multiplier *= 1.0M + (DynamicVars["secondThresholdBonus"].IntValue / 100M);
+            }
+            if (cardPlay != null)
+            {
+                multiplier *= num;
+            }
+            return multiplier;
+        }
+        return 1M;
     }
 
     protected override void OnUpgrade()
