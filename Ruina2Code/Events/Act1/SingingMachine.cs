@@ -58,7 +58,7 @@ public class SingingMachine() : Ruina2Event()
             else
             {
                 EventOption firstOption;
-                if (offeredCard.IsUpgraded)
+                if (offeredCard.IsUpgraded || !offeredCard.IsUpgradable)
                 {
                     firstOption = new EventOption(this, DupeCard,"RUINA2-SINGING_MACHINE.pages.options.DUPE_CARD", HoverTipFactory.FromCard(offeredCard));
                 }
