@@ -18,12 +18,12 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 
 public class Mermaid : AbstractMultiIntentMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 330, 300);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 345, 315);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 280, 250);
+    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 300, 270);
     public override int NumIntents => 1;
 
-    private int SlapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
-    private int DebuffAmt => 2;
+    private int SlapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int DebuffAmt => 1;
     private int DazedAmt => 2;
     private int SlimedAmt => 1;
 
@@ -63,8 +63,8 @@ public class Mermaid : AbstractMultiIntentMonster
     private MonsterMoveStateMachine GenerateIntent1StateMachine()
     {
         var states = new List<MonsterState>();
-        var state1 = GetResonatingTerrorState();
-        var state2 = GetHorrendousPitchState();
+        var state1 = GetHorrendousPitchState();
+        var state2 = GetResonatingTerrorState();
         var state3 = GetFishSlapState();
 
         state1.FollowUpState = state2;

@@ -25,7 +25,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Puppeteer;
 
 public sealed class Puppeteer : AbstractCardMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1000, 900);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1100, 1000);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 2;
 

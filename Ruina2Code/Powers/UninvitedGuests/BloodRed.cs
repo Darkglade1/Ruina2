@@ -27,6 +27,7 @@ public class BloodRed() : Ruina2Power
         {
             if (result.UnblockedDamage > 0 && !result.Receiver.IsPet)
             {
+                Flash();
                 await CreatureCmd.Heal(Owner, result.UnblockedDamage);
             }
         }

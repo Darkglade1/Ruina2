@@ -144,6 +144,10 @@ public sealed class Elena : AbstractCardMonster
         }
         else
         {
+            if (CombatState.RoundNumber == 1)
+            {
+                return SANGUINE_NAILS;
+            }
             if (stateMachine.StateLog.Count >= 3)
             {
                 stateMachine.StateLog.Clear();

@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Random;
@@ -22,9 +21,8 @@ public sealed class AllAroundHelper : AbstractRuinaMonster
     
     private int CleanDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int CleanHits => 2;
-    private int StrengthAmount => 2;
-    private int DamageThreshold => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
-
+    private int StrengthAmount = 2;
+    private int StrengthIncrease = 1;
     protected override string VisualsPath => "Helper/helper.tscn".MonsterImagePath();
 
     private const string CHARGE = "CHARGE";
@@ -35,7 +33,7 @@ public sealed class AllAroundHelper : AbstractRuinaMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<Pattern>(new ThrowingPlayerChoiceContext(), Creature, DamageThreshold * CombatState.Players.Count, Creature,  null);
+        await PowerCmd.Apply<Pattern>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
         for (int i = 0; i < CombatState.HittableEnemies.Count; i++)
         {
             if (Creature == CombatState.HittableEnemies[i])
@@ -95,8 +93,8 @@ public sealed class AllAroundHelper : AbstractRuinaMonster
     private async Task Charge(IReadOnlyList<Creature> targets)
     {
         await SpecialAnimation();
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature,  null);
-        await ApplyPowerAndSkipNextDurationTick<HelperTempStr>([Creature], StrengthAmount - 1);
+        await ApplyPowerAndSkipNextDurationTick<HelperTempStr>([Creature], StrengthAmount);
+        StrengthAmount += StrengthIncrease;
         await ResetIdle();
     }
     

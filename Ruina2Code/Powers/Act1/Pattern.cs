@@ -1,9 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -16,9 +14,6 @@ public class Pattern() : Ruina2Power
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;
-
-    public override int DisplayAmount => DynamicVars["DamageCounter"].IntValue;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("DamageCounter",0)];
     
     public override async Task AfterDamageGiven(
         PlayerChoiceContext choiceContext,
@@ -28,29 +23,13 @@ public class Pattern() : Ruina2Power
         Creature target,
         CardModel? cardSource)
     {
-        if (dealer == Owner && props.IsPoweredAttack() && result.Receiver.IsPlayer)
+        if (dealer == Owner && props.IsPoweredAttack())
         {
-            DynamicVars["DamageCounter"].BaseValue += result.UnblockedDamage;
-            if (DynamicVars["DamageCounter"].BaseValue >= Amount)
+            if (result.UnblockedDamage > 0 && !result.Receiver.IsPet)
             {
                 Flash();
-                await PowerCmd.Remove<HelperTempStr>(Owner);
-                DynamicVars["DamageCounter"].BaseValue = 0;
+                await CreatureCmd.GainBlock(Owner, result.UnblockedDamage, ValueProp.Unpowered, null);
             }
-            InvokeDisplayAmountChanged();
         }
-    }
-    
-    public override Task AfterSideTurnEnd(
-        PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (side == CombatSide.Enemy)
-        {
-            DynamicVars["DamageCounter"].BaseValue = 0;
-            InvokeDisplayAmountChanged();
-        }
-        return Task.CompletedTask;
     }
 }

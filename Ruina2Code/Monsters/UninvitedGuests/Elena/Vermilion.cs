@@ -150,6 +150,10 @@ public sealed class Vermilion : AbstractCardMonster
         }
         else
         {
+            if (CombatState.RoundNumber == 1)
+            {
+                return HEATED_WEAPON;
+            }
             if (stateMachine.StateLog.Count >= 3)
             {
                 stateMachine.StateLog.Clear();

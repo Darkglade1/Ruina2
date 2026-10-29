@@ -34,7 +34,7 @@ public sealed class Pluto : AbstractCardMonster
     private int CurrentDamageIncrease = 0;
     public decimal OnslaughtTotalDamage => OnslaughtDamage + CurrentDamageIncrease;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
-    private int StatusAmt => 3;
+    private int StatusAmt => 4;
     private int BlockAmt => 50;
 
     protected override string VisualsPath => "Pluto/pluto.tscn".MonsterImagePath();
