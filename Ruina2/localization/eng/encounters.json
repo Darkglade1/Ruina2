@@ -72,7 +72,7 @@
   "RUINA2-SPIDER_BUD_NORMAL.title": "Spider Bud",
   "RUINA2-FUNERAL_NORMAL.title": "Funeral of the Dead Butterflies",
   "RUINA2-FORSAKEN_MURDERER_WEAK.loss": "{character} was bludgeoned by [gold]{encounter}[/gold].",
-  "RUINA2-FRAGMENT_WEAK.loss": "{character}'s eardrums were ruptured [gold]{encounter}[/gold].",
+  "RUINA2-FRAGMENT_WEAK.loss": "{character}'s eardrums were ruptured by [gold]{encounter}[/gold].",
   "RUINA2-BUTTERFLIES_WEAK.loss": "{character} was laid to rest by [gold]{encounter}[/gold].",
   "RUINA2-CRAZED_EMPLOYEES_WEAK.loss": "{character} was turned into music by [gold]{encounter}[/gold].",
   "RUINA2-BUTTERFLIES_NORMAL.loss": "{character} was laid to rest by [gold]{encounter}[/gold].",
