@@ -50,7 +50,7 @@ public sealed class QueenOfHate : AbstractRuinaMonster
 
     private MoveState GetArcanaState()
     {
-        return new MoveState(ARCANA_BEATS, ArcanaBeats, new SingleAttackIntent(ArcanaDamage), new DebuffIntent());
+        return new MoveState(ARCANA_BEATS, ArcanaBeats, new SingleAttackIntent(ArcanaDamage), new StatusIntent(StatusAmt));
     }
 
     private MoveState GetNameOfHateState()
