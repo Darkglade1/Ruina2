@@ -260,6 +260,7 @@ public sealed class Pluto : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Hokma hokma)
         {
             if (hokma.Creature.IsAlive)

@@ -316,6 +316,7 @@ public sealed class Tanya : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Gebura gebura)
         {
             if (gebura.Creature.IsAlive)

@@ -440,6 +440,7 @@ public sealed class Greta : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Hod hod)
         {
             if (hod.Creature.IsAlive)

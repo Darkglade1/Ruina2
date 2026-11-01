@@ -364,6 +364,7 @@ public sealed class Bremen : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Netzach netzach)
         {
             if (netzach.Creature.IsAlive)

@@ -283,6 +283,7 @@ public static class PatchTargetTextureIcon
                 if (targetTextureNode != null)
                 {
                     __instance._intentHolder.RemoveChildSafely(targetTextureNode);
+                    targetTextureNode.QueueFree();
                 }
             }
         }
@@ -292,6 +293,7 @@ public static class PatchTargetTextureIcon
             if (targetTextureNode != null)
             {
                 __instance._intentHolder.RemoveChildSafely(targetTextureNode);
+                targetTextureNode.QueueFree();
             }
         }
     }

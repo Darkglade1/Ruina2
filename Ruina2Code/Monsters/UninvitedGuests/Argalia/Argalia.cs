@@ -358,6 +358,7 @@ public sealed class Argalia : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Roland roland)
         {
             if (roland.Creature.IsAlive)

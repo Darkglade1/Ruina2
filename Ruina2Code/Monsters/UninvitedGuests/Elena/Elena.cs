@@ -288,6 +288,7 @@ public sealed class Elena : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Binah binah)
         {
             if (binah.Creature.IsAlive && vermilion != null)

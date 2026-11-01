@@ -1,6 +1,9 @@
 ﻿using Godot;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.UI;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -8,7 +11,10 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Cards.EnemyCards;
+using Ruina2.Ruina2Code.Monsters.Act2.Knight;
 
 namespace Ruina2.Ruina2Code.Monsters;
 
@@ -98,6 +104,14 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
     public void UpdateCardIntentVisuals()
     {
         CardIntents.Clear();
+        for (int i = 0; i < NCardHolders.Count; i++)
+        {
+            var cardHolder = NCardHolders[i];
+            if (cardHolder != null && GodotObject.IsInstanceValid(cardHolder))
+            {
+                cardHolder.Hide();
+            }
+        }
         for (int i = 0; i < NextMoves.Count; i++)
         {
             var move = NextMoves[i];
@@ -107,6 +121,36 @@ public abstract class AbstractAllyCardMonster : AbstractAllyMonster
             CardIntents.Add(card);
         }
         GenerateCardIntentVisuals();
+    }
+    
+    public override async Task OnBossDeath(int phase)
+    {
+        await base.OnBossDeath(phase);
+        foreach (var cardHolder in NCardHolders)
+        {
+            if (cardHolder != null)
+            {
+                cardHolder.QueueFree();
+            }
+        }
+    }
+    
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature && !wasRemovalPrevented)
+        {
+            foreach (var cardHolder in NCardHolders)
+            {
+                if (cardHolder != null)
+                {
+                    cardHolder.QueueFree();
+                }
+            }
+        }
     }
     
     protected override void AfterCloned()

@@ -169,6 +169,7 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
             if (allyBlockButton != null)
             {
                 specialNode.RemoveChildSafely(allyBlockButton);
+                allyBlockButton.QueueFree();
             }
         }
     }

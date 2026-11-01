@@ -412,6 +412,7 @@ public sealed class Philip : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Malkuth malkuth)
         {
             if (malkuth.Creature.IsAlive)

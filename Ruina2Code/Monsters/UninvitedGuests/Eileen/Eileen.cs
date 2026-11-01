@@ -217,6 +217,7 @@ public sealed class Eileen : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature == Creature && OtherSideTargetMonster?.Monster is Yesod yesod)
         {
             if (yesod.Creature.IsAlive)

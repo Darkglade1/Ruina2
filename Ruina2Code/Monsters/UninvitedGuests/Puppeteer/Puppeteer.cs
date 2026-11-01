@@ -294,11 +294,12 @@ public sealed class Puppeteer : AbstractCardMonster
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
-        if (creature == Creature && OtherSideTargetMonster?.Monster is Chesed Chesed)
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        if (creature == Creature && OtherSideTargetMonster?.Monster is Chesed chesed)
         {
-            if (Chesed.Creature.IsAlive)
+            if (chesed.Creature.IsAlive)
             {
-                await Chesed.OnBossDeath();
+                await chesed.OnBossDeath();
             }
         }
     }

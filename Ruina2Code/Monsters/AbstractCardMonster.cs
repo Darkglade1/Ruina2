@@ -1,6 +1,8 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.UI;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -103,7 +105,7 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
         for (int i = 0; i < NCardHolders.Count; i++)
         {
             var cardHolder = NCardHolders[i];
-            if (cardHolder != null)
+            if (cardHolder != null && GodotObject.IsInstanceValid(cardHolder))
             {
                 cardHolder.Hide();
             }
@@ -117,6 +119,24 @@ public abstract class AbstractCardMonster : AbstractMultiIntentMonster
             CardIntents.Add(card);
         }
         GenerateCardIntentVisuals();
+    }
+    
+    public override async Task AfterDeath(
+        PlayerChoiceContext choiceContext,
+        Creature creature,
+        bool wasRemovalPrevented,
+        float deathAnimLength)
+    {
+        if (creature == Creature && !wasRemovalPrevented)
+        {
+            foreach (var cardHolder in NCardHolders)
+            {
+                if (cardHolder != null)
+                {
+                    cardHolder.QueueFree();
+                }
+            }
+        }
     }
     
     protected override void AfterCloned()
