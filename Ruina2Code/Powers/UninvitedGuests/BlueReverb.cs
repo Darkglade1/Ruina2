@@ -29,7 +29,7 @@ public class BlueReverb() : Ruina2Power
             {
                 if (enemy.Monster is AbstractAllyMonster)
                 {
-                    await PowerCmd.Apply<Vibration>(new ThrowingPlayerChoiceContext(), enemy, Amount, Owner,  null);
+                    await PowerCmd.Apply<Vibration>(new ThrowingPlayerChoiceContext(), enemy, Creature.ScaleHpForMultiplayer(Amount, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Owner,  null);
                 }
             }
         }

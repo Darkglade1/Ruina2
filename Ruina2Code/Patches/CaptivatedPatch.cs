@@ -1,6 +1,8 @@
 ﻿using BaseLib.Patches.Features;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using Ruina2.Ruina2Code.Afflictions;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
