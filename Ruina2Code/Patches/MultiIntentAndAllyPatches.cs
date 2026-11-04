@@ -260,7 +260,11 @@ public static class PatchTargetTextureIcon
         if (targetCreature?.Monster is AbstractMultiIntentMonster monster)
         {
             var texturePath = monster.TargetTexturePath;
-            if (texturePath != null && ((__instance._intent is RuinaAttackIntent && !(__instance._intent is RuinaMassAttackIntent)) || __instance._intent is RuinaDebuffIntent))
+            if (monster.TargetTexture == null && texturePath != null)
+            {
+                monster.TargetTexture = PreloadManager.Cache.GetTexture2D(texturePath);
+            }
+            if (monster.TargetTexture != null && ((__instance._intent is RuinaAttackIntent && !(__instance._intent is RuinaMassAttackIntent)) || __instance._intent is RuinaDebuffIntent))
             {
                 if (!__instance._intentHolder.HasNode(nodeName))
                 {
@@ -268,13 +272,13 @@ public static class PatchTargetTextureIcon
                     textureSprite.Scale = new Vector2(0.75f, 0.75f);
                     textureSprite.Position = new Vector2(10, 10);
                     textureSprite.Name = nodeName;
-                    textureSprite.Texture = PreloadManager.Cache.GetTexture2D(texturePath);
+                    textureSprite.Texture = monster.TargetTexture;
                     __instance._intentHolder.AddChildSafely(textureSprite);
                 }
                 else
                 {
                     var targetTextureNode = __instance._intentHolder.GetNodeOrNull<Sprite2D>(nodeName);
-                    targetTextureNode.Texture = PreloadManager.Cache.GetTexture2D(texturePath);
+                    targetTextureNode.Texture = monster.TargetTexture;
                 }
             }
             else

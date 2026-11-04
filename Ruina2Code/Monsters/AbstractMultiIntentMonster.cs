@@ -23,6 +23,7 @@ public abstract class AbstractMultiIntentMonster : AbstractRuinaMonster
     public virtual int NumIntents { get; set; }
     public Creature? OtherSideTargetMonster { get; set; }
     public virtual string? TargetTexturePath { get; set; }
+    public Texture2D? TargetTexture;
     public bool IsReviving = false;
     
     // MultiIntent monsters use their own state machines so we can properly do targeting of other monsters with any intent
