@@ -30,6 +30,6 @@ public class FalseThrone() : EGOCard(2,
     
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }
