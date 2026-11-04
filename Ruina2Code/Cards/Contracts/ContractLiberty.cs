@@ -14,22 +14,14 @@ namespace Ruina2.Ruina2Code.Cards.Contracts;
 public class ContractLiberty() : Ruina2Card(-1, CardType.Status,
     CardRarity.Status, TargetType.None), Pluto.IChoosable
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(1)];
-    
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        EnergyHoverTip
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
     
     public override int MaxUpgradeLevel => 0;
 
     public override bool CanBeGeneratedInCombat => false;
     
     public async Task OnChosen()
-    {
-        var power = await PowerCmd.Apply<ContractLibertyPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
-        if (power != null)
-        {
-            power.DynamicVars.Energy.BaseValue = DynamicVars.Energy.BaseValue;
-        }
+    { 
+        await PowerCmd.Apply<ContractLibertyPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
     }
 }

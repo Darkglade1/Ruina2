@@ -345,7 +345,7 @@
   "RUINA2-CONTRACT_LIGHT_POWER.smartDescription": "在你的回合开始时，获得{Amount:energyIcons()}。\n你在回合内无法抽牌。",
   "RUINA2-CONTRACT_LIGHT_POWER.title": "光明合同",
   "RUINA2-CONTRACT_LIBERTY_POWER.description": "",
-  "RUINA2-CONTRACT_LIBERTY_POWER.smartDescription": "在你的回合开始时，抽[blue]{Amount}[/blue]张牌并失去{Energy:energyIcons()}。",
+  "RUINA2-CONTRACT_LIBERTY_POWER.smartDescription": "你的卡牌耗能会在抽取时变化，范围为[blue]0[/blue]到[blue]3[/blue]。\n在你的回合开始时，额外抽[blue]{Amount}[/blue]张牌。",
   "RUINA2-CONTRACT_LIBERTY_POWER.title": "自由合同",
   "RUINA2-CONTRACT_MIGHT_POWER.description": "",
   "RUINA2-CONTRACT_MIGHT_POWER.smartDescription": "你每回合只能打出[blue]{Amount}[/blue]张牌。",
