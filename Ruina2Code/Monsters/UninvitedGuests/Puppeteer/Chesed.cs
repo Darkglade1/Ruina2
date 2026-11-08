@@ -31,7 +31,7 @@ public sealed class Chesed : AbstractAllyCardMonster
     private int EnergyShieldDamage => 7;
     private int ConcentrateDamage => 11;
     private int ConcentrateHits => 2;
-    private int DisposalDamage => 20;
+    private int DisposalDamage => 18;
     private int DisposalHits => 2;
     private int AllyBlockAmt => 15;
     private int SelfBlockAmt => 18;
