@@ -51,5 +51,17 @@
 
   "RUINA2-BLUE_SCARF.description": "Changes [gold]Uninvited Guests[/gold] to a shorter version.",
   "RUINA2-BLUE_SCARF.flavor": "A scarf that brings to mind a pleasant warmth. It seems to draw those around it into itself.",
-  "RUINA2-BLUE_SCARF.title": "Blue Scarf"
+  "RUINA2-BLUE_SCARF.title": "Blue Scarf",
+
+  "RUINA2-CUNNING_WISH.description": "At the start of combat, draw [blue]{Cards}[/blue] cards and lose {Energy:energyIcons()}.",
+  "RUINA2-CUNNING_WISH.flavor": "He wished for knowledge, but not for the will to apply it.",
+  "RUINA2-CUNNING_WISH.title": "Cunning Wish",
+
+  "RUINA2-DEATH_WISH.description": "At the start of combat, gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and lose [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold].",
+  "RUINA2-DEATH_WISH.flavor": "He wished for power, but not for the longevity to abuse it.",
+  "RUINA2-DEATH_WISH.title": "Death Wish",
+
+  "RUINA2-GLITTERING_WISH.description": "Upon pickup, gain [blue]{Gold}[/blue] Gold.\nAt the start of combat, lose [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
+  "RUINA2-GLITTERING_WISH.flavor": "She wished for gold, but not for the strength to carry it.",
+  "RUINA2-GLITTERING_WISH.title": "Glittering Wish"
 }

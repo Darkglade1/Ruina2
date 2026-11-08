@@ -296,6 +296,16 @@
   "RUINA2-BIZARRE_MACHINE.pages.INITIAL.options.POTION.description": "Procure a random [gold]Potion[/gold].",
   "RUINA2-BIZARRE_MACHINE.pages.JUNK.description": "Some kind of junk. You pick it up and examine it, and you see the faintest traces of something [gold]shining[/gold] beneath the surface. Perhaps it would shows its true value in the near future.",
   "RUINA2-BIZARRE_MACHINE.pages.POTION.description": "A mysterious bottle. You're not sure what the substance inside does, but you can tell that it will be useful later.",
+
+  "RUINA2-WISH.title": "A Midspring Night's Wish",
+  "RUINA2-WISH.pages.INITIAL.description": "Your mind is [purple]cloudy[/purple], [purple]dull[/purple] and [purple]sluggish[/purple]. Through your bleary eyes, you can see a shining sea of [gold]stars[/gold], [gold]glittering[/gold] like treasures in the sky.\n\nA soft voice whispers to you, a voice filled with deep [purple]loss[/purple] and profound [purple]regret[/purple]. \"So please, my dear Manager, don't become a star once more.\"\n\"The same old road leads to the same old ends.\"\n\nA brief sense of disquiet troubles you before swiftly passing. You knew what you had to do. It was your duty to engrave your [gold]star[/gold] and then grant the wishes of those reaching out to you.",
+  "RUINA2-WISH.pages.INITIAL.options.WISH1.title": "Grant a wish",
+  "RUINA2-WISH.pages.INITIAL.options.WISH1.description": "Obtain [gold]{Relic1}[/gold].",
+  "RUINA2-WISH.pages.INITIAL.options.WISH2.title": "Grant a wish",
+  "RUINA2-WISH.pages.INITIAL.options.WISH2.description": "Obtain [gold]{Relic2}[/gold].",
+  "RUINA2-WISH.pages.INITIAL.options.WISH3.title": "Grant a wish",
+  "RUINA2-WISH.pages.INITIAL.options.WISH3.description": "Obtain [gold]{Relic3}[/gold].",
+  "RUINA2-WISH.pages.WISH.description": "Your answer the call of those reaching out to you, fulfilling their wants and wishes. For that was the duty of a [gold]star[/gold].",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",
