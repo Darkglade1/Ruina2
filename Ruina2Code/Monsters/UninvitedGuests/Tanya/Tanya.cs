@@ -284,7 +284,15 @@ public sealed class Tanya : AbstractCardMonster
     private async Task Intimidate(IReadOnlyList<Creature> targets)
     {
         await BuffAnimation();
-        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
+        if (Creature.HasPower<PlatingPower>())
+        {
+            // Because subsequent applications don't automatically scale in MP
+            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(PlatingAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature,  null);
+        }
+        else
+        {
+            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
+        }
         await ResetIdle(1.0f);
     }
     

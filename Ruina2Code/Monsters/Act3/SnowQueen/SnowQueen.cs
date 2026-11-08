@@ -141,7 +141,15 @@ public sealed class SnowQueen : AbstractRuinaMonster
         await SpecialAnimation(targets);
         await CreatureCmd.GainBlock(Creature, BlockAmt, ValueProp.Move, null);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature,  null);
-        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
+        if (Creature.HasPower<PlatingPower>())
+        {
+            // Because subsequent applications don't automatically scale in MP
+            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, Creature.ScaleHpForMultiplayer(PlatingAmt, CombatState.Encounter, CombatState.Players.Count, CombatState.RunState.CurrentActIndex), Creature,  null);
+        }
+        else
+        {
+            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Creature, PlatingAmt, Creature,  null);
+        }
         await ResetIdle(1.0f);
     }
     
