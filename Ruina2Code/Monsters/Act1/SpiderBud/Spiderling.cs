@@ -20,7 +20,7 @@ public sealed class Spiderling : AbstractRuinaMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 13, 12);
     
     private int WebbingDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
-    private int FangsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
+    private int FangsDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
     private int StatusAmt => 1;
     
     protected override string VisualsPath => "Spiderling/spiderling.tscn".MonsterImagePath();
