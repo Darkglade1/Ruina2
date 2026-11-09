@@ -178,7 +178,7 @@ public sealed class Kim : AbstractCardMonster
         await BluntAnimation([target]);
         await DamageCmd.Attack(ClaimDamage)
             .FromMonsterCreature(this)
-            .TargetingCreatures([target], CombatState)
+            .Targeting(target)
             .Execute(null);
         await ResetIdle();
         CountersThisTurn++;
