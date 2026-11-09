@@ -314,6 +314,14 @@
   "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.title": "Flee",
   "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.description": "[gold]Remove[/gold] [blue]{Cards}[/blue] card. Obtain [gold]{Card}[/gold].",
   "RUINA2-RED_MIST.pages.FLEE.description": "You turn and flee, not wishing to be another victim of that [purple]monstrous[/purple] blade. As you dart between bookshelves to throw the figure off your track, you stumble and fall, lightly [purple]injuring[/purple] yourself in the process.\n\nIn the distance, you hear the sound of fighting breaking out. Had someone else come to deal with that red-clad figure?\n\nA strange [purple]pillar[/purple] crashes through the bookshelf above you, and you deduce the answer to that question to be \"yes\".",
+
+  "RUINA2-WANDERING_SWORDSMAN.title": "The Wandering Swordsman",
+  "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.description": "You spot a lone figure in the distance, a [gold]chance[/gold] encounter with a wandering swordsman looking for someone to test himself against.\n\nYou seem him raise his sword, challenging you.",
+  "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.DUEL.title": "Accept the duel",
+  "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.DUEL.description": "Fight the [gold]swordsman[/gold]. Obtain [blue]2[/blue] random [gold]Uncommon Relics[/gold].",
+  "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.FLEE.title": "Turn tail and flee",
+  "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.FLEE.description": "[gold]Remove[/gold] [blue]{Cards}[/blue] cards. Obtain [gold]{Card}[/gold].",
+  "RUINA2-WANDERING_SWORDSMAN.pages.FLEE.description": "You turn tail and run. Although you felt that heeding your self-preservation instinct was the best choice, you couldn't help but feel a bit [purple]shameful[/purple].",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

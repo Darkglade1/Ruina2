@@ -521,5 +521,13 @@
 
   "RUINA2-RED_MIST_KALI.description": "",
   "RUINA2-RED_MIST_KALI.smartDescription": "Whenever this creature deals unblocked attack damage, it gains [blue]{Amount}[/blue] [gold]Temporary Strength[/gold] next turn.",
-  "RUINA2-RED_MIST_KALI.title": "The Red Mist"
+  "RUINA2-RED_MIST_KALI.title": "The Red Mist",
+
+  "RUINA2-RUPTURE.description": "At the end of your next turn, take damage.",
+  "RUINA2-RUPTURE.smartDescription": "At the end of your next turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-RUPTURE.title": "Rupture",
+
+  "RUINA2-COUNTER_ATTACK.description": "",
+  "RUINA2-COUNTER_ATTACK.smartDescription": "Whenever {IsMultiplayer:a player|you} plays an [gold]Attack[/gold] this turn, this creature will [gold]Counter Attack[/gold] {IsMultiplayer:that player|you}.\nIf this effect did not trigger at least [blue]{Amount}[/blue] {Amount:plural:time|times} this turn, will use a [gold]powerful[/gold] attack next turn.",
+  "RUINA2-COUNTER_ATTACK.title": "Counter Attack"
 }

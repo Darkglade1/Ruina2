@@ -355,6 +355,11 @@ public static class PatchIntentAnimDataGetAnimationFrame
             __result = "intent_mass_attack.png".UIImagePath();
             return false;
         }
+        if (animation == "counter_attack")
+        {
+            __result = "intent_counter_attack.png".UIImagePath();
+            return false;
+        }
         return true;
     }
 }
@@ -365,6 +370,11 @@ public static class PatchIntentAnimDataGetAnimationFrameCount
     public static bool Prefix(string animation, ref int __result)
     {
         if (animation == "mass_attack")
+        {
+            __result = 0;
+            return false;
+        }
+        if (animation == "counter_attack")
         {
             __result = 0;
             return false;
@@ -382,6 +392,11 @@ public static class PatchUpdateVisualsMassAttack
         {
             __instance._animationFrames.Clear();
             __instance._animationFrames.Add(GD.Load<Texture2D>("intent_mass_attack.png".UIImagePath()));
+        }
+        if (__instance._animationName == "counter_attack")
+        {
+            __instance._animationFrames.Clear();
+            __instance._animationFrames.Add(GD.Load<Texture2D>("intent_counter_attack.png".UIImagePath()));
         }
     }
 }

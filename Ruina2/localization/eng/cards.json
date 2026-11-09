@@ -571,12 +571,24 @@
   "RUINA2-SPEAR_KALI.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "RUINA2-SPEAR_KALI.title": "Spear",
 
-  "RUINA2-FOCUS_SPIRIT_KALI.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold]",
+  "RUINA2-FOCUS_SPIRIT_KALI.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
   "RUINA2-FOCUS_SPIRIT_KALI.title": "Focus Spirit",
 
   "RUINA2-GREATER_SPLIT_HORIZONTAL_KALI.description": "Deal {Damage:diff()} damage.\nIf this card deals unblocked damage, apply {Bleed:diff()} [gold]Bleed[/gold].",
   "RUINA2-GREATER_SPLIT_HORIZONTAL_KALI.title": "Greater Split: Horizontal",
 
   "RUINA2-LIGHT_INJURY.description": "Removed from your [gold]Deck[/gold] after {Combats:diff()} {Combats:plural:combat|combats}.",
-  "RUINA2-LIGHT_INJURY.title": "Light Injury"
+  "RUINA2-LIGHT_INJURY.title": "Light Injury",
+
+  "RUINA2-YIELD.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "RUINA2-YIELD.title": "Yield My Flesh",
+
+  "RUINA2-CLAIM.description": "While this card is held, the user can [gold]Counter Attack[/gold] for {Damage:diff()} damage.\nIf unused, uses a [gold]powerful[/gold] attack next turn.",
+  "RUINA2-CLAIM.title": "To Claim Their Bones",
+
+  "RUINA2-TAKE_ONES_LIFE.description": "Deal {Damage:diff()} damage.\nApply [gold]Rupture[/gold] equal to unblocked damage dealt.",
+  "RUINA2-TAKE_ONES_LIFE.title": "And Take One's Life",
+
+  "RUINA2-ACUPUNCTURE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nApply {Paralysis:diff()} [gold]Paralysis[/gold].",
+  "RUINA2-ACUPUNCTURE.title": "Acupuncture"
 }

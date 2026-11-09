@@ -1,0 +1,1 @@
+{"atlas_data":"kim.png\nsize:981,524\nfilter:Linear,Linear\npma:true\nBlunt\nbounds:438,283,532,239\noffsets:14,181,700,600\nIdle\nbounds:438,2,279,321\nrotate:90\nSlash\nbounds:2,16,434,506\noffsets:0,73,600,600\nSpecial\nbounds:761,27,218,254\n","normal_texture_prefix":"n","source_path":"res://Ruina2/images/monsters/Kim/kim.atlas","specular_texture_prefix":"s"}

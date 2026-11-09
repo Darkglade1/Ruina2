@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
 using Ruina2.Ruina2Code.Powers.Act1;
+using Ruina2.Ruina2Code.Powers.Act2;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
 namespace Ruina2.Ruina2Code.Patches;
@@ -134,6 +135,12 @@ public static class MintyCompatPatch
             if (pleasure != null)
             {
                 damageAdded += pleasure.Amount;
+            }
+            
+            var rupture = creature.GetPower<Rupture>();
+            if (rupture != null)
+            {
+                damageAdded += rupture.Amount;
             }
         }
         return original - damageToRemove + damageAdded;

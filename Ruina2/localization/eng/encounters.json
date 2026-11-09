@@ -144,5 +144,8 @@
   "RUINA2-ARGALIA_BOSS.loss": "{character} was cleaved in half by [gold]{encounter}[/gold].",
 
   "RUINA2-KALI_ENCOUNTER.title": "The Red Mist",
-  "RUINA2-KALI_ENCOUNTER.loss": "{character} became another victim of [gold]{encounter}'s[/gold] rampage."
+  "RUINA2-KALI_ENCOUNTER.loss": "{character} became another victim of [gold]{encounter}'s[/gold] rampage.",
+
+  "RUINA2-KIM_ENCOUNTER.title": "The Sword Saint",
+  "RUINA2-KIM_ENCOUNTER.loss": "{character} was cut down by the peerless swordsmanship of [gold]{encounter}[/gold]."
 }

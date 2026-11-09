@@ -49,6 +49,7 @@ public class Briah() : AbstractRuinaAct(2)
                 ModelDb.Event<Messenger>(),
                 ModelDb.Event<Index>(),
                 ModelDb.Event<BizarreMachine>(),
+                ModelDb.Event<WanderingSwordsman>(),
             ];
         }
     }

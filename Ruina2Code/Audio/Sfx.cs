@@ -356,4 +356,6 @@ public static class Sfx
     public static readonly ModSound ElenaStrongUp = new("Elena_StrongUp.ogg".SfxPath());
     public static readonly ModSound ElenaStrongAtk = new("Elena_StrongAtk.ogg".SfxPath());
     public static readonly ModSound ElenaStrongStart = new("Elena_StrongStart.ogg".SfxPath());
+    
+    public static readonly ModSound Parry = new("Parry_Atk.ogg".SfxPath());
 }

@@ -122,6 +122,13 @@ public class MusicPatches
             _isPlayingRuinaMusic = true;
             _currentTrackType = TrackType.Elite;
         }
+        
+        public static void KimFightStart()
+        {
+            RuinaAudio.FadeIn("Samurai.ogg".MusicPath(), 1f);
+            _isPlayingRuinaMusic = true;
+            _currentTrackType = TrackType.Elite;
+        }
 
         private static bool IsBossRoom()
         {
