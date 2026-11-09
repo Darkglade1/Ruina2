@@ -141,5 +141,8 @@
   "RUINA2-PLUTO_ENCOUNTER.title": "Yesterday's Promise",
   "RUINA2-PLUTO_ENCOUNTER.loss": "{character} signed away their soul to [gold]{encounter}[/gold].",
   "RUINA2-ARGALIA_BOSS.title": "The Blue Reverberation",
-  "RUINA2-ARGALIA_BOSS.loss": "{character} was cleaved in half by [gold]{encounter}[/gold]."
+  "RUINA2-ARGALIA_BOSS.loss": "{character} was cleaved in half by [gold]{encounter}[/gold].",
+
+  "RUINA2-KALI_ENCOUNTER.title": "The Red Mist",
+  "RUINA2-KALI_ENCOUNTER.loss": "{character} became another victim of [gold]{encounter}'s[/gold] rampage."
 }

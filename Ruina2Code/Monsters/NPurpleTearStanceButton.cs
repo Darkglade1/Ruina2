@@ -15,7 +15,7 @@ public partial class NPurpleTearStanceButton : NAllyButton
 	protected override void OnButtonGuiInput(BaseButton button, InputEvent @event)
 	{
 		if (@event is InputEventMouseButton mb
-		    && mb.Pressed && mb.ButtonIndex == MouseButton.Left)
+			&& mb.Pressed && mb.ButtonIndex == MouseButton.Left)
 		{
 			var localPlayer = LocalContext.GetMe(RunManager.Instance.State);
 			if (localPlayer != null)

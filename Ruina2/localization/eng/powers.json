@@ -517,5 +517,9 @@
 
   "RUINA2-PATTERN.description": "",
   "RUINA2-PATTERN.smartDescription": "Whenever this creature deals unblocked attack damage, it gains that much [gold]Block[/gold].",
-  "RUINA2-PATTERN.title": "Pattern Recognition"
+  "RUINA2-PATTERN.title": "Pattern Recognition",
+
+  "RUINA2-RED_MIST_KALI.description": "",
+  "RUINA2-RED_MIST_KALI.smartDescription": "Whenever this creature deals unblocked attack damage, it gains [blue]{Amount}[/blue] [gold]Temporary Strength[/gold] next turn.",
+  "RUINA2-RED_MIST_KALI.title": "The Red Mist"
 }

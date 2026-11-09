@@ -306,6 +306,14 @@
   "RUINA2-WISH.pages.INITIAL.options.WISH3.title": "Grant a wish",
   "RUINA2-WISH.pages.INITIAL.options.WISH3.description": "Obtain [gold]{Relic3}[/gold].",
   "RUINA2-WISH.pages.WISH.description": "Your answer the call of those reaching out to you, fulfilling their wants and wishes. For that was the duty of a [gold]star[/gold].",
+
+  "RUINA2-RED_MIST.title": "The Red Mist's Rampage",
+  "RUINA2-RED_MIST.pages.INITIAL.description": "",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.title": "Fight",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.description": "Fight the [red]Red Mist[/red] to obtain a [gold]Rare[/gold] relic.",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.title": "Flee",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.description": "Obtain [gold]{Card}[/gold].",
+  "RUINA2-RED_MIST.pages.FLEE.description": "",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",
