@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act3;
 
@@ -16,6 +17,13 @@ public sealed class KaliEncounter : CustomEncounterModel
     }
     public override CustomBackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
     {
+        if (parentAct is AbstractRuinaAct)
+        {
+            var backgroundPath = AbstractRuinaAct.GetBackgroundBasedOnFloor(AbstractRuinaAct.GetFloorBasedOnBoss());
+            return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
+                [backgroundPath],
+                backgroundPath);
+        }
         return new CustomBackgroundAssets("res://BaseLib/scenes/dynamic_background.tscn",
             ["gebura_bg.tscn".BackgroundImagePath()], 
             "gebura_bg.tscn".BackgroundImagePath());

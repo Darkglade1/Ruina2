@@ -308,12 +308,12 @@
   "RUINA2-WISH.pages.WISH.description": "Your answer the call of those reaching out to you, fulfilling their wants and wishes. For that was the duty of a [gold]star[/gold].",
 
   "RUINA2-RED_MIST.title": "The Red Mist's Rampage",
-  "RUINA2-RED_MIST.pages.INITIAL.description": "",
-  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.title": "Fight",
-  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.description": "Fight the [red]Red Mist[/red] to obtain a [gold]Rare[/gold] relic.",
+  "RUINA2-RED_MIST.pages.INITIAL.description": "In the distance you see a figure clad in [red]red[/red] dancing amidst a sea of [red]carnage[/red]. Bodies fell one-by-one to a [purple]monstrous[/purple] blade, their screams cut short as their bodies dissipated into motes of [gold]light[/gold].\n\nThe figure came to a halt, pausing briefly before turning around and locking eyes with [gold]you[/gold].\n\nThe figure dashes at you at breakneck speed, and you have but a moment to make a choice -",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.title": "Stand your ground",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FIGHT.description": "Fight the [red]Red Mist[/red]. Obtain a random [gold]Rare Relic[/gold].",
   "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.title": "Flee",
-  "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.description": "Obtain [gold]{Card}[/gold].",
-  "RUINA2-RED_MIST.pages.FLEE.description": "",
+  "RUINA2-RED_MIST.pages.INITIAL.options.FLEE.description": "[gold]Remove[/gold] [blue]{Cards}[/blue] card. Obtain [gold]{Card}[/gold].",
+  "RUINA2-RED_MIST.pages.FLEE.description": "You turn and flee, not wishing to be another victim of that [purple]monstrous[/purple] blade. As you dart between bookshelves to throw the figure off your track, you stumble and fall, lightly [purple]injuring[/purple] yourself in the process.\n\nIn the distance, you hear the sound of fighting breaking out. Had someone else come to deal with that red-clad figure?\n\nA strange [purple]pillar[/purple] crashes through the bookshelf above you, and you deduce the answer to that question to be \"yes\".",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

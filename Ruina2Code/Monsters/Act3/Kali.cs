@@ -296,16 +296,6 @@ public sealed class Kali : AbstractCardMonster
         await AnimationAction("Block" + phase, null, null);
     }
     
-    private async Task VerticalUpAnimation(IReadOnlyList<Creature> targets)
-    {
-        await AnimationAction("VertStart", Sfx.RedMistVertHit, targets);
-    }
-    
-    private async Task VerticalDownAnimation(IReadOnlyList<Creature> targets)
-    {
-        await AnimationAction("VertFinish", Sfx.RedMistVertFin, targets);
-    }
-    
     private async Task HorizontalAnimation(IReadOnlyList<Creature> targets)
     {
         await AnimationAction("Horizontal", Sfx.RedMistHoriFin, targets);

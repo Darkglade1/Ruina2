@@ -193,6 +193,48 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
         }
         return path.MusicPath().SimplifyPath();
     }
+    
+    public static string GetBackgroundBasedOnFloor(RuinaFloor floor)
+    {
+        string path = "";
+        switch (floor)
+        {
+            case RuinaFloor.Malkuth:
+                path = "malkuth_bg.tscn";
+                break;
+            case RuinaFloor.Yesod:
+                path = "yesod_bg.tscn";
+                break;
+            case RuinaFloor.Hod:
+                path = "hod_bg.tscn";
+                break;
+            case RuinaFloor.Netzach:
+                path = "netzach_bg.tscn";
+                break;
+            case RuinaFloor.Tiphereth:
+                path = "tiphereth_bg.tscn";
+                break;
+            case RuinaFloor.Gebura:
+                path = "gebura_bg.tscn";
+                break;
+            case RuinaFloor.Chesed:
+                path = "chesed_bg.tscn";
+                break;
+            case RuinaFloor.Binah:
+                path = "binah_bg.tscn";
+                break;
+            case RuinaFloor.Hokma:
+                path = "hokma_bg.tscn";
+                break;
+            case RuinaFloor.Keter:
+                path = "keter_bg.tscn";
+                break;
+            default:
+                path = "gebura_bg.tscn";
+                break;
+        }
+        return path.BackgroundImagePath();
+    }
      
     public Color BossIconBgColor
     {

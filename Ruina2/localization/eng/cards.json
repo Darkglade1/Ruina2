@@ -575,5 +575,8 @@
   "RUINA2-FOCUS_SPIRIT_KALI.title": "Focus Spirit",
 
   "RUINA2-GREATER_SPLIT_HORIZONTAL_KALI.description": "Deal {Damage:diff()} damage.\nIf this card deals unblocked damage, apply {Bleed:diff()} [gold]Bleed[/gold].",
-  "RUINA2-GREATER_SPLIT_HORIZONTAL_KALI.title": "Greater Split: Horizontal"
+  "RUINA2-GREATER_SPLIT_HORIZONTAL_KALI.title": "Greater Split: Horizontal",
+
+  "RUINA2-LIGHT_INJURY.description": "Removed from your [gold]Deck[/gold] after {Combats:diff()} {Combats:plural:combat|combats}.",
+  "RUINA2-LIGHT_INJURY.title": "Light Injury"
 }
