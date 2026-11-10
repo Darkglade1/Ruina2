@@ -583,7 +583,7 @@
   "RUINA2-YIELD.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
   "RUINA2-YIELD.title": "Yield My Flesh",
 
-  "RUINA2-CLAIM.description": "While this card is held, the user can [gold]Counter Attack[/gold] for {Damage:diff()} damage.\nIf unused, uses a [gold]powerful[/gold] attack next turn.",
+  "RUINA2-CLAIM.description": "While this card is held, the user can [gold]Counter Attack[/gold] for {Damage:diff()} damage.",
   "RUINA2-CLAIM.title": "To Claim Their Bones",
 
   "RUINA2-TAKE_ONES_LIFE.description": "Deal {Damage:diff()} damage.\nApply [gold]Rupture[/gold] equal to unblocked damage dealt.",

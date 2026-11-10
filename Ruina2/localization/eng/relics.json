@@ -63,5 +63,9 @@
 
   "RUINA2-GLITTERING_WISH.description": "Upon pickup, gain [blue]{Gold}[/blue] Gold.\nAt the start of combat, lose [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
   "RUINA2-GLITTERING_WISH.flavor": "She wished for gold, but not for the strength to carry it.",
-  "RUINA2-GLITTERING_WISH.title": "Glittering Wish"
+  "RUINA2-GLITTERING_WISH.title": "Glittering Wish",
+
+  "RUINA2-SCORCHING_WOUND.description": "At the start of the next [blue]{Combats}[/blue] {Combats:plural:combat|combats}, shuffle [blue]{Cards}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-SCORCHING_WOUND.flavor": "It remains a vivid reminder of your recklessness.",
+  "RUINA2-SCORCHING_WOUND.title": "Scorching Wound"
 }

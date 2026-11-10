@@ -322,6 +322,16 @@
   "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.FLEE.title": "Turn tail and flee",
   "RUINA2-WANDERING_SWORDSMAN.pages.INITIAL.options.FLEE.description": "[gold]Remove[/gold] [blue]{Cards}[/blue] cards. Obtain [gold]{Card}[/gold].",
   "RUINA2-WANDERING_SWORDSMAN.pages.FLEE.description": "You turn tail and run. Although you felt that heeding your self-preservation instinct was the best choice, you couldn't help but feel a bit [purple]shameful[/purple].",
+
+  "RUINA2-HISTORY.title": "Floor of History",
+  "RUINA2-HISTORY.pages.INITIAL.description": "During your time in this [gold]library[/gold], you've found all manners of books ranging from fairy tales with the [purple]wildest[/purple] plots to mundane educational texts to treatises debating the very essence of [gold]philosophy[/gold]. While the books varied wildly in terms of how immediately helpful they were, you had to admit that they all contained very valuable [gold]knowledge[/gold].\n\nThe sound of [red]flames[/red] crackling grab your attention, and you peek your head out from behind a bookshelf to find several figures locked in battle, jets of [red]flame[/red] and gouts of [red]fire[/red] dancing around the area like a raging [red]inferno[/red].\n\nWell, you had no intention of getting wrapped up in that. But you notice that a bookshelf closer to the fighting seems to contain some very old and likely valuable books that you haven't seen before . . .",
+  "RUINA2-HISTORY.pages.INITIAL.options.CLOSER.title": "Get closer",
+  "RUINA2-HISTORY.pages.INITIAL.options.CLOSER.description": "Choose [blue]{Cards}[/blue] of [blue]{UpgradedCardsNum}[/blue] random [gold]Upgraded[/gold] cards to add to your [gold]Deck[/gold]. Obtain [gold]{Relic}[/gold].",
+  "RUINA2-HISTORY.pages.INITIAL.options.SAFE.title": "Play it safe",
+  "RUINA2-HISTORY.pages.INITIAL.options.SAFE.description": "Choose [blue]{Cards}[/blue] of [blue]{CardsNum}[/blue] random cards to add to your [gold]Deck[/gold].",
+  "RUINA2-HISTORY.pages.CLOSER.description": "Taking a risk, you dart forward to grab a tattered book from the bookshelf. Alas, a jet of [red]flame[/red] whipped out at just the wrong moment to leave a [jitter][red]scorching[/red][/jitter] wound in your side, and you just barely manage to suppress your cry of [purple]pain[/purple]. Trudging away with your prize in hand, you hope that this book was worth the trouble.",
+  "RUINA2-HISTORY.pages.SAFE.description": "You decide that playing with [red]fire[/red] was not in your immediate future and stay right where you are, far away from the fiery battle. You amuse yourself with the books nearby, although you can't help but wonder what you may be missing out on in those [gold]rarer[/gold] texts.",
+  "RUINA2-HISTORY.pages.selectionScreenPrompt": "Choose [blue]1[/blue] Card to Add to Your [gold]Deck[/gold].",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",
