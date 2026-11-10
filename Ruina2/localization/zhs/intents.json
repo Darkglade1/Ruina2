@@ -7,5 +7,6 @@
   "RUINA2-ALLY_BUFF.description": "这个[green]盟友[/green]将要使用一个[gold]强化效果[/gold]。",
   "RUINA2-MULTI_INTENT_MASS_ATTACK.description": "这个敌人将要[gold]攻击[/gold][gold]所有对手[/gold]造成[blue]{Damage}[/blue]点伤害{Repeat:plural:|[blue]{}[/blue]次}。",
   "RUINA2-ALLY_MASS_ATTACK.description": "这个[green]盟友[/green]将要[gold]攻击[/gold][gold]所有对手[/gold]造成[blue]{Damage}[/blue]点伤害{Repeat:plural:|[blue]{}[/blue]次}。",
-  "RUINA2-ALLY_FRIENDLY_FIRE_MASS_ATTACK.description": "这个[green]盟友[/green]将要[gold]攻击[/gold][gold]所有其他生物[/gold]（包括你）造成[blue]{Damage}[/blue]点伤害{Repeat:plural:|[blue]{}[/blue]次}。"
+  "RUINA2-ALLY_FRIENDLY_FIRE_MASS_ATTACK.description": "这个[green]盟友[/green]将要[gold]攻击[/gold][gold]所有其他生物[/gold]（包括你）造成[blue]{Damage}[/blue]点伤害{Repeat:plural:|[blue]{}[/blue]次}。",
+  "RUINA2-COUNTER_ATTACK.description": "这个敌人将要[gold]反击[/gold]，造成[blue]{Damage}[/blue]点伤害{Repeat:plural:|[blue]{}[/blue]次}。"
 }

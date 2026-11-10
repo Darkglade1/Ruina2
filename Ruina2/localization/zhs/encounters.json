@@ -132,5 +132,9 @@
   "RUINA2-PLUTO_ENCOUNTER.title": "昨日之约",
   "RUINA2-PLUTO_ENCOUNTER.loss": "{character}将灵魂出卖给了[gold]{encounter}[/gold]。",
   "RUINA2-ARGALIA_BOSS.title": "蓝色回响",
-  "RUINA2-ARGALIA_BOSS.loss": "{character}被[gold]{encounter}[/gold]拦腰斩断。"
+  "RUINA2-ARGALIA_BOSS.loss": "{character}被[gold]{encounter}[/gold]拦腰斩断。",
+  "RUINA2-KALI_ENCOUNTER.title": "赤色迷雾",
+  "RUINA2-KALI_ENCOUNTER.loss": "{character}成为了[gold]{encounter}[/gold]狂暴之下的又一名受害者。",
+  "RUINA2-KIM_ENCOUNTER.title": "剑圣",
+  "RUINA2-KIM_ENCOUNTER.loss": "{character}倒在了[gold]{encounter}[/gold]无与伦比的剑术之下。"
 }

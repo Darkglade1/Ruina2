@@ -388,5 +388,14 @@
   "RUINA2-TRANSFER_BLOCK_ALLY.title": "转移格挡给盟友",
   "RUINA2-PATTERN.description": "",
   "RUINA2-PATTERN.smartDescription": "每当这个生物造成未被格挡的攻击伤害时，它获得等量的[gold]格挡[/gold]。",
-  "RUINA2-PATTERN.title": "模式识别"
+  "RUINA2-PATTERN.title": "模式识别",
+  "RUINA2-RED_MIST_KALI.description": "",
+  "RUINA2-RED_MIST_KALI.smartDescription": "每当这个生物造成未被格挡的攻击伤害时，下回合获得[blue]{Amount}[/blue]点[gold]临时力量[/gold]。",
+  "RUINA2-RED_MIST_KALI.title": "赤色迷雾",
+  "RUINA2-RUPTURE.description": "在你的下个回合结束时，受到伤害。",
+  "RUINA2-RUPTURE.smartDescription": "在你的下个回合结束时，受到[blue]{Amount}[/blue]点伤害。",
+  "RUINA2-RUPTURE.title": "破裂",
+  "RUINA2-COUNTER_ATTACK.description": "",
+  "RUINA2-COUNTER_ATTACK.smartDescription": "每当{IsMultiplayer:一名玩家|你}在本回合打出一张[gold]攻击牌[/gold]，这个生物都会[gold]反击[/gold]{IsMultiplayer:该玩家|你}。\n如果本回合此效果触发次数不足[blue]{Amount}[/blue]次，下回合将使用一个[gold]强力[/gold]攻击。",
+  "RUINA2-COUNTER_ATTACK.title": "反击"
 }

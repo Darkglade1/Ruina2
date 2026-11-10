@@ -39,5 +39,17 @@
   "RUINA2-BOOK_OF_SOMEONE.title": "无名之书",
   "RUINA2-BLUE_SCARF.description": "将[gold]不速之客[/gold]改为较短的版本。",
   "RUINA2-BLUE_SCARF.flavor": "一条令人联想到宜人温暖的围巾。它似乎会将周围的人都吸引到自己身边。",
-  "RUINA2-BLUE_SCARF.title": "蓝围巾"
+  "RUINA2-BLUE_SCARF.title": "蓝围巾",
+  "RUINA2-CUNNING_WISH.description": "在战斗开始时，抽[blue]{Cards}[/blue]张牌并失去{Energy:energyIcons()}。",
+  "RUINA2-CUNNING_WISH.flavor": "他渴求知识，却无意去运用它。",
+  "RUINA2-CUNNING_WISH.title": "机巧的愿望",
+  "RUINA2-DEATH_WISH.description": "在战斗开始时，获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]，并失去[blue]{DexterityPower}[/blue]点[gold]敏捷[/gold]。",
+  "RUINA2-DEATH_WISH.flavor": "他渴求力量，却不求能活得足够久去滥用它。",
+  "RUINA2-DEATH_WISH.title": "死亡的愿望",
+  "RUINA2-GLITTERING_WISH.description": "拾取时，获得[blue]{Gold}[/blue]金币。\n在战斗开始时，失去[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。",
+  "RUINA2-GLITTERING_WISH.flavor": "她渴求黄金，却没有扛起它的力量。",
+  "RUINA2-GLITTERING_WISH.title": "闪耀的愿望",
+  "RUINA2-SCORCHING_WOUND.description": "在接下来的[blue]{Combats}[/blue]场战斗开始时，将[blue]{Cards}[/blue]张[gold]灼伤[/gold]洗入你的[gold]抽牌堆[/gold]。",
+  "RUINA2-SCORCHING_WOUND.flavor": "它依然鲜明地提醒着你曾经的鲁莽。",
+  "RUINA2-SCORCHING_WOUND.title": "灼热创痕"
 }
