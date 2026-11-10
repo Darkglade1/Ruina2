@@ -35,9 +35,4 @@ public class ContractLibertyPower() : Ruina2Power
         }
         return 1;
     }
-    
-    public override Decimal ModifyHandDraw(Player player, Decimal count)
-    {
-        return player != this.Owner.Player ? count : count + (Decimal) this.Amount;
-    }
 }

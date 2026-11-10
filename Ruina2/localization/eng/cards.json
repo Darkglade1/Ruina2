@@ -409,7 +409,7 @@
   "RUINA2-CONTRACT_MIGHT.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nYou can only play {Cards:diff()} cards per turn.",
   "RUINA2-CONTRACT_MIGHT.title": "Contract of Might",
 
-  "RUINA2-CONTRACT_LIBERTY.description": "Whenever you draw a card, randomize its cost from 0 to 3.\nAt the start of your turn, draw {Cards:diff()} {Cards:plural:card|cards}.",
+  "RUINA2-CONTRACT_LIBERTY.description": "Whenever you draw a card, randomize its cost from 0 to 3.",
   "RUINA2-CONTRACT_LIBERTY.title": "Contract of Liberty",
 
   "RUINA2-SILENCE.description": "Deal {Damage:diff()} damage.\nIncrease this card's damage by {Increase:diff()} this combat.",
