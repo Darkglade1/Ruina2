@@ -212,7 +212,7 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
                 path = "netzach_bg.tscn";
                 break;
             case RuinaFloor.Tiphereth:
-                path = "tiphereth_bg.tscn";
+                path = "tiph_bg.tscn";
                 break;
             case RuinaFloor.Gebura:
                 path = "gebura_bg.tscn";
