@@ -142,7 +142,7 @@ public class SingingMachine() : Ruina2Event()
     
     public async Task LoseMaxHP()
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["MaxHpLoss"].IntValue, false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["MaxHpLoss"].IntValue, null);
         SetEventFinished(PageDescription("LOSE_HP"));
     }
     

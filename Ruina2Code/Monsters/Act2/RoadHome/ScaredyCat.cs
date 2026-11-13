@@ -131,7 +131,7 @@ public sealed class ScaredyCat : AbstractRuinaMonster
     
     private async Task Flee(IReadOnlyList<Creature> targets)
     {
-        NCombatRoom.Instance?.GetCreatureNode(Creature)?.ToggleIsInteractable(false);
+        NCombatRoom.Instance?.GetCreatureNode(Creature)?.SetIsInteractable(false,false);
         var catRunAwayEffect = CatRunAway.Create(Creature);
         Node? vfxContainer = NCombatRoom.Instance?.CombatVfxContainer;
         vfxContainer?.AddChildSafely(catRunAwayEffect);

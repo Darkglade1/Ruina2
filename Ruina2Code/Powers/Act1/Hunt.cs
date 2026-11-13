@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using Ruina2.Ruina2Code.Monsters.Act1.SpiderBud;
 
 namespace Ruina2.Ruina2Code.Powers.Act1;
@@ -16,6 +17,7 @@ public class Hunt() : Ruina2Power
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
+        CardModel? source,
         bool wasRemovalPrevented,
         float deathAnimLength)
     {

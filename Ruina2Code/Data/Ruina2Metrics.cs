@@ -91,6 +91,7 @@ public static class Ruina2Metrics
         return new RunMetrics
         {
             Ascension = run.Ascension,
+            GameMode = run.GameMode.ToString(),
             TotalPlaytime = progress.TotalPlaytime,
             TotalWinRate = progress.Wins / (float)progress.NumberOfRuns,
             NumReloads = run.NumReloads,

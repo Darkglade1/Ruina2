@@ -42,7 +42,7 @@ public class ZweiAssociation() : Ruina2Event()
 
     public async Task Scouting()
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["ScoutingCost"].IntValue, false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["ScoutingCost"].IntValue, null);
         var egoCards = EGOCardPool.GetAct2EgoCards();
         egoCards.StableShuffle(Owner!.PlayerRng.Rewards);
         var cards = new List<CardModel>()

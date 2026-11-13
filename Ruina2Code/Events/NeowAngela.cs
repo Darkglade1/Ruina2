@@ -59,7 +59,7 @@ public class NeowAngela : CustomAncientModel
         var relic = neowItem.Relic;
         if (relic != null)
         {
-          items.Add(RelicOption(relic, customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+          items.Add(RelicOption(relic));
         }
       }
       items.Add(GlimpseOfEgoOption);
@@ -78,7 +78,7 @@ public class NeowAngela : CustomAncientModel
         var relic = neowItem.Relic;
         if (relic != null)
         {
-          items.Add(RelicOption(relic, customDonePage: "NEOW.pages.DONE.CURSED.description"));
+          items.Add(RelicOption(relic));
         }
       }
       items.Add(BookOfEgoOption);
@@ -88,12 +88,12 @@ public class NeowAngela : CustomAncientModel
   
   public EventOption GlimpseOfEgoOption
   {
-    get => RelicOption<GlimpseOfEgo>(customDonePage: "NEOW.pages.DONE.POSITIVE.description");
+    get => RelicOption<GlimpseOfEgo>();
   }
   
   public EventOption BookOfEgoOption
   {
-    get => RelicOption<BookOfEgo>(customDonePage: "NEOW.pages.DONE.CURSED.description");
+    get => RelicOption<BookOfEgo>();
   }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
@@ -126,18 +126,18 @@ public class NeowAngela : CustomAncientModel
       if (!(eventOption?.Relic is LargeCapsule))
       {
         if (Rng.NextBool())
-          list2.Add(RelicOption<LavaRock>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+          list2.Add(RelicOption<LavaRock>());
         else
-          list2.Add(RelicOption<SmallCapsule>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+          list2.Add(RelicOption<SmallCapsule>());
       }
       if (Rng.NextBool())
-        list2.Add(RelicOption<NutritiousOyster>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+        list2.Add(RelicOption<NutritiousOyster>());
       else
-        list2.Add(RelicOption<StoneHumidifier>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+        list2.Add(RelicOption<StoneHumidifier>());
       if (Rng.NextBool())
-        list2.Add(RelicOption<NeowsTalisman>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+        list2.Add(RelicOption<NeowsTalisman>());
       else
-        list2.Add(RelicOption<Pomander>(customDonePage: "NEOW.pages.DONE.POSITIVE.description"));
+        list2.Add(RelicOption<Pomander>());
       list2.RemoveAll((Predicate<EventOption>) (r =>
       {
         RelicModel? relic = r.Relic;

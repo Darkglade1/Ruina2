@@ -42,7 +42,7 @@ public class FalsePresent() : Ruina2Relic
 
     public override async Task AfterObtained()
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature,  DynamicVars.HpLoss.IntValue, false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature,  DynamicVars.HpLoss.IntValue, null);
     }
     
     public override Task AfterCombatEnd(CombatRoom _)

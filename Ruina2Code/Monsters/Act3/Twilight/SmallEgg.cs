@@ -42,13 +42,13 @@ public sealed class SmallEgg : AbstractRuinaMonster
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
+        CardModel? source,
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
-        if (creature == Creature)
+        if (creature == Creature && !wasRemovalPrevented)
         {
             await AnimationAction("Broken", null);
-            await PowerCmd.Remove<SmallBeak>(Creature);
         }
     }
     

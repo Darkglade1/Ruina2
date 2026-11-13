@@ -46,6 +46,7 @@ public class FreshMeatPower : Ruina2Power
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
+        CardModel? source,
         bool wasRemovalPrevented,
         float deathAnimLength)
     {

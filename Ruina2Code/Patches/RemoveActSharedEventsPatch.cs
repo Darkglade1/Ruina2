@@ -7,10 +7,11 @@ using Ruina2.Ruina2Code.Acts;
 
 namespace Ruina2.Ruina2Code.Patches;
 
-[HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
+[HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms),
+    new[] { typeof(Rng), typeof(UnlockState), typeof(bool), typeof(bool) })]
 public static class RemoveActSharedEventsPatch
 {
-    public static void Postfix(ActModel __instance, Rng rng, UnlockState unlockState, bool isMultiplayer)
+    public static void Postfix(ActModel __instance, Rng rng, UnlockState unlockState, bool isMultiplayer, bool isBlitz)
     {
         if (__instance is AbstractRuinaAct)
         {

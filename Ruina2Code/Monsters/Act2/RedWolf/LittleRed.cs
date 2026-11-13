@@ -273,6 +273,7 @@ public sealed class LittleRed : AbstractAllyMonster
     public override Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
+        CardModel? source,
         bool wasRemovalPrevented,
         float deathAnimLength)
     {

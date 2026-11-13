@@ -30,7 +30,7 @@ public class Index() : Ruina2Event()
     
     public async Task Swipe()
     {
-        await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(Owner!).ToMutable(), Owner!);
+        await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(Owner!, Rng).ToMutable(), Owner!);
         await CardPileCmd.AddCurseToDeck<Doubt>(Owner!);
         SetEventFinished(PageDescription("SWIPE"));
     }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using Ruina2.Ruina2Code.Extensions;
@@ -36,13 +37,13 @@ public sealed class LongEgg : AbstractRuinaMonster
     public override async Task AfterDeath(
         PlayerChoiceContext choiceContext,
         Creature creature,
+        CardModel? source,
         bool wasRemovalPrevented,
         float deathAnimLength)
     {
-        if (creature == Creature)
+        if (creature == Creature && !wasRemovalPrevented)
         {
             await AnimationAction("Broken", null);
-            await PowerCmd.Remove<LongArms>(Creature);
         }
     }
     

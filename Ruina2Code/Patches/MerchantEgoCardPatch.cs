@@ -2,6 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Merchant;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using Ruina2.Ruina2Code.Acts;
@@ -9,14 +10,14 @@ using Ruina2.Ruina2Code.Cards.EGO;
 
 namespace Ruina2.Ruina2Code.Patches;
 
-[HarmonyPatch(typeof(MerchantInventory), nameof(MerchantInventory.PopulateColorlessCardEntries))]
+[HarmonyPatch(typeof(MerchantInventory), nameof(MerchantInventory.GetDefaultColorlessCardEntries))]
 public static class MerchantEgoCardPatch
 {
-    public static void Postfix(MerchantInventory __instance)
+    public static void Postfix(Player player, ref List<MerchantCardEntry> __result)
     {
         if (RunManager.Instance.State?.Act is AbstractRuinaAct)
         {
-            __instance._colorlessCardEntries.Clear();
+            List<MerchantCardEntry> egoCardEntries = new List<MerchantCardEntry>();
             List<CardModel> list;
             if (RunManager.Instance.State?.Act is Asiyah)
             {
@@ -36,9 +37,9 @@ public static class MerchantEgoCardPatch
             }
             for (int i = 0; i < 2; i++)
             {
-                MerchantCardEntry merchantCardEntry = new MerchantCardEntry(__instance.Player, __instance, list, CardRarity.Rare);
-                merchantCardEntry.Populate();
-                __instance._colorlessCardEntries.Add(merchantCardEntry);
+                MerchantCardEntry merchantCardEntry = new MerchantCardEntry(player, list, CardRarity.Rare);
+                egoCardEntries.Add(merchantCardEntry);
+                __result = egoCardEntries;
             }
         }
     }

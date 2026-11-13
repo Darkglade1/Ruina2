@@ -9,7 +9,7 @@ public static class BossIconPatchRefreshColor
 {
     public static void Postfix(NBossMapPoint __instance)
     {
-        if (__instance._act is AbstractRuinaAct ruinaAct)
+        if (__instance._runState.Act is AbstractRuinaAct ruinaAct)
         {
             __instance._placeholderOutline.SelfModulate = ruinaAct.BossIconBgColor;
         }

@@ -35,7 +35,7 @@ public class SnowWhiteApple() : Ruina2Event()
 
     public async Task Reject()
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["MaxHPLoss"].IntValue, false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner!.Creature,  DynamicVars["MaxHPLoss"].IntValue, null);
         await RelicCmd.Obtain(ModelDb.Relic<Malice>().ToMutable(), Owner!);
         SetEventFinished(PageDescription("REJECT"));
     }
