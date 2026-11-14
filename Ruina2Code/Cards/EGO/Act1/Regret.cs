@@ -13,7 +13,7 @@ public class Regret() : EGOCard(2,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, ValueProp.Move),
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
-        new CalculatedVar("CalculatedHits").WithMultiplier((card, _) => PileType.Hand.GetPile(card.Owner).Cards.Count(e => e.Type == CardType.Curse || e.Type == CardType.Status))];
+        new CalculatedHitCountVar("CalculatedHits").WithMultiplier((card, _) => PileType.Hand.GetPile(card.Owner).Cards.Count(e => e.Type == CardType.Curse || e.Type == CardType.Status))];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
     protected override async Task OnPlay(

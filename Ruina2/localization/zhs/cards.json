@@ -78,7 +78,7 @@
   "RUINA2-HARMONY.title": "和弦",
   "RUINA2-SOLEMN_LAMENT.description": "获得{IntangiblePower:diff()}层[gold]无实体[/gold]。\n将一张[gold]永恒的安息[/gold]洗入你的[gold]抽牌堆[/gold]。",
   "RUINA2-SOLEMN_LAMENT.title": "庄严哀悼",
-  "RUINA2-ETERNAL_REST.description": "造成{Damage:diff()}点伤害，共{Repeat:diff()}次。",
+  "RUINA2-ETERNAL_REST.description": "造成{Damage:diff()}点伤害，共{HitCount:diff()}次。",
   "RUINA2-ETERNAL_REST.title": "永恒的安息",
   "RUINA2-MAGIC_BULLET.description": "敌人本回合受到的攻击伤害增加{MagicBulletPower:diff()}%。{IfUpgraded:show:\n你本回合获得{StrengthPower:diff()}点[gold]力量[/gold]。}",
   "RUINA2-MAGIC_BULLET.title": "魔弹",

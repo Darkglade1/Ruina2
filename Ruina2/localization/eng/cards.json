@@ -117,7 +117,7 @@
   "RUINA2-SOLEMN_LAMENT.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nShuffle a [gold]Eternal Rest[/gold] into your [gold]Draw Pile[/gold].",
   "RUINA2-SOLEMN_LAMENT.title": "Solemn Lament",
 
-  "RUINA2-ETERNAL_REST.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "RUINA2-ETERNAL_REST.description": "Deal {Damage:diff()} damage {HitCount:diff()} times.",
   "RUINA2-ETERNAL_REST.title": "Eternal Rest",
 
   "RUINA2-MAGIC_BULLET.description": "Enemy receives {MagicBulletPower:diff()}% more damage from attacks this turn.{IfUpgraded:show:\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.}",

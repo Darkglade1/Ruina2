@@ -13,7 +13,7 @@ public class EternalRest() : Ruina2Card(0,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move), new RepeatVar(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move), new HitCountVar(5)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
@@ -23,7 +23,7 @@ public class EternalRest() : Ruina2Card(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, DynamicVars.Repeat.IntValue).BeforeDamage(beforeDamage).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, DynamicVars.HitCount.IntValue).BeforeDamage(beforeDamage).Execute(choiceContext);
     }
     private Task beforeDamage()
     {
