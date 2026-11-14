@@ -5,7 +5,10 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Encounters;
+using MegaCrit.Sts2.Core.Multiplayer.Game.Lobby;
+using MegaCrit.Sts2.Core.Nodes.Screens.Blitz;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
+using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -263,4 +266,23 @@ internal static class RoomGenerationPatch
 		}
 		return -1;
 	}
+}
+
+[HarmonyPatch(typeof(NBlitzScreen), nameof(NBlitzScreen.BeginRun))]
+public static class RemoveFurtherActsInBlitz
+{
+    public static void Prefix(NBlitzScreen __instance, string seed, ref List<ActModel> acts, IReadOnlyList<ModifierModel> modifiers)
+    {
+        var list = acts.ToList();
+        List<ActModel> newList = new List<ActModel>();
+        for (int i = 0; i < list.Count; i++)
+        {
+            var act = list[i];
+            if (act is not UninvitedGuests)
+            {
+                newList.Add(act);
+            }
+        }
+        acts = newList;
+    }
 }

@@ -68,11 +68,10 @@ public class Asiyah() : AbstractRuinaAct(1)
     {
         get
         {
-            if ((RunManager.Instance.State != null && RunManager.Instance.State.Modifiers.Count > 0) || !Config.NeowAngelaAppears)
+            if ((RunManager.Instance.State != null && (RunManager.Instance.State.Modifiers.Count > 0 || RunManager.Instance.State.GameMode == GameMode.Blitz)) || !Config.NeowAngelaAppears)
             {
                 return [ModelDb.AncientEvent<Neow>()];
             }
-
             return  [ModelDb.AncientEvent<NeowAngela>()];
         }
     }
