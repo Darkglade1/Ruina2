@@ -1,4 +1,6 @@
 ﻿{
   "RUINA2-MERCHANT.talk.ashes.line1": "For me? Yesss, that's the stuff!",
-  "RUINA2-MERCHANT.talk.ashes.line2": "Here's a bonus for the extras!"
+  "RUINA2-MERCHANT.talk.ashes.line2": "Here's a bonus for the extras!",
+  "RUINA2-MERCHANT.blitz.ego_card_reward_entry.description": "Receive [blue]1[/blue] [gold]EGO[/gold] card reward.",
+  "RUINA2-MERCHANT.blitz.ego_card_reward_entry.title": "EGO Card Reward"
 }

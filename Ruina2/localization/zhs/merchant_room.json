@@ -1,4 +1,6 @@
 {
   "RUINA2-MERCHANT.talk.ashes.line1": "给我的？太好了，正是我要的东西！",
-  "RUINA2-MERCHANT.talk.ashes.line2": "这是给你的额外奖励！"
+  "RUINA2-MERCHANT.talk.ashes.line2": "这是给你的额外奖励！",
+  "RUINA2-MERCHANT.blitz.ego_card_reward_entry.description": "获得[blue]1[/blue]个[gold]EGO[/gold]卡牌奖励。",
+  "RUINA2-MERCHANT.blitz.ego_card_reward_entry.title": "EGO卡牌奖励"
 }
