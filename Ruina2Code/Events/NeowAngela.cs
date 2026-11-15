@@ -6,13 +6,19 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
+using Ruina2.Ruina2Code.Acts;
 using Ruina2.Ruina2Code.Audio;
 using Ruina2.Ruina2Code.Extensions;
+using Ruina2.Ruina2Code.Patches;
 using Ruina2.Ruina2Code.Relics;
 
 namespace Ruina2.Ruina2Code.Events;
 public class NeowAngela : CustomAncientModel
 {
+    public NeowAngela()
+    {
+        this.AddActSpecificAncientList([ModelDb.GetId<Asiyah>()]);
+    }
     public override string CustomScenePath => "Angela/angela.tscn".EventImagePath();
     public override string CustomMapIconPath => "Angela/AngelaMap.png".EventImagePath();
     public override string CustomMapIconOutlinePath => "Angela/AngelaMapOutline.png".EventImagePath();
