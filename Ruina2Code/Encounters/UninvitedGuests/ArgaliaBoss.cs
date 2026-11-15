@@ -3,8 +3,10 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Dread;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Dominions.Act4;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
 
@@ -44,5 +46,10 @@ public sealed class ArgaliaBoss : CustomEncounterModel
             (ModelDb.Monster<Roland>().ToMutable(), "ally"),
             (ModelDb.Monster<Argalia>().ToMutable(), "boss")
         };
+    }
+    
+    public override DominionModel GetDominion()
+    {
+        return ModelDb.Dominion<ArgaliaDominion>();
     }
 }

@@ -3,8 +3,10 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Dread;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Dominions.Act2;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act2.Jester;
 
@@ -48,5 +50,10 @@ public sealed class JesterBoss : CustomEncounterModel
             (ModelDb.Monster<ServantOfCourage>().ToMutable(), "courage"),
             (ModelDb.Monster<JesterOfNihil>().ToMutable(), "jester")
         };
+    }
+    
+    public override DominionModel GetDominion()
+    {
+        return ModelDb.Dominion<JesterDominion>();
     }
 }

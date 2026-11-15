@@ -3,11 +3,12 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Dread;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Dominions.Act1;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act1.NothingDer;
-using Ruina2.Ruina2Code.Monsters.Act2.Jester;
 
 namespace Ruina2.Ruina2Code.Encounters.Act1;
 
@@ -48,5 +49,10 @@ public sealed class NothingDerBoss : CustomEncounterModel
             (ModelDb.Monster<NothingThere>().ToMutable(), "nothing"),
             (ModelDb.Monster<DerFreischutz>().ToMutable(), "der")
         };
+    }
+    
+    public override DominionModel GetDominion()
+    {
+        return ModelDb.Dominion<NothingDerDominion>();
     }
 }

@@ -3,8 +3,10 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Dread;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Dominions.Act1;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act1;
 
@@ -43,5 +45,10 @@ public sealed class OrchestraBoss : CustomEncounterModel
         {
             (ModelDb.Monster<Orchestra>().ToMutable(), null)
         };
+    }
+    
+    public override DominionModel GetDominion()
+    {
+        return ModelDb.Dominion<OrchestraDominion>();
     }
 }

@@ -3,8 +3,10 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Encounters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Dread;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using Ruina2.Ruina2Code.Dominions.Act1;
 using Ruina2.Ruina2Code.Extensions;
 using Ruina2.Ruina2Code.Monsters.Act1.BlackSwan;
 
@@ -45,5 +47,10 @@ public sealed class BlackSwanBoss : CustomEncounterModel
         {
             (ModelDb.Monster<BlackSwan>().ToMutable(), "swan")
         };
+    }
+    
+    public override DominionModel GetDominion()
+    {
+        return ModelDb.Dominion<BlackSwanDominion>();
     }
 }
