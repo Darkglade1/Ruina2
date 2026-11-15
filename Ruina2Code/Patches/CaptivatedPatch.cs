@@ -1,6 +1,9 @@
 ﻿using BaseLib.Patches.Features;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Models.Powers;
 using Ruina2.Ruina2Code.Afflictions;
 using Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
@@ -14,5 +17,18 @@ internal static class ModelDbTargetTypeInitPatch
     {
         CustomTargetType.RegisterSingleTargetType(Captivated.SpotlightOnly,
             (target, _) => target.HasPower<Spotlight>());
+    }
+}
+
+[HarmonyPatch(typeof(Shiv), nameof(Shiv.TargetType), MethodType.Getter)]
+internal static class ShivCaptivatedPatch
+{
+    [HarmonyPostfix]
+    private static void FixTargetType(Shiv __instance, ref TargetType __result)
+    {
+        if (__instance.Affliction is Captivated && !__instance.Owner.Creature.HasPower<FanOfKnivesPower>())
+        {
+            __result = Captivated.SpotlightOnly;
+        }
     }
 }
