@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using Ruina2.Ruina2Code.Intents;
 using Ruina2.Ruina2Code.Monsters;
@@ -16,6 +18,9 @@ public static class MintyCompatPatch
     private const string TargetAssemblyName = "MintySpire2";
     private const string TargetTypeName = "MintySpire2.MintySpire2Code.combat.SummedIncomingDamageRender";
     private const string TargetMethodName = "CalculateIncomingDamage";
+    
+    private const string MintyMonstersLocTable = "gameplay_ui";
+    private const string MintyMonstersLocKey = "MINTYSPIRE2.incomingDamage.monsters";
 
     private static readonly object Lock = new();
     private static Harmony? _harmony;
@@ -56,7 +61,7 @@ public static class MintyCompatPatch
             var type = asm.GetType(TargetTypeName, throwOnError: false);
             var target = type == null
                 ? null
-                : AccessTools.Method(type, TargetMethodName, [typeof(Creature)]);
+                : AccessTools.Method(type, TargetMethodName, [typeof(Creature), typeof(Dictionary<string, int>)]);
 
             if (target == null)
             {
@@ -77,12 +82,12 @@ public static class MintyCompatPatch
         return true;
     }
     
-    private static void Postfix(Creature __0, ref int __result)
+    private static void Postfix(Creature __0, Dictionary<string, int> __1, ref int __result)
     {
-        __result = ModifyIncomingDamage(__0, __result);
+        __result = ModifyIncomingDamage(__0, __1, __result);
     }
 
-    private static int ModifyIncomingDamage(Creature creature, int original)
+    private static int ModifyIncomingDamage(Creature creature, Dictionary<string, int> breakdown, int original)
     {
         var damageToRemove = 0;
         var damageAdded = 0;
@@ -118,31 +123,43 @@ public static class MintyCompatPatch
                     damageToRemove += enemyDamage;
                 }
             }
-            
-            var vibration = creature.GetPower<Vibration>();
-            if (vibration != null)
+
+            if (damageToRemove > 0)
             {
-                damageAdded += vibration.Amount;
+                RemoveMonsterDamage(breakdown, damageToRemove);
             }
-            
-            var ferventAdoration = creature.GetPower<FerventAdoration>();
-            if (ferventAdoration != null)
-            {
-                damageAdded += ferventAdoration.Amount;
-            }
-            
-            var pleasure = creature.GetPower<Pleasure>();
-            if (pleasure != null)
-            {
-                damageAdded += pleasure.Amount;
-            }
-            
-            var rupture = creature.GetPower<Rupture>();
-            if (rupture != null)
-            {
-                damageAdded += rupture.Amount;
-            }
+
+            damageAdded += AddPowerDamage(creature.GetPower<Vibration>(), breakdown);
+            damageAdded += AddPowerDamage(creature.GetPower<FerventAdoration>(), breakdown);
+            damageAdded += AddPowerDamage(creature.GetPower<Pleasure>(), breakdown);
+            damageAdded += AddPowerDamage(creature.GetPower<Rupture>(), breakdown);
         }
         return original - damageToRemove + damageAdded;
+    }
+    
+    private static void RemoveMonsterDamage(Dictionary<string, int> breakdown, int damageToRemove)
+    {
+        var monstersKey = new LocString(MintyMonstersLocTable, MintyMonstersLocKey).GetFormattedText();
+
+        if (!breakdown.TryGetValue(monstersKey, out var monsterDamage)) return;
+
+        var remaining = monsterDamage - damageToRemove;
+        if (remaining > 0)
+        {
+            breakdown[monstersKey] = remaining;
+        }
+        else
+        {
+            breakdown.Remove(monstersKey);
+        }
+    }
+    
+    private static int AddPowerDamage(PowerModel? power, Dictionary<string, int> breakdown)
+    {
+        if (power == null || power.Amount <= 0) return 0;
+
+        var name = power.Title.GetFormattedText();
+        breakdown[name] = breakdown.GetValueOrDefault(name) + power.Amount;
+        return power.Amount;
     }
 }
