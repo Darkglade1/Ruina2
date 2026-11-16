@@ -139,6 +139,7 @@ public sealed class ScowlingFace : AbstractRuinaMonster
             .FromMonster(this)
             .Execute(null);
         await CreatureCmd.Kill(Creature);
+        await WaitAnimation();
     }
     
     private async Task AttackAnimation(IReadOnlyList<Creature> targets)

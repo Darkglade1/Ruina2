@@ -10,7 +10,7 @@ namespace Ruina2.Ruina2Code.Dominions.Act3;
 
 public class WhiteNightDominion : Ruina2Dominion
 {
-  public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<RegenPower>(), HoverTipFactory.FromPower<RitualPower>()];
+  public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<MonsterRegen>(), HoverTipFactory.FromPower<RitualPower>()];
   
   protected override async Task AfterEnemiesEnteredCombat(IEnumerable<Creature> creatures)
   {
