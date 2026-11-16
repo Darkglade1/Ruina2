@@ -159,7 +159,7 @@
   "RUINA2-DONT_LEAVE.smartDescription": "When this creature dies, it revives this turn with the HP of another enemy.",
   "RUINA2-DONT_LEAVE.title": "Don't Leave Me",
 
-  "RUINA2-MONSTER_REGEN.description": "",
+  "RUINA2-MONSTER_REGEN.description": "Heals HP every turn.",
   "RUINA2-MONSTER_REGEN.smartDescription": "Heals [blue]{Amount}[/blue] HP every turn.",
   "RUINA2-MONSTER_REGEN.title": "Regeneration",
 
@@ -251,7 +251,7 @@
   "RUINA2-HUNT.smartDescription": "Whenever a [gold]Spiderling[/gold] dies or if this creature is alone, uses a [gold]strong[/gold] attack next turn.",
   "RUINA2-HUNT.title": "Hunt",
 
-  "RUINA2-NAIL.description": "",
+  "RUINA2-NAIL.description": "Whenever you play a card this turn, take damage.",
   "RUINA2-NAIL.smartDescription": "Whenever you play a card this turn, take [blue]{Amount}[/blue] damage.",
   "RUINA2-NAIL.title": "Nail",
 
@@ -529,5 +529,13 @@
 
   "RUINA2-COUNTER_ATTACK.description": "",
   "RUINA2-COUNTER_ATTACK.smartDescription": "Whenever {IsMultiplayer:a player|you} plays an [gold]Attack[/gold] this turn, this creature will [gold]Counter Attack[/gold] {IsMultiplayer:that player|you}.\nIf this effect did not trigger at least [blue]{Amount}[/blue] {Amount:plural:time|times} this turn, will use a [gold]powerful[/gold] attack next turn.",
-  "RUINA2-COUNTER_ATTACK.title": "Counter Attack"
+  "RUINA2-COUNTER_ATTACK.title": "Counter Attack",
+
+  "RUINA2-INEVITABLE_BULLET.description": "",
+  "RUINA2-INEVITABLE_BULLET.smartDescription": "At the end of your next turn, take [blue]{Amount}[/blue] damage.",
+  "RUINA2-INEVITABLE_BULLET.title": "Inevitable Bullet",
+
+  "RUINA2-RAVENOUS_HUNGER.description": "",
+  "RUINA2-RAVENOUS_HUNGER.smartDescription": "When this creature falls below [blue]{HpThreshold}%[/blue] HP, it gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "RUINA2-RAVENOUS_HUNGER.title": "Ravenous Hunger"
 }

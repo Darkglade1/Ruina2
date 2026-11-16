@@ -2,13 +2,13 @@
   "DREAD.RUINA2-FAIRY.description": "When an enemy falls below [blue]50%[/blue] HP, it gains [blue]3[/blue] [gold]Strength[/gold].",
   "DREAD.RUINA2-BLACK_SWAN.description": "All enemies start with [blue]15[/blue] [gold]Block[/gold] and [gold]Block[/gold] is not removed at the start of their first turn.",
   "DREAD.RUINA2-ORCHESTRA.description": "At the start of each combat, shuffle a [gold]Second Chair[/gold] and [gold]Third Chair[/gold] into your [gold]Draw Pile[/gold].",
-  "DREAD.RUINA2-NOTHING_DER.description": "At the end of turn [blue]2[/blue], you take [blue]10[/blue] damage.",
+  "DREAD.RUINA2-NOTHING_DER.description": "At the end of your first turn, you take [blue]7[/blue] damage.",
 
   "DREAD.RUINA2-JESTER.description": "At the start of each combat, you lose [blue]2[/blue] [gold]Strength[/gold].",
   "DREAD.RUINA2-RED_WOLF.description": "",
   "DREAD.RUINA2-OZ.description": "At the start of each combat, choose [blue]1[/blue] of [blue]2[/blue] [gold]False Gifts[/gold] to accept.",
 
-  "DREAD.RUINA2-TWILIGHT.description": "At the start of your turn, shuffle [blue]1[/blue] [gold]Dazzled[/gold] into your [gold]Draw Pile[/gold]. The first card you draw each turn costs [blue]1[/blue] more this turn.",
+  "DREAD.RUINA2-TWILIGHT.description": "At the start of your turn, shuffle [blue]2[/blue] [gold]Dazzled[/gold] into your [gold]Draw Pile[/gold].",
   "DREAD.RUINA2-WHITE_NIGHT.description": "All enemies gain [blue]10[/blue] [gold]Regen[/gold] and [blue]1[/blue] [gold]Ritual[/gold].",
   "DREAD.RUINA2-SILENT_GIRL.description": "At the start of each combat, you gain [blue]3[/blue] [gold]Nails[/gold]. All enemies gain [gold]Painful Stabs[/gold].",
   
