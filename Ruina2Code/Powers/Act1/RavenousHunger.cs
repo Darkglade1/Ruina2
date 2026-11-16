@@ -17,7 +17,7 @@ public class RavenousHunger() : Ruina2Power
     public override PowerStackType StackType =>
         PowerStackType.Counter;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new ("HPThreshold", 50)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new ("HpThreshold", 50)];
 
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
@@ -29,7 +29,7 @@ public class RavenousHunger() : Ruina2Power
     {
         if (target == Owner)
         {
-            if (Owner.CurrentHp < Owner.MaxHp * (DynamicVars["HPThreshold"].BaseValue / 100))
+            if (Owner.CurrentHp < Owner.MaxHp * (DynamicVars["HpThreshold"].BaseValue / 100))
             {
                 await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner,  null);
                 await PowerCmd.Remove(this);

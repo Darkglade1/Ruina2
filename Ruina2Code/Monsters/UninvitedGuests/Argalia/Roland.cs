@@ -440,6 +440,11 @@ public sealed class Roland : AbstractAllyCardMonster
                 float targetFront = targetCreatureNode.GlobalPosition.X - 200.0f;
                 float attackInterval = 0.35f;
 
+                if (targets[0].Monster is Argalia)
+                {
+                    await PowerCmd.Apply<PreventDeath>(new ThrowingPlayerChoiceContext(), targets, 1 , Creature, null);
+                }
+
                 await Gun1Animation(targets);
                 await DamageCmd.Attack(FuriosoDamage).FromMonsterCreature(this).TargetingCreatures(targets, CombatState).Execute(null);
                 await WaitAnimation(attackInterval, targets);
@@ -496,6 +501,10 @@ public sealed class Roland : AbstractAllyCardMonster
                 await DamageCmd.Attack(FuriosoDamage).FromMonsterCreature(this).TargetingCreatures(targets, CombatState).Execute(null);
                 await WaitAnimation(attackInterval, targets);
                 await Sword3Animation(targets);
+                if (targets[0].Monster is Argalia)
+                {
+                    await PowerCmd.Remove<PreventDeath>(targets[0]);
+                }
                 await DamageCmd.Attack(FuriosoDamage).FromMonsterCreature(this).TargetingCreatures(targets, CombatState).Execute(null);
                 await ResetIdle();
                 await MoveAnimation(initialX, null);
