@@ -133,6 +133,7 @@ public static class MintyCompatPatch
             damageAdded += AddPowerDamage(creature.GetPower<FerventAdoration>(), breakdown);
             damageAdded += AddPowerDamage(creature.GetPower<Pleasure>(), breakdown);
             damageAdded += AddPowerDamage(creature.GetPower<Rupture>(), breakdown);
+            damageAdded += AddPowerDamage(creature.GetPower<InevitableBullet>(), breakdown);
         }
         return original - damageToRemove + damageAdded;
     }

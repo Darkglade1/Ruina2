@@ -39,7 +39,7 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     private int AtkBlockAmount => 8;
     private int HateBlockAmount => 20 + (AscensionHelper.IsDread() ? 5 : 0);
     private int DebuffAmt => 1;
-    private int StrengthLoss = AscensionHelper.IsDread() ? 2 : 0;
+    private int StrengthLoss => AscensionHelper.IsDread() ? 2 : 0;
     private const int RampageCooldown = 1;
     private int rampageCooldown = RampageCooldown;
     private int numIntentThatCanRampage = 2; //0 is the second intent, 1 is the third intent, 2 is the first intent
