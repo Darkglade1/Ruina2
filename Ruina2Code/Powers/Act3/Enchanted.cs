@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Ruina2.Ruina2Code.Monsters;
 
@@ -57,14 +58,29 @@ public class Enchanted() : Ruina2Power
         }
     }
 
-    public override Task AfterRemoved(Creature oldOwner)
+    public override async Task AfterRemoved(Creature oldOwner)
     {
         if (oldOwner.Monster != null && oldOwner.Monster is AbstractAllyMonster ally)
         {
             ally.IsTargetableByPlayers = false;
             ally.SetToSide(CombatSide.Player);
+            List<PowerModel> impaledPowers = new List<PowerModel>();
+            foreach (var power in ally.Creature.Powers)
+            {
+                if (power is ImpaledPower impaledPower)
+                {
+                    impaledPowers.Add(impaledPower);
+                }
+            }
+            foreach (var power in impaledPowers)
+            {
+                if (power is ImpaledPower impaledPower)
+                {
+                    await impaledPower.DislodgeAllArrows(new ThrowingPlayerChoiceContext(), null);
+                    await PowerCmd.Remove(impaledPower);
+                }
+            }
         }
-        return Task.CompletedTask;
     }
     
     public override Decimal ModifyDamageCap(

@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
+using Ruina2.Ruina2Code.Monsters;
 using Ruina2.Ruina2Code.Powers.Act3;
 
 namespace Ruina2.Ruina2Code.Dominions.Act3;
@@ -21,8 +22,14 @@ public class SilentGirlDominion : Ruina2Dominion
     }
   }
   
-  protected override Task AfterEnemiesEnteredCombat(IEnumerable<Creature> creatures)
+  protected override async Task AfterEnemiesEnteredCombat(IEnumerable<Creature> creatures)
   {
-    return PowerCmd.Apply<PainfulStabsPower>(new ThrowingPlayerChoiceContext(), creatures, 1, null, null);
+    foreach (Creature creature in creatures)
+    {
+      if (creature.Monster is not AbstractAllyMonster)
+      {
+        await PowerCmd.Apply<PainfulStabsPower>(new ThrowingPlayerChoiceContext(), creature, 1, null, null);
+      }
+    }
   }
 }

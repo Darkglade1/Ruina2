@@ -1,17 +1,17 @@
-using System.Reflection;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
-using Ruina2.Ruina2Code.Afflictions;
+using Ruina2.Ruina2Code.Monsters.Act3.BigBird;
 using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
-using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Oswald;
 using Ruina2.Ruina2Code.Powers;
 
 namespace Ruina2.Ruina2Code.Monsters;
@@ -75,6 +75,8 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         return Task.CompletedTask;
     }
 
+    // Needed to prevent random target effects from affecting allies.
+    // However this also impacts powers applied to allies.
     public override bool ShouldAllowHitting(Creature creature)
     {
         if (creature.Monster == this)
@@ -100,6 +102,11 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         if (target == Creature && applier != null && applier.IsPlayer)
         {
+            if (canonicalPower is ImpaledPower)
+            {
+                modifiedAmount = amount;
+                return false;
+            }
             if (IsAlly && !IsTargetableByPlayers)
             {
                 modifiedAmount = 0M;
@@ -108,6 +115,30 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
         }
         modifiedAmount = amount;
         return false;
+    }
+    
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (IsAlly && !IsTargetableByPlayers && this is Sage)
+        {
+            List<PowerModel> impaledPowers = new List<PowerModel>();
+            foreach (var power in Creature.Powers)
+            {
+                if (power is ImpaledPower impaledPower)
+                {
+                    impaledPowers.Add(impaledPower);
+                }
+            }
+            foreach (var power in impaledPowers)
+            {
+                if (power is ImpaledPower impaledPower)
+                {
+                    await impaledPower.DislodgeAllArrows(new ThrowingPlayerChoiceContext(), cardPlay.Card);
+                    await PowerCmd.Remove(impaledPower);
+                }
+            }
+            await DisableApplyPowersToAllies();
+        }
     }
     
     public override Decimal ModifyHpLostAfterOstyLate(
@@ -119,10 +150,6 @@ public abstract class AbstractAllyMonster : AbstractMultiIntentMonster
     {
         if (target == Creature && dealer != null && dealer.IsPlayer)
         {
-            if (cardSource != null && cardSource.Affliction is Captivated)
-            {
-                return amount;
-            }
             if (IsAlly && !IsTargetableByPlayers)
             {
                 return 0;
