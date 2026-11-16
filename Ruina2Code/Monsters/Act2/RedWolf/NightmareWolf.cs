@@ -30,7 +30,8 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     private int HuntHits => 3;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int BlockAmount => 20;
-    private int BleedAmount => 2;
+    private int BleedAmount => 2 + (AscensionHelper.IsDread() ? 1 : 0);
+    private int VulnerableAmount => AscensionHelper.IsDread() ? 1 : 0;
 
     protected override string VisualsPath => "NightmareWolf/nightmare_wolf.tscn".MonsterImagePath();
 
@@ -62,6 +63,10 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
 
     private MoveState GetHowlState()
     {
+        if (VulnerableAmount > 0)
+        {
+            return new MoveState(HOWL, Howl, new BuffIntent(), new DebuffIntent());
+        }
         return new MoveState(HOWL, Howl, new BuffIntent());
     }
 
@@ -178,6 +183,17 @@ public sealed class NightmareWolf : AbstractMultiIntentMonster
     {
         await HowlAnimation();
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
+        if (VulnerableAmount > 0)
+        {
+            await ApplyPowerAndSkipNextDurationTickIfNotPresent<VulnerablePower>(CombatState.PlayerCreatures, VulnerableAmount);
+            foreach (var enemy in CombatState.HittableEnemies)
+            {
+                if (enemy.Monster is AbstractAllyMonster)
+                {
+                    await ApplyPowerAndSkipNextDurationTickIfNotPresent<VulnerablePower>([enemy], VulnerableAmount);
+                }
+            }
+        }
         await ResetIdle(1.0f);
     }
 

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.ValueProps;
+using Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
 
 namespace Ruina2.Ruina2Code.Powers.UninvitedGuests;
 
@@ -29,7 +30,7 @@ public class PreventDeath() : Ruina2Power
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (target == Owner)
+        if (target == Owner && dealer != null && dealer.Monster is Roland)
         {
             if (amount >= Owner.CurrentHp)
             {

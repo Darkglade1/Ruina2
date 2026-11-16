@@ -46,6 +46,11 @@ public sealed class DerFreischutz : AbstractMultiIntentMonster
     {
         await base.AfterAddedToRoom();
         OtherSideTargetMonster = FindTarget<NothingThere>();
+        if (AscensionHelper.IsDread())
+        {
+            await PowerCmd.Apply<SurroundedPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, 1, Creature, null);
+            await PowerCmd.Apply<BackAttackRightPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        }
     }
 
     private MoveState GetRuthlessBulletsState()

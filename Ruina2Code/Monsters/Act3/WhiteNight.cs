@@ -34,10 +34,10 @@ public sealed class WhiteNight : AbstractRuinaMonster
     public override int MinInitialHp => 666;
     public override int MaxInitialHp => MinInitialHp;
     
-    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45);
+    private int RiseDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 50, 45) + (AscensionHelper.IsDread() ? 5 : 0);
     private int BeholdDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
     private int RegenAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 16, 8);
-    private int RitualGain => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int RitualGain => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2) + (AscensionHelper.IsDread() ? 3 : 0);
     private int StrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
     private int HealAmt => 25;
     private int BlockAmt => 30;
@@ -129,7 +129,11 @@ public sealed class WhiteNight : AbstractRuinaMonster
         if (!awake)
         {
             return PRAYER;
-        }  else if (LastMove(stateMachine, PRAYER) && LastMoveBefore(stateMachine, PRAYER))
+        }  else if (LastMove(stateMachine, PRAYER) && AscensionHelper.IsDread())
+        {
+            return RISE_AND_SERVE;
+        }  
+        else if (LastMove(stateMachine, PRAYER) && LastMoveBefore(stateMachine, PRAYER))
         {
             return RISE_AND_SERVE;
         }
@@ -243,7 +247,10 @@ public sealed class WhiteNight : AbstractRuinaMonster
     {
         if (side == CombatSide.Enemy)
         {
-            if (MoveStateMachine != null && LastMove(MoveStateMachine, PRAYER) && LastMoveBefore(MoveStateMachine, PRAYER)) 
+            if (MoveStateMachine != null && LastMove(MoveStateMachine, PRAYER) && AscensionHelper.IsDread()) 
+            {
+                await Awaken();
+            } else if (MoveStateMachine != null && LastMove(MoveStateMachine, PRAYER) && LastMoveBefore(MoveStateMachine, PRAYER)) 
             {
                 await Awaken();
             }

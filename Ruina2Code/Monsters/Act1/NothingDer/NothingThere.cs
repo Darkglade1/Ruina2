@@ -52,6 +52,11 @@ public sealed class NothingThere : AbstractMultiIntentMonster
         {
             await PowerCmd.Apply<MultiplayerAlly>(new ThrowingPlayerChoiceContext(), Creature, AbstractAllyMonster.GetAllyMultiplayerDamageModifier(CombatState), Creature,  null);
         }
+
+        if (AscensionHelper.IsDread())
+        {
+            await PowerCmd.Apply<BackAttackLeftPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        }
     }
 
     private MoveState GetDenseFleshState()

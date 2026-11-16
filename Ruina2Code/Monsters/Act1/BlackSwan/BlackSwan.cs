@@ -29,8 +29,9 @@ public sealed class BlackSwan : AbstractRuinaMonster
     private int RealityDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int ShriekDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16);
     
-    private int BlockAmt => 7;
-    private int StrAmt => 1;
+    private int BlockAmt => 7 + (AscensionHelper.IsDread() ? 3 : 0);
+    private int StrAmt => 1 + (AscensionHelper.IsDread() ? 1 : 0);
+    private int BlurAmt => AscensionHelper.IsDread() ? 1 : 0;
     private int StatusAmt => 2;
     private int ErosionAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3);
 
@@ -170,6 +171,10 @@ public sealed class BlackSwan : AbstractRuinaMonster
         foreach (var enemy in CombatState.HittableEnemies)
         {
             await CreatureCmd.GainBlock(enemy, BlockAmt, ValueProp.Move, null);
+            if (BlurAmt > 0)
+            {
+                await PowerCmd.Apply<BlurPower>(new ThrowingPlayerChoiceContext(), enemy, BlurAmt, Creature,  null);
+            }
             int str = StrAmt;
             if (enemy.Monster is Brother brother)
             {

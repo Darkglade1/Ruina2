@@ -537,5 +537,17 @@
 
   "RUINA2-RAVENOUS_HUNGER.description": "",
   "RUINA2-RAVENOUS_HUNGER.smartDescription": "When this creature falls below [blue]{HpThreshold}%[/blue] HP, it gains [blue]{Amount}[/blue] [gold]Strength[/gold].",
-  "RUINA2-RAVENOUS_HUNGER.title": "Ravenous Hunger"
+  "RUINA2-RAVENOUS_HUNGER.title": "Ravenous Hunger",
+
+  "RUINA2-BEAST_SEEKING.description": "",
+  "RUINA2-BEAST_SEEKING.smartDescription": "At the end of your turn, shuffle [blue]{Amount}[/blue] [gold]Dazzled[/gold] into your [gold]Draw Pile[/gold].\nThe first card you draw each turn costs [blue]{CostIncrease:diff()}[/blue] more this combat.",
+  "RUINA2-BEAST_SEEKING.title": "A Beast Seeking Intruders",
+
+  "RUINA2-LIFE_PLUCKED.description": "",
+  "RUINA2-LIFE_PLUCKED.smartDescription": "At the start of your turn, you gain [blue]{Amount}[/blue] [gold]Vibration[/gold] and shuffle [blue]{Cards}[/blue] [gold]Controlled Vibration[/gold] into your [gold]Draw Pile[/gold].",
+  "RUINA2-LIFE_PLUCKED.title": "Life, Plucked Like Strings",
+
+  "RUINA2-ENDLESS_PERFORMANCE_DREAD.description": "",
+  "RUINA2-ENDLESS_PERFORMANCE_DREAD.smartDescription": "At the start of combat, shuffle ALL [gold]Performers[/gold] into your [gold]Draw Pile[/gold].\nWhenever a [gold]Performer[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], add a copy of it to your [gold]Discard Pile[/gold].",
+  "RUINA2-ENDLESS_PERFORMANCE_DREAD.title": "Endless Performance"
 }

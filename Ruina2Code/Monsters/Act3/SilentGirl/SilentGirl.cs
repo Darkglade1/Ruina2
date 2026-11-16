@@ -27,6 +27,7 @@ public sealed class SilentGirl : AbstractRuinaMonster
     
     private int NailDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
     private int NailAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int Phase2NailAmt => AscensionHelper.IsDread() ? 1 : 0;
     private int StatusAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int HammerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 26, 24);
     private int BrokenDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12);
@@ -127,6 +128,10 @@ public sealed class SilentGirl : AbstractRuinaMonster
 
     private MoveState GetBrokenState()
     {
+        if (Phase2NailAmt > 0)
+        {
+            return new MoveState(BROKEN, Broken, new MultiAttackIntent(BrokenDamage, BrokenHits), new DebuffIntent());
+        }
         return new MoveState(BROKEN, Broken, new MultiAttackIntent(BrokenDamage, BrokenHits));
     }
 
@@ -232,6 +237,10 @@ public sealed class SilentGirl : AbstractRuinaMonster
                 .FromMonster(this)
                 .Execute(null);
             await ResetIdle();
+        }
+        if (Phase2NailAmt > 0)
+        {
+            await PowerCmd.Apply<Powers.Act3.Nail>(new ThrowingPlayerChoiceContext(), targets, Phase2NailAmt, Creature,  null);
         }
     }
     

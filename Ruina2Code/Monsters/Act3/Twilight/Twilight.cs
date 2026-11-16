@@ -36,7 +36,8 @@ public sealed class Twilight : AbstractRuinaMonster
     private int ParalysisAmt => 2;
     private int VulnerableAmt => 1;
     private int BlockAmt => 24;
-    private int HPLossPercent => 25;
+    private int HPLossPercent => AscensionHelper.IsDread() ? 15 : 25;
+    private int StrengthAmount => AscensionHelper.IsDread() ? 3 : 0;
     public override bool CanChangeScale => false;
     protected override string VisualsPath => "Twilight/twilight.tscn".MonsterImagePath();
 
@@ -99,6 +100,10 @@ public sealed class Twilight : AbstractRuinaMonster
 
     private MoveState GetTornMouthState()
     {
+        if (StrengthAmount > 0)
+        {
+            return new MoveState(TORN_MOUTH, TornMouth, new SingleAttackIntent(TornDamage), new DebuffIntent(), new BuffIntent());
+        }
         return new MoveState(TORN_MOUTH, TornMouth, new SingleAttackIntent(TornDamage), new DebuffIntent());
     }
     
@@ -233,6 +238,10 @@ public sealed class Twilight : AbstractRuinaMonster
             .FromMonster(this)
             .Execute(null);
         await PowerCmd.Apply<Paralysis>(new ThrowingPlayerChoiceContext(), targets, ParalysisAmt, Creature, null);
+        if (StrengthAmount > 0)
+        {
+            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrengthAmount, Creature, null);
+        }
         await ResetIdle();
     }
     private async Task TiltedScale(IReadOnlyList<Creature> targets)

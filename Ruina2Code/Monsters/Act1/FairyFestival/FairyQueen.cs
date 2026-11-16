@@ -23,6 +23,7 @@ public sealed class FairyQueen : AbstractRuinaMonster
     private int PredationDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
     private int PredationHits => 2;
     private int SummonStr => 1;
+    private int RavenousHungerAmt => AscensionHelper.IsDread() ? 3 : 0;
     private int BuffStrAmt => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 4);
 
     protected override string VisualsPath => "FairyQueen/fairy_queen.tscn".MonsterImagePath();
@@ -37,6 +38,10 @@ public sealed class FairyQueen : AbstractRuinaMonster
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<Satiation>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        if (RavenousHungerAmt > 0)
+        {
+            await PowerCmd.Apply<RavenousHunger>(new ThrowingPlayerChoiceContext(), Creature, RavenousHungerAmt, null, null);
+        }
     }
 
     private MoveState GetQueensDecreeState()

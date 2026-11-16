@@ -77,6 +77,10 @@ public sealed class Oz : AbstractRuinaMonster
     
     private MoveState GetAwayState()
     {
+        if (AscensionHelper.IsDread())
+        {
+            return new MoveState(AWAY, Away, new SingleAttackIntent(AwayDamage), new BuffIntent(), new SummonIntent());
+        }
         return new MoveState(AWAY, Away, new SingleAttackIntent(AwayDamage), new BuffIntent());
     }
     
@@ -192,6 +196,19 @@ public sealed class Oz : AbstractRuinaMonster
             .Execute(null);
         await CrystalShardsAnimation(targets);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, StrAmt, Creature,  null);
+        if (AscensionHelper.IsDread())
+        {
+            var creature1 = await CreatureCmd.Add<ScowlingFace>(CombatState, "slot1");
+            if (creature1.Monster is ScowlingFace scowlingFace)
+            {
+                scowlingFace.MinionNum = 1;
+            }
+            var creature2 = await CreatureCmd.Add<ScowlingFace>(CombatState, "slot2");
+            if (creature2.Monster is ScowlingFace scowlingFace2)
+            {
+                scowlingFace2.MinionNum = 2;
+            }
+        }
         await ResetIdle();
     }
     

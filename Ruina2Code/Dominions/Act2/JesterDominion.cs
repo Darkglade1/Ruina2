@@ -8,7 +8,7 @@ namespace Ruina2.Ruina2Code.Dominions.Act2;
 
 public class JesterDominion : Ruina2Dominion
 {
-  public override IEnumerable<IHoverTip> ExtraHoverTips => [];
+  public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
   
   protected override async Task AfterPlayersEnteredCombat(IReadOnlyList<Player> players)
   {

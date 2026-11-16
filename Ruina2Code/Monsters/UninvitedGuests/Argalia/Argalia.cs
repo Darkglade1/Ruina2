@@ -25,7 +25,7 @@ namespace Ruina2.Ruina2Code.Monsters.UninvitedGuests.Argalia;
 
 public sealed class Argalia : AbstractCardMonster
 {
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1650, 1500);
+    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 1650, 1500) + (AscensionHelper.IsDread() ? 350 : 0);
     public override int MaxInitialHp => MinInitialHp;
 
     public override int NumIntents => 3;
@@ -38,7 +38,7 @@ public sealed class Argalia : AbstractCardMonster
     private int DanzaDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 15);
     private int DanzaHits => 5;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 3);
-    private int VibrationAmount =>  AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int VibrationAmount =>  AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2) + (AscensionHelper.IsDread() ? 1 : 0);
     private int BlockAmt => 45;
     private int StatusAmt => 1;
     private bool attackingAlly = true;

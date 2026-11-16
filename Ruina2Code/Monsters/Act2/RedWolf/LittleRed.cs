@@ -26,7 +26,7 @@ namespace Ruina2.Ruina2Code.Monsters.Act2.redWolf;
 
 public sealed class LittleRed : AbstractAllyMonster
 {
-    public override int MinInitialHp => 200;
+    public override int MinInitialHp => 200 + (AscensionHelper.IsDread() ? 50 : 0);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
     public override string TargetTexturePath => "RedIcon.png".UIImagePath();
@@ -37,7 +37,7 @@ public sealed class LittleRed : AbstractAllyMonster
     private int BulletShowerDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int BulletShowerHits => 3;
     private int StrengthAmount => 2;
-    private int EnrageStrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
+    private int EnrageStrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2) + (AscensionHelper.IsDread() ? 2 : 0);
     private int HealAmount => 10;
     private int DebuffAmt = 1;
     public bool enraged;

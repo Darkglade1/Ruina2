@@ -53,7 +53,14 @@ public sealed class Orchestra : AbstractRuinaMonster
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<EndlessPerformance>(new ThrowingPlayerChoiceContext(), Creature, 4, Creature, null);
+        if (AscensionHelper.IsDread())
+        {
+            await PowerCmd.Apply<EndlessPerformanceDread>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        }
+        else
+        {
+            await PowerCmd.Apply<EndlessPerformance>(new ThrowingPlayerChoiceContext(), Creature, 4, Creature, null);
+        }
     }
 
     private MoveState GetFirstState()

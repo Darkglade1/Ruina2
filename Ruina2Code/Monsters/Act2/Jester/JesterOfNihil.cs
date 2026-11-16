@@ -37,8 +37,9 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
     private int TearsHits => 2;
     private int StrengthAmount => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int AtkBlockAmount => 8;
-    private int HateBlockAmount => 20;
+    private int HateBlockAmount => 20 + (AscensionHelper.IsDread() ? 5 : 0);
     private int DebuffAmt => 1;
+    private int StrengthLoss = AscensionHelper.IsDread() ? 2 : 0;
     private const int RampageCooldown = 1;
     private int rampageCooldown = RampageCooldown;
     private int numIntentThatCanRampage = 2; //0 is the second intent, 1 is the third intent, 2 is the first intent
@@ -65,6 +66,10 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
 
     private MoveState GetWillOfNihilState()
     {
+        if (StrengthLoss > 0)
+        {
+            return new MoveState(WILL_OF_NIHIL, WillOfNihil, new RuinaSingleMassAttackIntent(NihilDamage), new RuinaDebuffIntent());
+        }
         return new MoveState(WILL_OF_NIHIL, WillOfNihil, new RuinaSingleMassAttackIntent(NihilDamage));
     }
 
@@ -286,6 +291,17 @@ public sealed class JesterOfNihil : AbstractMultiIntentMonster
             .FromMonsterCreature(this)
             .TargetingCreatures(targets, CombatState)
             .Execute(null);
+        if (StrengthLoss > 0)
+        {
+            await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), CombatState.PlayerCreatures, -StrengthLoss, Creature, null);
+            foreach (var enemy in CombatState.HittableEnemies)
+            {
+                if (enemy.Monster is AbstractAllyMonster)
+                {
+                    await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), enemy, -StrengthLoss, Creature, null);
+                }
+            }
+        }
         await ResetIdle();
     }
 
