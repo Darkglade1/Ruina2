@@ -27,10 +27,10 @@ public class EndlessPerformanceDread() : Ruina2Power, IAfterTransform
         if (player.PlayerCombatState != null && player.PlayerCombatState.TurnNumber == 1)
         {
             Flash();
-            await CardPileCmd.AddToCombatAndPreview<FirstChair>(CombatState.PlayerCreatures, PileType.Draw, 1, null, CardPilePosition.Random);
-            await CardPileCmd.AddToCombatAndPreview<SecondChair>(CombatState.PlayerCreatures, PileType.Draw, 1, null, CardPilePosition.Random);
-            await CardPileCmd.AddToCombatAndPreview<ThirdChair>(CombatState.PlayerCreatures, PileType.Draw, 1, null, CardPilePosition.Random);
-            await CardPileCmd.AddToCombatAndPreview<FourthChair>(CombatState.PlayerCreatures, PileType.Draw, 1, null, CardPilePosition.Random);
+            await CardPileCmd.AddToCombatAndPreview<FirstChair>(player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
+            await CardPileCmd.AddToCombatAndPreview<SecondChair>(player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
+            await CardPileCmd.AddToCombatAndPreview<ThirdChair>(player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
+            await CardPileCmd.AddToCombatAndPreview<FourthChair>(player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
         }
     }
     

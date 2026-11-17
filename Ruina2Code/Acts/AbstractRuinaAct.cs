@@ -30,47 +30,52 @@ public abstract class AbstractRuinaAct(int actNumber) : CustomActModel(actNumber
 
     public static RuinaFloor GetFloorBasedOnBoss()
     {
-        if (RunManager.Instance.State?.Act.BossEncounter is FairyBoss)
+        var bossEncounter = RunManager.Instance.State?.Act.BossEncounter;
+        if (RunManager.Instance.State?.Act.SecondBossEncounter != null)
+        {
+            bossEncounter = RunManager.Instance.State?.Act.SecondBossEncounter;
+        }
+        if (bossEncounter is FairyBoss)
         {
             return RuinaFloor.Malkuth;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is NothingDerBoss)
+        if (bossEncounter is NothingDerBoss)
         {
             return RuinaFloor.Yesod;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is BlackSwanBoss)
+        if (bossEncounter is BlackSwanBoss)
         {
             return RuinaFloor.Hod;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is OrchestraBoss)
+        if (bossEncounter is OrchestraBoss)
         {
             return RuinaFloor.Netzach;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is RedWolfBoss)
+        if (bossEncounter is RedWolfBoss)
         {
             return RuinaFloor.Gebura;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is JesterBoss)
+        if (bossEncounter is JesterBoss)
         {
             return RuinaFloor.Tiphereth;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is OzBoss)
+        if (bossEncounter is OzBoss)
         {
             return RuinaFloor.Chesed;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is TwilightBoss)
+        if (bossEncounter is TwilightBoss)
         {
             return RuinaFloor.Binah;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is WhiteNightBoss)
+        if (bossEncounter is WhiteNightBoss)
         {
             return RuinaFloor.Hokma;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is SilentGirlBoss)
+        if (bossEncounter is SilentGirlBoss)
         {
             return RuinaFloor.Keter;
         }
-        if (RunManager.Instance.State?.Act.BossEncounter is ArgaliaBoss)
+        if (bossEncounter is ArgaliaBoss)
         {
             return RuinaFloor.Guests;
         }

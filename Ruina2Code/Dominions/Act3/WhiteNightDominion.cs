@@ -16,9 +16,9 @@ public class WhiteNightDominion : Ruina2Dominion
   {
     foreach (Creature creature in creatures)
     {
-      if (creature.Monster is not AbstractAllyMonster)
+      if (creature.Monster is not AbstractAllyMonster && creature.CombatState != null)
       {
-        await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), creature, 10, null, null);
+        await PowerCmd.Apply<MonsterRegen>(new ThrowingPlayerChoiceContext(), creature, Creature.ScaleHpForMultiplayer(10, creature.CombatState.Encounter, creature.CombatState.Players.Count, creature.CombatState.RunState.CurrentActIndex), null, null);
         await PowerCmd.Apply<RitualPower>(new ThrowingPlayerChoiceContext(), creature, 1, null, null);
       }
     }
