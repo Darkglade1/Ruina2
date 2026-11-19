@@ -118,13 +118,13 @@ public sealed class NothingThere : AbstractMultiIntentMonster
     {
         if (intentNum == 0)
         {
-            return CombatState.PlayerCreatures[0];
+            return GetPlayerTarget();
         }
         if (intentNum == 1 && OtherSideTargetMonster != null && OtherSideTargetMonster.IsAlive)
         {
             return OtherSideTargetMonster;
         }
-        return CombatState.PlayerCreatures[0];
+        return GetPlayerTarget();
     }
 
     private async Task DenseFlesh(IReadOnlyList<Creature> targets)
