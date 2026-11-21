@@ -75,24 +75,15 @@ public static class TreasureRoomCtorPatch
     }
 }
 
-[HarmonyPatch(typeof(RunManager), nameof(RunManager.EnterMapCoordInternal))]
-public static class RunManagerEnterMapCoordPatch
-{
-    public static void Prefix(RunManager __instance, MapCoord coord)
-    {
-        UninvitedGuestsActMap.CurrentMapCoord = coord;
-    }
-}
-
 [HarmonyPatch(typeof(ActModel), nameof(ActModel.PullNextEncounter))]
 public static class ActNextEncounterPatch
 {
     public static void Postfix(ActModel __instance, RoomType roomType, ref EncounterModel __result)
     {
-        if (RunManager.Instance.State != null && __instance is UninvitedGuests && roomType == RoomType.Elite)
+        if (RunManager.Instance.State != null && __instance is UninvitedGuests && roomType == RoomType.Elite && RunManager.Instance.State.CurrentMapCoord != null)
         {
-            var mapPoint = RunManager.Instance.State.Map.GetPoint(UninvitedGuestsActMap.CurrentMapCoord.col,
-                UninvitedGuestsActMap.CurrentMapCoord.row);
+            var mapPoint = RunManager.Instance.State.Map.GetPoint(RunManager.Instance.State.CurrentMapCoord.Value.col,
+                RunManager.Instance.State.CurrentMapCoord.Value.row);
             if (mapPoint != null)
             {
                 var encounter = UninvitedGuestsActMap.MapPointSpecificEncounter.Get(mapPoint);

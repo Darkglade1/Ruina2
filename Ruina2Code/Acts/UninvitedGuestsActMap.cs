@@ -14,7 +14,6 @@ public sealed class UninvitedGuestsActMap : ActMap
 
 	protected override MapPoint?[,] Grid => _grid;
 	public static readonly SpireField<MapPoint, EncounterModel> MapPointSpecificEncounter = new(() => null);
-	public static MapCoord CurrentMapCoord;
 
 	public UninvitedGuestsActMap()
 	{
