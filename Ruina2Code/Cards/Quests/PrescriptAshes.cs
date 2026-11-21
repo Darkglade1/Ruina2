@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -30,7 +31,10 @@ public class PrescriptAshes() : Ruina2Card(-1, CardType.Quest,
         List<CardModel> list = PileType.Deck.GetPile(Owner).Cards.Where(c => c is PrescriptAshes).ToList();
         if (list.Count > 0)
         {
-            Sfx.IndexUnlock.Play(1, 0.5f);
+            if (LocalContext.IsMe(Owner))
+            {
+                Sfx.IndexUnlock.Play(1, 0.5f);   
+            }
             await CardPileCmd.RemoveFromDeck(list);
             await RelicCmd.Obtain(ModelDb.Relic<PrescriptsGrace>().ToMutable(), Owner);
             if (Owner.RunState.CurrentRoom is MerchantRoom)
