@@ -53,7 +53,7 @@ public sealed class MetricsUploaderConfig
     public IReadOnlySet<Assembly>? AllowedAssemblies { get; init; }
 
     public int MinFloors { get; init; } = 5;
-    public bool RequireStandardGameMode { get; init; } = true;
+    public bool RequireStandardGameMode { get; init; } = false;
     public bool SkipAbandonedRuns { get; init; } = true;
     public bool RejectForeignContent { get; init; } = false;
 

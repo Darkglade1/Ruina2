@@ -29,11 +29,11 @@ public sealed class Kim : AbstractCardMonster
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 220, 200);
     public override int MaxInitialHp => MinInitialHp;
     public override int NumIntents => 1;
-    private int YieldDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 11, 10);
+    private int YieldDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
     private int ClaimDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20);
-    private int AcupunctureDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int AcupunctureDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
     private int AcupunctureHits => 2;
-    private int TakeOnesLifeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 30, 27);
+    private int TakeOnesLifeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 28, 25);
     private int StrAmt => 2;
     private int ParalysisAmt => 2;
 

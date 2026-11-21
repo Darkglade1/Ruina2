@@ -22,7 +22,7 @@ public class Mermaid : AbstractMultiIntentMonster
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 300, 270);
     public override int NumIntents => 1;
 
-    private int SlapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 9);
+    private int SlapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 11);
     private int DebuffAmt => 1;
     private int DazedAmt => 2;
     private int SlimedAmt => 1;
