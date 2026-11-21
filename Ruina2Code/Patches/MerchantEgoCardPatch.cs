@@ -15,7 +15,7 @@ public static class MerchantEgoCardPatch
 {
     public static void Postfix(Player player, ref List<MerchantCardEntry> __result)
     {
-        if (RunManager.Instance.State?.Act is AbstractRuinaAct)
+        if (RunManager.Instance.State?.Act is AbstractRuinaAct && Config.EgoCardsInShops)
         {
             List<MerchantCardEntry> egoCardEntries = new List<MerchantCardEntry>();
             List<CardModel> list;

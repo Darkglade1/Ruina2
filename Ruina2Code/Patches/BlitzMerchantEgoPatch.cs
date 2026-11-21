@@ -12,7 +12,7 @@ public static class BlitzMerchantEgoPatch
 {
     public static void Postfix(MerchantInventory __instance, Player player, ref List<BlitzMerchantEntry> __result)
     {
-        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is AbstractRuinaAct)
+        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is AbstractRuinaAct && Config.EgoCardsInShops)
         {
             var list = __result.ToList();
             List<BlitzMerchantEntry> newList = new List<BlitzMerchantEntry>();

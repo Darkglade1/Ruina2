@@ -10,4 +10,5 @@ public class Config: SimpleModConfig
     
     [ConfigSection("Misc")]
     public static bool NeowAngelaAppears { get; set; } = true;
+    public static bool EgoCardsInShops { get; set; } = true;
 }
