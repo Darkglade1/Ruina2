@@ -332,6 +332,14 @@
   "RUINA2-HISTORY.pages.CLOSER.description": "Taking a risk, you dart forward to grab a tattered book from the bookshelf. Alas, a jet of [red]flame[/red] whipped out at just the wrong moment to leave a [jitter][red]scorching[/red][/jitter] wound in your side, and you just barely manage to suppress your cry of [purple]pain[/purple]. Trudging away with your prize in hand, you hope that this book was worth the trouble.",
   "RUINA2-HISTORY.pages.SAFE.description": "You decide that playing with [red]fire[/red] was not in your immediate future and stay right where you are, far away from the fiery battle. You amuse yourself with the books nearby, although you can't help but wonder what you may be missing out on in those [gold]rarer[/gold] texts.",
   "RUINA2-HISTORY.pages.selectionScreenPrompt": "Choose [blue]1[/blue] Card to Add to Your [gold]Deck[/gold].",
+
+  "RUINA2-THE_END.title": "The End",
+  "RUINA2-THE_END.pages.INITIAL.description": "You spot a lone figure in the distance, a [gold]chance[/gold] encounter with a wandering swordsman looking for someone to test himself against.\n\nYou seem him raise his sword, challenging you.",
+  "RUINA2-THE_END.pages.INITIAL.options.DUEL.title": "Accept the duel",
+  "RUINA2-THE_END.pages.INITIAL.options.DUEL.description": "Fight the [gold]swordsman[/gold]. Obtain [blue]2[/blue] random [gold]Uncommon Relics[/gold].",
+  "RUINA2-THE_END.pages.INITIAL.options.FLEE.title": "Turn tail and flee",
+  "RUINA2-THE_END.pages.INITIAL.options.FLEE.description": "[gold]Remove[/gold] [blue]{Cards}[/blue] cards. Obtain [gold]{Card}[/gold].",
+  "RUINA2-THE_END.pages.FLEE.description": "You turn tail and run. Although you felt that heeding your self-preservation instinct was the best choice, you couldn't help but feel a bit [purple]shameful[/purple].",
   
   "RUINA2-BLANK.title": "",
   "RUINA2-BLANK.pages.INITIAL.description": "",

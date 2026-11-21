@@ -86,7 +86,7 @@ public class AfterMapGenerateSingleton() : CustomSingletonModel(HookType.Run)
     public override IReadOnlySet<RoomType> ModifyUnknownMapPointRoomTypes(
         IReadOnlySet<RoomType> roomTypes)
     {
-        if (RunManager.Instance.State != null && RunManager.Instance.State.Act is UninvitedGuests)
+        if (RunManager.Instance.State != null && (RunManager.Instance.State.Act is UninvitedGuests || RunManager.Instance.State.Act is BlackSilence))
         {
             return new HashSet<RoomType>
             {

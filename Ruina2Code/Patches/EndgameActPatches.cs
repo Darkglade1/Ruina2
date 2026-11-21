@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Managers;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using Ruina2.Ruina2Code.Acts;
+using Ruina2.Ruina2Code.Encounters.Act1;
 using Ruina2.Ruina2Code.Encounters.UninvitedGuests;
 using Ruina2.Ruina2Code.Extensions;
 
@@ -214,10 +215,12 @@ internal static class RoomGenerationPatch
 	{
 		if (RunManager.Instance.State != null)
 		{
-			var finalAct = RunManager.Instance.State.Acts.OfType<UninvitedGuests>().FirstOrDefault();
+			var finalAct = RunManager.Instance.State.Acts.OfType<BlackSilence>().FirstOrDefault();
 			if (finalAct != null)
 			{
 				RestoreVanillaFinalActDoubleBoss(RunManager.Instance.State, finalAct);
+                finalAct.SetBossEncounter(ModelDb.Encounter<ArgaliaBoss>());
+                finalAct.SetSecondBossEncounter(ModelDb.Encounter<NothingDerBoss>());
 			}
 		}
 	}
@@ -233,7 +236,7 @@ internal static class RoomGenerationPatch
 		{
 			return;
 		}
-		ActModel precedingAct = runState.Acts[num - 1];
+		ActModel precedingAct = runState.Acts[num - 2];
 		if (!precedingAct.HasSecondBoss)
 		{
 			List<EncounterModel> list = precedingAct.AllBossEncounters.Where((EncounterModel encounter) => encounter.Id != precedingAct.BossEncounter.Id).OrderBy<EncounterModel, string>((EncounterModel encounter) => encounter.Id.Entry, StringComparer.Ordinal).ToList();
@@ -241,7 +244,7 @@ internal static class RoomGenerationPatch
 			{
 				return;
 			}
-			EncounterModel encounterModel = runState.Rng.UpFront.NextItem(list);
+			EncounterModel? encounterModel = runState.Rng.UpFront.NextItem(list);
 			precedingAct.SetSecondBossEncounter(encounterModel);
 		}
 	}
