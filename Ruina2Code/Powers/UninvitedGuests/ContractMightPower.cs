@@ -27,9 +27,11 @@ public class ContractMightPower() : Ruina2Power
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner == this.Owner.Player)
-            ++this._cardsPlayedThisTurn;
-        this.InvokeDisplayAmountChanged();
+        if (cardPlay.Card.Owner == Owner.Player)
+        {
+            ++_cardsPlayedThisTurn;
+            InvokeDisplayAmountChanged();
+        }
         return Task.CompletedTask;
     }
     

@@ -394,5 +394,9 @@
   "RUINA2-TAKE_ONES_LIFE.description": "造成{Damage:diff()}点伤害。\n施加等同于所造成未被格挡伤害的[gold]破裂[/gold]。",
   "RUINA2-TAKE_ONES_LIFE.title": "夺其性命",
   "RUINA2-ACUPUNCTURE.description": "造成{Damage:diff()}点伤害，共{Repeat:diff()}次。\n给予{Paralysis:diff()}层[gold]麻痹[/gold]。",
-  "RUINA2-ACUPUNCTURE.title": "针灸"
+  "RUINA2-ACUPUNCTURE.title": "针灸",
+  "RUINA2-DREAD_FALSE_GIFT1.description": "将{Status:diff()}张[gold]虚空[/gold]洗入你的[gold]抽牌堆[/gold]和[gold]弃牌堆[/gold]。",
+  "RUINA2-DREAD_FALSE_GIFT1.title": "接受恐惧的馈赠",
+  "RUINA2-DREAD_FALSE_GIFT2.description": "在{TurnCount:diff()}回合结束时，受到{Damage:diff()}点伤害。",
+  "RUINA2-DREAD_FALSE_GIFT2.title": "接受恐惧的馈赠"
 }

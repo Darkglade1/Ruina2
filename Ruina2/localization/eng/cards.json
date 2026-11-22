@@ -590,5 +590,11 @@
   "RUINA2-TAKE_ONES_LIFE.title": "And Take One's Life",
 
   "RUINA2-ACUPUNCTURE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nApply {Paralysis:diff()} [gold]Paralysis[/gold].",
-  "RUINA2-ACUPUNCTURE.title": "Acupuncture"
+  "RUINA2-ACUPUNCTURE.title": "Acupuncture",
+
+  "RUINA2-DREAD_FALSE_GIFT1.description": "Shuffle {Status:diff()} [gold]Voids[/gold] into your [gold]Draw Pile[/gold] and [gold]Discard Pile[/gold].",
+  "RUINA2-DREAD_FALSE_GIFT1.title": "Accept Dreadful Gift",
+
+  "RUINA2-DREAD_FALSE_GIFT2.description": "At the end of {TurnCount:diff()} turns, take {Damage:diff()} damage.",
+  "RUINA2-DREAD_FALSE_GIFT2.title": "Accept Dreadful Gift"
 }

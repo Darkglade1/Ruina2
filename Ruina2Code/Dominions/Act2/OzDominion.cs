@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Dominions.Act2;
 
 public class OzDominion : Ruina2Dominion
 {
-  public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<FalseGift2>(), HoverTipFactory.FromCard<FalseGift3>()];
+  public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<DreadFalseGift1>(), HoverTipFactory.FromCard<DreadFalseGift2>()];
   
   public override async Task BeforeHandDraw(
     Player player,
@@ -22,8 +22,8 @@ public class OzDominion : Ruina2Dominion
       return;
     CardModel? cardModel = await CardSelectCmd.FromChooseACardScreen(choiceContext, new List<CardModel>(2)
     {
-      combatState.CreateCard(ModelDb.Card<FalseGift2>(), player),
-      combatState.CreateCard(ModelDb.Card<FalseGift3>(), player)
+      combatState.CreateCard(ModelDb.Card<DreadFalseGift1>(), player),
+      combatState.CreateCard(ModelDb.Card<DreadFalseGift2>(), player)
     }, player);
     if (cardModel == null)
       return;

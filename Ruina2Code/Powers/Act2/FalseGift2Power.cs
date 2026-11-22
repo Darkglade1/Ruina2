@@ -11,7 +11,7 @@ namespace Ruina2.Ruina2Code.Powers.Act2;
 public class FalseGift2Power() : Ruina2Power
 {
     public override PowerType Type =>
-        PowerType.Buff;
+        PowerType.Debuff;
 
     public override PowerStackType StackType =>
         PowerStackType.Counter;

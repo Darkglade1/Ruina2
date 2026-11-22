@@ -6,7 +6,7 @@
 
   "DREAD.RUINA2-JESTER.description": "At the start of each combat, you lose [blue]2[/blue] [gold]Strength[/gold].",
   "DREAD.RUINA2-RED_WOLF.description": "At the start of each combat, you gain [blue]1[/blue] [gold]Vulnerable[/gold].",
-  "DREAD.RUINA2-OZ.description": "At the start of each combat, choose [blue]1[/blue] of [blue]2[/blue] [gold]False Gifts[/gold] to accept.",
+  "DREAD.RUINA2-OZ.description": "At the start of each combat, choose [blue]1[/blue] of [blue]2[/blue] [red]Dreadful Gifts[/red] to accept.",
 
   "DREAD.RUINA2-TWILIGHT.description": "At the end of your turn, shuffle [blue]1[/blue] [gold]Dazzled[/gold] into your [gold]Draw Pile[/gold]. The first card you draw each turn costs [blue]1[/blue] more this combat.",
   "DREAD.RUINA2-WHITE_NIGHT.description": "All enemies gain [blue]10[/blue] [gold]Regen[/gold] and [blue]1[/blue] [gold]Ritual[/gold].",
