@@ -108,7 +108,7 @@
   "RUINA2-FOURTH_MATCH_FLAME.description": "At the start of your turn, deal {Damage:diff()} damage to ALL enemies and add a [gold]Burn[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
   "RUINA2-FOURTH_MATCH_FLAME.title": "Fourth Match Flame",
 
-  "RUINA2-REGRET.description": "Deal {Damage:diff()} damage.\nDeal {Damage:diff()} damage again for each [gold]Status[/gold] or [gold]Curse[/gold] in your [gold]Hand[/gold].{InCombat:\n(Hits {CalculatedHits:diff()} extra {CalculatedHits:plural:time|times})|}",
+  "RUINA2-REGRET.description": "Deal {Damage:diff()} damage.\nDeal {Damage:diff()} damage again for each [gold]Status[/gold] or [gold]Curse[/gold] in your [gold]Hand[/gold].{InCombat:\n(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}",
   "RUINA2-REGRET.title": "Regret",
 
   "RUINA2-HARMONY.description": "Deal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold].\nIf [gold]Fatal[/gold], permanently increase the [gold]Strength[/gold] gain by {Increase:diff()}.",

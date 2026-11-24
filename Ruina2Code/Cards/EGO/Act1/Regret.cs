@@ -11,7 +11,7 @@ public class Regret() : EGOCard(2,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, ValueProp.Move),
-        new CalculationBaseVar(0M),
+        new CalculationBaseVar(1M),
         new CalculationExtraVar(1M),
         new CalculatedHitCountVar("CalculatedHits").WithMultiplier((card, _) => PileType.Hand.GetPile(card.Owner).Cards.Count(e => e.Type == CardType.Curse || e.Type == CardType.Status))];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
@@ -20,7 +20,7 @@ public class Regret() : EGOCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CommonActions.CardAttack(this, play, (int) ((CalculatedVar) DynamicVars["CalculatedHits"]).Calculate(play.Target) + 1).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play, (int) ((CalculatedVar) DynamicVars["CalculatedHits"]).Calculate(play.Target)).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
