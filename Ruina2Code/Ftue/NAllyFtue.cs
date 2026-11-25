@@ -290,4 +290,5 @@ public partial class NAllyFtue : NFtue
 		textureButton.Modulate = new Color(1f, 0.92f, 0.38f);
 		return textureButton;
 	}
+	protected override string? SeenOnShowId => _ftueId;
 }
